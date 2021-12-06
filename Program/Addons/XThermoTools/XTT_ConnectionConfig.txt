@@ -1,0 +1,43 @@
+Defaut parameters for XThermoTools FORTOOL module.
+
+-----------------------------------------------------------------------------------
+>01    ! Define thermodynamic dataset (THERIAK)
+JUN92       JUN92.bs        ???-	XTT_Min_JUN92.txt
+hopo55      tc55.txt        ???-	XTT_Min_TC55.txt
+hopo62      tcds62_DT.txt   ???-	XTT_Min_TCDS62_DT.txt
+hopo62      tcds62c         ???-	XTT_Min_TCDS62C.txt
+
+	
+hopo55-2    tc55rob.dat     ???-	XTT_Min_TC55rob.txt
+hopo62      tcds62c         ???-	XTT_Min_TCDS62C.txt
+
+
+>02    ! Default input composition (THERIAK)
+SI(0.8)TI(0)AL(0.327)FE(0.188)MG(0.225)CA(0.182)NA(0.097)K(0)H(0.17)O(?)      *   TEST-composition
+
+
+-----------------------------------------------------------------------------------
+>11    ! Define thermodynamic dataset (PERPLE_X)
+hopo02	hp02ver.dat   solution_model.dat	XTT_Min_PerpleX_hopo02
+
+
+>12    ! Default input composition (PERPLE_X)
+SIO2(0.6665)TIO2(0.0100)AL2O3(0.0869)FEO(0.0367)MGO(0.0389)CAO(0.0068)NA2O(0.0136)K2O(0.0230)H2O(0.0100)
+
+
+>13    ! Default solid solution models (PERPLE_X)
+Sapp(HP)
+Chl(LWV)
+Ilm(WPH)
+St(HP)
+Mica(CHA) 
+hCrd      
+San
+Pl(h)
+melt(HP)     
+Opx(HP)   
+Bio(TCC)
+Sp(WPC) 
+
+
+

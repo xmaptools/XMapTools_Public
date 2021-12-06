@@ -1,0 +1,115 @@
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!                                                                 !
+!                    XMAPTOOLS Spider diagrams File               !
+!              Last update (16.08.2021)    Pierre Lanari          !
+!                                                                 !
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+! 
+! > Label definition
+! Element1 Element2 ...
+! C1 C2 ...
+! 
+! EDIT WITH CAUTION (three lines for one block starting with >)
+!
+! DO NOT USE ‘>’ or ‘*’ as first character because they are used for the block definitions
+!
+
+> REE Chondrite (Boynton 1984)
+La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu
+.31 .808 .122 .6 1 .195 .0735 .2590 .0474 .322 .0718 .21 0.0324 .209 .0322
+
+> REE Chondrite* (Boynton 1984)
+La Ce Pr Nd Sm Eu Gd Tb Dy Ho Er Tm Yb Lu
+.31 .808 .122 .6 .195 .0735 .2590 .0474 .322 .0718 .21 0.0324 .209 .0322
+
+> REE Chondrite (Taylor & McLennan 1985)
+La Ce Pr Nd Sm Eu Gd Tb Dy Ho Er Tm Yb Lu
+0.3670 0.9570 0.1370 0.7110 0.2310 0.0870 0.3060 0.0580 0.3810 0.0851 0.2490 0.0356 0.2480 0.0381
+
+> REE Primitive Mantle
+La Ce Pr Nd Sm Eu Gd Tb Dy Ho Er Tm Yb Lu
+0.687 1.775 0.276 1.354 0.444 0.168 0.544 0.099 0.674 0.164 0.48 0.074 0.493 0.074
+
+> MORB (Pearce 1983)
+Sr K Rb Ba Th Ta Nb Ce P Zr Hf Sm Ti Y Yb
+120 1245 2 20 .2 .18 3.5 10 534 90 2.4 3.3 8992 30 3.4
+
+> MORB* (Pearce 1983)
+Sr K Rb Ba Th Nb Ce P Zr Sm Ti Y Yb
+120 1245 2 20 .2 3.5 10 534 90 3.3 8992 30 3.4
+
+> REE MORB (Hart et al. 1999)
+La Ce Pr Nd Sm Eu Gd Tb Dy Ho Er Tm Yb Lu
+3.895 12 2.074 11.18 3.752 1.335 5.077 0.885 6.304 1.342 4.143 0.621 3.9 0.589
+
+> Trace MORB (Hart et al. 1999)
+Rb Ba Th U Nb K La Ce Pb Pr Sr P Nd Sm Zr Hf Eu Ti Gd Tb Dy Y Ho Er Yb Lu
+1.262 13.87 0.1871 0.0711 3.507 884 3.895 12 0.489 2.074 117.5 95 11.18 3.752 104.2 2.974 1.335 9680 5.077 0.885 6.304 35.82 1.342 4.143 3.9 0.589
+
+> NMORB (Sun & McDonough 1989)
+Cs Rb Ba Th U Nb K La Ce Pb Pr Sr P Nd Zr Sm Eu Ti Dy Y Yb Lu
+0.007 .56 6.3 .12 .047 2.33 600 2.5 7.5 .3 1.32 90 510 7.3 74 2.63 1.02 7600 4.55 28 3.05 .455
+
+> NMORB* (Sun & McDonough 1989)
+Cs Rb Ba Th U Nb La Ce Pb Sr P Nd Zr Sm Ti Dy Y Yb Lu
+.007 .56 6.3 .12 .047 2.33 2.5 7.5 .3 90 510 7.3 74 2.63 7600 4.55 28 3.05 0.455
+
+> EMORB (Sun & McDonough 1989)
+Cs Rb Ba Th U Nb K La Ce Pb Pr Sr P Nd Zr Sm Eu Ti Dy Y Yb Lu
+.063 5.04 57 .6 .18 8.3 2100 6.3 15 .6 2.05 155 620 9 73 2.6 .91 6000 3.55 22 2.37 .354
+
+> Mantle Normalised (Hoatson et al. 2005)
+Ba Th Nb La Ce Nd P Sm Zr Ti Y Yb
+6.989 0.085 0.713 0.687 1.775 1.354 95 0.444 11.2 1300 4.55 0.493
+
+> Primitive Mantle (Sun & McDonough 1989)
+Rb Ba Th Nb La Ce Nd Zr Sm Eu Ti Gd Tb Dy Y Ho Er Tm Yb Lu
+.635 6.989 .085 .713 .687 1.775 1.354 11.2 .444 .168 1300 .596 .108 .737 4.55 .164 .48 .074 .493 .074
+
+> Primitive Mantle* (Sun & McDonough 1989)
+Rb Ba Th U Nb Ta K La Ce Pr Sr P Nd Sm Zr Hf Eu Ti Gd Tb Dy Y Er Yb Lu
+0.635 6.989 0.085 0.021 0.713 0.037 250 0.687 1.775 0.276 21.1 95 1.354 0.444 11.2 0.283 0.168 1205 0.544 0.099 0.674 4.3 0.438 0.441 0.0675
+
+> Primitive Mantle** (Sun & McDonough 1989)
+Cs Rb Ba K Th Nb La Sr P Nd Zr Ti Y Yb
+0.0079 0.635 6.989 250 0.085 0.713 0.687 21.1 95 1.354 11.2 1300 4.55 0.493
+
+> Primitive Mantle*** (Sun & McDonough 1989)
+Th Nb La Ce Pb Sr Nd P Zr Sm Ti Y Yb
+.085 .713 .687 1.775 .071 21.1 1.354 95 11.2 .444 1300 4.55 .493
+
+> Primitive Mantle Clinopyroxene
+Th U Nb Ta La Ce Sr Nd Zr Hf Sm Eu Ti Gd Dy Y Er Yb Lu
+0.085 0.021 0.713 0.037 0.687 1.775 21.1 1.354 11.2 0.283 0.444 0.168 1205 0.544 0.674 4.3 0.438 0.441 0.0675
+
+> OIB (Sun & McDonough 1989)
+Cs Rb Ba Th U Nb K La Ce Pb Pr Sr P Nd Zr Sm Eu Ti Dy Y Yb Lu
+.387 31 350 4 1.02 48 12000 37 80 3.2 9.7 660 2700 38.5 280 10 3 17200 5.6 29 2.16 .3
+
+> Chondrite (Thompson 1982)
+Ba Rb Th K Nb Ta La Ce Sr Nd P Sm Zr Hf Ti Tb Y Tm Yb
+6.9 .35 .042 120 .35 .02 .329 .865 11.8 .63 46 .203 6.84 .2 620 .052 2 .034 .22
+
+> Chondrite* (Thompson 1982)
+Ba Rb Th K Nb La Ce Sr Nd P Sm Zr Ti Tb Y Tm Yb
+6.9 .35 .042 120 .35 .329 .865 11.8 .63 46 .203 6.84 620 .052 2 .034 .22
+
+> ORG (Pearce et al. 1984)
+K2O Rb Ba Th Ta Nb Ce Hf Zr Sm Y Yb
+0.4 4 50 0.8 0.7 10 35 9 340 9 70 8.0
+
+> Bulk Silicate Earth (McDonough and Sun 1995)
+Cs Rb Ba Th U K Nb Ce Sr Nd P Hf Zr Sm Ti Y Yb
+.021 .6 6.6 .0795 .0203 240 .658 1.675 19.9 1.25 90 .283 10.5 .406 1205 4.3 .441
+
+> Transition Metals - Chondrite (Sun 1982)
+Ti Cr Mn Co Ni Cu Zn
+440 2430 1700 480 9900 110 300
+
+> Transition Metals - Primitive Mantle (Sun 1982)
+Ti Cr Mn Co Ni Cu Zn
+1300 3000 1100 110 2000 30 56
+
+
+
+

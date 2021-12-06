@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+<h1> Help > Sampling Tools </h1>    	
+<p><i>Help file version 21.11.2020 by M. Tedeschi & P. Lanari</i></p>
+<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p class="ex">This part of XMapTools 4 is currently at <b>level 2</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
+<br \> 
+<hr>
+<p><b>Table of content</b><br \><br \>
+<a href="#Circle">Circle</a><br \>
+<a href="#Area">Area (Polygon)</a><br \>
+<a href="#Transect">Transect</a><br \>
+<a href="#Strip">Strip</a><br \>
+</p>
+<hr>
+<br \> 
+
+
+<p>This help file contains a description of the <i>Sampling Tools</i>. These tools are available at any stage of the data procedure and apply to the map plotted in the main figure.</p>
+
+<p>The following sampling functions are available vial the menu <i>Sampling</i> or in the section sampling of the live output display located below the live histogram:</p> 
+<ul>
+<li><img src="./img/icon_Shaded_Circle.png" width="20"> <b>Circle</b>, obtain the average value and standard deviation of selected pixels</li>
+<li><img src="./img/icon_Shaded_Square.png" width="20"> <b>Area (polygon)</b>, obtain the average value and standard deviation of selected pixels</li>
+<li><img src="./img/icon_path4sampling.png" width="20"> <b>Transect</b>, display compositional changes along a path</li>
+<li><img src="./img/icon_FocusHorizontal.png" width="20"> <b>Strip</b>, display averaged compositional changes along a strip.</li>
+</ul>
+
+Each sampling function is described below. 
+
+<h2><a name="Circle"></a>Circle</h2> 
+<p>In the main menu, select <i> Sampling > Circle</i> and draw a circle on the map by clicking on a position, holding and dragging the mouse over an area. Note that a cross cursor becomes available when the mouse pointer is over the map and the sampling option has been activated. </p>
+
+<p>After drawing the circle, click and hold one of the four filled dots located in the circle to change its size. In the inner area of the circle, a cross cursor may be used to move the circle's position. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u>.</p>
+
+<p>The result of the data extraction is exhibited by the green bar in the graphic on the top right of the main window and its correspondent numbers located immediately below. In addition an histogram is plotted using all pixel data contained within the ROI.</p>
+
+
+<p><img src="./img/Sampling_Circle.png" width="700"></p>
+
+<i><b>Figure 1</b>: Example sampling of an intensity map (Ca) using the circle shape. Note that in this example, the average value of the selected pixels (Nb = 774) is 1028 ± 35.24 (stdev).</i> 
+
+
+<h2><a name="Area"></a>Area (Polygon)</h2>
+<p>In the main menu, select <i> Sampling > Area (Polygon)</i> and draw a polygon on the map by clicking on several positions. Click on the first point to close the polygon (a circle pointer mouse appears).</p>
+
+<p>The polygon shape can be edited. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u>.</p>
+
+
+<p><img src="./img/Sampling_Polygon.png" width="700"></p>
+
+<i><b>Figure 2</b>: Example sampling of an intensity map (Ca) using the polygon shape. Note that in this example, the average value of the selected pixels (Nb = 774) is 999.8 ± 63.9 (stdev) nut two plagioclase compositions are visible on the histogram (at 900 and 1030 counts).</i> 
+
+
+<h2><a name="Transect"></a>Transect</h2> 
+<p>In the main menu, select <i> Sampling > Transect</i> and draw a polygon on the map by clicking on several positions. Right-clicking ends the selection. You need two select at least two positions to obtain a valid transect.</p>
+
+<p>The resulting profile is shown in the live display, in category sampling (Fig 3).</p>
+
+<p>The transect position can be edited and the plot is automatically updated. Note that changing the color bar limits changes the profile as colors from the color bar are used to plot the spots. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u>.</p>
+
+
+<p><img src="./img/Sampling_Transect.png" width="700"></p>
+
+<i><b>Figure 3</b>: Example sampling of an intensity map (Ca) using a transect starting at the point located to-left.</i> 
+
+
+<h2><a name="Strip"></a>Strip</h2> 
+<p>This tools is used to extract the mean and median profile from a strip with a rectangular shape using the composition of each transect. For a given pixel on the central transect, the value is calculated as the mean and median of the pixel compositions perpendicular to the reference transect. </p>
+
+<p>In the main menu, select <i> Sampling > Strip</i> and draw an horizontal rectangle on the map by clicking on the corner position (top-left), holding and dragging the mouse over an area. Note that a cross cursor becomes available when the mouse pointer is over the map and the sampling option has been activated. </p>
+
+<p>To move the rectangle, position the cursor on the central part of the rectangle, left-click, hold and move it, droping it in the new position.  </p> 
+
+<p>Note: The retangle must be delineated with its elongation horizontally positioned. However, it can be later rotated by positioning the cursor on the rectangle's perimeter, nearby one of its edges and then rotation cursor is activated. </p>
+
+<p>Once the rectangle is created (or edited), plots are updated in the live display sampling category. Two plots are available: (top) two curves, in red, the median, and in blue, the mean; (bottom) all profiles used to generated the plot above are plotted in grey.</p>
+
+
+<p><img src="./img/Sampling_Strip.png" width="700"></p>
+
+<i><b>Figure 3</b>: Example sampling of an intensity map (Ca) using a strip from bottom left to top right.</i> 
+
+
+
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

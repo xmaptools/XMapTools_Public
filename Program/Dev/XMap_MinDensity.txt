@@ -1,0 +1,353 @@
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!                                                                 !
+!                 XMAPTOOLS  Density data definition              !
+!              Last update (04.12.2020)   Pierre Lanari           !
+!                                                                 !
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+! 
+! Average mineral density data for minerals extracted from reference tables or modeled using 
+! Theriak-Domino.
+! 
+!
+! > Mineral_Group
+! Min1		Density  
+! Min2		Density  
+! Min2		Density 
+!
+! 
+! The group "OtherPhases" has a special definition (#)
+!
+! The line <---> is important to break while reading each group!
+!
+
+
+<---------------------------------------------------------------------------------------->
+#1 Solid solutions 
+
+> Amp			6
+	Actinolite		3040	0
+	Cummingtonite	3350	0
+	Glaucophane		3070	0
+	Riebeckite		3400	0
+	Tremolite		3100	0
+	Hornblende		3200	1
+
+> Amphibole			6
+	Actinolite		3040	0
+	Cummingtonite	3350	0
+	Glaucophane		3070	0
+	Riebeckite		3400	0
+	Tremolite		3100	0
+	Hornblende		3200	1
+
+> Biotite			3
+	Phlogopite		2700	0.5
+	Annite			3170	0.3
+	Biotite			3090	0.2
+
+> Chlorite			4
+	Clinochlore		2650	0.6
+	Daphnite		3200	0.2
+	Sudoite			2650	0.1
+	Amesite			2770	0.1
+
+> Clay				6
+	Illite			2750	1
+	Montmotillonite	2350	0
+	Beidellite		2150	0
+	Dickite			2600	0
+	Kaolinite		2600	0
+	Nontronite		2300	0
+
+> Cpx				4
+	Diopside		3400	0
+	Hedenbergite	3550	0
+	Jadeite			3300	0
+	Omphacite		3340	1
+	
+> Clinopyroxene		4
+	Diopside		3400	0
+	Hedenbergite	3550	0
+	Jadeite			3300	0
+	Omphacite		3340	1
+
+> Feldspar			2
+	Sanidine		2520	0.25
+	Albite			2620	0.5
+	Anorthite		2730	0.25
+
+> Grt				5
+	Almandine		4190	0.6
+	Grossular		3570	0.1
+	Pyrope			3750	0.2
+	Spessartine		4180	0.1
+	Uvarovite		3400	0
+
+> Garnet			5
+	Almandine		4190	0.6
+	Grossular		3570	0.1
+	Pyrope			3750	0.2
+	Spessartine		4180	0.1
+	Uvarovite		3400	0
+
+> Kfeldspar			2
+	Sanidine		2520	0.5
+	Orthoclase		2560	0.5
+	
+> Kfs				2
+	Sanidine		2520	0.5
+	Orthoclase		2560	0.5	
+
+> K-feldspar		2
+	Sanidine		2520	0.5
+	Orthoclase		2560	0.5
+
+> Olivine			2
+	Fayalite		4390	0.2
+	Forsterite		3270	0.8
+
+> Opx				2
+	Enstatite		3200	0.7
+	Ferrosilite		3950	0.3
+	
+> Orthopyroxene		2
+	Enstatite		3200	0.7
+	Ferrosilite		3950	0.3
+
+> Plagioclase		2
+	Albite			2620	0.5
+	Anorthite		2730	0.5
+
+> Spinel			5
+	Hercynite		3950	0.5
+	MgSpinel		3640	0.5
+	MgCrSpinel		4200	0
+	MnSpinel		4230	0
+	TiFeSpinel		4660	0	
+
+> WhiteMica			3
+	Muscovite		2820	0.5
+	Paragonite		2780	0.15
+	Celadonite		2950	0.35
+
+> Phengite			2
+	Muscovite		2820	0.5
+	Celadonite		2950	0.5
+
+
+<---------------------------------------------------------------------------------------->
+#2 OtherPhases   
+Allanite		3750
+Andalusite		3150
+Apatite			3190
+Aragonite		2930
+Brucite			2390
+Calcite			2710
+Chloritoid		3510
+Clinohumite		3260
+Celestite		3950
+Cerussite		6580
+Chalcopyrite	4190
+Chromite		4735
+Clinoenstatite	3400
+Coesite			2930
+Copper			8940
+Cordierite		2650
+Cristobalite	2270
+Crocoite		6000
+Corundum		4050
+Diaspore		3400
+Dolomite		2840
+Epidote			3450
+Fluorite		3130
+Gadolinite		4250
+Galena			7400
+Gibbsite		2340
+Graphite		2160
+Gypsum			2300
+Halite			2170
+Hauynite		2450
+Hematite		5300
+Humite			3150
+Ilmenite		4720
+Iridium			22700
+kyanite			3610
+Laumonite		2290
+Lawsonite		3090
+Lazurite		2400
+Lepidolite		2840
+Leucite			2470
+Magnesite		3000
+Magnetite		5150
+Malachite		3800
+Manganite		4340
+Manganosite		5180
+Marcasite		4890
+Margarite		3030
+Marialite		2560
+Molybdenite		5500
+Monazite		5250
+Nephheline		2600
+Opal			2090
+Pectolite		2860
+Pentlandite		4600
+Perovskite		4000
+Petalite		2420
+Plagionite		5500
+Prehnite		2870
+Pyrite			5010
+Pyrrhotite		4610
+Quartz			2620
+Rhodonite		3500
+Rutile			4250
+Saponite		2300
+Scapolite		2660
+Sepiolite		2000
+Serpentine		2580
+Sillimanite		3240
+Silver			10500
+Sphalerite		4050
+Sphene			3480
+Staurolite		3710
+Sulphur			2060
+Tantalite		7100
+Talc			2750
+Tephroite		4240
+Thorite			5350
+Topaz			3550
+Tourmaline		3100
+Vanadinite		6950
+Wollastonite	2840
+Xenotime		4750
+Zircon			4650
+Zoisite			3300
+
+
+<---------------------------------------------------------------------------------------->
+#3 Metals & Alloys
+Actinium				10070
+Admiralty_Brass			8525
+Aluminum				2712
+Aluminum_melted			2640
+Aluminum_alloy_1100		2720
+Aluminum_alloy_2014		2800
+Aluminum_alloy_3003		2730
+Aluminum_alloy_360		2640
+Aluminum_alloy_6061		2720
+Aluminum_alloy_7050		2800
+Aluminum_alloy_7178		2830
+Aluminum_bronze			8200
+Aluminum_foil			2725
+Antifriction_metal		10000
+Antimony				6690
+Antimonial_lead 		10900
+Babbitt					7272
+Barium					3594
+Beryllium				1840
+Beryllium_copper		8175
+Bismuth					9750
+Brass_casting			8550
+Brass_rolled&drawn		8580
+Brass60/40				8520
+Bronze_lead				8200
+Bronze_phosphorous		8950
+Bronze_8-14perSn		8100
+Brushed_metal			7860
+Cadmium					8640
+Caesium					1873
+Calcium					1540
+Cast_iron				7300
+Cerium					6770
+Chemical_Lead			11340
+Chromium				7190
+Cobalt					8746
+Constantan				8920
+Columbium				8600
+Constantan				8880
+Copper					8940
+Cupronickel				8925
+Delta_metal				8600
+Duralumin				2790
+Dysprosium				8550
+Electrum				8650
+Erbium					9070
+Eroded_metal			7860
+Europium				5243
+Gadolinium				7900
+Gallium					5907
+Germanium				5323
+Gold					19320
+Hafnium					13310
+Hastelloy_C				8940
+Holmium					8800
+Indium					7310
+Inconel					8497
+Incoloy					8027
+Iridium					22650
+Iron					7850
+Lanthanum				6145
+Lead					11340
+Light_alloy_Al			2780
+Light_alloy_Mg			1820
+Lithium					534
+Lutetium				9840
+Magnesium				1738
+Magnesium_alloy_AZ31B	1770
+Manganese				7440
+Manganese_Bronze		8359
+Manganin				8500
+Mercury					13593
+Molybdenum				10188
+Monel					8650
+Neodymium				7007
+Neptunium				20200
+Nichrome				8400
+Nickel					8908
+Nickel_20				8090
+Nickel_200				8890
+Nickel_silver			8650
+Nickeline				8770
+Nimonic					8100
+Niobium					8570
+Osmium					22610
+Palladium				12160
+Phosphor_bronze			8900
+Platinum				21400
+Plutonium				19816
+Polonium				9200
+Potassium				890
+Praseodymium			6770
+Promethium				7260
+Protactinium			15400
+Radium					5000
+Red_Brass				8746
+Rhenium					20800
+Rhodium					12400
+Rubidium				1530
+Ruthenium				12100
+Samarium				7520
+Scandium				2990
+Silver					10490
+Sodium					971
+Solder_50Pb50Sn			8885
+Stainless_Steel 		7750
+Steel					7850
+Strontium				2640
+Tantalium				16400
+Technetium				11000
+Terbium					8230
+Tin						7280
+Titanium				4500
+Thalium					11800
+Thorium					11700
+Thulium					9320
+Tungsten				19600
+Uranium					18900
+Vanadium				5494
+White_metal				7100
+Wrought_Iron			7750
+Yellow_Brass			8470
+Ytterbium				6900
+Yttrium					4470
+Zinc					7135
+Zirconium				6570

@@ -1,0 +1,94 @@
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!                                                                 !
+!                 XMAPTOOLS Variable definition file              !
+!              Last update (24.06.2018),  Pierre Lanari           !
+!                                                                 !
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+! 
+! “>” is used to define a new block of operations. 
+!     The operations of this block are given in the following lines
+!     and the block ends with an empty row. 
+!     Array operators should be used (.* ./ .^ see the user guide)
+!     If the variable name is not valid (if it starts with a digit 
+!     or contains a symbols, a valid variable name will be created.  
+! 
+! OPERATION should be in the form of: VariableName = Var1 *O* Var2;
+!     with *O* the operator (+ -) or array operator (.* ./ .^) if 
+!     matrix operations are involved. Var1 and Var2 are two existing 
+!     maps with the same names. VariableName cannot contain any blank. 
+!     and should not be the name of an existing map; “;” is optional. 
+!     For example:  
+!        - VariableName = Var1 .* Var2;
+!        - VariableName = (Var1+Var2)/2;
+!        - VariableName = (Var1.^2)./Var2;
+!        - VariableName = Var1./(Var1+Var2);
+! 
+! File format: 
+!
+! > Block name (including spaces and special characters)
+! OPERATION 1.1
+! OPERATION 1.2
+!
+! > Name of the second block
+! OPERATION 2.1
+! OPERATION 2.2 
+! 
+! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+> Additional Variables (Default) by Pierre Lanari
+XMg = Mg./(Mg+Fe)
+XMg_M1 = Mg_M1./(Mg_M1+Fe_M1)
+XMg_M2 = Mg_M2./(Mg_M2+Fe_M2)
+XMg_M23 = Mg_M23./(Mg_M23+Fe_M23)
+XFe = Fe./(Mg+Fe)
+XFe_M1 = Fe_M1./(Mg_M1+Fe_M1)
+XFe_M2 = Mg_M2./(Mg_M2+Fe_M2)
+XFe_M23 = Mg_M23./(Mg_M23+Fe_M23)
+XFe3 = Fe3./(Fe2+Fe3)
+Al_tot = Aliv + Alvi
+sum_AlSi = Al + Si
+sum_CaNaK = Ca + Na + K
+OxideSum = SiO2 + TiO2 + Al2O3 + FeO + MgO + MnO + CaO + Na2O + K2O
+OxideSum2 = SiO2 + Al2O3 + FeO + MgO + MnO + CaO + Na2O + K2O
+XMg = (MgO*0.603036)./(MgO*0.603036+FeO*0.777311)
+
+
+
+> LA-ICP-MS Trace Element Mapping of Garnet (Norm: Palme and O’Neill 2013) by Tom Raimondo & Daniela Rubatto
+LREE_slope = (x147Sm/0.1536)./(x139La/0.2414)
+HREE_slope = (x175Lu/0.02503)./(x147Sm/0.1536)
+REE_slope = (x175Lu/0.02503)./(x139La/0.2414)
+Ce/Ce*_ari = (2*x140Ce/0.6194)./((x139La/0.2414)+(x141Pr/0.09390))
+Ce/Ce*_geo = (x140Ce/0.6194)./(((x139La/0.2414).*(x141Pr/0.09390)).^0.5)
+Eu/Eu*_ari = (2*x153Eu/0.05883)./((x147Sm/0.1536)+(x157Gd/0.2069))
+Eu/Eu*_geo = (x153Eu/0.05883)./(((x147Sm/0.1536).*(x157Gd/0.2069)).^0.5)
+Th/U = x232Th./x238U
+Y/Yb = x89Y./x172Yb
+Zr/Hf = x90Zr./x178Hf
+Zr/Ti = x90Zr./x49Ti
+
+
+
+> LA-ICP-MS Trace Element Mapping of Garnet (Norm: Taylor and McLennan 1985) by Tom Raimondo & Daniela Rubatto
+LREE_slope = (x147Sm/0.231)./(x139La/0.367)
+HREE_slope = (x175Lu/0.0381)./(x147Sm/0.231)
+REE_slope = (x175Lu/0.0381)./(x139La/0.367)
+Ce/Ce*_ari = (2*x140Ce/0.957)./((x139La/0.367)+(x141Pr/0.137))
+Ce/Ce*_geo = (x140Ce/0.957)./(((x139La/0.367).*(x141Pr/0.137)).^0.5)
+Eu/Eu*_ari = (2*x153Eu/0.087)./((x147Sm/0.231)+(x157Gd/0.306))
+Eu/Eu*_geo = (x153Eu/0.087)./(((x147Sm/0.231).*(x157Gd/0.306)).^0.5)
+Th/U = x232Th./x238U
+Y/Yb = x89Y./x172Yb
+Zr/Hf = x90Zr./x178Hf
+Zr/Ti = x90Zr./x49Ti
+
+
+
+
+
+
+
+
+
+

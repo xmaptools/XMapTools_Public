@@ -1,0 +1,2 @@
+/Users/pierrelanari/Geologie/Matlab/XMapTools/XMapTools3.4.2/Addons/XThermoTools
+/Users/pierrelanari/Geologie/Matlab/XMapTools/XMapTools3.4.2/Addons/XThermoTools/XTT_Programs/TheriakDominoMAC_Intel

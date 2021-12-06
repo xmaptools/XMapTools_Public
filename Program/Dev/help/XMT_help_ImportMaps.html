@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+<h1> Help > Tools > Import Maps </h1>    	
+<p><i>Help file version 21.11.2020 by M. Tedeschi & P. Lanari</i></p>
+<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p class="ex">This part of XMapTools 4 is currently at <b>level 3</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
+<br \> 
+<hr>
+
+<p>This help file contains a description of the <i>Import Tool</i>, which can be used to import, set the destination and apply basic corrections to maps. Closing the Import Tool stops the import procedure (no data will be imported).</p> 
+
+<p><img src="./img/icon_add_round.png" width="30"> <i>Select</i> a set of map files to be imported. Select compatibles files in the pop-up window <i>pick map file(s)</i>. Note that several files can be selected together. If a selected file cannot be imported for example because of incompatible format, this file will be skipped during import.</p>
+
+<p>Format: map files must have *.txt, *.asc, *.dat or *.csv extension, no header line and a name compatible with the default elements names of XMapTools for identification. The default lists for compatible names of elements and oxides are provided <a href="#ElList">bellow</a>.</p>
+
+<p>Selected map files are listed in the main table. More maps can be added by pressing the button <img src="./img/icon_add_round.png" width="15"></p>
+
+<ul>
+<li><b>File</b>: contains the file names</li>
+<li><b>Map Name</b>: contains the name of the corresponding element in the database</li>
+<li><b>Type</b>: element or oxide</li>
+<li><b>Data</b>: intensity or wt%</li>
+<li><b>Special</b>: EDS or WDS(?); in the case of WDS(?) a DTC is automatically selected</li>
+<li><b>DTC</b>: Dead time correction</li>
+<li><b>OC</b>: Orientation correction (do not use; not tested)</li>
+<li><b>Destination</b>: Destination in XMapTools, can be: Intensity, Quanti, Merged, Other; dropdown menu, can be edited.</li>
+<li><b>Action</b>: Keep or eliminate; dropdown menu, can be edited.</li>
+</ul>
+
+<p>Settings, such as setting the dwell time (as in XMapTools 3) can be changed in the section <i>Corrections</i>. 
+
+<p><img src="./img/SS_importdata.png" height="30"> Press <i>Import data</i> to import the selected maps in XMapTools after applying the corrections.
+</p>
+
+<p>The intensity maps will be available in the category <i>Intensity</i> and other maps in in the category <i>Other</i>. </p>
+
+
+<h2><a name="ElList"></a>List of compatible elements:</h2>
+
+<table>
+<tr>
+    <th>Element</th>
+    <th>Atomic mass</th> 
+</tr>
+<tr><td>
+H</td><td>1.00797</td></tr>
+<tr><td>
+He</td><td>4.0026</td></tr>
+<tr><td>
+Li</td><td>6.941</td></tr>
+<tr><td>
+Be</td><td>9.01218</td></tr>
+<tr><td>
+B</td><td>10.81</td></tr>
+<tr><td>
+C</td><td>12.011</td></tr>
+<tr><td>
+N</td><td>14.0067</td></tr>
+<tr><td>
+O</td><td>15.9994</td></tr>
+<tr><td>
+F</td><td>18.998403</td></tr>
+<tr><td>
+Ne</td><td>20.179</td></tr>
+<tr><td>
+Na</td><td>22.98977</td></tr>
+<tr><td>
+Mg</td><td>24.305</td></tr>
+<tr><td>
+Al</td><td>26.98154</td></tr>
+<tr><td>
+Si</td><td>28.0855</td></tr>
+<tr><td>
+P</td><td>30.97376</td></tr>
+<tr><td>
+S</td><td>32.06</td></tr>
+<tr><td>
+Cl</td><td>35.453</td></tr>
+<tr><td>
+Ar</td><td>39.948</td></tr>
+<tr><td>
+K</td><td>39.0983</td></tr>
+<tr><td>
+Ca</td><td>40.08</td></tr>
+<tr><td>
+Sc</td><td>44.9559</td></tr>
+<tr><td>
+Ti</td><td>47.9</td></tr>
+<tr><td>
+V</td><td>50.9415</td></tr>
+<tr><td>
+Cr</td><td>51.996</td></tr>
+<tr><td>
+Mn</td><td>54.938</td></tr>
+<tr><td>
+Fe</td><td>55.847</td></tr>
+<tr><td>
+Co</td><td>58.9332</td></tr>
+<tr><td>
+Ni</td><td>58.7</td></tr>
+<tr><td>
+Cu</td><td>63.546</td></tr>
+<tr><td>
+Zn</td><td>65.38</td></tr>
+<tr><td>
+Ga</td><td>69.72</td></tr>
+<tr><td>
+Ge</td><td>72.59</td></tr>
+<tr><td>
+As</td><td>74.9216</td></tr>
+<tr><td>
+Se</td><td>78.96</td></tr>
+<tr><td>
+Br</td><td>79.904</td></tr>
+<tr><td>
+Kr</td><td>83.8</td></tr>
+<tr><td>
+Rb</td><td>85.4678</td></tr>
+<tr><td>
+Sr</td><td>87.62</td></tr>
+<tr><td>
+Y</td><td>88.9059</td></tr>
+<tr><td>
+Zr</td><td>91.22</td></tr>
+<tr><td>
+Nb</td><td>92.9064</td></tr>
+<tr><td>
+Mo</td><td>95.94</td></tr>
+<tr><td>
+Tc</td><td>98</td></tr>
+<tr><td>
+Ru</td><td>101.07</td></tr>
+<tr><td>
+Rh</td><td>102.9055</td></tr>
+<tr><td>
+Pd</td><td>106.4</td></tr>
+<tr><td>
+Ag</td><td>107.868</td></tr>
+<tr><td>
+Cd</td><td>112.41</td></tr>
+<tr><td>
+In</td><td>114.82</td></tr>
+<tr><td>
+Sn</td><td>118.69</td></tr>
+<tr><td>
+Sb</td><td>121.75</td></tr>
+<tr><td>
+Te</td><td>127.6</td></tr>
+<tr><td>
+I</td><td>126.9045</td></tr>
+<tr><td>
+Xe</td><td>131.3</td></tr>
+<tr><td>
+Cs</td><td>132.9054</td></tr>
+<tr><td>
+Ba</td><td>137.33</td></tr>
+<tr><td>
+La</td><td>138.9055</td></tr>
+<tr><td>
+Ce</td><td>140.12</td></tr>
+<tr><td>
+Pr</td><td>140.9077</td></tr>
+<tr><td>
+Nd</td><td>144.24</td></tr>
+<tr><td>
+Pm</td><td>145</td></tr>
+<tr><td>
+Sm</td><td>150.4</td></tr>
+<tr><td>
+Eu</td><td>151.96</td></tr>
+<tr><td>
+Gd</td><td>157.25</td></tr>
+<tr><td>
+Tb</td><td>158.9254</td></tr>
+<tr><td>
+Dy</td><td>162.5</td></tr>
+<tr><td>
+Ho</td><td>164.9304</td></tr>
+<tr><td>
+Er</td><td>167.26</td></tr>
+<tr><td>
+Tm</td><td>168.9342</td></tr>
+<tr><td>
+Yb</td><td>173.04</td></tr>
+<tr><td>
+Lu</td><td>174.967</td></tr>
+<tr><td>
+Hf</td><td>178.49</td></tr>
+<tr><td>
+Ta</td><td>180.9479</td></tr>
+<tr><td>
+W</td><td>183.85</td></tr>
+<tr><td>
+Re</td><td>186.207</td></tr>
+<tr><td>
+Os</td><td>190.2</td></tr>
+<tr><td>
+Ir</td><td>192.22</td></tr>
+<tr><td>
+Pt</td><td>195.09</td></tr>
+<tr><td>
+Au</td><td>196.9665</td></tr>
+<tr><td>
+Hg</td><td>200.59</td></tr>
+<tr><td>
+Tl</td><td>204.37</td></tr>
+<tr><td>
+Pb</td><td>207.2</td></tr>
+<tr><td>
+Bi</td><td>208.9804</td></tr>
+<tr><td>
+Po</td><td>209</td></tr>
+<tr><td>
+At</td><td>210</td></tr>
+<tr><td>
+Rn</td><td>222</td></tr>
+<tr><td>
+Fr</td><td>223</td></tr>
+<tr><td>
+Ra</td><td>226.0254</td></tr>
+<tr><td>
+Ac</td><td>227.0278</td></tr>
+<tr><td>
+Th</td><td>232.0381</td></tr>
+<tr><td>
+Pa</td><td>231.0359</td></tr>
+<tr><td>
+U</td><td>238.029</td></tr>
+<tr><td>
+Np</td><td>237.0482</td></tr>
+<tr><td>
+Pu</td><td>242</td></tr>
+<tr><td>
+Am</td><td>243</td></tr>
+<tr><td>
+Cm</td><td>247</td></tr>
+<tr><td>
+Bk</td><td>247</td></tr>
+<tr><td>
+Cf</td><td>251</td></tr>
+<tr><td>
+Es</td><td>252</td></tr>
+<tr><td>
+Fm</td><td>257</td></tr>
+<tr><td>
+Md</td><td>258</td></tr>
+<tr><td>
+No</td><td>250</td></tr>
+<tr><td>
+Lr</td><td>260</td></tr>
+<tr><td>
+Rf</td><td>261</td></tr>
+<tr><td>
+Db</td><td>262</td></tr>
+<tr><td>
+Sg</td><td>263</td></tr>
+<tr><td>
+Bh</td><td>262</td></tr>
+<tr><td>
+Hs</td><td>255</td></tr>
+<tr><td>
+Mt</td><td>256</td></tr>
+<tr><td>
+Uun</td><td>269</td></tr>
+<tr><td>
+Uuu</td><td>272</td></tr>
+<tr><td>
+Uub</td><td>277</td></tr>
+</table>
+
+
+<h2><a name="OxList"></a>List of compatible oxides</h2>
+
+<table>
+<tr>
+    <th>Oxide</th>
+    <th>Element</th> 
+    <th>NbCat</th>
+    <th>NbOx</th>
+    <th>MolarMass</th>
+    <th>ConversioFactor</th>
+</tr>
+<tr><td>Al2O3</td><td>Al</td><td>2</td><td>3</td><td>101.96128</td><td>0.529251</td></tr>
+<tr><td>As2O3</td><td>As</td><td>2</td><td>3</td><td>197.89</td><td>0.7574</td></tr>
+<tr><td>Au2O</td><td>Au</td><td>2</td><td>1</td><td>409.93</td><td>0.961</td></tr>
+<tr><td>B2O3</td><td>B</td><td> 2</td><td>3</td><td>69.6182</td><td>0.310551</td></tr>
+<tr><td>BaO</td><td>Ba</td><td>1</td><td>1</td><td>153.3394</td><td>0.89566</td></tr>
+<tr><td>BeO</td><td>Be</td><td>1</td><td>1</td><td>25.01158</td><td>0.36032</td></tr>
+<tr><td>CO2</td><td>C</td><td> 1</td><td>2</td><td>44.0098</td><td>0.272916</td></tr>
+<tr><td>CaO</td><td>Ca</td><td>1</td><td>1</td><td>56.0794</td><td>0.714701</td></tr>
+<tr><td>CeO2</td><td>Ce</td><td>1</td><td>2</td><td>172.1188</td><td>0.814089</td></tr>
+<tr><td>Ce2O3</td><td>Ce</td><td>2</td><td>3</td><td>328.2382</td><td>0.85377</td></tr>
+<tr><td>CoO</td><td>Co</td><td>1</td><td>1</td><td>74.9326</td><td>0.786483</td></tr>
+<tr><td>Cr2O3</td><td>Cr</td><td>2</td><td>3</td><td>151.9902</td><td>0.684202</td></tr>
+<tr><td>Cs2O</td><td>Cs</td><td>2</td><td>1</td><td>281.8102</td><td>0.943226</td></tr>
+<tr><td>CuO</td><td>Cu</td><td>1</td><td>1</td><td>79.5454</td><td>0.798865</td></tr>
+<tr><td>Dy2O3</td><td>Dy</td><td>2</td><td>3</td><td>372.9982</td><td>0.871318</td></tr>
+<tr><td>Er2O3</td><td>Er</td><td>2</td><td>3</td><td>382.5182</td><td>0.87452</td></tr>
+<tr><td>EuO</td><td>Eu</td><td>1</td><td>1</td><td>167.9594</td><td>0.904742</td></tr>
+<tr><td>Eu2O3</td><td>Eu</td><td>2</td><td>3</td><td>351.9182</td><td>0.86361</td></tr>
+<tr><td>FeO</td><td>Fe</td><td>1</td><td>1</td><td>71.8464</td><td>0.777311</td></tr>
+<tr><td>Fe2O3</td><td>Fe</td><td>2</td><td>3</td><td>159.6922</td><td>0.699433</td></tr>
+<tr><td>Ga2O3</td><td>Ga</td><td>2</td><td>3</td><td>187.4382</td><td>0.743925</td></tr>
+<tr><td>Gd2O3</td><td>Gd</td><td>2</td><td>3</td><td>362.4982</td><td>0.867591</td></tr>
+<tr><td>GeO2</td><td>Ge</td><td>1</td><td>2</td><td>104.5858</td><td>0.694051</td></tr>
+<tr><td>H2O</td><td>H</td><td> 2</td><td>1</td><td>18.0152</td><td>0.111694</td></tr>
+<tr><td>HfO2</td><td>Hf</td><td>1</td><td>2</td><td>210.4888</td><td>0.847979</td></tr>
+<tr><td>Ho2O3</td><td>Ho</td><td>2</td><td>3</td><td>377.8588</td><td>0.872973</td></tr>
+<tr><td>K2O</td><td>K</td><td> 2</td><td>1</td><td>94.1954</td><td>0.830147</td></tr>
+<tr><td>La2O3</td><td>La</td><td>2</td><td>3</td><td>325.8092</td><td>0.85268</td></tr>
+<tr><td>Li2O</td><td>Li</td><td>2</td><td>1</td><td>29.8814</td><td>0.46457</td></tr>
+<tr><td>Lu2O3</td><td>Lu</td><td>2</td><td>3</td><td>397.9382</td><td>0.879383</td></tr>
+<tr><td>MgO</td><td>Mg</td><td>1</td><td>1</td><td>40.3044</td><td>0.603036</td></tr>
+<tr><td>MnO</td><td>Mn</td><td>1</td><td>1</td><td>70.9374</td><td>0.774457</td></tr>
+<tr><td>MnO2</td><td>Mn</td><td>1</td><td>2</td><td>86.9368</td><td>0.63193</td></tr>
+<tr><td>Mn3O4</td><td>Mn</td><td>3</td><td>4</td><td>228.8116</td><td>0.720304</td></tr>
+<tr><td>MoO3</td><td>Mo</td><td>1</td><td>3</td><td>143.94</td><td>0.6665</td></tr>
+<tr><td>Na2O</td><td>Na</td><td>2</td><td>1</td><td>61.97894</td><td>0.741857</td></tr>
+<tr><td>Nb2O5</td><td>Nb</td><td>2</td><td>5</td><td>265.8098</td><td>0.699044</td></tr>
+<tr><td>Nd2O3</td><td>Nb</td><td>2</td><td>3</td><td>336.4782</td><td>0.857351</td></tr>
+<tr><td>NiO</td><td>Ni</td><td>1</td><td>1</td><td>74.7094</td><td>0.785845</td></tr>
+<tr><td>P2O5</td><td>P</td><td> 2</td><td>5</td><td>141.94452</td><td>0.436421</td></tr>
+<tr><td>PbO</td><td>Pb</td><td>1</td><td>1</td><td>223.1994</td><td>0.928318</td></tr>
+<tr><td>Pr2O3</td><td>Pr</td><td>2</td><td>3</td><td>329.8136</td><td>0.854469</td></tr>
+<tr><td>Rb2O</td><td>Rb</td><td>2</td><td>1</td><td>186.935</td><td>0.914412</td></tr>
+<tr><td>SO3</td><td>S</td><td> 1</td><td>3</td><td>80.0582</td><td>0.400459</td></tr>
+<tr><td>Sb2O3</td><td>Sb</td><td>2</td><td>3</td><td>291.4982</td><td>0.83534</td></tr>
+<tr><td>Sc2O3</td><td>Sc</td><td>2</td><td>3</td><td>137.91</td><td>0.65196</td></tr>
+<tr><td>SiO2</td><td>Si</td><td>1</td><td>2</td><td>60.0848</td><td>0.467439</td></tr>
+<tr><td>Sm2O3</td><td>Sm</td><td>2</td><td>3</td><td>348.7982</td><td>0.86239</td></tr>
+<tr><td>SnO2</td><td>Sn</td><td>1</td><td>2</td><td>150.6888</td><td>0.78765</td></tr>
+<tr><td>SrO</td><td>Sr</td><td>1</td><td>1</td><td>103.6194</td><td>0.845595</td></tr>
+<tr><td>Ta2O5</td><td>Ta</td><td>2</td><td>5</td><td>441.8928</td><td>0.818967</td></tr>
+<tr><td>Tb2O3</td><td>Tb</td><td>2</td><td>3</td><td>365.849</td><td>0.868803</td></tr>
+<tr><td>ThO2</td><td>Th</td><td>1</td><td>2</td><td>264.0369</td><td>0.878809</td></tr>
+<tr><td>TiO2</td><td>Ti</td><td>1</td><td>2</td><td>79.8988</td><td>0.599508</td></tr>
+<tr><td>Ti2O3</td><td>Ti</td><td>2</td><td>3</td><td>143.7982</td><td>0.666211</td></tr>
+<tr><td>Tm2O3</td><td>Tm</td><td>2</td><td>3</td><td>385.8666</td><td>0.875609</td></tr>
+<tr><td>UO2</td><td>U</td><td> 1</td><td>2</td><td>270.0278</td><td>0.881498</td></tr>
+<tr><td>U3O8</td><td>U</td><td> 3</td><td>8</td><td>842.0822</td><td>0.848002</td></tr>
+<tr><td>V2O5</td><td>V</td><td> 2</td><td>5</td><td>181.8798</td><td>0.560166</td></tr>
+<tr><td>WO3</td><td>W</td><td> 1</td><td>3</td><td>231.85</td><td>0.793</td></tr>
+<tr><td>Y2O3</td><td>Y</td><td> 2</td><td>3</td><td>255.81</td><td>0.78744</td></tr>
+<tr><td>Yb2O3</td><td>Yb</td><td>2</td><td>3</td><td>394.0782</td><td>0.878201</td></tr>
+<tr><td>ZnO</td><td>Zn</td><td>1</td><td>1</td><td>81.3794</td><td>0.803397</td></tr>
+<tr><td>ZrO2</td><td>Zr</td><td>1</td><td>2</td><td>123.2188</td><td>0.740309</td></tr>
+</table>
+
+
+
+
+
+
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

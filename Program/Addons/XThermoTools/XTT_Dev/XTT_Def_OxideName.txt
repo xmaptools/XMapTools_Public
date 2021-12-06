@@ -1,0 +1,56 @@
+! -------------------------------------------------------------------------
+! XThermoTools Default File                         (XTT_Def_OxideName.txt)
+!
+!  File with default Oxide list and Mol. Weight for Structural formula 
+!  computation. 
+!
+!  Format: Element [Tab] Oxide [Tab] Mol. Weight [Tab] El num [Tab] Ox num
+! 
+!
+!      Created P. Lanari (31.07.2013) / Modified P. Lanari (31.07.13)
+! -------------------------------------------------------------------------
+!
+    AL          AL2O3       101.96000       2       3
+    B           B2O3        69.618200       2       3
+    BA          BAO         153.33000       1       1
+    BE          BEO         25.013000       1       1
+    C           CO2         44.010000       1       2
+    CA          CAO         56.077400       1       1
+    CE          CEO2        172.11500       1       2
+!    CE          CE2O3       328.24000       2       3
+    C           COO         74.932600       1       1
+    CR          CR2O3       151.99000       2       3
+    CU          CUO         79.545000       1       1
+	FE          FEO         71.844000       1       1
+!    FE          FE2O3       159.69000       2       3
+    H           H2O         18.015280       2       1
+    HF          HFO2        210.49000       1       2
+    K           K2O         94.200000       2       1
+    LA          LA2O3       325.81000       2       3
+    LI          LI2O        29.880000       2       1
+    MG          MGO         40.304400       1       1
+    MN          MNO         70.937400       1       1
+!    MN          MNO2        86.936800       1       2
+!    MN          MN3O4       228.81200       3       4
+    NA          NA2O        61.978900       2       1
+    NI          NIO         74.692800       1       1
+    NB          NB2O5       265.81000       2       5
+    P           P2O5        141.94500       2       5
+    PB          PBO         223.20000       1       1
+    RB          RB2O        186.94000       2       1
+    S           SO3         80.066000       1       3
+    SC          SC2O3       137.91000       2       3
+    SI          SIO2        60.084300       1       2
+    SN          SNO         134.70900       1       1
+    SR          SRO         103.61900       1       1
+    TA          TA2O5       441.89300       2       5
+    TH          THO2        264.04000       1       2
+    TI          TIO2        79.866000       1       2
+!    TI          TI2O3       143.73000       2       3
+    U           UO2         270.03000       1       2
+!	U           U3O8        842.10000       3       8
+    V           V2O5        181.88000       2       5
+    Y           Y2O3        225.81000       2       3
+    ZN          ZNO         81.408000       1       1
+    ZR          ZRO2        123.21800       1       2
+

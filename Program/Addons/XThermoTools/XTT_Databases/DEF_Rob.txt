@@ -1,0 +1,52 @@
+! --------------------------------------------------------------------------------
+! These definitions are compatible with the versions of Rob Berman’s databases 
+! produced in 2020 — work in progress for testing purposes only 
+!
+! Recommendations (July 2019):
+!    - 	Pures phases should be included but Qcmp = 100 % if properly analysed
+!    - 	Solid solutions should have all elements involved in the substitutions
+!      	except Fe in minerals having high Fe-content and XFe3+ such as STAU
+!	 - 	Spaces in solution model names in Theriak-Domino are replaced by 
+!		underscores (e.g. WHITE MICA becomes WHITE_MICA)
+! 
+! PL - 04.03.20
+! --------------------------------------------------------------------------------
+
+
+>1 SOLIDS (PHASES AND SOLUTIONS)
+A-QUARTZ		2   	A-QUARTZ 			[SI]
+B-QUARTZ		2   	B-QUARTZ 			[SI]
+COESITE      	2   	COESITE				[SI]
+CHLORITE		14  	CHL4				[SI,AL,FE,MG]
+PHENGITE		11		WHITE_MICA			[SI,AL,FE,MG,NA]
+MUSCOVITE		11		WHITE_MICA			[SI,AL,FE,MG,NA]
+PARAGONITE		11  	WHITE_MICA_Pg		[SI,AL,NA]
+PLAGIOCLASE		8   	FSP				    [SI,AL,NA,CA,K]
+ANORTHITE		8   	FSP_An				[SI,AL,NA,CA,K]
+K-FELDSPAR		8     	FSP_Kfs				[SI,AL,NA,CA,K]
+GARNET			12  	GARN				[CA,MG,FE,MN]
+CPX				6   	CPX					[SI,AL,FE,MG,CA,NA]
+BIOTITE			11		BI					[SI,AL,TI,FE,MG]
+OPX				6		OPX					[AL,FE,MG]
+CORDIERITE		18		CORD				[FE,MG]
+OLIVINE			4		OL					[FE,MG]
+ANDALUSITE		5		ANDALUSITE			[AL]
+KYANITE			5		KYANITE				[AL]
+SILLIMANITE		5		SILLIMANITE			[AL]	
+RUTILE			2   	RUTILE				[TI]
+ILMENITE		3		ILM					[FE]
+
+
+
+>2 LIQUID (PHASES, SPECIES AND SOLUTIONS) + OXYGEN BUFFERS
+Fluid_H2O		1		STEAM				[H]	
+Fluid_CO2		2		CARBON-DIOXIDE		[C]
+Oxygen			1		OXYGEN_GAS			[O]
+Buffer_QFM		2		QFM-BUFFER			[O]
+
+
+! 
+! Notes
+! 	- The model H2O-CO2 has not been tested yet (PL - July 2019)
+
+

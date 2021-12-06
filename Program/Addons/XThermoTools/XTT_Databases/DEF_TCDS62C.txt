@@ -1,0 +1,40 @@
+! This is compatible with the last version of CAPI’s database txds62c.txt (Feb. 2019)
+!
+! 
+! PL - 03.03.19
+
+
+>1 SOLIDS (PHASES AND SOLUTIONS)
+QUARTZ       	2	Quartz      [SI]
+COESITE     	2	Coesite     [SI]
+CHLORITE   		14	CHLR		[SI,AL,FE,MG]
+PHENGITE    	11	PHNG      	[SI,AL,FE,MG,NA]
+MUSCOVITE    	11	PHNG        [SI,AL,FE,MG,NA]
+PARAGONITE   	11	PHNG_pa    	[SI,NA] 
+PLAGIOCLASE  	8	FSP      	[SI,NA,CA,K]
+ANORTHITE    	8	FSP2_An		[SI,NA,CA,K]
+K-FELDSPAR   	8	FSP_san		[SI,NA,CA,K]
+GARNET      	12	GRT			[CA,MG,FE,MN]
+RUTILE       	2	Rutile		[TI]
+SPHENE       	5	Sphene		[TI,CA]
+ILMENITE      	3	ILM         [FE,MG]
+BIOTITE       	11	BIO        	[SI,AL,TI,FE,MG]
+STAUROLITE    	46	STAU      	[MG,FE]
+KYANITE        	5	kyanite     [SI,AL] 
+SILLIMANITE		5	Sillimanite	[SI,AL]
+AMPHIBOLE		24	ClAMg		[SI,AL,FE,MG,NA,CA]
+CpxOmph			6	CPXo		[AL,MG,FE,CA,NA]
+CpxAugite		6	CPXg		[AL,MG,FE,CA,NA]		
+ORTHOPYROXENE	6	OPX6		[SI,AL,FE,MG,CA]
+Spinel			4	SPIN		[FE,AL,MG,TI]
+Magnetite		4	Magnetite	[FE]
+
+
+
+>2 LIQUID (PHASES, SPECIES AND SOLUTIONS) + OXYGEN BUFFERS
+Fluid_H2O		1		Water				[H]	
+Fluid_CO2		2		carbon.dioxide		[C]
+Melt			4		LIQtc62				[SI,AL,FE,MG,CA,NA,K,H]
+Oxygen			1		Oxygen				[O]
+Buffer_QFM		2		QFM-BUFFER			[O]
+

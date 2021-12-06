@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+<h1> Help > Tools > Converter For LA-ICPMS Data </h1>    	
+<p><i>Help file version 03.12.2021 by M. Tedeschi & P. Lanari</i></p>
+<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p class="ex">This part of XMapTools 4 is currently at <b>level 1</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
+<br \>
+<hr>
+<p><b>Table of content</b><br \><br \>
+<a href="#MainSteps">Main steps</a><br \>
+<a href="#Description">Detailed description</a><br \>
+<a href="#Step1">- Step 1: Load datafiles</a><br \>
+<a href="#Step2">- Step 2: Adjust time shift</a><br \>
+<a href="#Step3">- Step 3: Extract integrations & plot data</a><br \>
+<a href="#Step4">- Step 4: Apply background correction</a><br \>
+<a href="#Step5">- Step 5: Select primary standard</a><br \>
+<a href="#Step6">- Step 6: Select and check secondary standard</a><br \>
+<a href="#Step7">- Step 7: Generate map files</a><br \>
+</p>
+<hr>
+<br \> 
+
+<p>This help file contains a description of the <i>Converter for LA-ICPMS data</i> which can natively read data from AGILENT (data) and RESONETICS (log file). </p>
+
+<p>Contact Pierre Lanari (pierre.lanari@geo.unibe.ch) if you want additional formats to be included in future releases.</p>
+
+<h2><a name="MainSteps"></a>Main steps</h2> 
+
+<ul>
+<li><b>Import files</b> (1) a data file from the mass spectrometer containing timestamps an intensity data; (2) a log file from the laser system </li>
+<li><b>Adjust the time shift</b> to synchronise the two data sets</li>
+<li><b>Extract integrations</b> from the log file</li>
+<li><b>Apply a background correction</b> using one of the function available</li>
+<li><b>Select a primary standard</b> and fit to generate a primary standard intensity function</li>
+<li><b>Select a secondary standard</b> and test the quality of standardisation for any element selected as internal standard</li>
+<li><b>Generate  maps</b> for unknowns and standards and export map files</li>
+</uL>
+
+<br \> 
+
+<p><img src="./img/Converter_LAICPMS_Maps.png" width="700"></p>
+
+<i><b>Figure 1</b>: Example of data generated with the Converter for LA-ICPMS Data. Left: Boron intensity map of the sample expressed in background-corrected intensity (cps). Middle: Boron intensity map of the primary reference material expressed in background-corrected intensity (cps). Right: Boron pseudo-map for the primary reference material expressed in µg/g.</i> 
+
+
+<h2><a name="Description"></a>Detailed description</h2> 
+
+The following steps must be followed in sequence and there is no way to go back once one step is validated. If something went wrong, simply close the module and start again. 
+
+<h3><a name="Step1"></a>Step 1: Load datafiles</h3> 
+<p>Press the button <i>Load Datafiles</i> <img src="./img/SS_ConverterLAICPMS_Loadfiles.png" height="30"> to select: (1) a data file from the mass spectrometer (AGILENT only) containing timestamps an intensity data (e.g. Data.csv), and immediately after (2) a corresponding log file (e.g. Log.csv) from the laser system (RESONETICS only).</p>
+
+<p>When the opening window pops-up select first 'Data.csv' and opened. After selecting this first file, the window pops-up again automatically and the file 'Log.csv.' can be selected and opened.</p>
+
+<h3><a name="Step2"></a>Step 2: Adjust time shift</h3> 
+
+<p>The value of the time shift can be adjusted to synchronise the data file and the log file. In the main figure, the total signal is plotted together with the laser on/off signals given in the log file. </p>
+
+<p>Adjust the value until both signals are synchronised (see example in Figure 1 bellow). </p>
+
+<p>It is possible to zoom on the figure. Hold the pointer over the figure and locate the zoom button that appears in the top right corner of the image.</p>
+
+
+<p><img src="./img/Converter_LAICPMS_TimeShift.png" width="700"></p>
+
+<i><b>Figure 2</b>: Adjustment of the time shift between the data file and the log file. Case 1: the time shift valu is 10 s and there is a mistmatch between the laser on/off signals shown as red vertical lines and the variation in the total intensity (black curve). Case 2: the value of the time shift was increased to 27.6 s shifting the laser on/off signals forward. There are now perfectly aligned as shown in the insert. </i> 
+
+
+<h3><a name="Step3"></a>Step 3: Extract integrations & plot data</h3> 
+
+<p>Once the value of the time shift is optimised, press the button <i>Extract Integrations</i> <img src="./img/SS_LAICPMS_ExtractInfo.png" height="30"> to automatically extract all analyses listed in the log file. </p>
+
+<p>Then, you can use the dropdown menu <i>Plot</i> <img src="./img/SS_ConverterLAICPMS_Plot.png" height="30">located at the top right of the window to select the signal to be displayed in the main window (raw data for an element, the sum or all elements).</p>
+
+
+<h3><a name="Step4"></a>Step 4: Apply background correction</h3>
+
+<p>The integrations for fitting a background corrections are automatically selected for each measurement listed in the log file. They are listed in a tree menu located on the left and can be plotted by selecting an item under the category <i>Background</i></p>
+
+Note that the following categories are available in this tree menu:
+<ul>
+<li><img src="./img/icon_Background.png" height="15"> Background </li>
+<li><img src="./img/icon_PrimaryStd.png" height="15"> Primary Standard </li>
+<li><img src="./img/icon_SecondaryStd.png" height="15"> Secondary Standard</li>
+<li><img src="./img/icon_Scans.png" height="15"> Scans</li>
+</ul>
+
+<h4>Display/edit integrations for background</h4>
+
+<p>To visualise and edit integrations, select the first measurement in the tree menu. Zoom in on the first background signal using the zoom button available in the toolbar that is displayed on the top-right of the figure while the mouse is over it. If you pick an other measurement in the tree menu, the integration will be displayed in the center of the plot.</p> 
+
+<p>The program automatically excludes a fraction at the beginning and at the end of each background measurement (default filter value is 10 %). This value can be changed manually if needed. It is also possible to edit manually the duration of an integration by changing the boundary values available as <i>Position</i> (min and max), below the menu: <img src="./img/SS_LAICPMS_Position.png" height="25"></p>
+
+<p>Once all integrations have been checked, you can press the restore view button of available in the plot toolbar (hold the mouse pointer on the plot and check in the upper right corner). </p>
+
+<p>Note that you can press at any stage the button extract information to restore the auto integration intervals for background. Any change will be lost.</p>
+
+<h4><a name="Step4"></a>Background approximation</h4>
+
+<p>Select a method for fitting the background in the BACKGROUND section below the plot. It is recommended to display the signal <i>Raw_Sum</i> and to adjust the display to show the entire background signal.</p>
+
+<p>The following functions are available: </p>
+<ul>
+<li>Linear</li>
+<li>Polynomial</li>
+<li>Step function</li>
+<li>Spline</li>
+</ul>
+
+<p>Due to the compositional variability of each material analysed, an optimal background correction is usually achieved using a step function. 
+
+<p>Press the button <i>Apply</i> to apply the background correction.</p>
+
+
+<p><img src="./img/Converter_LAICPMS_1.png" width="700"></p>
+
+<i><b>Figure 3</b>: Converter For LA-ICPMS Data after selecting the background intervals and applying a step function background correction. Pressing the button <b>Apply</b> would apply the correction. </i> 
+
+
+<h3><a name="Step5"></a>Step 5: Select primary standard</h3>
+
+<p>The background-corrected (BackCorr) signal is displayed once a background correction has been applied. Corrected data are available via the plot menu. </p>
+
+<p>Select using the drop-down menu located in PRIMARY STANDARD, what measurement should be used as primary standart.</p>
+
+<p>Warning: at the moment, the name of the measurement should match the name of a standard file containing the composition of this standard (NIST612 or GSD-1g). Additional standard files will be added in the future.</p>
+
+<p>Integrations can be edited following the same strategy as for background integration (see above).</p>
+
+<p>Select then a fitting method. Polynomial is usually a good way to approximate instrument drift during measurement, especially for reconstructing maps. </p>
+
+<p>Press the button <i>Apply</i> to validate and fit the primary standard signal. The program generates standard data such as shown in the second image of Figure 1. </p>
+
+
+<p><img src="./img/Converter_LAICPMS_2.png" width="700"></p>
+
+<i><b>Figure 4</b>: Converter For LA-ICPMS Data after selecting the primary standard and applying a polynomial fit. Pressing the button <b>Apply</b> would apply the correction. </i> 
+
+
+<h3><a name="Step6"></a>Step 6: Select and check secondary standard</h3>
+
+<p>Select the measurements to be used as secondary standard using the dropdown menu located in SECONDARY STANDARD. Integrations can be edited following the same strategy as for background integration and primary standard (see above).</p>
+
+<p>Select using the dropdown menu <i>Int. Std</i> an element to be used as a reference to calculate the composition of the secondary standard. This choice at this stage has no effect on the map calibration that is done in XMapTools (a different element can be used). But here, it is possible to quickly check the calibration using the secondary standard for several elements used as internal standard.</p>
+
+<p>An example is shown in Figure 5 below.</p>
+
+<p><img src="./img/Converter_LAICPMS_2b.png" width="700"></p>
+
+<i><b>Figure 5</b>: Selection of a secondary standard and data quality check.</i>
+
+<p>The table shown in Figure 5 reports the average composition of the secondary material (integrated over all measurements) compared to the reference composition for all elements. The last column shows the difference between the measured and reference composition expressed in %. </p>
+
+<p>Pressing the button <i>Apply</i> ends this step. </p>
+
+
+<h3><a name="Step7"></a>Step 7: Generate map files</h3>
+
+<p>Maps can be generated from raster measurements after correcting for background, fitting the primary and checking the secondary standard(s). </p>
+
+<p>Select the raster measurements to be used to construct the map using the dropdown menu located in MAPS (SCANS). Integrations cannot be edited but a cycle shift can be applied in case of long transport time between the ablation cell and the mass spectrometer. </p>
+ 
+<p>Press the button <i>Apply</i> to validate and generate the maps. Three buttons becomes available. </p>
+
+<ul>
+<li><img src="./img/icon_share.png" width="20"> button <b>Check</b> opens two new figures in external windows. The first one shows the ablation paths (red points) and the position of each pixel (black squares) on the final image in the LA-ICPMS coordinate system. The second figure shows the corresponding grid in map coordinates. </li>
+<li><img src="./img/icon_picture.png" width="20"> button <b>Show</b> opens a new figure and plot for the element selected in the dropdown menu the three maps shown in Figure 1: (1) Element intensity map of the sample expressed in background-corrected intensity (cps). (2) Element intensity pseudo-map of the primary reference material expressed in background-corrected intensity (cps) and (3) element pseudo-map for the primary reference material expressed in µg/g. </li>
+<li><img src="./img/icon_create.png" width="20"> button <b>Export</b> generates all maps as well as standard data and store them in a folder Maps_cps. The converter is automatically closed when the maps have been generated. </li>
+</ul>
+
+<p>To use the data oin XMapTools, click on the button <i>Import (Import Maps)</i> available on the tab <i>Project & Import</i>.</p>
+
+
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

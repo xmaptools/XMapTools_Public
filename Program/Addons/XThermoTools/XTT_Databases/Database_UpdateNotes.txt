@@ -1,0 +1,15 @@
+
+- Model CPXg, changed (1/2 removec)
+
+
+This version (ThermoDB_BA-1.2.2) is compatible with XThermoTools 1.2.2 (dev)
+
+- Rob's new database added
+- SPaC14 added
+- TC55 changed; Margules parameters of the melt model activated
+
+
+There are several mineral phases missing in the definition files!  
+Please contact P. Lanari (pierre.lanari@geo.unibe.ch) if you want to add more phases 
+
+

@@ -1,0 +1,43 @@
+
+This software package was created by Pierre Lanari and Erik Duesterhoeft and is maintained by Pierre Lanari 
+
+Contacts: pierre.lanari@geo.unibe.ch erik.duesterhoeft@ifg.uni-kiel.de 
+Website: https://www.xmaptools.com/
+
+   -------------------------------------------------------- 
+  |  XThermoTools version 1.2.1  - Released on XX.XX.XXXX  |   
+   --------------------------------------------------------
+
+TODOLIST: 
+- "Residuals" in Function Optimise single phase --> Objective function
+
+This update:
+
+- Improves stability and compatibility of the graphical-user interface and several other windows; remaining display issues should be reported to pierre.lanari@geo.unibe.ch
+- Adds a diagnostic tool that checks the connection to theriak-domino. A report is saved in the file Report_test_XThermoTools.txt (note that it overwrite existing reports)
+- Adds an option to download the DLL files required for theriak-domino (WINDOWS)
+- Function SaturationCheck4H edited to check for more than one fluid
+- Improves the function Antidote_12_GrowW; add a parameter that control the original size of the window 
+
+- XThermoTools options: Labels edited and introduction of new buttons for adding weight configurations and for restoring default settings
+
+
+
+
+   -------------------------------------------------------- 
+  |  XThermoTools version 1.1.1  - Released on 17.08.2019  |   
+   --------------------------------------------------------
+
+ XThermoTools 1.1.1 is a PUBLIC BETA test version. 
+
+Please strictly follow the rules:
+- Do not redistribute or share the public beta version of Bingo-Antidote
+
+- Do not publish results obtained with Bingo-Antidote before the technical paper Duesterhoeft & Lanari  is out
+
+- Contact us if you edit the code or find any bug in the software
+
+- Contact us if you want to develop a new recipe 
+
+
+For more details information regarding XThermoTools select ‘File’ and ‘Help & Documentation’ in the menu.

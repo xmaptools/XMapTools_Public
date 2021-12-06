@@ -1,0 +1,43 @@
+
+ database for this run: JUN92d.bs
+
+
+ Input from file THERIN
+ ----------------------
+ T =  400.00 C     P =  2000.00 Bar
+ 0   AL(2)SI(1)O(?)     *   this calculates the triple point
+
+ ---------------------------
+ define type of calculations
+ ---------------------------
+ AL(2)SI(1)O(?)     *   this calculates the triple point
+
+ TEST = 1.0000E-09        LO1MAX = 300             EQUALX = 1.0000E-02      DELXMIN = 1.0000E-09
+ DELXSCAN = 1.0000E+00    DELXSTAR = 1.0000E-04    STEPSTAR = 400           STEPMAX = 400            GCMAX =  500
+
+ -----------------------
+ equilibrium assemblage:
+ -----------------------
+
+  P =  2000.00 bar       P(Gas) =  2000.00 bar     T =  400.00 C    =  673.15 K
+  stable phases:   1     loop =   3     loop2 =   1     max.phases =     16        gcalc =         0       blkshift = 0.00000E+00
+  G(-) = 0.00000E+00     G(System) =    -2666645.07     stepsize = 0.00000E+00     R =     8.3143000       MaxG(-) = 0.00000E+00
+
+
+         phase                   N         mol%                                   x              x         activity       act.(x)
+         -----                   -         ----                                   -              -         --------       -------
+  13  0  ANDALUSITE            1.000000  100.000000                                                                                  
+ 
+
+ ---------------------------------------
+ volumes and densities of stable phases:
+ ---------------------------------------
+
+  solid phases           N       volume/mol  volume[ccm]    vol%  |    wt/mol       wt [g]      wt %  | density [g/ccm]
+  ------------                                                    |                                   |                
+  ANDALUSITE           1.0000      51.8488      51.8488  100.0000 |   162.0456     162.0456  100.0000 |     3.125346
+                                             ----------  -------- |              ----------  -------- |   ----------
+  total of solids                               51.8488  100.0000 |                162.0456  100.0000 |     3.125346
+
+ exit THERIAK
+ CPU time:    0h 00m 00.02s

@@ -1,0 +1,2785 @@
+26
+     O         AL        BA        C         CA        CL        CO
+     CU        F         F3        FE        H         K         MN
+     MG        NA        NI        P         S         SI        SR
+     TI        ZN        ZR        B         E
+  15.99940  26.98154 137.32700  12.01100  40.07800  35.45270  58.93320
+  63.54600  18.99840  55.84700  55.84700   1.00794  39.09830  54.93085
+  24.30500  22.98977  58.69000  30.97362  32.06600  28.08550  87.62000
+  47.88000  65.39000  91.22400  10.81000   1.00000
+   0.0       1.5       1.0       2.0       1.0       0.0       1.0
+   1.0       0.0       1.5       1.0       0.5       0.5       1.0
+   1.0       0.5       1.0       2.5       0.0       2.0       1.0
+   2.0       1.0       2.0       0.0       0.0
+
+
+ Holland & Powell (2011) database, ver. 6.2
+
+ File version 02: Mon 24 Aug 2015 00:57:55.
+
+ Converted to Theriak-Domino format by D.K. Tinkham (dsaxcnvrt.wl) on
+ Fri 21 Aug 2015 18:56:12
+
+ The data come from Mn_files.zip in the MnNCKFMASHTO metapelite distribution
+ from the THERMOCALC website at:
+ http://www.metamorph.geo.uni-mainz.de/thermocalc/dataset6/index.html.
+ The database is tc-ds62.txt with 256 members with footer tag
+ "tc-ds62.txt produced at 20.08 on Mon 6 Feb,2012 (sigfit =  1.028)".
+ The a-x models are from tc-6axmn.txt.
+ See citation in comments of each ax model for activity model source.
+ This file is known to reproduce Fig. 4A and 4C of ref 1 (White et al. 2014)
+ by commenting ferric members of solution models, and Fig. 7 when the ferric
+ members are not commented.
+
+ Each pure phase is from file tcds62.txt unless otherwise stated. Some
+ pure phases have had a number or + appended to their name. These are
+ identical to the corresponding phase without a # or + unless a dqf, COM
+ or make is explicityl listed. Some a-x models have new members made
+ that are not part of the Holland & Powell dataset file, and references
+ for them are the same as for the a-x model itself.
+
+ Please report any errors found in this file to dtinkham@laurentican.ca
+ so I can fix them in my files.
+
+ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+ REFERENCES
+ ref 0:  Holland, T.J.B & Powell, R., 2011. An improved and extended internally
+         consistent thermodynamic dataset for phases of petrological interest,
+         involving a new equation of state for solids. Journal of Metamorphic
+         Geology, 29, 333-383. The file used for conversion of this database is
+         tcds62.txt, obtained from the THERMOCALC website in 2015.
+ ref 1:  White, R.W., Powell, R. & Johnson, T.E., 2014. The effect of Mn
+         on mineral stability in metapelites revisited: new a-x relations
+         for manganese-bearing minerals. Journal of Metamorphic Geology,
+         32, 809-828. The file used for conversion of these models is
+         tc-mnNCTOps02.txt, obtained from the THERMOCALC website in 2015.
+         Note that some of the parameters in that file might be slightly
+         adjusted versions (by the file author) of those that appear in the
+         paper; you'd have to check closely to see.
+ ref 2:  White, R.W., Powell, R., Holland, T.J.B., Johnson, T.E. & Green, E.C.R.,
+         2014. New mineral activity-composition relations for thermodynamic
+         calculations in metapelitic systems. Journal of Metamorphic Geology, 32,
+         261-286.
+ ref 3:  Powell, R., White, R.W., Green, E.C.R., Holland, T.J.B., & Diener, J.F.A.,
+         2014. On parameterising thermodynamic descriptions of minerals for
+         petrological calculations. Journal of Metamorphic Geology, 32, 245-260.
+         calculations in metapelitic systems. Journal of Metamorphic Geology, 32,
+         261-286.
+ ref 4:  Wheller, C.J. & Powell, R., 2014. A new thermodynamic model for sapphirine:
+         calculated phase equilibria in K2O-FeO-MgO-Al2O3-SiO2-H2O-TiO2-Fe2O3.
+         Journal of Metamorphic Geology, 32, 287-299.
+ ref 5:  Green, E.C.R., Holland, T.J.B., Powell, R. & White, R.W. 2012. Garnet
+         and spinel lherzolite assemblages in MgO-Al2O3-SiO2 and CaO-MgO-Al2O3-
+         SiO2: thermodynamic models and an experimental conflict. Journal of
+         Metamorphic Geology, 30, 561-577.
+ ref 6:  Smye, A.J., Greenwood, L.V. & Holland, T.J.B, 2010. Garnet-chloritoid-
+         kyanite assemblages: eclogite facies indicators of subduction constraints
+         in orogenic belts. Journal of Metamorphic Geology, 28, 753-768.
+ ref 7:  Holland, T.J.B & Powell, R. 2003. Activity-composition relations for
+         phases in petrological calculations: an asymmetric multicomponent
+         formulation. Contributions to Mineralogy and Petrology, 145, 492-501.
+ ref 8:  Holland, T., & Powell, R., 2003. Activity-composition relations for phases
+         in petrological calculations; an asymmetric multicomponent formulation.
+         Contributions to Mineralogy and Petrology, v. 145, 492-501.
+ ref 9:  Coggon, R. & Holland, T.J.B., 2002. Mixing properties of phengitic micas
+         and revised garnet-phengite thermobarometers. Journal of Metamorphic
+         Geology, 20, 683-696.
+ ref 10: White, R., Powell, R. & Clarke, G.L., 2002. The interpretation of reaction
+         textures in Fe-rich metapelitic granulites of the Musgrave Block, central
+         Australia: constraints from mineral equilibrium calculations in the system
+         K2O-FeO-MgO-Al2O3-SiO2-H2O-TiO2-Fe2O3. Journal of Metamorphic Geology, 20,
+         41-55.
+ ref 11: White, R., Powell, R. & Holland, T.J.B., 2001. Calculation of partial
+         melting equilibria in the system Na2O-CaO-K2O-FeO-MgO-Al2O3-SiO2-H2O
+         (NCKFMASH). Journal of Metamorphic Geology, 19, 139-153.
+ ref 12: White, R.W., Powell, R., Holland, T.J.B. & Worley, B.A., 2000. The effect
+         of TiO2 and Fe2O3 on metapelitic assemblages at greenschist and amphibolite
+         facies conditions: mineral equilibria calculations in the system
+         K2O-FeO-MgO-Al2O3-SiO2-H2O-TiO2-Fe2O3. Journal of Metamorphic Geology,
+         18, 497-511.
+ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+ FILE UPDATES
+ ver 01: Fri 21 Aug 2015 18:56:12
+ ver 02: Mon 24 Aug 2015 00:57:55: Landau adjustments to ilm/hem members.
+ ver 03: Mon 20 Mar 2017: Corrected some typos in some comments. No data changes.
+
+
+
+!=========================================================================================
+! The following are pure phases to be considered in calculations. Only a subset is
+! considered here. The full HP 2011 dataset is included at the bottom of the file for
+! you, but is currently deactivated. Copy/paste members to this section if you want.
+!
+**** GAS DATA ****
+H2O                   H(2)O(1)                                H2O           code
+ SPC   PS94H2O
+ ST              0.0      -241810.0          188.8            0.0
+ C3             40.1       0.008656       487500.0         -251.2           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+CO2                   C(1)O(2)                                CO2           code
+ SPC   PS94CO2
+ ST              0.0      -393510.0          213.7            0.0
+ C3             87.8      -0.002644       706400.0         -998.9           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+**** MINERAL DATA ****
+!
+*SIO2                  SI(1)O(2)        *sio2           -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0
+*AL2O3                 AL(2)O(3)        *al2o3          -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0
+*FEO                   FE(1)O(1)        *feo            -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0
+*MGO                   MG(1)O(1)        *mgo            -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0
+*TIO2                   TI(1)O(2)       *tio2            -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0
+*MNO                   MN(1)O(1)        *mno            -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0
+*CAO                   CA(1)O(1)        *cao            -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0
+*NA2O                   NA(2)O(1)       *na2o            -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0
+*K2O                    K(2)O(1)        *k2o            -nv
+  ST           0.000     000000.000     000.000000       0.000000
+  CP1       0.000000        0.00000           0.00            0.0  
+!
+!ab                    NA(1)AL(1)SI(3)O(8)                      ab           code
+! ST              0.0     -3935480.0          207.4         10.067
+! C3            452.0      -0.013364     -1275900.0        -3953.6           0.00
+! V11       0.0000236          541.0           5.91        -0.0109           2.00
+! BW1         14000.0          0.042        13000.0          0.042            3.0            0.9
+!mic                   K(1)AL(1)SI(3)O(8)                      mic           code
+! ST              0.0     -3975350.0          214.3         10.871
+! C3            448.8      -0.010075     -1007300.0        -3973.1           0.00
+! V11       0.0000166          583.0           4.02        -0.0069           0.00
+and                   AL(2)SI(1)O(5)                          and           code
+ ST              0.0     -2588670.0           92.7          5.153
+ C3            277.3      -0.006588     -1914100.0        -2265.6           0.00
+ V11       0.0000181         1442.0           6.89        -0.0048           0.00
+ky                    AL(2)SI(1)O(5)                           ky           code
+ ST              0.0     -2592970.0           83.5          4.414
+ C3            279.4      -0.007124     -2055600.0        -2289.4           0.00
+ V11       0.0000192         1601.0           4.05        -0.0025           0.00
+sill                  AL(2)SI(1)O(5)                         sill           code
+ ST              0.0     -2585790.0           95.4          4.986
+ C3            280.2        -0.0069     -1375700.0        -2399.4           0.00
+ V11       0.0000112         1640.0           5.06        -0.0031           2.00
+ BW1          4750.0           0.01         4750.0           0.01            1.0           0.25
+zo                    CA(2)AL(3)SI(3)H(1)O(13)                 zo           code
+ ST              0.0     -6896290.0          298.0         13.575
+ C3            662.0       0.010416     -6006400.0        -4260.7           0.00
+ V11       0.0000312         1044.0            4.0        -0.0038           0.00
+cz                    CA(2)AL(3)SI(3)H(1)O(13)                 cz           code
+ ST              0.0     -6895540.0          301.0          13.63
+ C3            630.9       0.013693     -6645800.0        -3731.1           0.00
+ V11       0.0000233         1197.0           4.07        -0.0034           0.00
+sph                   CA(1)TI(1)SI(1)O(5)                     sph           code
+ ST              0.0     -2601660.0          124.0          5.565
+ C3            227.9       0.002924     -3539500.0         -894.3           0.00
+ V11       0.0000158         1017.0           9.85        -0.0097           1.00
+ LA1             485            0.4          0.005
+prl                   AL(2)SI(4)H(2)O(12)                     prl           code
+ ST              0.0     -5640610.0          239.0         12.804
+ C3            784.5      -0.042948      1251000.0        -8495.9           0.00
+ V11        0.000045          370.0           10.0        -0.0271           0.00
+q                     SI(1)O(2)                                 q           code
+ ST              0.0      -910720.0          41.43          2.269
+ C3             92.9      -0.000642      -714900.0         -716.1           0.00
+ V11             0.0          730.0            6.0        -0.0082           1.00
+ LA1             847           4.95         0.1188
+trd                   SI(1)O(2)                               trd           code
+ ST              0.0      -907110.0           44.1            2.8
+ C3             74.9         0.0031     -1174000.0         -236.7           0.00
+ V11             0.0          150.0           4.36        -0.0291           0.00
+crst                  SI(1)O(2)                              crst           code
+ ST              0.0      -904270.0          50.86          2.745
+ C3             72.7       0.001304     -4129000.0            0.0           0.00
+ V11             0.0          160.0           4.35        -0.0272           0.00
+coe                   SI(1)O(2)                               coe           code
+ ST              0.0      -907000.0           39.6          2.064
+ C3            107.8      -0.003279      -190300.0        -1041.6           0.00
+ V11       0.0000123          979.0           4.19        -0.0043           0.00
+stv                   SI(1)O(2)                               stv           code
+ ST              0.0      -876390.0           24.0          1.401
+ C3             68.1        0.00601     -1978200.0          -82.1           0.00
+ V11       0.0000158         3090.0            4.6        -0.0015           0.00
+ne                    NA(1)AL(1)SI(1)O(4)                      ne           code
+ ST              0.0     -2094560.0          124.4          5.419
+ C3            272.7      -0.012398            0.0        -2763.1           0.00
+ V11       0.0000463          465.0           4.16        -0.0089           1.00
+ LA1             467           10.0           0.08
+ru                    TI(1)O(2)                                ru           code
+ ST              0.0      -944360.0           50.5          1.882
+ C3             90.4         0.0029            0.0         -623.8           0.00
+ V11       0.0000224         2220.0           4.24        -0.0019           0.00
+per                   MG(1)O(1)                               per           code
+ ST              0.0      -601530.0           26.5          1.125
+ C3             60.5       0.000362      -535800.0         -299.2           0.00
+ V11       0.0000311         1616.0           3.95        -0.0024           0.00
+fper                  FE(1)O(1)                              fper           code
+ ST              0.0      -259870.0           58.6          1.206
+ C3             44.4        0.00828     -1214200.0          185.2           0.00
+ V11       0.0000322         1520.0            4.9        -0.0032           0.00
+mang                  MN(1)O(1)                              mang           code
+ ST              0.0      -385550.0           59.7          1.322
+ C3             59.8         0.0036       -31400.0         -282.6           0.00
+ V11       0.0000369         1645.0           4.46        -0.0027           0.00
+cor                   AL(2)O(3)                               cor           code
+ ST              0.0     -1675270.0           50.9          2.558
+ C3            139.5        0.00589     -2460600.0         -589.2           0.00
+ V11        0.000018         2540.0           4.34        -0.0017           0.00
+mcor                  MG(1)SI(1)O(3)                         mcor           code
+ ST              0.0     -1474440.0           59.3          2.635
+ C3            147.8       0.002015     -2395000.0         -801.8           0.00
+ V11       0.0000212         2110.0           4.55        -0.0022           0.00
+!=========================================================================================
+!=========================================================================================
+
+
+
+!=========================================================================================
+! The following are 'plus' phases used in COM statements in solution models.
+! They are only used for calculating G's of COM phases, and are not considered
+! for phase stability.
+**** MINERAL DATA ****
+qL+                   SI(1)O(2)                               qL+          -code
+ ST              0.0      -921070.0           16.3           2.73
+ C3             82.5            0.0            0.0            0.0           0.00
+ V11             0.0          220.0           9.46         -0.043           4.00
+ DK1          -0.035
+abL+                  NA(1)AL(1)SI(3)O(8)                    abL+          -code
+ ST              0.0     -3926520.0          149.9         10.858
+ C3            358.0            0.0            0.0            0.0           0.00
+ V11       0.0000337          176.0          14.35        -0.0815           4.00
+ DK1          -0.026
+kspL+                 K(1)AL(1)SI(3)O(8)                    kspL+          -code
+ ST              0.0     -3985190.0          129.2         11.431
+ C3            368.0            0.0            0.0            0.0           0.00
+ V11       0.0000493          173.0           6.84        -0.0393           4.00
+ DK1          -0.009
+anL+                  CA(1)AL(2)SI(2)O(8)                    anL+          -code
+ ST              0.0     -4277970.0           29.0         10.014
+ C3            430.0            0.0            0.0            0.0           0.00
+ V11       0.0000514          210.0           6.38        -0.0304           4.00
+ DK1          -0.055
+silL+                 AL(2)SI(1)O(5)                        silL+          -code
+ ST              0.0     -2593430.0           10.0          6.051
+ C3            253.0            0.0            0.0            0.0           0.00
+ V11       0.0000408          220.0           6.36        -0.0289           4.00
+ DK1          -0.029
+foL+                  MG(2)SI(1)O(4)                         foL+          -code
+ ST              0.0     -2237350.0          -62.0          4.312
+ C3            269.4            0.0            0.0            0.0           0.00
+ V11        0.000092          362.0          10.06        -0.0278           4.00
+ DK1          -0.044
+faL+                  FE(2)SI(1)O(4)                         faL+          -code
+ ST              0.0     -1463020.0           96.0          4.677
+ C3            243.7            0.0            0.0            0.0           0.00
+ V11       0.0001071          290.0          10.42        -0.0359           4.00
+ DK1          -0.055
+h2oL+                 H(2)O(1)                              h2oL+          -code
+ ST              0.0      -295010.0           45.5           1.39
+ C3             80.0            0.0            0.0            0.0           0.00
+ V11        0.000521           50.6            4.0         -0.079           4.00
+ DK1         -0.0037
+an+                   CA(1)AL(2)SI(2)O(8)                     an+          -code
+ ST              0.0     -4232690.0          200.5         10.079
+ C3            370.5        0.01001     -4339100.0        -1960.6           0.00
+ V11       0.0000141          860.0           4.09        -0.0048           2.00
+ BW1         42010.0            0.1        42000.0            0.1            1.0            2.0
+py+                   MG(3)AL(2)SI(3)O(12)                    py+          -code
+ ST              0.0     -6281960.0          269.5         11.313
+ C3            633.5            0.0     -5196100.0        -4315.2           0.00
+ V11       0.0000237         1743.0           4.05        -0.0023           0.00
+gr+                   CA(3)AL(2)SI(3)O(12)                    gr+          -code
+ ST              0.0     -6643010.0          255.0         12.535
+ C3            626.0            0.0     -5779200.0        -4002.9           0.00
+ V11        0.000022         1720.0           5.53        -0.0032           0.00
+andr+                 CA(3)FE(2)SI(3)O(12)                  andr+          -code
+ ST              0.0     -5769100.0          316.4         13.204
+ C3            638.6            0.0     -4955100.0        -3989.2           0.00
+ V11       0.0000286         1588.0           5.68        -0.0036           0.00
+ma+                   CA(1)AL(4)SI(2)H(2)O(12)                ma+          -code
+ ST              0.0     -6242070.0          265.0         12.964
+ C3            744.4        -0.0168     -2074400.0        -6783.2           0.00
+ V11       0.0000233         1000.0           4.08        -0.0041           0.00
+mu+                   K(1)AL(3)SI(3)H(2)O(12)                 mu+          -code
+ ST              0.0     -5976510.0          292.0         14.083
+ C3            756.4       -0.01984     -2170000.0        -6979.2           0.00
+ V11       0.0000307          490.0           4.15        -0.0085           0.00
+ann+                  K(1)FE(3)AL(1)SI(3)H(2)O(12)           ann+          -code
+ ST              0.0     -5143720.0          420.0         15.432
+ C3            815.7      -0.034861        19800.0        -7466.7           0.00
+ V11        0.000038          513.0           7.33        -0.0143           0.00
+phl+                  K(1)MG(3)AL(1)SI(3)H(2)O(12)           phl+          -code
+ ST              0.0     -6214880.0          326.0         14.964
+ C3            770.3      -0.036939     -2328900.0        -6531.6           0.00
+ V11        0.000038          513.0           7.33        -0.0143           0.00
+br+                   MG(1)H(2)O(2)                           br+          -code
+ ST              0.0      -925560.0           63.2          2.463
+ C3            158.4      -0.004076     -1052300.0        -1171.3           0.00
+ V11        0.000062          415.0           6.45        -0.0155           0.00
+ru+                   TI(1)O(2)                               ru+          -code
+ ST              0.0      -944360.0           50.5          1.882
+ C3             90.4         0.0029            0.0         -623.8           0.00
+ V11       0.0000224         2220.0           4.24        -0.0019           0.00
+east+                 K(1)MG(2)AL(3)SI(2)H(2)O(12)          east+          -code
+ ST              0.0     -6330380.0          318.0         14.738
+ C3            785.5      -0.038031     -2130300.0        -6893.7           0.00
+ V11        0.000038          530.0           7.33        -0.0143           0.00
+mnbi+                 K(1)MN(3)AL(1)SI(3)H(2)O(12)          mnbi+          -code
+ ST              0.0     -5477520.0          433.0         15.264
+ C3            809.9      -0.059213     -1514400.0        -6998.7           0.00
+ V11        0.000038          530.0           7.33        -0.0143           0.00
+en+                   MG(2)SI(2)O(6)                          en+          -code
+ ST              0.0     -3090220.0          132.5          6.262
+ C3            356.2       -0.00299      -596900.0        -3185.3           0.00
+ V11       0.0000227         1059.0           8.65        -0.0082           0.00
+fs+                   FE(2)SI(2)O(6)                          fs+          -code
+ ST              0.0     -2388710.0          189.9          6.592
+ C3            398.7      -0.006579      1290100.0        -4058.0           0.00
+ V11       0.0000326         1010.0           4.08         -0.004           0.00
+mgts+                 MG(1)AL(2)SI(1)O(6)                   mgts+          -code
+ ST              0.0     -3196670.0          131.0           6.05
+ C3            371.4      -0.004082      -398400.0        -3547.1           0.00
+ V11       0.0000217         1028.0           8.55        -0.0083           0.00
+pxmn+                 MN(1)SI(1)O(3)                        pxmn+          -code
+ ST              0.0     -1323160.0           99.3          3.472
+ C3            138.4       0.004088     -1936000.0         -538.9           0.00
+ V11        0.000028          840.0            4.0        -0.0048           0.00
+di+                   CA(1)MG(1)SI(2)O(6)                     di+          -code
+ ST              0.0     -3201850.0          142.9          6.619
+ C3            314.5       0.000041     -2745900.0        -2020.1           0.00
+ V11       0.0000273         1192.0           5.19        -0.0044           0.00
+fspr+                 FE(4)AL(8)SI(2)O(20)                  fspr+          -code
+ ST              0.0     -9659530.0          485.0         19.923
+ C3           1132.9      -0.007348     -1.04202e7        -7036.6           0.00
+ V11       0.0000196         2500.0           4.04        -0.0017           0.00
+spr4+                 MG(4)AL(8)SI(2)O(20)                  spr4+          -code
+ ST              0.0    -1.102202e7          425.5           19.9
+ C3           1133.1      -0.007596     -8816600.0        -8180.6           0.00
+ V11       0.0000205         2500.0           4.04        -0.0016           0.00
+spr5+                 MG(3)AL(10)SI(1)O(20)                 spr5+          -code
+ ST              0.0    -1.113557e7          419.5          19.75
+ C3           1103.4       0.001015      -1.0957e7        -7409.2           0.00
+ V11       0.0000206         2500.0           4.04        -0.0016           0.00
+mncrd+                MN(2)AL(4)SI(5)O(18)                 mncrd+          -code
+ ST              0.0     -8693590.0          473.0         24.027
+ C3            886.5            0.0     -8840000.0        -5590.4           0.00
+ V11       0.0000069         1290.0            4.1        -0.0031           2.00
+ BW1         36710.0            0.1        36700.0            0.1            2.0            1.5
+mst+                  MG(4)AL(18)SI(7.5)H(4)O(48)            mst+          -code
+ ST              0.0    -2.512374e7          910.0          44.26
+ C3           2820.5      -0.059366      -1.3774e7       -24126.0           0.00
+ V11       0.0000181         1684.0           4.05        -0.0024           0.00
+mnst+                 MN(4)AL(18)SI(7.5)H(4)O(48)           mnst+          -code
+ ST              0.0    -2.424585e7         1034.0          45.46
+ C3           2873.3      -0.089064      -1.2688e7       -24749.0           0.00
+ V11       0.0000209         1800.0           4.76        -0.0026           0.00
+cor+                  AL(2)O(3)                              cor+          -code
+ ST              0.0     -1675270.0           50.9          2.558
+ C3            139.5        0.00589     -2460600.0         -589.2           0.00
+ V11        0.000018         2540.0           4.34        -0.0017           0.00
+afchl+                MG(6)SI(4)H(8)O(18)                  afchl+          -code
+ ST              0.0     -8727860.0          439.0          21.57
+ C3           1155.0      -0.000417     -4024400.0        -9952.9           0.00
+ V11       0.0000204          870.0           4.09        -0.0047           0.00
+clin+                 MG(5)AL(2)SI(3)H(8)O(18)              clin+          -code
+ ST              0.0     -8909160.0          437.0          21.14
+ C3           1170.8      -0.001508     -3825800.0       -10315.0           0.00
+ V11       0.0000204          870.0           4.09        -0.0047           0.00
+daph+                 FE(5)AL(2)SI(3)H(8)O(18)              daph+          -code
+ ST              0.0     -7116910.0          584.0          21.62
+ C3           1192.0       -0.00594     -4826400.0        -9768.3           0.00
+ V11       0.0000227          870.0           4.09        -0.0047           0.00
+mnchl+                MN(5)AL(2)SI(3)H(8)O(18)             mnchl+          -code
+ ST              0.0     -7702320.0          595.0          22.59
+ C3           1136.5      -0.005243     -5548100.0        -8911.5           0.00
+ V11       0.0000223          870.0           4.09        -0.0047           0.00
+mnctd+                MN(1)AL(2)SI(1)H(2)O(7)              mnctd+          -code
+ ST              0.0     -3336150.0          166.0          7.175
+ C3            464.4      -0.012654     -1147200.0        -4341.0           0.00
+ V11        0.000026         1456.0           4.06        -0.0028           0.00
+mctd+                 MG(1)AL(2)SI(1)H(2)O(7)               mctd+          -code
+ ST              0.0     -3549250.0          146.0          6.875
+ C3            417.4      -0.003771     -2920600.0        -3417.8           0.00
+ V11       0.0000263         1456.0           4.06        -0.0028           0.00
+mtNL+                 FE(3)O(4)                             mtNL+          -code
+ ST              0.0   -1095766.074   175.08332527          4.452
+ C3            262.5      -0.007205     -1926200.0        -1655.7           0.00
+ V11       0.0000371         1857.0           4.05        -0.0022           0.00
+ilmNL+                FE(1)TI(1)O(3)                       ilmNL+          -code
+ ST              0.0  -1215398.4244   120.51831967   3.1873638661
+ C3            138.9       0.005081     -1288800.0         -463.7           0.00
+ V11        0.000024         1700.0            8.3        -0.0049           0.00
+hemNL+                FE(2)O(3)                            hemNL+          -code
+ ST              0.0   -816087.2292   100.33766837          3.027
+ C3            163.9            0.0     -2257200.0         -657.6           0.00
+ V11       0.0000279         2230.0           4.04        -0.0018           0.00
+cel+                  K(1)MG(1)AL(1)SI(4)H(2)O(12)           cel+          -code
+ ST              0.0     -5834840.0          290.0         13.957
+ C3            741.2      -0.018748     -2368800.0        -6616.9           0.00
+ V11       0.0000307          700.0           4.11        -0.0059           0.00
+fcel+                 K(1)FE(1)AL(1)SI(4)H(2)O(12)          fcel+          -code
+ ST              0.0     -5468490.0          330.0          14.07
+ C3            756.3      -0.019147     -1586100.0        -6928.7           0.00
+ V11       0.0000318          700.0           4.11        -0.0059           0.00
+pa+                   NA(1)AL(3)SI(3)H(2)O(12)                pa+          -code
+ ST              0.0     -5942840.0          277.0         13.211
+ C3            803.0       -0.03158       217000.0        -8151.0           0.00
+ V11        0.000037          515.0           6.51        -0.0126           0.00
+!=========================================================================================
+!=========================================================================================
+
+
+
+
+
+
+! Solid-solution phases. In general, the phase components for the a-x model appear
+! immediately before the mixing model.
+!
+!=========================================================================================
+!========================================================================= AX MODEL LIQtc6
+! ref 2,11
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!**** MINERAL DATA ****
+**** GAS DATA ****
+!  Required dataset phase components for COM's: {qL+, abL+, kspL+, anL+, silL+, foL+, faL+, h2oL+}
+Quartz8_liq           SI(4)O(8)                       Quartz8_liq           code
+ ST              0.0            0.0            0.0            0.0
+ COM      qL+[4]
+Albite_liq            NA(1)AL(1)SI(3)O(8)              Albite_liq           code
+ ST              0.0            0.0            0.0            0.0
+ COM      abL+[1]
+K-feldspar_liq        K(1)AL(1)SI(3)O(8)           K-feldspar_liq           code
+ ST              0.0            0.0            0.0            0.0
+ COM      kspL+[1]
+Anorthite_liq         CA(1)AL(2)SI(2)O(8)           Anorthite_liq           code
+ ST              0.0            0.0            0.0            0.0
+ COM      anL+[1]
+Sillimanite8_liq      AL(3.2)SI(1.6)O(8)         Sillimanite8_liq           code
+ ST              0.0         -23000              0              0
+ COM      silL+[8/5]
+Forsterite8_liq       MG(4)SI(2)O(8)              Forsterite8_liq           code
+ ST              0.0         -10000              0              0
+ COM      foL+[2]
+Fayalite8_liq         FE(4)SI(2)O(8)                Fayalite8_liq           code
+ ST              0.0          -9000              0           -1.3
+ COM      faL+[2]
+H2O_liq               H(2)O(1)                            H2O_liq           code
+ ST              0.0            0.0            0.0            0.0
+ COM      h2oL+[1]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+LIQtc6        (EXT,MARGULES) 
+   Quartz8_liq
+   Albite_liq
+   K-feldspar_liq
+   Anorthite_liq
+   Sillimanite8_liq
+   Forsterite8_liq
+   Fayalite8_liq
+   H2O_liq
+**** MARGULES PARAMETERS ****
+Quartz8_liq - Albite_liq
+12           12000        0     -0.4
+Quartz8_liq - K-feldspar_liq
+12           -2000        0     -0.5
+Quartz8_liq - Anorthite_liq
+12            5000        0        0
+Quartz8_liq - Sillimanite8_liq
+12           12000        0        0
+Quartz8_liq - Forsterite8_liq
+12           12000        0     -0.4
+Quartz8_liq - Fayalite8_liq
+12           14000        0        0
+Quartz8_liq - H2O_liq
+12           17000        0     -0.5
+Albite_liq - K-feldspar_liq
+12           -6000        0      3.0
+Albite_liq - Anorthite_liq
+12               0        0        0
+Albite_liq - Sillimanite8_liq
+12           12000        0        0
+Albite_liq - Forsterite8_liq
+12           10000        0        0
+Albite_liq - Fayalite8_liq
+12            2000        0        0
+Albite_liq - H2O_liq
+12         -1500.0        0     -0.3
+K-feldspar_liq - Anorthite_liq
+12               0        0     -1.0
+K-feldspar_liq - Sillimanite8_liq
+12           12000        0        0
+K-feldspar_liq - Forsterite8_liq
+12           12000        0        0
+K-feldspar_liq - Fayalite8_liq
+12           12000        0        0
+K-feldspar_liq - H2O_liq
+12          9500.0        0     -0.3
+Anorthite_liq - Sillimanite8_liq
+12               0        0        0
+Anorthite_liq - Forsterite8_liq
+12               0        0        0
+Anorthite_liq - Fayalite8_liq
+12               0        0        0
+Anorthite_liq - H2O_liq
+12          7500.0        0     -0.5
+Sillimanite8_liq - Forsterite8_liq
+12           12000        0        0
+Sillimanite8_liq - Fayalite8_liq
+12           12000        0        0
+Sillimanite8_liq - H2O_liq
+12           11000        0        0
+Forsterite8_liq - Fayalite8_liq
+12           18000        0        0
+Forsterite8_liq - H2O_liq
+12           11000        0     -0.5
+Fayalite8_liq - H2O_liq
+12           12000        0        0
+!END AX MODEL LIQtc6
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================= AX MODEL PL
+! ref 8
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {an+}
+abh                   NA(1)AL(1)SI(3)O(8)                     abh           code
+ ST              0.0     -3921480.0          224.3         10.105
+ C3            452.0      -0.013364     -1275900.0        -3953.6           0.00
+ V11       0.0000241          541.0           5.91        -0.0109           0.00
+an3                   CA(1)AL(2)SI(2)O(8)                     an3           code
+ ST              0.0         7030.0           4.66              0
+ COM      an+[1]
+san                   K(1)AL(1)SI(3)O(8)                      san           code
+ ST              0.0     -3966700.0          214.3         10.871
+ C3            448.8      -0.010075     -1007300.0        -3973.1           0.00
+ V11       0.0000166          583.0           4.02        -0.0069           2.00
+ BW1          8650.0          0.024         8500.0          0.024            3.0            0.8
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+PL    (-SITE,MARGULES)   A(1):Na,Ca,K
+  abh           Na    0.643   0       0       0
+  an3           Ca    1.0     0       0       0
+  san           K    1.0     0       0       0
+**** MARGULES PARAMETERS ****
+abh - an3
+12          3100.0        0        0
+abh - san
+12         25100.0     10.8    0.338
+an3 - san
+12           40000        0        0
+!END AX MODEL PL
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================ AX MODEL EPI
+! ref 0
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {}
+cz                    CA(2)AL(3)SI(3)H(1)O(13)                 cz           code
+ ST              0.0     -6895540.0          301.0          13.63
+ C3            630.9       0.013693     -6645800.0        -3731.1           0.00
+ V11       0.0000233         1197.0           4.07        -0.0034           0.00
+ep                    CA(2)FE(1)AL(2)SI(3)H(1)O(13)            ep           code
+ ST              0.0     -6473830.0          315.0          13.92
+ C3            613.3        0.02207     -7160000.0        -2987.7           0.00
+ V11       0.0000234         1340.0            4.0         -0.003           0.00
+fep                   CA(2)FE(2)AL(1)SI(3)H(1)O(13)           fep           code
+ ST              0.0     -6028590.0          329.0          14.21
+ C3            584.7       0.030447     -7674200.0        -2244.3           0.00
+ V11       0.0000231         1513.0            4.0        -0.0026           0.00
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+EPI    (-SITE,MARGULES)   M1(1):Al,Fe - M3(1):Al,Fe
+  cz            Al - Al
+  ep            Al - Fe
+  fep           Fe - Fe
+**** MARGULES PARAMETERS ****
+cz - ep
+12            1000        0        0
+cz - fep
+12            3000        0        0
+ep - fep
+12            1000        0        0
+!END AX MODEL EPI
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================ AX MODEL GRT
+! ref 1,2
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {py+, gr+, andr+}
+py                    MG(3)AL(2)SI(3)O(12)                     py           code
+ ST              0.0     -6281960.0          269.5         11.313
+ C3            633.5            0.0     -5196100.0        -4315.2           0.00
+ V11       0.0000237         1743.0           4.05        -0.0023           0.00
+alm                   FE(3)AL(2)SI(3)O(12)                    alm           code
+ ST              0.0     -5260700.0          342.0         11.525
+ C3            677.3            0.0     -3772700.0        -5044.0           0.00
+ V11       0.0000212         1900.0           2.98        -0.0016           0.00
+spss                  MN(3)AL(2)SI(3)O(12)                   spss           code
+ ST              0.0     -5693490.0          335.3         11.792
+ C3            646.9            0.0     -4525800.0        -4452.8           0.00
+ V11       0.0000227         1740.0           6.68        -0.0038           0.00
+gr                    CA(3)AL(2)SI(3)O(12)                     gr           code
+ ST              0.0     -6643010.0          255.0         12.535
+ C3            626.0            0.0     -5779200.0        -4002.9           0.00
+ V11        0.000022         1720.0           5.53        -0.0032           0.00
+kho1                  FE(2)MG(3)SI(3)O(12)                   kho1           code
+ ST              0.0          27000              0              0
+ COM      py+[1]gr+[-1]andr+[1]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+GRT    (-SITE,MARGULES)   X(3):Mg,Fe,Mn,Ca - Y(2):Al,F3
+  py            Mg,Mg,Mg - Al,Al    1       0       0       0
+  alm           Fe,Fe,Fe - Al,Al    1       0       0       0
+  spss          Mn,Mn,Mn - Al,Al    1       0       0       0
+  gr            Ca,Ca,Ca - Al,Al    2.7     0       0       0
+!  kho1          Mg,Mg,Mg - F3,F3    1       0       0       0
+**** MARGULES PARAMETERS ****
+py - alm
+12          2500.0        0        0
+py - spss
+12            2000        0        0
+py - gr
+12           31000        0        0
+py - kho1
+12          5400.0        0        0
+alm - spss
+12            2000        0        0
+alm - gr
+12            5000        0        0
+alm - kho1
+12         22600.0        0        0
+spss - gr
+12               0        0        0
+spss - kho1
+12         29400.0        0        0
+gr - kho1
+12        -15300.0        0        0
+!END AX MODEL GRT
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================= AX MODEL WM
+! ref 0,2,6
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {ma+, mu+, gr+, andr+}
+mu                    K(1)AL(3)SI(3)H(2)O(12)                  mu           code
+ ST              0.0     -5976510.0          292.0         14.083
+ C3            756.4       -0.01984     -2170000.0        -6979.2           0.00
+ V11       0.0000307          490.0           4.15        -0.0085           0.00
+cel                   K(1)MG(1)AL(1)SI(4)H(2)O(12)            cel           code
+ ST              0.0     -5834840.0          290.0         13.957
+ C3            741.2      -0.018748     -2368800.0        -6616.9           0.00
+ V11       0.0000307          700.0           4.11        -0.0059           0.00
+fcel                  K(1)FE(1)AL(1)SI(4)H(2)O(12)           fcel           code
+ ST              0.0     -5468490.0          330.0          14.07
+ C3            756.3      -0.019147     -1586100.0        -6928.7           0.00
+ V11       0.0000318          700.0           4.11        -0.0059           0.00
+pa                    NA(1)AL(3)SI(3)H(2)O(12)                 pa           code
+ ST              0.0     -5942840.0          277.0         13.211
+ C3            803.0       -0.03158       217000.0        -8151.0           0.00
+ V11        0.000037          515.0           6.51        -0.0126           0.00
+ma2                   CA(1)AL(4)SI(2)H(2)O(12)                ma2           code
+ ST              0.0         6500.0              0              0
+ COM      ma+[1]
+fmu2                  K(1)FE(1)AL(2)SI(3)H(2)O(12)           fmu2           code
+ ST              0.0          25000              0              0
+ COM      mu+[1]gr+[-1/2]andr+[1/2]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+WM    (-SITE,MARGULES)   A(1):K,Na,Ca - M2A(1):Al,Mg,Fe - M2B(1):Al,F3 - T1(2):Si,Al
+  mu            K - Al - Al - Si,Al    0.63    0.0     0.0     0
+  cel           K - Mg - Al - Si,Si    0.63    0.0     0.0     0
+  fcel          K - Fe - Al - Si,Si    0.63    0.0     0.0     0
+  pa            Na - Al - Al - Si,Al    0.37    0.0     0.0     0
+  ma2           Ca - Al - Al - Al,Al    0.63    0.0     0.0     0
+!  fmu2          K - Al - F3 - Si,Al    0.63    0.0     0.0     0
+**** MARGULES PARAMETERS ****
+mu - cel
+12             0.0      0.0      0.2
+mu - fcel
+12             0.0      0.0      0.2
+mu - pa
+12         10120.0     -3.4    0.353
+mu - ma2
+12           35000        0        0
+mu - fmu2
+12               0        0        0
+cel - fcel
+12               0        0        0
+cel - pa
+12           45000        0     0.25
+cel - ma2
+12           50000        0        0
+cel - fmu2
+12               0        0        0
+fcel - pa
+12           45000        0     0.25
+fcel - ma2
+12           50000        0        0
+fcel - fmu2
+12               0        0        0
+pa - ma2
+12           15000        0        0
+pa - fmu2
+12           30000        0        0
+ma2 - fmu2
+12           35000        0        0
+!END AX MODEL WM
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================= AX MODEL BI
+! ref 2,1
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {ann+, phl+, br+, ru+, east+, gr+, andr+, mnbi+}
+phl                   K(1)MG(3)AL(1)SI(3)H(2)O(12)            phl           code
+ ST              0.0     -6214880.0          326.0         14.964
+ C3            770.3      -0.036939     -2328900.0        -6531.6           0.00
+ V11        0.000038          513.0           7.33        -0.0143           0.00
+ann2                  K(1)FE(3)AL(1)SI(3)H(2)O(12)           ann2           code
+ ST              0.0          -3000              0              0
+ COM      ann+[1]
+obi1                  K(1)FE(1)MG(2)AL(1)SI(3)H(2)O(12)      obi1           code
+ ST              0.0          -3000              0              0
+ COM      ann+[1/3]phl+[2/3]
+east                  K(1)MG(2)AL(3)SI(2)H(2)O(12)           east           code
+ ST              0.0     -6330380.0          318.0         14.738
+ C3            785.5      -0.038031     -2130300.0        -6893.7           0.00
+ V11        0.000038          530.0           7.33        -0.0143           0.00
+tbi1                  K(1)MG(2)TI(1)AL(1)SI(3)O(12)          tbi1           code
+ ST              0.0          55000              0              0
+ COM      phl+[1]br+[-1]ru+[1]
+fbi1                  K(1)FE(1)MG(2)AL(2)SI(2)H(2)O(12)      fbi1           code
+ ST              0.0          -3000              0              0
+ COM      east+[1]gr+[-1/2]andr+[1/2]
+mnbi2                 K(1)MN(3)AL(1)SI(3)H(2)O(12)          mnbi2           code
+ ST              0.0        -7890.0              0              0
+ COM      mnbi+[1]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+BI    (-SITE,MARGULES)   M3(1):Mg,Fe,Al,Ti,F3,Mn - M12(2):Mg,Fe,Mn - T(2):Si,Al - V(2):OH,O
+  phl           Mg - Mg,Mg - Si,Al - OH,OH
+  ann2          Fe - Fe,Fe - Si,Al - OH,OH
+  obi1          Fe - Mg,Mg - Si,Al - OH,OH
+  east          Al - Mg,Mg - Al,Al - OH,OH
+  tbi1          Ti - Mg,Mg - Si,Al - O,O
+!  fbi1          F3 - Mg,Mg - Al,Al - OH,OH
+  mnbi2         Mn - Mn,Mn - Si,Al - OH,OH
+**** MARGULES PARAMETERS ****
+phl - ann2
+12           12000        0        0
+phl - obi1
+12            4000        0        0
+phl - east
+12           10000        0        0
+phl - tbi1
+12           30000        0        0
+phl - fbi1
+12            8000        0        0
+phl - mnbi2
+12            9000        0        0
+ann2 - obi1
+12            8000        0        0
+ann2 - east
+12           15000        0        0
+ann2 - tbi1
+12           32000        0        0
+ann2 - fbi1
+12         13600.0        0        0
+ann2 - mnbi2
+12          6300.0        0        0
+obi1 - east
+12            7000        0        0
+obi1 - tbi1
+12           24000        0        0
+obi1 - fbi1
+12          5600.0        0        0
+obi1 - mnbi2
+12          8100.0        0        0
+east - tbi1
+12           40000        0        0
+east - fbi1
+12            1000        0        0
+east - mnbi2
+12           13000        0        0
+tbi1 - fbi1
+12           40000        0        0
+tbi1 - mnbi2
+12           30000        0        0
+fbi1 - mnbi2
+12         11600.0        0        0
+!END AX MODEL BI
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================ AX MODEL OPX
+! ref 5,2,1
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {en+, fs+, mgts+, gr+, andr+, pxmn+, di+}
+en                    MG(2)SI(2)O(6)                           en           code
+ ST              0.0     -3090220.0          132.5          6.262
+ C3            356.2       -0.00299      -596900.0        -3185.3           0.00
+ V11       0.0000227         1059.0           8.65        -0.0082           0.00
+fs                    FE(2)SI(2)O(6)                           fs           code
+ ST              0.0     -2388710.0          189.9          6.592
+ C3            398.7      -0.006579      1290100.0        -4058.0           0.00
+ V11       0.0000326         1010.0           4.08         -0.004           0.00
+fm1                   FE(1)MG(1)SI(2)O(6)                     fm1           code
+ ST              0.0        -6600.0              0              0
+ COM      en+[1/2]fs+[1/2]
+mgts                  MG(1)AL(2)SI(1)O(6)                    mgts           code
+ ST              0.0     -3196670.0          131.0           6.05
+ C3            371.4      -0.004082      -398400.0        -3547.1           0.00
+ V11       0.0000217         1028.0           8.55        -0.0083           0.00
+fopx1                 FE(1)MG(1)AL(1)SI(1)O(6)              fopx1           code
+ ST              0.0           2000              0              0
+ COM      mgts+[1]gr+[-1/2]andr+[1/2]
+mnopx1                MN(2)SI(2)O(6)                       mnopx1           code
+ ST              0.0         6680.0              0              0
+ COM      pxmn+[2]
+odi1                  CA(1)MG(1)SI(2)O(6)                    odi1           code
+ ST              0.0         -100.0         -0.211          0.005
+ COM      di+[1]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+OPX    (-SITE,MARGULES)1/4      M1(4):Mg,Fe,Al,F3,Mn - M2(4):Mg,Fe,Mn,Ca - T(2):Si,Al
+  en            Mg,Mg,Mg,Mg - Mg,Mg,Mg,Mg - Si,Si    1       0       0       0
+  fs            Fe,Fe,Fe,Fe - Fe,Fe,Fe,Fe - Si,Si    1       0       0       0
+  fm1           Mg,Mg,Mg,Mg - Fe,Fe,Fe,Fe - Si,Si    1       0       0       0
+  mgts          Al,Al,Al,Al - Mg,Mg,Mg,Mg - Si,Al    1       0       0       0
+!  fopx1         F3,F3,F3,F3 - Mg,Mg,Mg,Mg - Si,Al    1       0       0       0
+  mnopx1        Mn,Mn,Mn,Mn - Mn,Mn,Mn,Mn - Si,Si    1       0       0       0
+  odi1          Mg,Mg,Mg,Mg - Ca,Ca,Ca,Ca - Si,Si    1.2     0       0       0
+**** MARGULES PARAMETERS ****
+en - fs
+12            7000        0        0
+en - fm1
+12            4000        0        0
+en - mgts
+12           13000        0    -0.15
+en - fopx1
+12           11000        0    -0.15
+en - mnopx1
+12            5000        0        0
+en - odi1
+12         32200.0        0     0.12
+fs - fm1
+12            4000        0        0
+fs - mgts
+12           13000        0    -0.15
+fs - fopx1
+12         11600.0        0    -0.15
+fs - mnopx1
+12          4200.0        0        0
+fs - odi1
+12         25540.0        0    0.084
+fm1 - mgts
+12           17000        0    -0.15
+fm1 - fopx1
+12           15000        0    -0.15
+fm1 - mnopx1
+12          5100.0        0        0
+fm1 - odi1
+12         22540.0        0    0.084
+mgts - fopx1
+12            1000        0        0
+mgts - mnopx1
+12           12000        0    -0.15
+mgts - odi1
+12         75400.0        0    -0.94
+fopx1 - mnopx1
+12         10600.0        0    -0.15
+fopx1 - odi1
+12         73400.0        0    -0.94
+mnopx1 - odi1
+12         24540.0        0    0.084
+!END AX MODEL OPX
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!=========================================================================== AX MODEL SAPP
+! ref 4
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {fspr+, spr4+, spr5+, gr+, andr+}
+spr4                  MG(4)AL(8)SI(2)O(20)                   spr4           code
+ ST              0.0    -1.102202e7          425.5           19.9
+ C3           1133.1      -0.007596     -8816600.0        -8180.6           0.00
+ V11       0.0000205         2500.0           4.04        -0.0016           0.00
+spr5                  MG(3)AL(10)SI(1)O(20)                  spr5           code
+ ST              0.0    -1.113557e7          419.5          19.75
+ C3           1103.4       0.001015      -1.0957e7        -7409.2           0.00
+ V11       0.0000206         2500.0           4.04        -0.0016           0.00
+fspr2                 FE(4)AL(8)SI(2)O(20)                  fspr2           code
+ ST              0.0         -12000              0              0
+ COM      fspr+[1]
+spro1                 FE(3)MG(1)AL(8)SI(2)O(20)             spro1           code
+ ST              0.0         -11000              0              0
+ COM      fspr+[3/4]spr4+[1/4]
+ospr1                 FE(1)MG(3)AL(9)SI(1)O(20)             ospr1           code
+ ST              0.0          -5000              0              0
+ COM      spr5+[1]gr+[-1/2]andr+[1/2]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+SAPP    (-SITE,MARGULES)   M3(1):Mg,Al,Fe,F3 - M456(3):Mg,Fe - T(1):Si,Al
+  spr4          Mg - Mg,Mg,Mg - Si
+  spr5          Al - Mg,Mg,Mg - Al
+  fspr2         Fe - Fe,Fe,Fe - Si
+  spro1         Mg - Fe,Fe,Fe - Si
+!  ospr1         F3 - Mg,Mg,Mg - Al
+**** MARGULES PARAMETERS ****
+spr4 - spr5
+12           10000        0    -0.02
+spr4 - fspr2
+12           16000        0        0
+spr4 - spro1
+12           12000        0        0
+spr4 - ospr1
+12            8000        0    -0.02
+spr5 - fspr2
+12           19000        0    -0.02
+spr5 - spro1
+12           22000        0    -0.02
+spr5 - ospr1
+12            1000        0        0
+fspr2 - spro1
+12            4000        0        0
+fspr2 - ospr1
+12         17600.0        0    -0.02
+spro1 - ospr1
+12           20000        0    -0.02
+!END AX MODEL SAPP
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!=========================================================================== AX MODEL CORD
+! ref 0,2,1
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {mncrd+}
+crd                   MG(2)AL(4)SI(5)O(18)                    crd           code
+ ST              0.0     -9163430.0          404.1         23.322
+ C3            906.1            0.0     -7902000.0        -6293.4           0.00
+ V11       0.0000068         1290.0            4.1        -0.0031           2.00
+ BW1         36710.0            0.1        36700.0            0.1            2.0            1.5
+fcrd                  FE(2)AL(4)SI(5)O(18)                   fcrd           code
+ ST              0.0     -8444070.0          461.0          23.71
+ C3            924.0            0.0     -7039400.0        -6439.6           0.00
+ V11       0.0000067         1290.0            4.1        -0.0031           2.00
+ BW1         36710.0            0.1        36700.0            0.1            2.0            1.5
+hcrd                  MG(2)AL(4)SI(5)H(2)O(19)               hcrd           code
+ ST              0.0     -9448520.0          483.0         23.322
+ C3            955.3            0.0     -8352600.0        -6301.2           0.00
+ V11       0.0000067         1290.0            4.1        -0.0031           2.00
+ BW1         36710.0            0.1        36700.0            0.1            2.0            1.5
+mncrd2                MN(2)AL(4)SI(5)O(18)                 mncrd2           code
+ ST              0.0        -4210.0              0              0
+ COM      mncrd+[1]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+CORD    (-SITE,MARGULES)   X(2):Mg,Fe,Mn - H(1):v,H2O
+  crd           Mg,Mg - v
+  fcrd          Fe,Fe - v
+  hcrd          Mg,Mg - H2O
+  mncrd2        Mn,Mn - v
+**** MARGULES PARAMETERS ****
+crd - fcrd
+12            8000        0        0
+crd - hcrd
+12               0        0        0
+crd - mncrd2
+12            6000        0        0
+fcrd - hcrd
+12            9000        0        0
+fcrd - mncrd2
+12            4000        0        0
+hcrd - mncrd2
+12            6000        0        0
+!END AX MODEL CORD
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================= AX MODEL ST
+! ref 2,1
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {mst+, mnst+, gr+, andr+, cor+, ru+}
+mst2                  MG(4)AL(18)SI(7.5)H(4)O(48)            mst2           code
+ ST              0.0          -8000              0              0
+ COM      mst+[1]
+fst                   FE(4)AL(18)SI(7.5)H(4)O(48)             fst           code
+ ST              0.0    -2.375463e7         1010.0          44.88
+ C3           2880.0      -0.056595      -1.0642e7       -25373.0           0.00
+ V11       0.0000183         1800.0           4.76        -0.0026           0.00
+mnst2                 MN(4)AL(18)SI(7.5)H(4)O(48)           mnst2           code
+ ST              0.0         -190.0              0              0
+ COM      mnst+[1]
+msto1                 FE(2)MG(4)AL(16)SI(7.5)H(4)O(48)      msto1           code
+ ST              0.0           9000              0              0
+ COM      mst+[1]gr+[-1]andr+[1]
+mstt1                 MG(4)TI(1.5)AL(16)SI(7.5)H(4)O(48)    mstt1           code
+ ST              0.0          13000              0              0
+ COM      mst+[1]cor+[-1]ru+[3/2]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+ST    (-SITE,MARGULES)1/2      X(8):Mg,Fe,Mn - Y(4):Al,F3,Ti,v
+  mst2          Mg,Mg,Mg,Mg,Mg,Mg,Mg,Mg - Al,Al,Al,Al
+  fst           Fe,Fe,Fe,Fe,Fe,Fe,Fe,Fe - Al,Al,Al,Al
+  mnst2         Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn - Al,Al,Al,Al
+!  msto1         Mg,Mg,Mg,Mg,Mg,Mg,Mg,Mg - F3,F3,F3,F3
+  mstt1         Mg,Mg,Mg,Mg,Mg,Mg,Mg,Mg - Ti,Ti,Ti,v
+**** MARGULES PARAMETERS ****
+mst2 - fst
+12           16000        0        0
+mst2 - mnst2
+12           12000        0        0
+mst2 - msto1
+12            2000        0        0
+mst2 - mstt1
+12           20000        0        0
+fst - mnst2
+12            8000        0        0
+fst - msto1
+12           18000        0        0
+fst - mstt1
+12           36000        0        0
+mnst2 - msto1
+12           14000        0        0
+mnst2 - mstt1
+12           32000        0        0
+msto1 - mstt1
+12           30000        0        0
+!END AX MODEL ST
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================ AX MODEL CHL
+! ref 3,1
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:11 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {afchl+, clin+, daph+, gr+, andr+, mnchl+}
+clin                  MG(5)AL(2)SI(3)H(8)O(18)               clin           code
+ ST              0.0     -8909160.0          437.0          21.14
+ C3           1170.8      -0.001508     -3825800.0       -10315.0           0.00
+ V11       0.0000204          870.0           4.09        -0.0047           0.00
+afchl                 MG(6)SI(4)H(8)O(18)                   afchl           code
+ ST              0.0     -8727860.0          439.0          21.57
+ C3           1155.0      -0.000417     -4024400.0        -9952.9           0.00
+ V11       0.0000204          870.0           4.09        -0.0047           0.00
+ames                  MG(4)AL(4)SI(2)H(8)O(18)               ames           code
+ ST              0.0     -9040460.0          412.0          20.71
+ C3           1186.0      -0.002599     -3627200.0       -10677.0           0.00
+ V11         0.00002          870.0           4.09        -0.0047           0.00
+daph                  FE(5)AL(2)SI(3)H(8)O(18)               daph           code
+ ST              0.0     -7116910.0          584.0          21.62
+ C3           1192.0       -0.00594     -4826400.0        -9768.3           0.00
+ V11       0.0000227          870.0           4.09        -0.0047           0.00
+ochl11                FE(5)MG(1)SI(4)H(8)O(18)             ochl11           code
+ ST              0.0           3000              0              0
+ COM      afchl+[1]clin+[-1]daph+[1]
+ochl41                FE(1)MG(5)SI(4)H(8)O(18)             ochl41           code
+ ST              0.0         2400.0              0              0
+ COM      afchl+[1]clin+[-1/5]daph+[1/5]
+f3clin1               FE(1)MG(5)AL(1)SI(3)H(8)O(18)       f3clin1           code
+ ST              0.0           2000              0              0
+ COM      clin+[1]gr+[-1/2]andr+[1/2]
+mnchl2                MN(5)AL(2)SI(3)H(8)O(18)             mnchl2           code
+ ST              0.0        -5670.0              0              0
+ COM      mnchl+[1]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+CHL    (-SITE,MARGULES)   M1(1):Mg,Al,Fe,Mn - M23(4):Mg,Fe,Mn - M4(1):Al,Mg,Fe,F3 - T2(2):Si,Al
+  clin          Mg - Mg,Mg,Mg,Mg - Al - Si,Al
+  afchl         Mg - Mg,Mg,Mg,Mg - Mg - Si,Si
+  ames          Al - Mg,Mg,Mg,Mg - Al - Al,Al
+  daph          Fe - Fe,Fe,Fe,Fe - Al - Si,Al
+  ochl11        Mg - Fe,Fe,Fe,Fe - Fe - Si,Si
+  ochl41        Fe - Mg,Mg,Mg,Mg - Mg - Si,Si
+!  f3clin1       Mg - Mg,Mg,Mg,Mg - F3 - Si,Al
+  mnchl2        Mn - Mn,Mn,Mn,Mn - Al - Si,Al
+**** MARGULES PARAMETERS ****
+clin - afchl
+12           17000        0        0
+clin - ames
+12           17000        0        0
+clin - daph
+12           20000        0        0
+clin - ochl11
+12           30000        0        0
+clin - ochl41
+12           21000        0        0
+clin - f3clin1
+12            2000        0        0
+clin - mnchl2
+12            6000        0        0
+afchl - ames
+12           16000        0        0
+afchl - daph
+12           37000        0        0
+afchl - ochl11
+12           20000        0        0
+afchl - ochl41
+12            4000        0        0
+afchl - f3clin1
+12           15000        0        0
+afchl - mnchl2
+12           23000        0        0
+ames - daph
+12           30000        0        0
+ames - ochl11
+12           29000        0        0
+ames - ochl41
+12           13000        0        0
+ames - f3clin1
+12           19000        0        0
+ames - mnchl2
+12           17000        0        0
+daph - ochl11
+12           18000        0        0
+daph - ochl41
+12           33000        0        0
+daph - f3clin1
+12           22000        0        0
+daph - mnchl2
+12            4000        0        0
+ochl11 - ochl41
+12           24000        0        0
+ochl11 - f3clin1
+12         28600.0        0        0
+ochl11 - mnchl2
+12           19000        0        0
+ochl41 - f3clin1
+12           19000        0        0
+ochl41 - mnchl2
+12           22000        0        0
+f3clin1 - mnchl2
+12            8000        0        0
+!END AX MODEL CHL
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================ AX MODEL CTD
+! ref 2,1
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:12 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {mnctd+, mctd+, andr+, gr+}
+mctd                  MG(1)AL(2)SI(1)H(2)O(7)                mctd           code
+ ST              0.0     -3549250.0          146.0          6.875
+ C3            417.4      -0.003771     -2920600.0        -3417.8           0.00
+ V11       0.0000263         1456.0           4.06        -0.0028           0.00
+fctd                  FE(1)AL(2)SI(1)H(2)O(7)                fctd           code
+ ST              0.0     -3208290.0          167.0           6.98
+ C3            416.1      -0.003477     -2835900.0        -3360.3           0.00
+ V11        0.000028         1456.0           4.06        -0.0028           0.00
+mnctd2                MN(1)AL(2)SI(1)H(2)O(7)              mnctd2           code
+ ST              0.0          660.0              0              0
+ COM      mnctd+[1]
+ctdo1                 FE(0.5)MG(1)AL(1.5)SI(1)H(2)O(7)      ctdo1           code
+ ST              0.0        13500.0              0              0
+ COM      mctd+[1]andr+[1/4]gr+[-1/4]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+CTD    (-SITE,MARGULES)1/2      M1A(1):Al,F3 - M1B(2):Mg,Fe,Mn
+  mctd          Al - Mg,Mg
+  fctd          Al - Fe,Fe
+  mnctd2        Al - Mn,Mn
+!  ctdo1         F3 - Mg,Mg
+**** MARGULES PARAMETERS ****
+mctd - fctd
+12            4000        0        0
+mctd - mnctd2
+12            3000        0        0
+mctd - ctdo1
+12            1000        0        0
+fctd - mnctd2
+12            3000        0        0
+fctd - ctdo1
+12            5000        0        0
+mnctd2 - ctdo1
+12            4000        0        0
+!END AX MODEL CTD
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!=========================================================================== AX MODEL SPL0
+! ref
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:12 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MuNERAL DATA ****
+!  Required dataset phase components for COM's: {}
+sp                    MG(1)AL(2)O(4)                           sp           code
+ ST              0.0     -2301190.0           82.0          3.978
+ C3            222.9       0.006127     -1686000.0        -1551.0           0.00
+ V11       0.0000193         1922.0           4.04        -0.0021           2.00
+ BW1          8000.0            0.0         1200.0            0.0            2.0            0.5
+herc                  FE(1)AL(2)O(4)                         herc           code
+ ST              0.0     -1953030.0          113.9          4.075
+ C3            216.7       0.005868     -2430200.0        -1178.3           0.00
+ V11       0.0000206         1922.0           4.04        -0.0021           2.00
+ BW1         18300.0            0.0        13600.0            0.0            2.0            1.0
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SuLUTION DATA ****
+SPL0    (-SITE,MARGULES)   A(1):Mg,Fe
+  sp            Mg
+  herc          Fe
+!END AX MODEL SPL0
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!========================================================================= AX MODEL SPLnou
+! ref 10
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:12 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+! Turn off to reproduce Fig. 4 in ref. 1
+**** MuNERAL DATA ****
+!  Required dataset phase components for COM's: {}
+herc                  FE(1)AL(2)O(4)                         herc           code
+ ST              0.0     -1953030.0          113.9          4.075
+ C3            216.7       0.005868     -2430200.0        -1178.3           0.00
+ V11       0.0000206         1922.0           4.04        -0.0021           2.00
+ BW1         18300.0            0.0        13600.0            0.0            2.0            1.0
+sp                    MG(1)AL(2)O(4)                           sp           code
+ ST              0.0     -2301190.0           82.0          3.978
+ C3            222.9       0.006127     -1686000.0        -1551.0           0.00
+ V11       0.0000193         1922.0           4.04        -0.0021           2.00
+ BW1          8000.0            0.0         1200.0            0.0            2.0            0.5
+mt                    FE(3)O(4)                                mt           code
+ ST              0.0     -1114500.0          146.9          4.452
+ C3            262.5      -0.007205     -1926200.0        -1655.7           0.00
+ V11       0.0000371         1857.0           4.05        -0.0022           1.00
+ LA1             848           35.0            0.0
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SuLUTION DATA ****
+SPLnou    (-SITE,MARGULES)   A(2):Al,Fe,Mg,F3
+  herc          Al,Fe
+  sp            Al,Mg
+!  mt            F3,Fe
+**** MuRGULES PARAMETERS ****
+herc - sp
+12               0        0        0
+herc - mt
+12         18500.0        0        0
+sp - mt
+12           40000        0        0
+!END AX MODEL SPLnou
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+! Duplicate of MThi Model =================================================== AX MODEL SPL
+! ref 10
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:12 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MuNERAL DATA ****
+!  Required dataset phase components for COM's: {}
+herc                  FE(1)AL(2)O(4)                         herc           code
+ ST              0.0     -1953030.0          113.9          4.075
+ C3            216.7       0.005868     -2430200.0        -1178.3           0.00
+ V11       0.0000206         1922.0           4.04        -0.0021           2.00
+ BW1         18300.0            0.0        13600.0            0.0            2.0            1.0
+sp                    MG(1)AL(2)O(4)                           sp           code
+ ST              0.0     -2301190.0           82.0          3.978
+ C3            222.9       0.006127     -1686000.0        -1551.0           0.00
+ V11       0.0000193         1922.0           4.04        -0.0021           2.00
+ BW1          8000.0            0.0         1200.0            0.0            2.0            0.5
+mt                    FE(3)O(4)                                mt           code
+ ST              0.0     -1114500.0          146.9          4.452
+ C3            262.5      -0.007205     -1926200.0        -1655.7           0.00
+ V11       0.0000371         1857.0           4.05        -0.0022           1.00
+ LA1             848           35.0            0.0
+usp                   FE(2)TI(1)O(4)                          usp           code
+ ST              0.0     -1491120.0          180.0          4.682
+ C3           -102.6        0.14252     -9144500.0         5270.7           0.00
+ V11       0.0000386         1857.0           4.05        -0.0022           0.00
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SuLUTION DATA ****
+SPL    (-SITE,MARGULES)   A(2):Al,Fe,Mg,F3,Ti
+  herc          Al,Fe
+  sp            Al,Mg
+!  mt            F3,Fe
+  usp           Ti,Fe
+**** MuRGULES PARAMETERS ****
+herc - sp
+12               0        0        0
+herc - mt
+12         18500.0        0        0
+herc - usp
+12           27000        0        0
+sp - mt
+12           40000        0        0
+sp - usp
+12           30000        0        0
+mt - usp
+12               0        0        0
+!END AX MODEL SPL
+!-----------------------------------------------------------------------------------------
+
+
+
+
+!=========================================================================================
+!=========================================================================== AX MODEL MThi
+! ref 10
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:12 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MuNERAL DATA ****
+!  Required dataset phase components for COM's: {}
+herc                  FE(1)AL(2)O(4)                         herc           code
+ ST              0.0     -1953030.0          113.9          4.075
+ C3            216.7       0.005868     -2430200.0        -1178.3           0.00
+ V11       0.0000206         1922.0           4.04        -0.0021           2.00
+ BW1         18300.0            0.0        13600.0            0.0            2.0            1.0
+sp                    MG(1)AL(2)O(4)                           sp           code
+ ST              0.0     -2301190.0           82.0          3.978
+ C3            222.9       0.006127     -1686000.0        -1551.0           0.00
+ V11       0.0000193         1922.0           4.04        -0.0021           2.00
+ BW1          8000.0            0.0         1200.0            0.0            2.0            0.5
+mt                    FE(3)O(4)                                mt           code
+ ST              0.0     -1114500.0          146.9          4.452
+ C3            262.5      -0.007205     -1926200.0        -1655.7           0.00
+ V11       0.0000371         1857.0           4.05        -0.0022           1.00
+ LA1             848           35.0            0.0
+usp                   FE(2)TI(1)O(4)                          usp           code
+ ST              0.0     -1491120.0          180.0          4.682
+ C3           -102.6        0.14252     -9144500.0         5270.7           0.00
+ V11       0.0000386         1857.0           4.05        -0.0022           0.00
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SuLUTION DATA ****
+MThi    (-SITE,MARGULES)   A(2):Al,Fe,Mg,F3,Ti
+  herc          Al,Fe
+  sp            Al,Mg
+ ! mt            F3,Fe
+  usp           Ti,Fe
+**** MuRGULES PARAMETERS ****
+herc - sp
+12               0        0        0
+herc - mt
+12         18500.0        0        0
+herc - usp
+12           27000        0        0
+sp - mt
+12           40000        0        0
+sp - usp
+12           30000        0        0
+mt - usp
+12               0        0        0
+!END AX MODEL MThi
+!-----------------------------------------------------------------------------------------
+
+
+!=========================================================================================
+!========================================================================== AX MODEL MTlow
+! ref 12
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Mon 24 Aug 2015 00:57:55 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {mtNL+}
+imt                   FE(3)O(4)                               imt           code
+ ST              0.0        -1859.5         -3.166              0
+ COM      mtNL+[1]    0  mtNL+
+dmt                   FE(3)O(4)                               dmt           code
+ ST              0.0         1330.5         1.1845              0
+ COM      mtNL+[1]    0  mtNL+
+usp                   FE(2)TI(1)O(4)                          usp           code
+ ST              0.0     -1491120.0          180.0          4.682
+ C3           -102.6        0.14252     -9144500.0         5270.7           0.00
+ V11       0.0000386         1857.0           4.05        -0.0022           0.00
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SuLUTION DATA ****
+MTlow    (-SITE,MARGULES)1/3      M(6):F3,Fe,Ti - T(3):F3,Fe
+  imt           F3,F3,F3,Fe,Fe,Fe - F3,F3,F3
+  dmt           F3,F3,F3,F3,Fe,Fe - F3,F3,Fe
+  usp           Ti,Ti,Ti,Fe,Fe,Fe - Fe,Fe,Fe
+**** MuRGULES PARAMETERS ****
+imt - dmt
+12          2400.0        0        0
+imt - usp
+12            1000        0        0
+dmt - usp
+12           -5000        0        0
+!END AX MODEL MTlow
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!=========================================================================== AX MODEL ILM1
+! ref 12,1
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Mon 24 Aug 2015 00:57:55 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {ilmNL+, hemNL+}
+oilm                  FE(1)TI(1)O(3)                         oilm           code
+ ST              0.0       -13607.5         -9.426              0
+ COM      ilmNL+[1]   0  ilmNL+
+dilm                  FE(1)TI(1)O(3)                         dilm           code
+ ST              0.0         1992.8            2.1              0
+ COM      ilmNL+[1]   0  ilmNL+
+hem1                  FE(2)O(3)                              hem1           code
+ ST              0.0            0.0            0.0            0.0
+ COM      hemNL+[1]   0  hemNL+
+geik                  MG(1)TI(1)O(3)                         geik           code
+ ST              0.0     -1568960.0           73.6          3.086
+ C3            151.0            0.0     -1890400.0         -652.2           0.00
+ V11       0.0000215         1700.0            8.3        -0.0049           0.00
+pnt                   MN(1)TI(1)O(3)                          pnt           code
+ ST              0.0     -1361950.0          105.5          3.288
+ C3            143.5       0.003373     -1940700.0         -407.6           0.00
+ V11        0.000024         1700.0            8.3        -0.0049           0.00
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+ILM1    (-SITE,MARGULES)1/2      A(2):Fe,Ti,F3,Mg,Mn - B(2):Ti,Fe,F3
+  oilm          Fe,Fe - Ti,Ti
+  dilm          Fe,Ti - Fe,Ti
+!  hem1          F3,F3 - F3,F3
+  geik          Mg,Mg - Ti,Ti
+  pnt           Mn,Mn - Ti,Ti
+**** MARGULES PARAMETERS ****
+oilm - dilm
+12         15600.0        0        0
+oilm - hem1
+12         26600.0        0        0
+oilm - geik
+12            4000        0        0
+oilm - pnt
+12            2000        0        0
+dilm - hem1
+12           11000        0        0
+dilm - geik
+12            4000        0        0
+dilm - pnt
+12            2000        0        0
+hem1 - geik
+12           36000        0        0
+hem1 - pnt
+12           25000        0        0
+geik - pnt
+12            4000        0        0
+!END AX MODEL ILM1
+!-----------------------------------------------------------------------------------------
+
+
+
+!=========================================================================================
+!============================================================================ AX MODEL MRG
+! ref 0,2,6
+!         Auto-converted from THERMOCALC website files
+!         tc-6axmn.txt & tc-ds62.txt.
+! note:   ds6.
+! entry:  D.K. Tinkham. Fri 21 Aug 2015 18:56:12 (via axcnvrt.wl)
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** MINERAL DATA ****
+!  Required dataset phase components for COM's: {mu+, cel+, fcel+, pa+, gr+, andr+}
+mu2                   K(1)AL(3)SI(3)H(2)O(12)                 mu2           code
+ ST              0.0         1000.0              0              0
+ COM      mu+[1]
+cel2                  K(1)MG(1)AL(1)SI(4)H(2)O(12)           cel2           code
+ ST              0.0           5000              0              0
+ COM      cel+[1]
+fcel2                 K(1)FE(1)AL(1)SI(4)H(2)O(12)          fcel2           code
+ ST              0.0           5000              0              0
+ COM      fcel+[1]
+pa2                   NA(1)AL(3)SI(3)H(2)O(12)                pa2           code
+ ST              0.0           4000              0              0
+ COM      pa+[1]
+ma                    CA(1)AL(4)SI(2)H(2)O(12)                 ma           code
+ ST              0.0     -6242070.0          265.0         12.964
+ C3            744.4        -0.0168     -2074400.0        -6783.2           0.00
+ V11       0.0000233         1000.0           4.08        -0.0041           0.00
+fmu3                  K(1)FE(1)AL(2)SI(3)H(2)O(12)           fmu3           code
+ ST              0.0          25000              0              0
+ COM      mu+[1]gr+[-1/2]andr+[1/2]
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+!. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+**** SOLUTION DATA ****
+MRG    (-SITE,MARGULES)   A(1):K,Na,Ca - M2A(1):Al,Mg,Fe - M2B(1):Al,F3 - T1(2):Si,Al
+  mu2           K - Al - Al - Si,Al    0.63    0.0     0.0     0
+  cel2          K - Mg - Al - Si,Si    0.63    0.0     0.0     0
+  fcel2         K - Fe - Al - Si,Si    0.63    0.0     0.0     0
+  pa2           Na - Al - Al - Si,Al    0.37    0.0     0.0     0
+  ma            Ca - Al - Al - Al,Al    0.63    0.0     0.0     0
+!  fmu3          K - Al - F3 - Si,Al    0.63    0.0     0.0     0
+**** MARGULES PARAMETERS ****
+mu2 - cel2
+12             0.0      0.0      0.2
+mu2 - fcel2
+12             0.0      0.0      0.2
+mu2 - pa2
+12         10120.0     -3.4    0.353
+mu2 - ma
+12           34000        0        0
+mu2 - fmu3
+12               0        0        0
+cel2 - fcel2
+12               0        0        0
+cel2 - pa2
+12           45000        0     0.25
+cel2 - ma
+12           50000        0        0
+cel2 - fmu3
+12               0        0        0
+fcel2 - pa2
+12           45000        0     0.25
+fcel2 - ma
+12           50000        0        0
+fcel2 - fmu3
+12               0        0        0
+pa2 - ma
+12           18000        0        0
+pa2 - fmu3
+12           30000        0        0
+ma - fmu3
+12           35000        0        0
+!END AX MODEL MRG
+!-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+!=========================================================================================
+!=========================================================================================
+! Phase components of entrire HP 2011 ds62 to add above when needed.
+**** MuNERAL DATA ****
+fo                    MG(2)SI(1)O(4)                           fo           code
+ ST              0.0     -2172590.0           95.1          4.366
+ C3            233.3       0.001494      -603800.0        -1869.7           0.00
+ V11       0.0000285         1285.0           3.84         -0.003           0.00
+fa                    FE(2)SI(1)O(4)                           fa           code
+ ST              0.0     -1477720.0          151.0          4.631
+ C3            201.1        0.01733     -1960600.0         -900.9           0.00
+ V11       0.0000282         1256.0           4.68        -0.0037           0.00
+teph                  MN(2)SI(1)O(4)                         teph           code
+ ST              0.0     -1733970.0          155.9          4.899
+ C3            219.6            0.0     -1292700.0        -1308.3           0.00
+ V11       0.0000286         1256.0           4.68        -0.0037           0.00
+lrn                   CA(2)SI(1)O(4)                          lrn           code
+ ST              0.0     -2306920.0          127.6           5.16
+ C3            247.5      -0.003206            0.0        -2051.9           0.00
+ V11        0.000029          985.0           4.07        -0.0041           1.00
+ LA1            1710          10.03           0.05
+mont                  CA(1)MG(1)SI(1)O(4)                    mont           code
+ ST              0.0     -2251260.0          109.5          5.148
+ C3            250.7      -0.010433      -797200.0        -1996.1           0.00
+ V11       0.0000287         1134.0           3.87        -0.0034           0.00
+chum                  MG(9)SI(4)H(2)O(18)                    chum           code
+ ST              0.0     -9613540.0          440.5         19.801
+ C3           1071.0      -0.016533     -7899600.0        -7373.9           0.00
+ V11        0.000032         1199.0           4.58        -0.0038           0.00
+chdr                  MG(5)SI(2)H(2)O(10)                    chdr           code
+ ST              0.0     -5254890.0          260.0         11.084
+ C3            625.0      -0.001088     -2259900.0        -4910.7           0.00
+ V11       0.0000182         1161.0            4.8        -0.0041           0.00
+mwd                   MG(2)SI(1)O(4)                          mwd           code
+ ST              0.0     -2138520.0           93.9          4.051
+ C3            208.7       0.003942     -1709500.0        -1302.8           0.00
+ V11       0.0000237         1726.0           3.84        -0.0022           0.00
+fwd                   FE(2)SI(1)O(4)                          fwd           code
+ ST              0.0     -1467900.0          146.0          4.321
+ C3            201.1        0.01733     -1960600.0         -900.9           0.00
+ V11       0.0000273         1690.0           4.35        -0.0026           0.00
+mrw                   MG(2)SI(1)O(4)                          mrw           code
+ ST              0.0     -2127680.0           90.0          3.949
+ C3            213.3        0.00269     -1410400.0        -1495.9           0.00
+ V11       0.0000201         1781.0           4.35        -0.0024           0.00
+frw                   FE(2)SI(1)O(4)                          frw           code
+ ST              0.0     -1471760.0          140.0          4.203
+ C3            166.8        0.04261     -1705400.0         -541.4           0.00
+ V11       0.0000222         1977.0           4.92        -0.0025           0.00
+mpv                   MG(1)SI(1)O(3)                          mpv           code
+ ST              0.0     -1443030.0           62.6          2.445
+ C3            149.3       0.002918     -2983000.0         -799.1           0.00
+ V11       0.0000187         2510.0           4.14        -0.0016           0.00
+fpv                   FE(1)SI(1)O(3)                          fpv           code
+ ST              0.0     -1084640.0           91.0          2.548
+ C3            133.2        0.01083     -3661400.0         -314.7           0.00
+ V11       0.0000187         2810.0           4.14        -0.0016           0.00
+apv                   AL(2)O(3)                               apv           code
+ ST              0.0     -1646630.0           51.8           2.54
+ C3            139.5        0.00589     -2460600.0         -589.2           0.00
+ V11        0.000018         2030.0            4.0         -0.002           0.00
+cpv                   CA(1)SI(1)O(3)                          cpv           code
+ ST              0.0     -1541730.0           73.5          2.745
+ C3            159.3            0.0      -967300.0        -1075.4           0.00
+ V11       0.0000187         2360.0            3.9        -0.0016           0.00
+mak                   MG(1)SI(1)O(3)                          mak           code
+ ST              0.0     -1490870.0           59.3          2.635
+ C3            147.8       0.002015     -2395000.0         -801.8           0.00
+ V11       0.0000212         2110.0           4.55        -0.0022           0.00
+fak                   FE(1)SI(1)O(3)                          fak           code
+ ST              0.0     -1142140.0           91.5           2.76
+ C3            100.3       0.013328     -4364900.0          419.8           0.00
+ V11       0.0000212         2180.0           4.55        -0.0022           0.00
+maj                   MG(4)SI(4)O(12)                         maj           code
+ ST              0.0     -6050400.0          255.2         11.457
+ C3            713.6      -0.000997     -1158200.0        -6622.3           0.00
+ V11       0.0000183         1600.0           4.56        -0.0028           0.00
+py                    MG(3)AL(2)SI(3)O(12)                     py           code
+ ST              0.0     -6281960.0          269.5         11.313
+ C3            633.5            0.0     -5196100.0        -4315.2           0.00
+ V11       0.0000237         1743.0           4.05        -0.0023           0.00
+alm                   FE(3)AL(2)SI(3)O(12)                    alm           code
+ ST              0.0     -5260700.0          342.0         11.525
+ C3            677.3            0.0     -3772700.0        -5044.0           0.00
+ V11       0.0000212         1900.0           2.98        -0.0016           0.00
+spss                  MN(3)AL(2)SI(3)O(12)                   spss           code
+ ST              0.0     -5693490.0          335.3         11.792
+ C3            646.9            0.0     -4525800.0        -4452.8           0.00
+ V11       0.0000227         1740.0           6.68        -0.0038           0.00
+gr                    CA(3)AL(2)SI(3)O(12)                     gr           code
+ ST              0.0     -6643010.0          255.0         12.535
+ C3            626.0            0.0     -5779200.0        -4002.9           0.00
+ V11        0.000022         1720.0           5.53        -0.0032           0.00
+andr                  CA(3)FE(2)SI(3)O(12)                   andr           code
+ ST              0.0     -5769100.0          316.4         13.204
+ C3            638.6            0.0     -4955100.0        -3989.2           0.00
+ V11       0.0000286         1588.0           5.68        -0.0036           0.00
+knor                  MG(3)CR(2)SI(3)O(12)                   knor           code
+ ST              0.0     -5687710.0          317.0         11.738
+ C3            613.0       0.003606     -4178000.0        -3729.4           0.00
+ V11       0.0000237         1743.0           4.05        -0.0023           0.00
+osma                  K(1)MG(2)AL(5)SI(10)O(30)              osma           code
+ ST              0.0    -1.489631e7          755.0         37.893
+ C3           1540.7      -0.011359      -1.0339e7       -11699.0           0.00
+ V11       0.0000047         1290.0            4.1        -0.0031           0.00
+osmm                  K(1)MG(3)AL(3)SI(11)O(30)              osmm           code
+ ST              0.0    -1.478674e7          740.0          38.44
+ C3           1525.5      -0.010267      -1.0538e7       -11337.0           0.00
+ V11       0.0000047         1290.0            4.1        -0.0031           0.00
+osfa                  K(1)FE(2)AL(5)SI(10)O(30)              osfa           code
+ ST              0.0    -1.421549e7          780.0          38.45
+ C3           1558.6      -0.011359     -9476500.0       -11845.0           0.00
+ V11       0.0000049         1290.0            4.1        -0.0031           0.00
+vsv                   CA(19)MG(2)AL(11)SI(18)H(9)O(78)        vsv           code
+ ST              0.0    -4.234582e7         1890.0           85.2
+ C3           4488.0      -0.057952     -2.22693e7       -33478.0           0.00
+ V11       0.0000275         1255.0            4.8        -0.0038           0.00
+and                   AL(2)SI(1)O(5)                          and           code
+ ST              0.0     -2588670.0           92.7          5.153
+ C3            277.3      -0.006588     -1914100.0        -2265.6           0.00
+ V11       0.0000181         1442.0           6.89        -0.0048           0.00
+ky                    AL(2)SI(1)O(5)                           ky           code
+ ST              0.0     -2592970.0           83.5          4.414
+ C3            279.4      -0.007124     -2055600.0        -2289.4           0.00
+ V11       0.0000192         1601.0           4.05        -0.0025           0.00
+sill                  AL(2)SI(1)O(5)                         sill           code
+ ST              0.0     -2585790.0           95.4          4.986
+ C3            280.2        -0.0069     -1375700.0        -2399.4           0.00
+ V11       0.0000112         1640.0           5.06        -0.0031           2.00
+ BW1          4750.0           0.01         4750.0           0.01            1.0           0.25
+smul                  AL(2)SI(1)O(5)                         smul           code
+ ST              0.0     -2569210.0          101.5          4.987
+ C3            280.2        -0.0069     -1375700.0        -2399.4           0.00
+ V11       0.0000136         1740.0            4.0        -0.0023           0.00
+amul                  AL(2.5)SI(0.5)O(4.75)                  amul           code
+ ST              0.0     -2485530.0          113.0          5.083
+ C3            244.8       0.000968     -2533300.0        -1641.6           0.00
+ V11       0.0000136         1740.0            4.0        -0.0023           0.00
+tpz                   AL(2)SI(1)H(2)O(6)                      tpz           code
+ ST              0.0     -2900710.0          100.5          5.339
+ C3            387.7       -0.00712      -857200.0        -3744.2           0.00
+ V11       0.0000157         1315.0           4.06        -0.0031           0.00
+mst                   MG(4)AL(18)SI(7.5)H(4)O(48)             mst           code
+ ST              0.0    -2.512374e7          910.0          44.26
+ C3           2820.5      -0.059366      -1.3774e7       -24126.0           0.00
+ V11       0.0000181         1684.0           4.05        -0.0024           0.00
+fst                   FE(4)AL(18)SI(7.5)H(4)O(48)             fst           code
+ ST              0.0    -2.375463e7         1010.0          44.88
+ C3           2880.0      -0.056595      -1.0642e7       -25373.0           0.00
+ V11       0.0000183         1800.0           4.76        -0.0026           0.00
+mnst                  MN(4)AL(18)SI(7.5)H(4)O(48)            mnst           code
+ ST              0.0    -2.424585e7         1034.0          45.46
+ C3           2873.3      -0.089064      -1.2688e7       -24749.0           0.00
+ V11       0.0000209         1800.0           4.76        -0.0026           0.00
+mctd                  MG(1)AL(2)SI(1)H(2)O(7)                mctd           code
+ ST              0.0     -3549250.0          146.0          6.875
+ C3            417.4      -0.003771     -2920600.0        -3417.8           0.00
+ V11       0.0000263         1456.0           4.06        -0.0028           0.00
+fctd                  FE(1)AL(2)SI(1)H(2)O(7)                fctd           code
+ ST              0.0     -3208290.0          167.0           6.98
+ C3            416.1      -0.003477     -2835900.0        -3360.3           0.00
+ V11        0.000028         1456.0           4.06        -0.0028           0.00
+mnctd                 MN(1)AL(2)SI(1)H(2)O(7)               mnctd           code
+ ST              0.0     -3336150.0          166.0          7.175
+ C3            464.4      -0.012654     -1147200.0        -4341.0           0.00
+ V11        0.000026         1456.0           4.06        -0.0028           0.00
+merw                  CA(3)MG(1)SI(2)O(8)                    merw           code
+ ST              0.0     -4545700.0          253.1          9.847
+ C3            417.5       0.008117     -2923000.0        -2320.3           0.00
+ V11       0.0000319         1200.0           4.07        -0.0034           0.00
+spu                   CA(5)SI(2)C(1)O(11)                     spu           code
+ ST              0.0     -5846720.0          332.0         14.697
+ C3            614.1      -0.003508     -2493100.0        -4168.0           0.00
+ V11        0.000034          950.0           4.09        -0.0043           0.00
+zo                    CA(2)AL(3)SI(3)H(1)O(13)                 zo           code
+ ST              0.0     -6896290.0          298.0         13.575
+ C3            662.0       0.010416     -6006400.0        -4260.7           0.00
+ V11       0.0000312         1044.0            4.0        -0.0038           0.00
+cz                    CA(2)AL(3)SI(3)H(1)O(13)                 cz           code
+ ST              0.0     -6895540.0          301.0          13.63
+ C3            630.9       0.013693     -6645800.0        -3731.1           0.00
+ V11       0.0000233         1197.0           4.07        -0.0034           0.00
+ep                    CA(2)FE(1)AL(2)SI(3)H(1)O(13)            ep           code
+ ST              0.0     -6473830.0          315.0          13.92
+ C3            613.3        0.02207     -7160000.0        -2987.7           0.00
+ V11       0.0000234         1340.0            4.0         -0.003           0.00
+fep                   CA(2)FE(2)AL(1)SI(3)H(1)O(13)           fep           code
+ ST              0.0     -6028590.0          329.0          14.21
+ C3            584.7       0.030447     -7674200.0        -2244.3           0.00
+ V11       0.0000231         1513.0            4.0        -0.0026           0.00
+pmt                   CA(2)MN(1)AL(2)SI(3)H(1)O(13)           pmt           code
+ ST              0.0     -6543030.0          340.0          13.82
+ C3            569.8        0.02779     -5442900.0        -2812.6           0.00
+ V11       0.0000238         1197.0           4.07        -0.0034           0.00
+law                   CA(1)AL(2)SI(2)H(4)O(10)                law           code
+ ST              0.0     -4868630.0          229.0         10.132
+ C3            687.8       0.001566       375900.0        -7179.2           0.00
+ V11       0.0000265         1229.0           5.45        -0.0044           0.00
+mpm                   CA(4)MG(1)AL(5)SI(6)H(7)O(28)           mpm           code
+ ST              0.0    -1.438691e7          629.0          29.55
+ C3           1720.8      -0.024928     -5998700.0       -14620.3           0.00
+ V11       0.0000248         1615.0           4.05        -0.0025           0.00
+fpm                   CA(4)FE(1)AL(5)SI(6)H(7)O(28)           fpm           code
+ ST              0.0    -1.403404e7          657.0          29.68
+ C3           1737.2      -0.024582     -5161100.0       -14963.0           0.00
+ V11       0.0000249         1615.0           4.05        -0.0025           0.00
+jgd                   CA(4)FE(6)SI(6)H(7)O(28)                jgd           code
+ ST              0.0    -1.180896e7          830.0          31.08
+ C3           1795.4      -0.037986     -4455700.0       -14888.0           0.00
+ V11       0.0000249         1615.0           4.05        -0.0025           0.00
+geh                   CA(2)AL(2)SI(1)O(7)                     geh           code
+ ST              0.0     -3992240.0          198.5          9.024
+ C3            405.7      -0.007099     -1188300.0        -3174.4           0.00
+ V11       0.0000223         1080.0           4.08        -0.0038           2.00
+ BW1          7510.0           0.09         7500.0           0.09            1.0            0.8
+ak                    CA(2)MG(1)SI(2)O(7)                      ak           code
+ ST              0.0     -3865620.0          212.5          9.254
+ C3            385.4       0.003209      -247500.0        -2889.9           0.00
+ V11       0.0000257         1420.0           4.06        -0.0029           0.00
+rnk                   CA(3)SI(2)O(7)                          rnk           code
+ ST              0.0     -3943820.0          210.0          9.651
+ C3            372.3      -0.002893     -2462400.0        -2181.3           0.00
+ V11       0.0000328          950.0           4.09        -0.0043           0.00
+ty                    CA(5)SI(2)C(2)O(13)                      ty           code
+ ST              0.0     -6368040.0          390.0         17.039
+ C3            741.7      -0.005345     -1434600.0        -5878.5           0.00
+ V11       0.0000342          950.0           4.09        -0.0043           0.00
+crd                   MG(2)AL(4)SI(5)O(18)                    crd           code
+ ST              0.0     -9163430.0          404.1         23.322
+ C3            906.1            0.0     -7902000.0        -6293.4           0.00
+ V11       0.0000068         1290.0            4.1        -0.0031           2.00
+ BW1         36710.0            0.1        36700.0            0.1            2.0            1.5
+hcrd                  MG(2)AL(4)SI(5)H(2)O(19)               hcrd           code
+ ST              0.0     -9448520.0          483.0         23.322
+ C3            955.3            0.0     -8352600.0        -6301.2           0.00
+ V11       0.0000067         1290.0            4.1        -0.0031           2.00
+ BW1         36710.0            0.1        36700.0            0.1            2.0            1.5
+fcrd                  FE(2)AL(4)SI(5)O(18)                   fcrd           code
+ ST              0.0     -8444070.0          461.0          23.71
+ C3            924.0            0.0     -7039400.0        -6439.6           0.00
+ V11       0.0000067         1290.0            4.1        -0.0031           2.00
+ BW1         36710.0            0.1        36700.0            0.1            2.0            1.5
+mncrd                 MN(2)AL(4)SI(5)O(18)                  mncrd           code
+ ST              0.0     -8693590.0          473.0         24.027
+ C3            886.5            0.0     -8840000.0        -5590.4           0.00
+ V11       0.0000069         1290.0            4.1        -0.0031           2.00
+ BW1         36710.0            0.1        36700.0            0.1            2.0            1.5
+phA                   MG(7)SI(2)H(6)O(14)                     phA           code
+ ST              0.0     -7129620.0          350.5         15.422
+ C3            962.0      -0.011521     -4517800.0        -7724.7           0.00
+ V11       0.0000355         1450.0           4.06        -0.0028           0.00
+sph                   CA(1)TI(1)SI(1)O(5)                     sph           code
+ ST              0.0     -2601660.0          124.0          5.565
+ C3            227.9       0.002924     -3539500.0         -894.3           0.00
+ V11       0.0000158         1017.0           9.85        -0.0097           1.00
+ LA1             485            0.4          0.005
+cstn                  CA(1)SI(2)O(5)                         cstn           code
+ ST              0.0     -2496350.0           99.5          4.818
+ C3            205.6       0.006034     -5517700.0         -352.6           0.00
+ V11       0.0000158         1782.0            4.0        -0.0022           0.00
+zrc                   ZR(1)SI(1)O(4)                          zrc           code
+ ST              0.0     -2035070.0          83.03          3.926
+ C3            232.0      -0.014405            0.0        -2238.2           0.00
+ V11       0.0000125         2301.0           4.04        -0.0018           0.00
+en                    MG(2)SI(2)O(6)                           en           code
+ ST              0.0     -3090220.0          132.5          6.262
+ C3            356.2       -0.00299      -596900.0        -3185.3           0.00
+ V11       0.0000227         1059.0           8.65        -0.0082           0.00
+pren                  MG(2)SI(2)O(6)                         pren           code
+ ST              0.0     -3084560.0          137.0          6.476
+ C3            356.2       -0.00299      -596900.0        -3185.3           0.00
+ V11        0.000023         1059.0           8.65        -0.0082           0.00
+cen                   MG(2)SI(2)O(6)                          cen           code
+ ST              0.0     -3091110.0          132.0          6.264
+ C3            306.0      -0.003793     -3041700.0        -1852.1           0.00
+ V11       0.0000211         1059.0           8.65        -0.0082           0.00
+hen                   MG(2)SI(2)O(6)                          hen           code
+ ST              0.0     -3082730.0          131.7          6.099
+ C3            356.2       -0.00299      -596900.0        -3185.3           0.00
+ V11       0.0000226         1500.0            5.5        -0.0036           0.00
+fs                    FE(2)SI(2)O(6)                           fs           code
+ ST              0.0     -2388710.0          189.9          6.592
+ C3            398.7      -0.006579      1290100.0        -4058.0           0.00
+ V11       0.0000326         1010.0           4.08         -0.004           0.00
+mgts                  MG(1)AL(2)SI(1)O(6)                    mgts           code
+ ST              0.0     -3196670.0          131.0           6.05
+ C3            371.4      -0.004082      -398400.0        -3547.1           0.00
+ V11       0.0000217         1028.0           8.55        -0.0083           0.00
+di                    CA(1)MG(1)SI(2)O(6)                      di           code
+ ST              0.0     -3201850.0          142.9          6.619
+ C3            314.5       0.000041     -2745900.0        -2020.1           0.00
+ V11       0.0000273         1192.0           5.19        -0.0044           0.00
+hed                   CA(1)FE(1)SI(2)O(6)                     hed           code
+ ST              0.0     -2842060.0          175.0          6.795
+ C3            340.2       0.000812     -1047800.0        -2646.7           0.00
+ V11       0.0000238         1192.0           3.97        -0.0033           0.00
+jd                    NA(1)AL(1)SI(2)O(6)                      jd           code
+ ST              0.0     -3025270.0          133.5           6.04
+ C3            319.4       0.003616     -1173900.0        -2469.5           0.00
+ V11        0.000021         1281.0           3.81         -0.003           0.00
+acm                   NA(1)FE(1)SI(2)O(6)                     acm           code
+ ST              0.0     -2583430.0          170.6          6.459
+ C3            307.1       0.016758     -1685500.0        -2125.8           0.00
+ V11       0.0000211         1060.0           4.08        -0.0038           0.00
+kos                   NA(1)CR(1)SI(2)O(6)                     kos           code
+ ST              0.0     -2746840.0         149.65          6.309
+ C3            309.2       0.005419      -664600.0        -2176.6           0.00
+ V11       0.0000194         1308.0            3.0        -0.0023           0.00
+cats                  CA(1)AL(2)SI(1)O(6)                    cats           code
+ ST              0.0     -3310110.0          135.0          6.356
+ C3            347.6      -0.006974     -1781600.0        -2757.5           0.00
+ V11       0.0000208         1192.0           5.19        -0.0044           2.00
+ BW1          3800.0           0.01         3800.0           0.01            1.0           0.25
+caes                  CA(0.5)AL(1)SI(2)O(6)                  caes           code
+ ST              0.0     -3002020.0          127.0           6.05
+ C3            362.0      -0.016944      -175900.0        -3565.7           0.00
+ V11       0.0000231         1192.0           5.19        -0.0044           0.00
+rhod                  MN(1)SI(1)O(3)                         rhod           code
+ ST              0.0     -1322380.0          100.5          3.494
+ C3            138.4       0.004088     -1936000.0         -538.9           0.00
+ V11       0.0000281          840.0            4.0        -0.0048           0.00
+pxmn                  MN(1)SI(1)O(3)                         pxmn           code
+ ST              0.0     -1323160.0           99.3          3.472
+ C3            138.4       0.004088     -1936000.0         -538.9           0.00
+ V11        0.000028          840.0            4.0        -0.0048           0.00
+wo                    CA(1)SI(1)O(3)                           wo           code
+ ST              0.0     -1633770.0           82.5          3.993
+ C3            159.3            0.0      -967300.0        -1075.4           0.00
+ V11       0.0000254          795.0            4.1        -0.0052           0.00
+pswo                  CA(1)SI(1)O(3)                         pswo           code
+ ST              0.0     -1627960.0           87.8          4.008
+ C3            157.8            0.0      -967300.0        -1075.4           0.00
+ V11       0.0000285         1100.0           4.08        -0.0037           0.00
+wal                   CA(1)SI(1)O(3)                          wal           code
+ ST              0.0     -1625900.0           83.5         3.7633
+ C3            159.3            0.0      -967300.0        -1075.4           0.00
+ V11       0.0000254          795.0            4.1        -0.0052           0.00
+tr                    CA(2)MG(5)SI(8)H(2)O(24)                 tr           code
+ ST              0.0    -1.230487e7          553.0          27.27
+ C3           1260.2        0.00383      -1.1455e7        -8237.6           0.00
+ V11       0.0000261          762.0            4.1        -0.0054           0.00
+fact                  CA(2)FE(5)SI(8)H(2)O(24)               fact           code
+ ST              0.0    -1.050412e7          710.0          28.42
+ C3           1290.0       0.029992     -8447500.0        -8947.0           0.00
+ V11       0.0000288          760.0            4.1        -0.0054           0.00
+ts                    CA(2)MG(3)AL(4)SI(6)H(2)O(24)            ts           code
+ ST              0.0    -1.255527e7          533.0           26.8
+ C3           1244.8       0.024348      -1.1965e7        -8112.1           0.00
+ V11       0.0000266          760.0            4.1        -0.0054           0.00
+parg                  NA(1)CA(2)MG(4)AL(3)SI(6)H(2)O(24)     parg           code
+ ST              0.0    -1.266473e7          635.0          27.19
+ C3           1280.2       0.022997     -1.23595e7        -8065.8           0.00
+ V11        0.000028          912.0           4.09        -0.0045           0.00
+gl                    NA(2)MG(3)AL(2)SI(8)H(2)O(24)            gl           code
+ ST              0.0    -1.196024e7          530.0          25.98
+ C3           1717.5       -0.12107      7075000.0       -19272.0           0.00
+ V11       0.0000149          883.0           4.09        -0.0046           0.00
+fgl                   NA(2)FE(3)AL(2)SI(8)H(2)O(24)           fgl           code
+ ST              0.0    -1.088021e7          624.0          26.59
+ C3           1762.9      -0.118992      9423700.0       -20207.1           0.00
+ V11       0.0000183          890.0           4.09        -0.0046           0.00
+rieb                  NA(2)FE(5)SI(8)H(2)O(24)               rieb           code
+ ST              0.0    -1.002478e7          695.0          27.49
+ C3           1787.3      -0.124882      9627100.0       -20275.5           0.00
+ V11       0.0000181          890.0           4.09        -0.0046           0.00
+anth                  MG(7)SI(8)H(2)O(24)                    anth           code
+ ST              0.0    -1.206684e7          537.0          26.54
+ C3           1277.3       0.025825     -9704600.0        -9074.7           0.00
+ V11       0.0000252          700.0           4.11        -0.0059           0.00
+fanth                 FE(7)SI(8)H(2)O(24)                   fanth           code
+ ST              0.0     -9624520.0          725.0          27.87
+ C3           1383.1       0.030669     -4224700.0       -11257.6           0.00
+ V11       0.0000274          700.0           4.11        -0.0059           0.00
+cumm                  MG(7)SI(8)H(2)O(24)                    cumm           code
+ ST              0.0    -1.206469e7          538.0          26.33
+ C3           1277.3       0.025825     -9704600.0        -9074.7           0.00
+ V11       0.0000252          700.0           4.11        -0.0059           0.00
+grun                  FE(7)SI(8)H(2)O(24)                    grun           code
+ ST              0.0     -9607150.0          735.0          27.84
+ C3           1383.1       0.030669     -4224700.0       -11257.6           0.00
+ V11       0.0000274          648.0           4.12        -0.0064           0.00
+ged                   MG(5)AL(4)SI(6)H(2)O(24)                ged           code
+ ST              0.0    -1.232914e7          517.0         25.548
+ C3           1307.7       0.023642     -9307400.0        -9799.0           0.00
+ V11       0.0000241          770.0            4.1        -0.0053           0.00
+spr4                  MG(4)AL(8)SI(2)O(20)                   spr4           code
+ ST              0.0    -1.102202e7          425.5           19.9
+ C3           1133.1      -0.007596     -8816600.0        -8180.6           0.00
+ V11       0.0000205         2500.0           4.04        -0.0016           0.00
+spr5                  MG(3)AL(10)SI(1)O(20)                  spr5           code
+ ST              0.0    -1.113557e7          419.5          19.75
+ C3           1103.4       0.001015      -1.0957e7        -7409.2           0.00
+ V11       0.0000206         2500.0           4.04        -0.0016           0.00
+fspr                  FE(4)AL(8)SI(2)O(20)                   fspr           code
+ ST              0.0     -9659530.0          485.0         19.923
+ C3           1132.9      -0.007348     -1.04202e7        -7036.6           0.00
+ V11       0.0000196         2500.0           4.04        -0.0017           0.00
+mcar                  MG(1)AL(2)SI(2)H(4)O(10)               mcar           code
+ ST              0.0     -4771050.0          221.5          10.59
+ C3            683.0      -0.014054       291000.0        -6976.4           0.00
+ V11       0.0000243          525.0           4.14        -0.0079           0.00
+fcar                  FE(1)AL(2)SI(2)H(4)O(10)               fcar           code
+ ST              0.0     -4411440.0          251.1         10.695
+ C3            686.6      -0.012415       186000.0        -6884.0           0.00
+ V11       0.0000221          525.0           4.14        -0.0079           0.00
+deer                  FE(18)SI(12)H(10)O(50)                 deer           code
+ ST              0.0     -1.83414e7         1650.0          55.74
+ C3           3164.4      -0.027883     -5039100.0       -26721.0           0.00
+ V11       0.0000275          630.0           4.12        -0.0065           0.00
+mu                    K(1)AL(3)SI(3)H(2)O(12)                  mu           code
+ ST              0.0     -5976510.0          292.0         14.083
+ C3            756.4       -0.01984     -2170000.0        -6979.2           0.00
+ V11       0.0000307          490.0           4.15        -0.0085           0.00
+cel                   K(1)MG(1)AL(1)SI(4)H(2)O(12)            cel           code
+ ST              0.0     -5834840.0          290.0         13.957
+ C3            741.2      -0.018748     -2368800.0        -6616.9           0.00
+ V11       0.0000307          700.0           4.11        -0.0059           0.00
+fcel                  K(1)FE(1)AL(1)SI(4)H(2)O(12)           fcel           code
+ ST              0.0     -5468490.0          330.0          14.07
+ C3            756.3      -0.019147     -1586100.0        -6928.7           0.00
+ V11       0.0000318          700.0           4.11        -0.0059           0.00
+pa                    NA(1)AL(3)SI(3)H(2)O(12)                 pa           code
+ ST              0.0     -5942840.0          277.0         13.211
+ C3            803.0       -0.03158       217000.0        -8151.0           0.00
+ V11        0.000037          515.0           6.51        -0.0126           0.00
+ma                    CA(1)AL(4)SI(2)H(2)O(12)                 ma           code
+ ST              0.0     -6242070.0          265.0         12.964
+ C3            744.4        -0.0168     -2074400.0        -6783.2           0.00
+ V11       0.0000233         1000.0           4.08        -0.0041           0.00
+phl                   K(1)MG(3)AL(1)SI(3)H(2)O(12)            phl           code
+ ST              0.0     -6214880.0          326.0         14.964
+ C3            770.3      -0.036939     -2328900.0        -6531.6           0.00
+ V11        0.000038          513.0           7.33        -0.0143           0.00
+ann                   K(1)FE(3)AL(1)SI(3)H(2)O(12)            ann           code
+ ST              0.0     -5143720.0          420.0         15.432
+ C3            815.7      -0.034861        19800.0        -7466.7           0.00
+ V11        0.000038          513.0           7.33        -0.0143           0.00
+mnbi                  K(1)MN(3)AL(1)SI(3)H(2)O(12)           mnbi           code
+ ST              0.0     -5477520.0          433.0         15.264
+ C3            809.9      -0.059213     -1514400.0        -6998.7           0.00
+ V11        0.000038          530.0           7.33        -0.0143           0.00
+east                  K(1)MG(2)AL(3)SI(2)H(2)O(12)           east           code
+ ST              0.0     -6330380.0          318.0         14.738
+ C3            785.5      -0.038031     -2130300.0        -6893.7           0.00
+ V11        0.000038          530.0           7.33        -0.0143           0.00
+naph                  NA(1)MG(3)AL(1)SI(3)H(2)O(12)          naph           code
+ ST              0.0     -6172010.0          318.0          14.45
+ C3            773.5      -0.040229     -2597900.0        -6512.6           0.00
+ V11       0.0000328          513.0           7.33        -0.0143           0.00
+clin                  MG(5)AL(2)SI(3)H(8)O(18)               clin           code
+ ST              0.0     -8909160.0          437.0          21.14
+ C3           1170.8      -0.001508     -3825800.0       -10315.0           0.00
+ V11       0.0000204          870.0           4.09        -0.0047           0.00
+ames                  MG(4)AL(4)SI(2)H(8)O(18)               ames           code
+ ST              0.0     -9040460.0          412.0          20.71
+ C3           1186.0      -0.002599     -3627200.0       -10677.0           0.00
+ V11         0.00002          870.0           4.09        -0.0047           0.00
+afchl                 MG(6)SI(4)H(8)O(18)                   afchl           code
+ ST              0.0     -8727860.0          439.0          21.57
+ C3           1155.0      -0.000417     -4024400.0        -9952.9           0.00
+ V11       0.0000204          870.0           4.09        -0.0047           0.00
+daph                  FE(5)AL(2)SI(3)H(8)O(18)               daph           code
+ ST              0.0     -7116910.0          584.0          21.62
+ C3           1192.0       -0.00594     -4826400.0        -9768.3           0.00
+ V11       0.0000227          870.0           4.09        -0.0047           0.00
+mnchl                 MN(5)AL(2)SI(3)H(8)O(18)              mnchl           code
+ ST              0.0     -7702320.0          595.0          22.59
+ C3           1136.5      -0.005243     -5548100.0        -8911.5           0.00
+ V11       0.0000223          870.0           4.09        -0.0047           0.00
+sud                   MG(2)AL(4)SI(3)H(8)O(18)                sud           code
+ ST              0.0     -8626540.0          395.0           20.3
+ C3           1436.1      -0.048749     -2748500.0       -13764.0           0.00
+ V11       0.0000199          870.0           4.09        -0.0047           0.00
+fsud                  FE(2)AL(4)SI(3)H(8)O(18)               fsud           code
+ ST              0.0     -7899850.0          456.0           20.4
+ C3           1466.3      -0.047365     -1182800.0       -14388.0           0.00
+ V11       0.0000208          870.0           4.09        -0.0047           0.00
+prl                   AL(2)SI(4)H(2)O(12)                     prl           code
+ ST              0.0     -5640610.0          239.0         12.804
+ C3            784.5      -0.042948      1251000.0        -8495.9           0.00
+ V11        0.000045          370.0           10.0        -0.0271           0.00
+ta                    MG(3)SI(4)H(2)O(12)                      ta           code
+ ST              0.0     -5897170.0          259.0         13.665
+ C3            622.2            0.0     -6385500.0        -3916.3           0.00
+ V11        0.000018          430.0           6.17        -0.0144           0.00
+fta                   FE(3)SI(4)H(2)O(12)                     fta           code
+ ST              0.0     -4798540.0          352.0         14.225
+ C3            579.7       0.039494     -6459300.0        -3088.1           0.00
+ V11        0.000018          430.0           6.17        -0.0144           0.00
+tats                  MG(2)AL(2)SI(3)H(2)O(12)               tats           code
+ ST              0.0     -6001290.0          259.0          13.51
+ C3            549.5       0.036324     -8606600.0        -2515.3           0.00
+ V11        0.000018          430.0           6.17        -0.0144           0.00
+tap                   AL(2)SI(4)H(2)O(12)                     tap           code
+ ST              0.0     -5649780.0          235.0          13.45
+ C3            784.5      -0.042948      1251000.0        -8495.9           0.00
+ V11        0.000045          370.0           10.0        -0.0271           0.00
+minn                  FE(3)SI(4)H(2)O(12)                    minn           code
+ ST              0.0     -4819310.0          355.0         14.851
+ C3            579.7       0.039494     -6459300.0        -3088.1           0.00
+ V11        0.000018          430.0           6.17        -0.0144           0.00
+minm                  MG(3)SI(4)H(2)O(12)                    minm           code
+ ST              0.0     -5866000.0          263.9         14.291
+ C3            622.2            0.0     -6385500.0        -3916.3           0.00
+ V11        0.000018          430.0           6.17        -0.0144           0.00
+kao                   AL(2)SI(2)H(4)O(9)                      kao           code
+ ST              0.0     -4122000.0          203.7          9.934
+ C3            436.7      -0.034295     -4055900.0        -2699.1           0.00
+ V11       0.0000251          645.0           4.12        -0.0064           0.00
+pre                   CA(2)AL(2)SI(3)H(2)O(12)                pre           code
+ ST              0.0     -6202170.0          292.8         14.026
+ C3            724.9      -0.013865     -2059000.0        -6323.9           0.00
+ V11       0.0000158         1093.0           4.01        -0.0037           0.00
+fpre                  CA(2)FE(1)AL(1)SI(3)H(2)O(12)          fpre           code
+ ST              0.0     -5766640.0          320.0           14.8
+ C3            737.1       -0.01681     -1957300.0        -6358.1           0.00
+ V11       0.0000158         1093.0           4.01        -0.0037           0.00
+chr                   MG(3)SI(2)H(4)O(9)                      chr           code
+ ST              0.0     -4361000.0          221.3         10.746
+ C3            624.7       -0.02077     -1721800.0        -5619.4           0.00
+ V11        0.000022          628.0            4.0        -0.0064           0.00
+liz                   MG(3)SI(2)H(4)O(9)                      liz           code
+ ST              0.0     -4369190.0          212.0         10.645
+ C3            614.7       -0.02077     -1721800.0        -5619.4           0.00
+ V11        0.000022          710.0            3.2        -0.0045           0.00
+glt                   FE(3)SI(2)H(4)O(9)                      glt           code
+ ST              0.0     -3297620.0          310.0          11.98
+ C3            576.4       0.002984     -3757000.0        -4166.2           0.00
+ V11       0.0000228          630.0            4.0        -0.0063           0.00
+fstp                  K(0.5)FE(5)AL(2)SI(8)H(12.5)O(30.5)    fstp           code
+ ST              0.0    -1.255107e7          930.2         37.239
+ C3           1944.3      -0.012289     -4840200.0       -16635.0           0.00
+ V11       0.0000368          513.0           7.33        -0.0143           0.00
+mstp                  K(0.5)MG(5)AL(2)SI(8)H(12.5)O(30.5)     mstp          code
+ ST              0.0    -1.428838e7          847.4         36.577
+ C3           1862.2      -0.014018     -8983100.0       -14923.0           0.00
+ V11       0.0000371          513.0           7.33        -0.0143           0.00
+atg                   MG(48)SI(34)H(62)O(147)                 atg           code
+ ST              0.0    -7.140469e7         3620.0         175.48
+ C3           9621.0      -0.091183     -3.59416e7       -83034.2           0.00
+ V11        0.000028          631.0           5.92        -0.0094           0.00
+ab                    NA(1)AL(1)SI(3)O(8)                      ab           code
+ ST              0.0     -3935480.0          207.4         10.067
+ C3            452.0      -0.013364     -1275900.0        -3953.6           0.00
+ V11       0.0000236          541.0           5.91        -0.0109           2.00
+ BW1         14000.0          0.042        13000.0          0.042            3.0            0.9
+abh                   NA(1)AL(1)SI(3)O(8)                     abh           code
+ ST              0.0     -3921480.0          224.3         10.105
+ C3            452.0      -0.013364     -1275900.0        -3953.6           0.00
+ V11       0.0000241          541.0           5.91        -0.0109           0.00
+mic                   K(1)AL(1)SI(3)O(8)                      mic           code
+ ST              0.0     -3975350.0          214.3         10.871
+ C3            448.8      -0.010075     -1007300.0        -3973.1           0.00
+ V11       0.0000166          583.0           4.02        -0.0069           0.00
+san                   K(1)AL(1)SI(3)O(8)                      san           code
+ ST              0.0     -3966700.0          214.3         10.871
+ C3            448.8      -0.010075     -1007300.0        -3973.1           0.00
+ V11       0.0000166          583.0           4.02        -0.0069           2.00
+ BW1          8650.0          0.024         8500.0          0.024            3.0            0.8
+an                    CA(1)AL(2)SI(2)O(8)                      an           code
+ ST              0.0     -4232690.0          200.5         10.079
+ C3            370.5        0.01001     -4339100.0        -1960.6           0.00
+ V11       0.0000141          860.0           4.09        -0.0048           2.00
+ BW1         42010.0            0.1        42000.0            0.1            1.0            2.0
+kcm                   K(1)AL(1)SI(3)H(2)O(9)                  kcm           code
+ ST              0.0     -4232640.0          281.5         11.438
+ C3            536.5       -0.01009      -980400.0        -4735.0           0.00
+ V11       0.0000321          425.0            2.0        -0.0047           0.00
+wa                    K(2)SI(4)O(9)                            wa           code
+ ST              0.0     -4271890.0          254.0         10.844
+ C3            499.1            0.0            0.0        -4350.1           0.00
+ V11       0.0000266          900.0            4.0        -0.0044           0.00
+hol                   K(1)AL(1)SI(3)O(8)                      hol           code
+ ST              0.0     -3791960.0          166.2          7.128
+ C3            417.6      -0.003617     -4748100.0        -2819.9           0.00
+ V11        0.000028         1800.0            4.0        -0.0022           0.00
+q                     SI(1)O(2)                                 q           code
+ ST              0.0      -910720.0          41.43          2.269
+ C3             92.9      -0.000642      -714900.0         -716.1           0.00
+ V11             0.0          730.0            6.0        -0.0082           1.00
+ LA1             847           4.95         0.1188
+trd                   SI(1)O(2)                               trd           code
+ ST              0.0      -907110.0           44.1            2.8
+ C3             74.9         0.0031     -1174000.0         -236.7           0.00
+ V11             0.0          150.0           4.36        -0.0291           0.00
+crst                  SI(1)O(2)                              crst           code
+ ST              0.0      -904270.0          50.86          2.745
+ C3             72.7       0.001304     -4129000.0            0.0           0.00
+ V11             0.0          160.0           4.35        -0.0272           0.00
+coe                   SI(1)O(2)                               coe           code
+ ST              0.0      -907000.0           39.6          2.064
+ C3            107.8      -0.003279      -190300.0        -1041.6           0.00
+ V11       0.0000123          979.0           4.19        -0.0043           0.00
+stv                   SI(1)O(2)                               stv           code
+ ST              0.0      -876390.0           24.0          1.401
+ C3             68.1        0.00601     -1978200.0          -82.1           0.00
+ V11       0.0000158         3090.0            4.6        -0.0015           0.00
+ne                    NA(1)AL(1)SI(1)O(4)                      ne           code
+ ST              0.0     -2094560.0          124.4          5.419
+ C3            272.7      -0.012398            0.0        -2763.1           0.00
+ V11       0.0000463          465.0           4.16        -0.0089           1.00
+ LA1             467           10.0           0.08
+cg                    NA(1)AL(1)SI(1)O(4)                      cg           code
+ ST              0.0     -2091720.0          118.7          5.603
+ C3            116.1       0.086021     -1992700.0            0.0           0.00
+ V11        0.000045          465.0           4.16        -0.0089           0.00
+cgh                   NA(1)AL(1)SI(1)O(4)                     cgh           code
+ ST              0.0     -2078010.0          135.0           5.67
+ C3            229.2       0.011876            0.0        -1970.7           0.00
+ V11       0.0000467          465.0           4.16        -0.0089           0.00
+sdl                   NA(8)AL(6)SI(6)CL(2)O(24)               sdl           code
+ ST              0.0    -1.340553e7          910.0          42.13
+ C3           1532.7       0.047747     -2972800.0       -12427.0           0.00
+ V11       0.0000463          465.0           4.16        -0.0089           0.00
+kls                   K(1)AL(1)SI(1)O(4)                      kls           code
+ ST              0.0     -2122960.0          136.0          6.052
+ C3            242.0      -0.004482      -895800.0        -1935.8           0.00
+ V11       0.0000316          514.0            2.0        -0.0039           0.00
+lc                    K(1)AL(1)SI(2)O(6)                       lc           code
+ ST              0.0     -3029270.0          198.5          8.826
+ C3            369.8      -0.016332       684700.0        -3683.1           0.00
+ V11       0.0000185          450.0            5.7        -0.0127           2.00
+ BW1         11610.0            0.4        11600.0            0.4            2.0            0.7
+me                    CA(4)AL(6)SI(6)C(1)O(27)                 me           code
+ ST              0.0    -1.384182e7          752.0         33.985
+ C3           1359.0       0.036442     -8594700.0        -9598.2           0.00
+ V11       0.0000181          870.0           4.09        -0.0047           0.00
+wrk                   CA(1)AL(2)SI(4)H(4)O(14)                wrk           code
+ ST              0.0     -6662450.0          380.0          19.04
+ C3            838.3       -0.02146     -2272000.0        -7292.3           0.00
+ V11       0.0000149          860.0           4.09        -0.0048           0.00
+lmt                   CA(1)AL(2)SI(4)H(8)O(16)                lmt           code
+ ST              0.0     -7262700.0          465.0          20.37
+ C3           1013.4      -0.021413     -2235800.0        -8806.7           0.00
+ V11       0.0000137          860.0           4.09        -0.0048           0.00
+heu                   CA(1)AL(2)SI(7)H(12)O(24)               heu           code
+ ST              0.0    -1.054522e7          783.0           31.7
+ C3           1504.8      -0.033224     -2959300.0       -13297.2           0.00
+ V11       0.0000157          274.0            4.0        -0.0146           0.00
+stlb                  CA(1)AL(2)SI(7)H(14)O(25)              stlb           code
+ ST              0.0    -1.089676e7          710.0          32.87
+ C3           1588.4      -0.032043     -3071600.0       -13966.9           0.00
+ V11       0.0000151          860.0           4.09        -0.0048           0.00
+anl                   NA(1)AL(1)SI(2)H(2)O(7)                 anl           code
+ ST              0.0     -3307220.0          232.0           9.74
+ C3            643.5      -0.016067      9302300.0        -9179.6           0.00
+ V11       0.0000276          400.0           4.18        -0.0104           0.00
+lime                  CA(1)O(1)                              lime           code
+ ST              0.0      -634530.0           38.1          1.676
+ C3             52.4       0.003673      -750700.0          -51.0           0.00
+ V11       0.0000341         1130.0           3.87        -0.0034           0.00
+ru                    TI(1)O(2)                                ru           code
+ ST              0.0      -944360.0           50.5          1.882
+ C3             90.4         0.0029            0.0         -623.8           0.00
+ V11       0.0000224         2220.0           4.24        -0.0019           0.00
+per                   MG(1)O(1)                               per           code
+ ST              0.0      -601530.0           26.5          1.125
+ C3             60.5       0.000362      -535800.0         -299.2           0.00
+ V11       0.0000311         1616.0           3.95        -0.0024           0.00
+fper                  FE(1)O(1)                              fper           code
+ ST              0.0      -259870.0           58.6          1.206
+ C3             44.4        0.00828     -1214200.0          185.2           0.00
+ V11       0.0000322         1520.0            4.9        -0.0032           0.00
+mang                  MN(1)O(1)                              mang           code
+ ST              0.0      -385550.0           59.7          1.322
+ C3             59.8         0.0036       -31400.0         -282.6           0.00
+ V11       0.0000369         1645.0           4.46        -0.0027           0.00
+cor                   AL(2)O(3)                               cor           code
+ ST              0.0     -1675270.0           50.9          2.558
+ C3            139.5        0.00589     -2460600.0         -589.2           0.00
+ V11        0.000018         2540.0           4.34        -0.0017           0.00
+mcor                  MG(1)SI(1)O(3)                         mcor           code
+ ST              0.0     -1474440.0           59.3          2.635
+ C3            147.8       0.002015     -2395000.0         -801.8           0.00
+ V11       0.0000212         2110.0           4.55        -0.0022           0.00
+hem                   FE(2)O(3)                               hem           code
+ ST              0.0      -825610.0           87.4          3.027
+ C3            163.9            0.0     -2257200.0         -657.6           0.00
+ V11       0.0000279         2230.0           4.04        -0.0018           1.00
+ LA1             955           15.6            0.0
+esk                   CR(2)O(3)                               esk           code
+ ST              0.0     -1137320.0           83.0          2.909
+ C3            119.0       0.009496     -1442000.0           -3.4           0.00
+ V11       0.0000159         2380.0            4.0        -0.0017           0.00
+bix                   MN(2)O(3)                               bix           code
+ ST              0.0      -959000.0          113.7          3.137
+ C3            145.1       0.023534       721600.0        -1008.4           0.00
+ V11       0.0000291         2230.0           4.04        -0.0018           0.00
+NiO                   NI(1)O(1)                               NiO           code
+ ST              0.0      -239470.0           38.0          1.097
+ C3             47.7       0.007824      -392500.0            0.0           0.00
+ V11        0.000033         2000.0           3.94         -0.002           1.00
+ LA1             520            5.7            0.0
+pnt                   MN(1)TI(1)O(3)                          pnt           code
+ ST              0.0     -1361950.0          105.5          3.288
+ C3            143.5       0.003373     -1940700.0         -407.6           0.00
+ V11        0.000024         1700.0            8.3        -0.0049           0.00
+geik                  MG(1)TI(1)O(3)                         geik           code
+ ST              0.0     -1568960.0           73.6          3.086
+ C3            151.0            0.0     -1890400.0         -652.2           0.00
+ V11       0.0000215         1700.0            8.3        -0.0049           0.00
+ilm                   FE(1)TI(1)O(3)                          ilm           code
+ ST              0.0     -1230450.0          109.5          3.169
+ C3            138.9       0.005081     -1288800.0         -463.7           0.00
+ V11        0.000024         1700.0            8.3        -0.0049           1.00
+ LA1            1900           12.0           0.02
+bdy                   ZR(1)O(2)                               bdy           code
+ ST              0.0     -1100340.0           50.4          2.115
+ C3            103.5      -0.004547      -416200.0         -713.6           0.00
+ V11         0.00002          953.0           3.88        -0.0041           0.00
+ten                   CU(1)O(1)                               ten           code
+ ST              0.0      -156100.0           42.6          1.222
+ C3             31.0        0.01374     -1258000.0          369.3           0.00
+ V11       0.0000357         2000.0           3.94         -0.002           0.00
+cup                   CU(2)O(1)                               cup           code
+ ST              0.0      -170600.0           92.4          2.344
+ C3            110.3            0.0            0.0         -674.8           0.00
+ V11       0.0000333         1310.0            5.7        -0.0043           0.00
+sp                    MG(1)AL(2)O(4)                           sp           code
+ ST              0.0     -2301190.0           82.0          3.978
+ C3            222.9       0.006127     -1686000.0        -1551.0           0.00
+ V11       0.0000193         1922.0           4.04        -0.0021           2.00
+ BW1          8000.0            0.0         1200.0            0.0            2.0            0.5
+herc                  FE(1)AL(2)O(4)                         herc           code
+ ST              0.0     -1953030.0          113.9          4.075
+ C3            216.7       0.005868     -2430200.0        -1178.3           0.00
+ V11       0.0000206         1922.0           4.04        -0.0021           2.00
+ BW1         18300.0            0.0        13600.0            0.0            2.0            1.0
+mt                    FE(3)O(4)                                mt           code
+ ST              0.0     -1114500.0          146.9          4.452
+ C3            262.5      -0.007205     -1926200.0        -1655.7           0.00
+ V11       0.0000371         1857.0           4.05        -0.0022           1.00
+ LA1             848           35.0            0.0
+mft                   FE(2)MG(1)O(4)                          mft           code
+ ST              0.0     -1442290.0          121.0          4.457
+ C3            270.5      -0.007505      -999200.0        -2022.4           0.00
+ V11       0.0000363         1857.0           4.05        -0.0022           1.00
+ LA1             665           17.0            0.0
+usp                   FE(2)TI(1)O(4)                          usp           code
+ ST              0.0     -1491120.0          180.0          4.682
+ C3           -102.6        0.14252     -9144500.0         5270.7           0.00
+ V11       0.0000386         1857.0           4.05        -0.0022           0.00
+picr                  MG(1)CR(2)O(4)                         picr           code
+ ST              0.0     -1762600.0          118.3          4.356
+ C3            196.1       0.005398     -3126000.0         -616.9           0.00
+ V11        0.000018         1922.0           4.04        -0.0021           2.00
+ BW1          8000.0            0.0         1200.0            0.0            2.0            0.5
+br                    MG(1)H(2)O(2)                            br           code
+ ST              0.0      -925560.0           63.2          2.463
+ C3            158.4      -0.004076     -1052300.0        -1171.3           0.00
+ V11        0.000062          415.0           6.45        -0.0155           0.00
+dsp                   AL(1)H(1)O(2)                           dsp           code
+ ST              0.0      -999840.0           34.5          1.786
+ C3            145.1       0.008709       584400.0        -1741.1           0.00
+ V11       0.0000357         2280.0           4.04        -0.0018           0.00
+gth                   FE(1)H(1)O(2)                           gth           code
+ ST              0.0      -561770.0           60.3          2.082
+ C3            139.3       0.000147      -212700.0        -1077.8           0.00
+ V11       0.0000435         2500.0           4.03        -0.0016           0.00
+cc                    CA(1)C(1)O(3)                            cc           code
+ ST              0.0     -1207760.0           92.5          3.689
+ C3            140.9       0.005029      -950700.0         -858.4           0.00
+ V11       0.0000252          733.0           4.06        -0.0055           1.00
+ LA1            1240           10.0           0.04
+arag                  CA(1)C(1)O(3)                          arag           code
+ ST              0.0     -1207650.0           89.8          3.415
+ C3            167.1       0.010695       162000.0        -1564.9           0.00
+ V11       0.0000614          614.0           5.87        -0.0096           0.00
+mag                   MG(1)C(1)O(3)                           mag           code
+ ST              0.0     -1110920.0           65.5          2.803
+ C3            186.4      -0.003772            0.0        -1886.2           0.00
+ V11       0.0000338         1028.0           5.41        -0.0053           0.00
+sid                   FE(1)C(1)O(3)                           sid           code
+ ST              0.0      -762220.0           93.3          2.943
+ C3            168.4            0.0            0.0        -1483.6           0.00
+ V11       0.0000439         1200.0           4.07        -0.0034           0.00
+rhc                   MN(1)C(1)O(3)                           rhc           code
+ ST              0.0      -892280.0           98.0          3.107
+ C3            169.5            0.0            0.0        -1534.3           0.00
+ V11       0.0000244          953.0           3.88        -0.0041           0.00
+dol                   CA(1)MG(1)C(2)O(6)                      dol           code
+ ST              0.0     -2326220.0          156.1          6.429
+ C3            358.9      -0.004905            0.0        -3456.2           0.00
+ V11       0.0000328          943.0           3.74         -0.004           2.00
+ BW1         11910.0          0.016        11900.0          0.016            1.0            1.0
+ank                   CA(1)FE(1)C(2)O(6)                      ank           code
+ ST              0.0     -1971410.0         188.46          6.606
+ C3            341.0      -0.001161            0.0        -3054.8           0.00
+ V11       0.0000346          914.0           3.88        -0.0043           2.00
+ BW1         11910.0          0.016        11900.0          0.016            1.0            1.0
+syv                   K(1)CL(1)                               syv           code
+ ST              0.0      -436500.0           82.6          3.752
+ C3             46.2        0.01797            0.0            0.0           0.00
+ V11       0.0001109          170.0            5.0        -0.0294           0.00
+hlt                   NA(1)CL(1)                              hlt           code
+ ST              0.0      -411300.0           72.1          2.702
+ C3             45.2        0.01797            0.0            0.0           0.00
+ V11       0.0001147          238.0            5.0         -0.021           0.00
+pyr                   FE(1)S(2)                               pyr           code
+ ST              0.0      -171640.0           52.9          2.394
+ C3             37.3       0.026715     -1817000.0          649.3           0.00
+ V11        0.000031         1395.0           4.09        -0.0029           0.00
+trot                  FE(1)S(1)                              trot           code
+ ST              0.0       -99030.0           65.5          1.819
+ C3             50.2       0.011052      -940000.0            0.0           0.00
+ V11       0.0000568          658.0           4.17        -0.0063           1.00
+ LA1             598           12.0          0.041
+tro                   FE(1)S(1)                               tro           code
+ ST              0.0       -97760.0           70.8          1.819
+ C3             50.2       0.011052      -940000.0            0.0           0.00
+ V11       0.0000573          658.0           4.17        -0.0063           1.00
+ LA1             598           12.0          0.041
+lot                   FE(1)S(1)                               lot           code
+ ST              0.0      -102160.0           60.0          1.818
+ C3             50.2       0.011052      -940000.0            0.0           0.00
+ V11       0.0000493          658.0           4.17        -0.0063           1.00
+ LA1             420           10.0            0.0
+trov                  FE(0.875)S(1)                          trov           code
+ ST              0.0       -96020.0           57.5          1.738
+ C3             51.1       0.008307      -669700.0            0.0           0.00
+ V11       0.0000594          658.0           4.17        -0.0063           1.00
+ LA1             595           10.0          0.016
+any                   CA(1)S(1)O(4)                           any           code
+ ST              0.0     -1434400.0          106.9          4.594
+ C3            128.7       0.048545     -1223000.0         -560.5           0.00
+ V11       0.0000418          543.8           4.19        -0.0077           0.00
+iron                  FE(1)                                  iron           code
+ ST              0.0            0.0          27.09          0.709
+ C3             46.2       0.005159       723100.0         -556.2           0.00
+ V11       0.0000356         1640.0           5.16        -0.0031           1.00
+ LA1            1042            8.3            0.0
+Ni                    NI(1)                                    Ni           code
+ ST              0.0            0.0          29.87          0.659
+ C3             49.8            0.0       585900.0         -533.9           0.00
+ V11       0.0000428         1905.0           4.25        -0.0022           1.00
+ LA1             631            3.0            0.0
+Cu                    CU(1)                                    Cu           code
+ ST              0.0            0.0          33.14          0.711
+ C3             12.4        0.00922      -379900.0          233.5           0.00
+ V11       0.0000358         1625.0           4.24        -0.0026           0.00
+gph                   C(1)                                    gph           code
+ ST              0.0            0.0           5.76           0.53
+ C3             34.3            0.0      -240700.0         -403.8           0.00
+ V11       0.0000165          312.0            3.9        -0.0125           0.00
+diam                  C(1)                                   diam           code
+ ST              0.0         1890.0           2.36          0.342
+ C3             40.0            0.0       -28500.0         -580.5           0.00
+ V11        0.000004         4465.0           1.61       -0.00036           0.00
+S                     S(1)                                      S           code
+ ST              0.0            0.0          32.05          1.551
+ C3             56.6      -0.004557       638000.0         -681.8           0.00
+ V11        0.000064          145.0            7.0         -0.048           0.00
+**** GuS DATA ****
+H2O                   H(2)O(1)                                H2O           code
+ SPC   PS94H2O
+ ST              0.0      -241810.0          188.8            0.0
+ C3             40.1       0.008656       487500.0         -251.2           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+CO2                   C(1)O(2)                                CO2           code
+ SPC   PS94CO2
+ ST              0.0      -393510.0          213.7            0.0
+ C3             87.8      -0.002644       706400.0         -998.9           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+CO                    C(1)O(1)                                 CO           code
+ ST              0.0      -110530.0         197.67            0.0
+ C3             45.7      -0.000097       662700.0         -414.7           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+CH4                   C(1)H(4)                                CH4           code
+ ST              0.0       -74810.0         186.26            0.0
+ C3            150.1       0.002063      3427700.0        -2650.4           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+O2                    O(2)                                     O2           code
+ ST              0.0            0.0          205.2            0.0
+ C3             48.3      -0.000691       499200.0         -420.7           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+H2                    H(2)                                     H2           code
+ ST              0.0            0.0          130.7            0.0
+ C3             23.3       0.004627            0.0           76.3           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+S2                    S(2)                                     S2           code
+ ST              0.0       128540.0          231.0            0.0
+ C3             37.1       0.002398      -161000.0          -65.0           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+H2S                   S(1)H(2)                                H2S           code
+ ST              0.0       -20300.0         205.77            0.0
+ C3             47.4        0.01024       615900.0         -397.8           0.00
+ V11             0.0            0.0            0.0            0.0           0.00
+**** MuNERAL DATA ****
+syvL                  K(1)CL(1)                              syvL           code
+ ST              0.0      -417410.0           94.5          3.822
+ C3             66.9            0.0            0.0            0.0           0.00
+ V11        0.000301           56.0           4.65         -0.083           4.00
+ DK1           -0.02
+hltL                  NA(1)CL(1)                             hltL           code
+ ST              0.0      -392990.0           80.1          2.938
+ C3             72.0      -0.003223            0.0            0.0           0.00
+ V11        0.000295           64.0           4.61         -0.072           4.00
+ DK1          -0.015
+perL                  MG(1)O(1)                              perL           code
+ ST              0.0      -654120.0          -64.3          0.839
+ C3             99.0            0.0            0.0            0.0           0.00
+ V11        0.000226          362.0          10.06        -0.0278           4.00
+ DK1          -0.041
+limL                  CA(1)O(1)                              limL           code
+ ST              0.0      -692280.0          -47.5          1.303
+ C3             99.0            0.0            0.0            0.0           0.00
+ V11        0.000175          362.0          10.06        -0.0278           4.00
+ DK1          -0.041
+corL                  AL(2)O(3)                              corL           code
+ ST              0.0     -1632160.0           14.9          3.369
+ C3            157.6            0.0            0.0            0.0           0.00
+ V11       0.0000703          150.0            6.0           0.04           4.00
+ DK1          -0.035
+qL                    SI(1)O(2)                                qL           code
+ ST              0.0      -921070.0           16.3           2.73
+ C3             82.5            0.0            0.0            0.0           0.00
+ V11             0.0          220.0           9.46         -0.043           4.00
+ DK1          -0.035
+h2oL                  H(2)O(1)                               h2oL           code
+ ST              0.0      -295010.0           45.5           1.39
+ C3             80.0            0.0            0.0            0.0           0.00
+ V11        0.000521           50.6            4.0         -0.079           4.00
+ DK1         -0.0037
+foL                   MG(2)SI(1)O(4)                          foL           code
+ ST              0.0     -2237350.0          -62.0          4.312
+ C3            269.4            0.0            0.0            0.0           0.00
+ V11        0.000092          362.0          10.06        -0.0278           4.00
+ DK1          -0.044
+faL                   FE(2)SI(1)O(4)                          faL           code
+ ST              0.0     -1463020.0           96.0          4.677
+ C3            243.7            0.0            0.0            0.0           0.00
+ V11       0.0001071          290.0          10.42        -0.0359           4.00
+ DK1          -0.055
+woL                   CA(1)SI(1)O(3)                          woL           code
+ ST              0.0     -1642220.0           22.5          3.965
+ C3            167.4            0.0            0.0            0.0           0.00
+ V11       0.0000669          305.0           9.38        -0.0308           4.00
+ DK1           -0.02
+enL                   MG(2)SI(2)O(6)                          enL           code
+ ST              0.0     -3096570.0           -4.0          6.984
+ C3            353.6            0.0            0.0            0.0           0.00
+ V11       0.0000681          218.0            7.2         -0.033           4.00
+ DK1          -0.024
+diL                   CA(1)MG(1)SI(2)O(6)                     diL           code
+ ST              0.0     -3193870.0           42.1          7.288
+ C3            334.0            0.0            0.0            0.0           0.00
+ V11       0.0000851          249.0           8.04        -0.0323           4.00
+ DK1         -0.0373
+silL                  AL(2)SI(1)O(5)                         silL           code
+ ST              0.0     -2593430.0           10.0          6.051
+ C3            253.0            0.0            0.0            0.0           0.00
+ V11       0.0000408          220.0           6.36        -0.0289           4.00
+ DK1          -0.029
+anL                   CA(1)AL(2)SI(2)O(8)                     anL           code
+ ST              0.0     -4277970.0           29.0         10.014
+ C3            430.0            0.0            0.0            0.0           0.00
+ V11       0.0000514          210.0           6.38        -0.0304           4.00
+ DK1          -0.055
+kspL                  K(1)AL(1)SI(3)O(8)                     kspL           code
+ ST              0.0     -3985190.0          129.2         11.431
+ C3            368.0            0.0            0.0            0.0           0.00
+ V11       0.0000493          173.0           6.84        -0.0393           4.00
+ DK1          -0.009
+abL                   NA(1)AL(1)SI(3)O(8)                     abL           code
+ ST              0.0     -3926520.0          149.9         10.858
+ C3            358.0            0.0            0.0            0.0           0.00
+ V11       0.0000337          176.0          14.35        -0.0815           4.00
+ DK1          -0.026
+neL                   NA(1)AL(1)SI(1)O(4)                     neL           code
+ ST              0.0     -2116730.0           52.9            5.2
+ C3            216.5            0.0            0.0            0.0           0.00
+ V11        0.000137          250.0           7.37        -0.0295           4.00
+ DK1          -0.008
+lcL                   K(1)AL(1)SI(2)O(6)                      lcL           code
+ ST              0.0     -3068410.0          102.0           8.59
+ C3            287.0            0.0            0.0            0.0           0.00
+ V11        0.000067          175.0            7.0        -0.0394           4.00
+ DK1             0.0
+**** WassER DATA ****
+H+                    H(1)EL(-1)                               H+           code
+ ST              0.0            0.0            0.0            0.0
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1             0.0
+Cl-                   CL(1)EL(1)                              Cl-           code
+ ST              0.0      -167080.0          56.73          1.779
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.1414
+OH-                   H(1)O(1)EL(1)                           OH-           code
+ ST              0.0      -230020.0         -10.71         -0.418
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.1372
+Na+                   NA(1)EL(-1)                             Na+           code
+ ST              0.0      -240300.0           58.4         -0.111
+ C3              0.0         0.1913            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.0306
+K+                    K(1)EL(-1)                               K+           code
+ ST              0.0      -252170.0         101.04          0.906
+ C3              0.0         0.0727            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.0072
+Ca++                  CA(1)EL(-2)                            Ca++           code
+ ST              0.0      -543300.0          -56.5         -1.806
+ C3              0.0         -0.069            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.0463
+Mg++                  MG(1)EL(-2)                            Mg++           code
+ ST              0.0      -465960.0         -138.1         -2.155
+ C3              0.0        -0.0462            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.0265
+Fe++                  FE(1)EL(-2)                            Fe++           code
+ ST              0.0       -90420.0        -107.11          -2.22
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.0339
+Al+++                 AL(1)EL(-3)                           Al+++           code
+ ST              0.0      -527230.0         -316.3          -4.44
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.1427
+CO3--                 C(1)O(3)EL(2)                         CO3--           code
+ ST              0.0      -675230.0          -50.0         -0.502
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.2908
+AlOH3                 AL(1)H(3)O(3)                         AlOH3           code
+ ST              0.0     -1251850.0           53.6            0.0
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.1015
+AlOH4-                AL(1)H(4)O(4)EL(1)                   AlOH4-           code
+ ST              0.0     -1495780.0          126.9            0.0
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.0965
+KOH                   K(1)H(1)O(1)                            KOH           code
+ ST              0.0      -473620.0         109.62           -0.8
+ C3              0.0         0.0945            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.0293
+HCl                   CL(1)H(1)                               HCl           code
+ ST              0.0      -162130.0          56.73          1.779
+ C3              0.0         0.0903            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1           0.054
+KCl                   K(1)CL(1)                               KCl           code
+ ST              0.0      -400030.0         184.81          4.409
+ C3              0.0         0.0543            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          -0.038
+NaCl                  NA(1)CL(1)                             NaCl           code
+ ST              0.0      -399880.0         126.09          2.226
+ C3              0.0         0.1913            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          -0.002
+CaCl2                 CA(1)CL(2)                            CaCl2           code
+ ST              0.0      -877060.0           46.0           3.26
+ C3              0.0         0.1369            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.0343
+CaCl+                 CA(1)CL(1)EL(-1)                      CaCl+           code
+ ST              0.0      -701280.0          27.36          0.574
+ C3              0.0         -0.069            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1            0.04
+MgCl2                 MG(1)CL(2)                            MgCl2           code
+ ST              0.0      -796080.0         -22.43           2.92
+ C3              0.0         0.2399            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.0186
+MgCl+                 MG(1)CL(1)EL(-1)                      MgCl+           code
+ ST              0.0      -632480.0         -81.37          0.126
+ C3              0.0        -0.0462            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.1126
+FeCl2                 FE(1)CL(2)                            FeCl2           code
+ ST              0.0      -375340.0         109.88            2.7
+ C3              0.0         0.4503            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.0124
+aqSi                  SI(1)O(2)                              aqSi           code
+ ST              0.0      -887830.0          46.35          1.832
+ C3              0.0         0.1775            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          0.0283
+HS-                   S(1)H(1)EL(1)                           HS-           code
+ ST              0.0       -16110.0           68.2          2.065
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1          -0.092
+HSO3-                 S(1)H(1)O(3)EL(1)                     HSO3-           code
+ ST              0.0      -626220.0         139.75           3.33
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1         -0.0058
+SO42-                 S(1)O(4)EL(2)                         SO42-           code
+ ST              0.0      -909600.0          18.83          1.388
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1           0.268
+HSO4-                 S(1)H(1)O(4)EL(1)                     HSO4-           code
+ ST              0.0      -889100.0         125.52           3.52
+ C3              0.0            0.0            0.0            0.0           0.00
+ V11             0.0            0.0            0.0            0.0           3.00
+ HQ1           0.022
+

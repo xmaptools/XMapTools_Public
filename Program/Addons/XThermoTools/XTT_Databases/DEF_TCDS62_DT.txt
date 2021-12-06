@@ -1,0 +1,50 @@
+! --------------------------------------------------------------------------------
+! These definitions are compatible with the versions of CAPI’s database tc55.txt
+! from Holland & Powell (1998) and subsequent updates 
+!
+! Recommendations (July 2019):
+!    - 	Pures phases should be included but Qcmp = 100 % if properly analysed
+!    - 	Solid solutions should have all elements involved in the substitutions
+!      	except Fe in minerals having high Fe-content and XFe3+ such as STAU
+!	 - 	Spaces in solution model names in Theriak-Domino are replaced by 
+!		underscores (e.g. WHITE MICA becomes WHITE_MICA)
+! 
+! PL & ED - 23.07.19
+! --------------------------------------------------------------------------------
+
+
+>1 SOLIDS (PHASES AND SOLUTIONS)
+QUARTZ         	2   	q   		[SI]  
+COESITE        	2       coe   		[SI]
+CHLORITE       	14  	CHL 		[SI]	
+PHENGITE       	11      WM   		[SI,AL,FE,MG,NA]
+MUSCOVITE      	11      WM         	[SI,AL,FE,MG,NA]
+PARAGONITE     	11  	WM_pa     	[SI,AL,NA]
+PLAGIOCLASE    	8   	PL          [SI,AL,NA,CA,K]]
+ANORTHITE     	8   	PL			[SI,AL,NA,CA,K]]	
+K-FELDSPAR     	8       PL_san		[SI,AL,NA,CA,K]
+GARNET         	12  	GRT			[CA,MG,FE,MN]
+RUTILE         	2   	ru      	[TI]
+EPIDOTE			13		EPI			[AL]
+SPHENE         	5   	sph   		[TI,CA]
+ILMENITE       	3       ILM1        [FE]
+BIOTITE        	11      BI          [SI,AL,TI,FE,MG,MN]
+KYANITE        	5       ky          [AL]
+SILLIMANITE		5		sill 		[AL]	
+ANDALUSITE		5		and 		[AL]
+HERCYNITE		4		SPLnou		[FE,MG]
+MAGNETITE		4		SPLnou_mt	[FE]
+ORTHOPYROXENE	6		OPX			[FE,MG]
+CORDIERITE		18		CORD		[FE,MG]
+STAUROLITE		46		ST			[MG]
+OPX				6		OPX			[AL,FE,MG]
+
+
+>2 LIQUID (PHASES, SPECIES AND SOLUTIONS) + OXYGEN BUFFERS
+Fluid_H2O		1		H2O					[H]	
+Fluid_CO2		2		CO2					[C]
+Melt			4		LIQtc6				[SI,AL,FE,MG,CA,NA,K,H]
+Oxygen			1		Oxygen				[O]
+Buffer_QFM		2		QFM-BUFFER			[O]
+
+

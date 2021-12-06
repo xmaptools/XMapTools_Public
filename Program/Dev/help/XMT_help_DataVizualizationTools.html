@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+<h1> Help > Data Visualization Tools </h1>    	
+<p><i>Help file version 21.11.2021 by M. Tedeschi & P. Lanari</i></p>
+<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p class="ex">This part of XMapTools 4 is currently at <b>level 1</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
+<br \>
+<hr>
+<p><b>Table of content</b><br \><br \>
+<a href="#Modes">Visualisation modes: histogram, binary, RGB and ternary</a><br \>
+<a href="#Variables">Variable definition</a><br \>
+<a href="#Sampling">Data sampling (Explore section)</a><br \>
+<a href="#Options">Options</a><br \>
+</p>
+<hr>
+<br \> 
+
+<p>This help file contains a description of the module <i>Data Visualisation</i>, which can be used to plot mapping data in histograms, binary plots, ternary diagrams and as a RGB composite image.</p> 
+
+<p>The module Data Visualisation has access to the data selected in the Primary Menu of XMapTools when it is opened. To change the type of data, close the module and re-open it after selecting different data.</p>
+
+<h2><a name="Modes"></a>Visualisation modes: histogram, binary, RGB and ternary</h2> 
+
+<p>The type of diagram to be generated can be selected in the section <i>Plot</i>. The following modes are available: </p>
+
+<ul>
+<li><img src="./img/icon_stats.png" height="23"> <b>Histogram</b>, requires a single variable X; an histogram is generated and plotted in the main figure (Fig. 1)</li>
+<li><img src="./img/icon_chess.png" height="23"> <b>Binary plot</b>, requires two variables X and Y; a binary plot is generated and plotted in the main figure, two histograms, one for each dimension and a density image (not shown if the low ressource mode is active) are plotted as additional figures (Fig. 2)</li>
+<li><img src="./img/icon_images.png" height="23"> <b>RGB</b>, requires three variables X, Y and Z; a RGB composite image is generated and plotted in the main figure, a legend is plotted in an additional figure (Fig. 3)</li>
+<li><img src="./img/icon_3d_modelling.png" height="23"> <b>Ternary diagram</b>, requires three variables X, Y and Z:; a ternary plot is generated and plotted in the main figure, three histograms, one for each dimension and a density image (not shown if the low ressource mode is active) are plotted as additional figures (Fig. 4)</li>
+</ul>
+
+<p>By default, XMapTools generates a binary diagram when the module is opened if at least two variables (maps) are available.</p>
+
+
+<img src="./img/VisualizationTool_1.png" width="700">
+<p><i><b>Figure 1</b>: Data Visualisation Module, mode histogram.</i> </p> 
+<br \>
+
+<img src="./img/VisualizationTool_2.png" width="700">
+<p><i><b>Figure 2</b>: Data Visualisation Module, mode binary.</i> </p> 
+<br \>
+
+<img src="./img/VisualizationTool_2.png" width="700">
+<p><i><b>Figure 3</b>: Data Visualisation Module, mode RGB.</i> </p> 
+<br \>
+
+<img src="./img/VisualizationTool_3.png" width="700">
+<p><i><b>Figure 4</b>: Data Visualisation Module, mode Ternary.</i> </p> 
+
+
+<h2><a name="Variables"></a>Variable definition</h2>
+
+<p>On the left side of the section <i>Plot</i>, it is possible to select the maps to be displayed. These can be elements, groups of elements or any other variable (i.e., structural formula) </p>
+
+<img src="./img/SS_VT_Variabledefinitions_1.png" height="60">
+
+<p>Regardless of the type of the plot, variables are selected in <i>Variable definitions</i>, either using the dropdown menus listing all maps available, or using any combinaison of them. </p>
+
+<p>Standard MATLAB code format is used to combine existing maps and create new variables to be plotted. Use arithmetic operation defined by the rules of linear algebra or array arithmetics. The operation can contain empty spaces between variables digits and operators. Array operators (with the period character ".") must be used if maps are divided or multiplied by each other. Note that element-wise multiplication or division should be used ".*" or "./" in order to multiply or divide the two arrays element by element.</p>
+
+<img src="./img/SS_VT_Variabledefinitions_2.png" height="60">
+
+
+<h2><a name="Sampling"></a>Data sampling (Explore section)</h2>
+
+<p>A basic identify pixel tool is available only for binary and ternary plots. Use this fuction to create polygons identifying the location of points in the map. </p>
+
+<p>When a polygon is drawn, the pixel locations of all points within the region-of-interest ss displayed on the map located at the bottom right. The shape can be edited and the plot is updated accordingly. An identical polygon is plotted on the density map if the low ressource mode is off. </p>
+
+<p>The button <i>Polygon</i> <img src="./img/icon_pin_rounded_plus.png" width="30"> activates a cross cursor and you can select  vertices of a polygon around any region-of-interest in the main plot. Right click to close the polygon. </p>
+
+<p> It is possible to create several polygons, by clicking on the button to active the cursor. The distribution on the map (displayed on the right) updates authomatically. </p>
+
+
+<img src="./img/VisualizationTool_6.png" width="700">
+<p><i><b>Figure 5</b>: Data Visualisation Module, Identify pixels using a polygonal selection in a binary plot.</i> </p> 
+
+
+
+
+
+
+<h2> <a name="Options"></a>Options</h2>
+
+<h4>Masks</h4>
+<p>Box and dropdown menu <i>Masks</i> <img src="./img/SS_VT_Masks.png" height="30"></p>
+
+<p>By selecting the box <i>Masks</i> the data displayed on the binary or ternary plots are colored according to the mask file displayed on the dropdown menu (Figure 2). </p>
+
+<p><img src="./img/VisualizationTool_5.png" width="700"></p> 
+<p><i><b>Figure 5</b>: Intensity data colored according to minerals retrieved from the selected mask file. </i> </p> 
+
+
+<h4>Low ressource mode</h4>
+
+<p>This mode is optimal for computers with limited memory and his activated by default when the Data Visualisation Module opens. When this mode is activated, only 40% of the data are plotted (random selection).</p>
+
+<p>For binary and ternary plots, density maps calculated and displayed only if the 'Low ressource mode' is off (Fig. 2 & 4). </p>
+
+
+<h4>Statistics</h4>
+
+<p>Statistics are reported in the section statistics and they are updated every time the plot is changed.</p>
+
+<p>A detailed description will be added in the future.</p>
+
+
+
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
