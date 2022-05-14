@@ -1,6 +1,6 @@
-![XMapTools_Github_public](https://user-images.githubusercontent.com/54409312/152673079-a20abcf1-9d38-47e2-901e-50ef2101d687.jpg)
-
 # Welcome to the Public Repository for XMapTools 4
+
+![XMapTools_Github_public](https://user-images.githubusercontent.com/54409312/152673079-a20abcf1-9d38-47e2-901e-50ef2101d687.jpg)
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xmaptools/XMapTools_Developers/graphs/commit-activity)
 [![Website xmaptools.ch](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://xmaptools.ch)
