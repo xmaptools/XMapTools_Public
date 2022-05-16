@@ -10,4 +10,4 @@ config.xthermotools.theriak_path = '';
 save('config_xmaptools.mat','config');
 
 clear all
-disp('done')
+disp('Completed – configuration has been reset')

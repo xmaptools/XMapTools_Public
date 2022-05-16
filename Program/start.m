@@ -6,12 +6,16 @@ close all
 
 switch Input
     case 'XMapTools'
-        open XMapTools.mlapp
+        open XMapTools
         
     case 'all'
         open XMapTools.mlapp
-        open /Modules/Tools_ImportMaps.mlapp
-        open /Modules/Tools_ConvertData.mlapp
+        open Tools_ImportMaps.mlapp
+        open Tools_ConvertData.mlapp
+        
+    case 'laser'
+        open XMapTools
+        open Converter_LAICPMS
 end
 
 end

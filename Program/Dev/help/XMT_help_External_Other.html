@@ -1,0 +1,409 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+<h1> Help > External Functions > Structural Formulas </h1>    	
+<p><i>Help file version 12.05.2022 by P. Lanari</i></p>
+<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<br \> 
+<hr>
+
+<p><b>Map-mode:</b><br \><br \>
+<a href="#TAmp">Map-mode > Amphibole > T.Amp (all calibrations)</a><br \>
+<a href="#TBt">Map-mode > Biotite > T.Bt (all calibrations)</a><br \>
+<a href="#TChl">Map-mode > Chlorite > T.Chl (all calibrations)</a><br \>
+<a href="#AgeMz">Map-mode > Monazite > Age.Mz (Montel 1996)</a><br \>
+<a href="#TQz">Map-mode > Quartz > T.Qz (all calibrations)</a><br \>
+<a href="#TRt">Map-mode > Rutile > T.Rt (all calibrations)</a><br \>
+<a href="#TTtn">Map-mode > Titanite > T.Ttn (all calibrations)</a><br \>
+<a href="#PPhg">Map-mode > White mica > P.Phg (all calibrations)</a><br \>
+<a href="#TZrn">Map-mode > Zircon > T.Zrn (all calibrations)</a><br \>
+
+<br \><br \>
+<p><b>Multi-equilibrium:</b><br \><br \>
+<a href="#TGrtHbl">Multi-equilibrium > Amphibole > T.Grt-Hbl (all calibrations)</a><br \>
+<a href="#TGrtBt">Multi-equilibrium > Biotite > T.Grt-Bt (all calibrations)</a><br \>
+<a href="#TGrtChl">Multi-equilibrium > Chlorite > T.Grt-Chl (all calibrations)</a><br \>
+<a href="#TGrtCrd">Multi-equilibrium > Clinopyroxene > T.Grt-Cpx (all calibrations)</a><br \>
+<a href="#TGrtCrd">Multi-equilibrium > Cordierite > T.Grt-Crd (all calibrations)</a><br \>
+<a href="#TGrtIlm">Multi-equilibrium > Ilmenite > T.Grt-Ilm (all calibrations)</a><br \>
+<a href="#TGrtOpx">Multi-equilibrium > Orthopyroxene > T.Grt-Opx (all calibrations)</a><br \>
+<a href="#TGrtPh">Multi-equilibrium > White Mica > T.Grt-Ph (all calibrations)</a><br \><br \>
+
+<a href="#TGrtHbl">Multi-equilibrium > Garnet > T.Grt-Hbl (all calibrations)</a><br \>
+<a href="#TGrtBt">Multi-equilibrium > Garnet > T.Grt-Bt (all calibrations)</a><br \>
+<a href="#TGrtChl">Multi-equilibrium > Garnet > T.Grt-Chl (all calibrations)</a><br \>
+<a href="#TGrtCrd">Multi-equilibrium > Garnet > T.Grt-Cpx (all calibrations)</a><br \>
+<a href="#TGrtCrd">Multi-equilibrium > Garnet > T.Grt-Crd (all calibrations)</a><br \>
+<a href="#TGrtIlm">Multi-equilibrium > Garnet > T.Grt-Ilm (all calibrations)</a><br \>
+<a href="#TGrtOpx">Multi-equilibrium > Garnet > T.Grt-Opx (all calibrations)</a><br \>
+<a href="#TGrtPh">Multi-equilibrium > Garnet > T.Grt-Ph (all calibrations)</a><br \>
+
+</p>
+
+
+
+<h2><a name="TAmp"></a>Amphibole > T.Amp (all calibrations)</h2>
+<pre><code>
+ -
+ XMapTools External Function: amphibole thermobarometry
+  
+ List of output variables:
+       - T_HB94       Holland & Blundy (1994) – no quartz
+       - T_HB94q      Holland & Blundy (1994) – with quartz
+       
+ 23 Oxgen-basis 
+ 
+ P. Lanari - Last update 28.10.2021
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="TBt"></a>Biotite > T.Bt (all calibrations)</h2>
+<pre><code>
+ -
+ XMapTools External Function: biotite thermobarometry 
+  
+ List of output variables:
+       - T_W20     Wu & Chen (2015)
+       - T_H05     Henry et al. (2005)
+       
+ 22 Oxygen-basis 
+ 
+ P. Lanari - Last update 10.02.2022
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="TChl"></a>Chlorite > T.Chl (all calibrations)</h2>
+<pre><code>
+ -
+ XMapTools External Function: chlorite thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_L14_2   Lanari et al. (2014) Contrib. Miner. Petrol. 167:167–968 (LWV2)
+       - T_B13     Bourdelle et al. (2013) Contrib. Miner. Petrol. 165:723–735
+       - T_ZF95    Zang & Fyfe (1995) Miner. Depos. 30:30–38
+       - T_HV91    Hillier & Velde, (1991) Clay Miner. 26:149–168
+       - T_J91     Jowett, (1991) Program Abstr. 16:A62
+       - T_C88     Cathelineau (1988) Clay Miner. 23:471-485
+       - T_KM87    Kranidiotis & MacLean, (1987) Econ. Geol. 82:1898–1911
+       - T_CN85    Cathelineau & Nieva (1985) Contrib. Miner. Petrol. 91:235–244
+ 
+  ++01.2021 Compatibility with XMapTools 4
+  	- Fe2O3 added as possible input
+  	
+ 14 Oxygen-basis 
+ 
+ P. Lanari - Last update 15.04.2021
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="AgeMz"></a>Monazite > Age.Mz (Montel 1996)</h2>
+<pre><code>
+ -
+ XMapTools External Function: quartz thermobarometry (all calibrations)
+ List of output variables:
+       - Age_M96    Montel (1996)
+       
+ Input variables: 
+       - ThO2, UO2 and PbO in wt% (use the converter if your data
+         were calibrated in a different format).
+  
+ P. Lanari & J. Laughton - Last update 15.11.2021
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+
+<h2><a name="TQz"></a>Quartz > T.Qz (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: quartz thermobarometry (all calibrations)
+ List of output variables:
+       - T_WW06    Wark & Watson (2006)
+       - T_KO08    Kawasaki & Osanai (2008) ** not save, needs to be corrected
+       - T_T10     Thomas et al. (2010)
+       - T_HA12    Huang & Audetat (2012)
+       - T_O22     Osborne et al. (2022) CPM 177:31
+  
+ List of input variables:
+       - TiO2 (wt%)
+       
+ P. Lanari, J. Laughton & Regiane Andrade Fumes - Last update 24.03.2023
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="TRt"></a>Rutile > T.Rt (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: rutile thermobarometry (all calibrations)
+ 
+ List of input variables:
+       - ZrO2 (wt%)
+       
+ List of output variables:
+       - T_Z04     Zack et al. (2004)
+       - T_W06     Watson et al. (2006)
+       - T_FW07    Ferry & Watson (2007), CMP 154:429–437
+       - T_T07     Tomkins et al. (2007)
+  
+ P. Lanari, J. Laughton & C. Martin - Last update 21.09.2021
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="TTtn"></a>Titanite > T.Ttn (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: titanite thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_H08   Hayden et al. (2008)
+       
+ J. Laughton & P. Lanari - Last update 21.09.2021
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="PPhg"></a>White mica > P.Phg (all calibrations)</h2>
+<pre><code>
+ -
+ XMapTools External Function: phengite barometry 
+  
+ List of output variables:
+       - P_MS87      Massone & Schreyer, (1987)
+       
+ 11 Oxygen-basis
+  
+ P. Lanari - Last update 07.01.2022
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="TZrn"></a>Zircon > T.Zrn (all calibrations)</h2>
+<pre><code>
+ -
+ XMapTools External Function: zircon thermobarometry (all calibrations)
+ List of output variables:
+       - T_W06     Watson et al. (2006)
+       - T_FW07    Ferry & Watson (2007), CMP 154:429–437
+  
+ J. Laughton & P. Lanari - Last update 21.09.2021
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+
+<h2><a name="TGrtHbl"></a>Amphibole > T.Grt-Hbl (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: Garnet-Hornblende thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_GP84    Graham & Powell (1984)               
+       - T_Per85   Perchuk et al. (1985)         
+       - T_Pow85   Powell (1985)    
+       - T_R00     Ravna (2000)  
+        
+ 12 Oxygen-basis for Garnet
+ 23 Oxygen-basis for Hornblende
+ 
+ J. Laughton & P. Lanari - Last update 02.09.2021  
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="TGrtBt"></a>Biotite > T.Grt-bt (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: Garnet-Biotite thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_T76     Thompson (1976)         
+       - T_GA77    Goldman & Albee (1977)
+       - T_HL77    Holdaway & Lee (1977) 
+       - T_FS78    Ferry & Spear (1978)
+       - T_HS82    Hodges & Spear (1982)
+       - T_PL83    Perchuk & Lavrent'eva (1983) 
+       - T_GS84    Ganguly & Saxena (1984)
+       - T_IM85    Indares & Martignole (1985)
+       - T_P85     Perchuk et al. (1985)
+       - T_D91     Dasgupta et al. (1991)
+       - T_B92     Bhattacharya et al. (1992)
+       
+ 12 Oxygen-basis for Garnet
+ 11 Oxygen-basis for Biotite
+ 
+ J. Laughton & P. Lanari - Last update 02.09.2021 
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="TGrtChl"></a>Chlorite > T.Grt-Chl (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: Garnet-Chlorite thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_DH86    Dickenson & Hewitt (1986)      
+       - T_G90     Grambling (1990)
+       - T_P91     Perchuk (1991)
+       
+ 12 Oxygen-basis for Garnet
+ 14 Oxygen-basis for Chlorite
+ 
+ J. Laughton & P. Lanari - Last update 02.09.2021  
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+
+<h2><a name="TGrtCpx"></a>Clinopyroxene > T.Grt-Cpx (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: Garnet-Clinopyroxene thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_MH72    Mysen & Heier (1972)      
+       - T_RG74    Raheim & Green (1974)
+       - T_MG78    Mori & Green (1978)
+       - T_EG79    Ellis & Green (1979)
+       - T_S79     Saxena (1979)
+       - T_D80     Dahl (1980)
+       - T_P85     Powell (1985)
+       - T_K88     Krogh (1988)
+       - T_A94     Ai (1994)
+       - T_R00     Ravna (2000)
+       - T_N09     Nakamura (2009)
+       
+ 12 Oxygen-basis for Garnet
+ 6 Oxygen-basis for Clinopyroxene
+ 
+ J. Laughton & P. Lanari - Last update 02.09.2021  
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+
+
+<h2><a name="TGrtCrd"></a>Cordierite > T.Grt-Crd (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: Garnet-Cordierite thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_C71     Currie (1971)          
+       - T_T76     Thompson (1976)     
+       - T_HL77    Holdaway & Lee (1977
+       - T_P85     Perchuk et al. (1985)
+       - T_B88     Bhattacharya et al. (1988)
+       - T_B93     Bhattacharya (1993)
+       
+ 12 Oxygen-basis for Garnet
+ 18 Oxygen-basis for Cordierite
+ 
+ J. Laughton - Last update 02.09.2021  
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+
+
+<h2><a name="TGrtIlm"></a>Ilmenite > T.Grt-Ilm (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: Garnet-Ilmenite thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_P87     Pownceby et al. (1987)                   
+       - T_P91     Pownceby et al. (1991)            
+       - T_M10     Martin et al. (2010)  
+         
+ 12 Oxygen-basis for Garnet
+ 3 Oxygen-basis for Ilmenite
+ 
+ J. Laughton - Last update 02.09.2021  *** NOT TESTED ***
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+
+
+<h2><a name="TGrtOpx"></a>Orthopyroxene > T.Grt-Opx (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: Garnet-Orthopyroxene thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_MG78    Mori & Green (1978)          
+       - T_D80     Dahl (1980)     
+       - T_R83     Raith et al. (1983)
+       - T_H84     Harley (1984)
+       - T_LG84    Lee & Ganguly (1984)
+       - T_SB84    Sen & Bhattacharya (1984)
+       - T_P85     Perchuk et al. (1985)
+       - T_LG88    Lee & Ganguly (1988)
+       - T_AP89    Aranovich & Podlesskii (1989)
+       - T_PL90    Perchuk & Lavrente’va (1990)
+       - T_B91     Bhattacharya et al. (1991)
+       
+ 12 Oxygen-basis for Garnet
+ 6 Oxygen-basis for Orthopyroxene
+ 
+ J. Laughton - Last update 07.01.2022  
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+<h2><a name="TGrtPh"></a>White Mica > T.Grt-Ph (all calibrations)</h2>
+<pre><code>
+-
+ XMapTools External Function: Garnet-Phengite thermometry (all calibrations) 
+ 
+ List of output variables:
+       - T_KR88    Krogh & Raheim (1978)               
+       - T_GH82    Green & Hellman (1982)     
+       - T_HF88    Hynes & Forest (1988)
+       - T_W02     Wu et al. (2002)
+       
+ 12 Oxygen-basis for Garnet
+ 11 Oxygen-basis for Phengite
+ 
+ J. Laughton - Last update 07.01.2022  
+ Find out more at https://xmaptools.ch
+</code></pre>
+
+
+
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

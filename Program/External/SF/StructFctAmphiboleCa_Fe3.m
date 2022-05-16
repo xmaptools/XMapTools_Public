@@ -1,6 +1,6 @@
 function [OutputData,OutputVariables] = StructFctAmphiboleCa_Fe3(InputData,InputVariables,ElOxDataDef)
 % -
-% XMapTools External Function: structural formula of biotite 
+% XMapTools External Function: structural formula of Ca-amphibole 
 %  
 %  ++08.2021 Compatibility with XMapTools 4
 %  		- Fe2O3 added as possible input

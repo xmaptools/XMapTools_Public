@@ -4,14 +4,18 @@ function [OutputData,OutputVariables] = Quartz_T_All(InputData,InputVariables,Ad
 %
 % List of output variables:
 %       - T_WW06    Wark & Watson (2006)
-%       - T_KO08    Kawasaki & Osanai (2008)
+%       - T_KO08    Kawasaki & Osanai (2008) ** not save, needs to be corrected
 %       - T_T10     Thomas et al. (2010)
 %       - T_HA12    Huang & Audetat (2012)
+%       - T_O22     Osborne et al. (2022) CPM 177:31
 %  
-% P. Lanari, J. Laughton & Regiane Andrade Fumes - Last update 21.09.2021
+% List of input variables:
+%       - TiO2 (wt%)
+%
+% P. Lanari, J. Laughton & Regiane Andrade Fumes - Last update 24.03.2023
 % Find out more at https://xmaptools.ch
 
-OutputVariables = {'T_WW06','T_T10','T_HA12','Ti_ppm'};
+OutputVariables = {'T_WW06','T_T10','T_HA12','T_O22','Ti_ppm'};
 OutputData = zeros(size(InputData,1),length(OutputVariables));
 
 %% Input
@@ -36,6 +40,9 @@ T_T10 = (60952+1741.*P_kbar)./(1.52-8.3145.*log(Ti_cpfu)+8.3145.*log(aTiO2))-273
 %% Huang & Audetat (2012)
 T_HA12 = (2794.3+660.*P_kbar.^0.35)./(5.6459-log10(Ti_ppm))-273.15;
 
+%% Osborne et al. (2022)
+T_O22 = (55.287 + (P_kbar .* (2.625 + (0.0403 .* P_kbar))))./(0-0.0083145.*log(Ti_cpfu)+0.0083145.*log(aTiO2))-273.15;
+
 %% Output
-OutputData(Idx,:) = [T_WW06,T_T10,T_HA12,Ti_ppm];
+OutputData(Idx,:) = [T_WW06,T_T10,T_HA12,T_O22,Ti_ppm];
 end

@@ -2,6 +2,9 @@ function [OutputData,OutputVariables] = Rutile_T_All(InputData,InputVariables,Ad
 % -
 % XMapTools External Function: rutile thermobarometry (all calibrations)
 %
+% List of input variables:
+%       - ZrO2 (wt%)
+%
 % List of output variables:
 %       - T_Z04     Zack et al. (2004)
 %       - T_W06     Watson et al. (2006)

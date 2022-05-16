@@ -1,33 +1,40 @@
 function [] = install_MATLAB()
 %
 
-addpath([cd]);
+Where = which('XMapTools');
+Where = Where(1:end-16);
 
-addpath([cd,'/Core']);
+addpath(Where);
 
-addpath([cd,'/Dev']);
-addpath([cd,'/Dev/help']);
-addpath([cd,'/Dev/icons']);
-addpath([cd,'/Dev/logo']);
-addpath([cd,'/Dev/splash']);
+addpath([Where,'/Core']);
 
-addpath([cd,'/External']);
-addpath([cd,'/External/SF']);
-addpath([cd,'/External/TB']);
-addpath([cd,'/External/ME']);
+addpath([Where,'/Dev']);
+addpath([Where,'/Dev/Data_Std_LAICPMS']);
+addpath([Where,'/Dev/help']);
+addpath([Where,'/Dev/help/img']);
+addpath([Where,'/Dev/icons']);
+addpath([Where,'/Dev/logo']);
+addpath([Where,'/Dev/splash']);
 
-addpath([cd,'/Modules']);
+addpath([Where,'/External']);
+addpath([Where,'/External/ME']);
+addpath([Where,'/External/SF']);
+addpath([Where,'/External/TB']);
 
-addpath([cd,'/Addons']);
-addpath([cd,'/Addons/XThermoTools']);
-addpath([cd,'/Addons/XThermoTools/XTT_Dev/logo']);
-addpath([cd,'/Addons/XThermoTools/XTT_Dev/img']);
-addpath([cd,'/Addons/XThermoTools/XTT_Core']);
-addpath([cd,'/Addons/XThermoTools/XTT_Databases']);
-addpath([cd,'/Addons/XThermoTools/XTT_Dev']);
-addpath([cd,'/Addons/XThermoTools/XTT_Functions']);
-addpath([cd,'/Addons/XThermoTools/XTT_Modules']);
+addpath([Where,'/Modules']);
+
+addpath([Where,'/Addons']);
+addpath([Where,'/Addons/XThermoTools']);
+addpath([Where,'/Addons/XThermoTools/XTT_Dev/logo']);
+addpath([Where,'/Addons/XThermoTools/XTT_Dev/img']);
+addpath([Where,'/Addons/XThermoTools/XTT_Core']);
+addpath([Where,'/Addons/XThermoTools/XTT_Databases']);
+addpath([Where,'/Addons/XThermoTools/XTT_Dev']);
+addpath([Where,'/Addons/XThermoTools/XTT_Functions']);
+addpath([Where,'/Addons/XThermoTools/XTT_Modules']);
 
 savepath
+
+disp('Installation completed')
 
 end

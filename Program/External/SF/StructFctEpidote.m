@@ -2,6 +2,8 @@ function [OutputData,OutputVariables] = StructFctEpidote(InputData,InputVariable
 % -
 % XMapTools External Function: structural formula of epidote 
 %  
+%  ++03.2022 Minor update
+%       - Fix an issue in the end-member proportion calculation; Add Xsum  
 %  ++01.2021 Compatibility with XMapTools 4
 %       - version without loop & all iron as Fe3+
 %   
@@ -19,7 +21,7 @@ function [OutputData,OutputVariables] = StructFctEpidote(InputData,InputVariable
 % P. Lanari - Last update 26.01.2021
 % Find out more at https://xmaptools.ch
 
-OutputVariables = {'Si','Ti','Al','Mg','Fe','Mn','Ca','SumCat','Al_M1','Al_M2','Fe_M1','Al_M3','Fe_M3','Mn_M3','Xep','Xfep','Xzo','Xmep'};
+OutputVariables = {'Si','Ti','Al','Mg','Fe','Mn','Ca','SumCat','Al_M1','Al_M2','Fe_M1','Al_M3','Fe_M3','Mn_M3','Xep','Xfep','Xzo','Xmep','Xsum'};
 
 OutputData = zeros(size(InputData,1),length(OutputVariables));
 
@@ -71,9 +73,11 @@ Al_M1 = Al - Al_M2 - Al_M3;
 Xmep = Mn_M3;
 Xfep = Fe_M1;
 Xep = Fe_M3-Xfep;
-Xzo = 1-(Xep+Xfep-Xmep);
+Xzo = 1-(Xep+Xfep+Xmep);   % changed from Xzo = 1-(Xep+Xfep-Xmep) (PL 10.03.22)
 
-OutputData(WhereMin,:) = [Si,Ti,Al,Mg,Fe,Mn,Ca,SumCat,Al_M1,Al_M2,Fe_M1,Al_M3,Fe_M3,Mn_M3,Xep,Xfep,Xzo,Xmep];
+Xsum = Xzo+Xep+Xfep+Xmep;
+
+OutputData(WhereMin,:) = [Si,Ti,Al,Mg,Fe,Mn,Ca,SumCat,Al_M1,Al_M2,Fe_M1,Al_M3,Fe_M3,Mn_M3,Xep,Xfep,Xzo,Xmep,Xsum];
 
 end
 

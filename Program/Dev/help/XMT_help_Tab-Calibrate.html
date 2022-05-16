@@ -31,7 +31,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 <hr>
 <p>This help file contains a description of the tools available in the section <i>Calibrate</i>.</p> 
 
-<p>The following steps are required to convert raw data (e.g. X-ray maps or LA-ICPMS maps) into maps of chemical composition:</p> 
+<p>The following steps are required to convert raw data (e.g. X-ray maps or LA-ICPMS intensity maps) into maps of chemical composition:</p> 
 
 <ul>
 <li><b>Import standard data</b>, either as spot analyses for the calibration of EPMA data or as maps for the calibration of LA-ICPMS data</li>
@@ -181,7 +181,7 @@ A mask file should be selected to activate the button <img src="./img/icon_volum
 
 <p>When an ROI is available, the table containing the Local bulk composition appears in the live display module. The first column shows the element list, whereas compositions are listed in the column composition (unit: wt%). Below the table, a pie chart shows the repartition of the elements/oxides by weight.</p>
  
-<p>The ROI can be edited and the composition values in the table and the pie chart are automatically updated. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u></p>
+<p>The ROI can be edited and the composition values in the table and the pie chart are automatically updated. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again.</u></p>
 
 <p><img src="./img/Calibrate_Window1.png" width="700"></p>
 
@@ -193,7 +193,17 @@ A mask file should be selected to activate the button <img src="./img/icon_volum
 
 <p><img src="./img/icon_save.png" width="30"> The button <i>Save</i> may be used to save the LBC data as a .txt file.</p>
 
+<h4>Approximation of uncertainties for LBC</h4>
 
+<p>An uncertainty approximation similar to what is described in <a href="#Biblio">Lanari and Engi (2017)</a> is available. </p>
+
+<p>Select a merge map and create a <i>Rectangle ROI</i>. Define the number of simulations <i>Sim</i> (default 100) and the shift <i>Px</i> in pixel (default 20). The shape will be randomly displaced and resized using two random variables calculated from the shift value (assuming a Gaussian distribution and the value of <i>Px</i> as 1 sigma expressed in number of pixels). Click on the button <i>calculate uncertainties using Monte-Carlo</i> <img src="./img/icon_calculator.png" height="30"></p> 
+ 
+<p>The areas used to approximate an uncertainty are plotted in a new figure and the result is showed in the table of the live display module (Figure 3).</p>
+
+<img src="./img/Calibration_Tab_Uncertainties.png" width="700">
+
+<p><i><b>Figure 3</b>: uncertainty estimation for LBC. The figure on the left show the distribution of the 100 areas used to determine the uncertainty (taken here as the standard deviation). The table on the right show the results. The column composition shows the original local bulk composition (selected ROI). The column 2std show the 2 standard deviation value (note that the distributions are usually Gaussian as shown by Lanari & Engi (2017)). The last column show the mean value of all compositions. This value should match the composition of the original ROI. If not, this means that a Gaussian distribution cannot be assumed for this element and the uncertainty is not correct.</i> </p> 
 
 
 <h2><a name="LAICPMS"></a>LA-ICPMS</h2>

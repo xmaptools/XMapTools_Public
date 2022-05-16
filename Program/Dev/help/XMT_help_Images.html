@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+<h1> Help > Images </h1>    	
+<p><i>Help file version 03.03.2022 by P. Lanari</i></p>
+<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p class="ex">This part of XMapTools 4 is currently at <b>level 2</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
+<br \> 
+<hr>
+<p><b>Table of content</b><br \><br \>
+<a href="#Intro">What are "image-data" in XMapTools?</a><br \>
+<a href="#Intro2">How to generate and edit images?</a><br \>
+&nbsp;&nbsp;- <a href="#Single">Single-plot image</a><br \>
+&nbsp;&nbsp;- <a href="#Multi">Multi-plot image</a><br \>
+&nbsp;&nbsp;- <a href="#GIF">Multi-plot image & GIF</a><br \>
+&nbsp;&nbsp;- <a href="#MultiSS">Multi-layer image (shared scale)</a><br \>
+&nbsp;&nbsp;- <a href="#MultiMS">Multi-layer image (multi-scale)</a><br \>
+</p>
+<hr>
+
+<h2><a name="Intro"></a>What are "image-data" in XMapTools?</h2> 
+
+<p>Images are plots which are stored in the project file and can be accessed via the primary menu under the category <i>Images</i>. These plots can be generated using the tools available in the menu <i>Image</i>. They can be edited anytime and changes are stored. </p>
+
+<p>Four types of images can be generated including:</p> 
+<ul>
+<li><b>Single-plot image</b> containing a single map (e.g. Ca_apfu in garnet)</li>
+<li><b>Multi-plot image</b> consisting of a a mosaic of maps (e.g. SiO2, Al2O3, FeO, Na2O); these maps can also be combined together to create a GIF</li>
+<li><b>Multi-layer image (shared color scale)</b> consisting of a single image containing several layers but plotted with the same color bar (e.g. XMg in biotite and XMg in garnet)</li>
+<li><b>Multi-layer image (multiple color scales)</b> consisting of a single image containing several layers each of them plotted with their own color scale and color palette (e.g. Ti in biotite with the color palette <i>Blues</i> and XMg in garnet with the color palette <i>Reds</i>)</li>
+</ul>
+
+<h2><a name="Intro2"></a>How to generate and edit images?</h2> 
+
+<h3><a name="Single"></a>Single-plot image</h3> 
+
+<p>Display a map using the primary menu and eventually adjust the color contrast, for example using the live histogram. In the main menu, select <i>Image >> Add Current Image</i>. A new image object is generated and stored in the category <i>Images</i> at the bottom of the primary menu.</p>
+
+<p>You can display this image at any time by selecting the item <i>Img (single-layer) #X</i> (with X the number of the image) in the primary menu.</p>
+
+<p>To edit the image, unfold the image item and select the map. You can adjust the color settings (limits, color palette, etc.); changes are saved within the image object.</p>
+
+<p>To export the image, select the image item in the primary menu and select in the menu <i>File > Save Image</i> or <i>Edit > Copy Image</i>.
+
+<center>
+<p><img src="./img/Images_Result1.png" width="500"></p>
+<i><b>Figure 1</b>: Example of image generated with XMapTools for Ca (apfu) in garnet.</i> 
+</center>
+
+<h3><a name="Multi"></a>Multi-plot image</h3> 
+
+<p>Activate the multi-selection mode via the menu <i>Image > Multi-Selection Mode</i>. The item labels in the primary menu are displayed in blue when this mode is active: multiple maps can be selected and data manipulation is not possible. It is not recommanded to use XMapTools with the multi-selection mode on, this mode should only be used to generate images.</p>
+
+<p>Once the mode is activated, select several maps using the primary menu. A mosaic is generated and displayed in the main window. After selecting the maps, select in the menu <i>Image > Add Multi-Plot Image</i> and a new image object is added to the category <i>Images</i>.</p>
+
+<p>You can unfold the item <i>Img (multi-plot) #X</i> (with X the number of the image object) in the primary menu and select the maps one by one to adjust the color contrast. You can also change the color palette in the panel <i>Options</i>. </p>
+
+<p>Select the main item to display the mosaic and save the image.</p>
+
+<center>
+<p><img src="./img/Images_Result2.png" width="500"></p>
+<i><b>Figure 2</b>: Example of multi-plot image generated with XMapTools. Maps are expressed in oxide wt%. Note that each map is plotted with a different color palette.</i> 
+</center>
+
+<h3><a name="GIF"></a>Multi-plot image & GIF</h3> 
+
+A GIF can be created from a multi-plot image. Select a multi-plot object and right-click on the name and select <i>Save As GIF</i>.
+
+<center>
+<p><img src="./img/Images_Result3.gif" width="500"></p>
+<i><b>Figure 3</b>: Example of GIF generated with the images shown in Figure 2.</i>
+</center>
+
+
+<h3><a name="MultiSS"></a>Multi-layer image (shared scale)</h3> 
+
+<p>Activate the multi-selection mode via the menu <i>Image > Multi-Selection Mode</i>. The item labels in the primary menu are displayed in blue when this mode is active: multiple maps can be selected and data manipulation is not possible. It is not recommanded to use XMapTools with the multi-selection mode on, this mode should only be used to generate images.</p>
+
+<p>Select two (or more) compatible maps to be plotted together, for example a selection of Fe_apfu in biotite and Fe_apfu in garnet or XMg in biotite and XMg in garnet. In both cases the same quantity is selected for different minerals and with the same unit. After selecting the maps, select in the menu <i>Image > Add Multi-Layer Image (Shared Scale)</i> and a new image object is added to the category <i>Images</i>.</p></p>
+
+<p>You can unfold the item <i>Img (multi-layer ShS) #X</i> (with X the number of the image object) in the primary menu and select the maps one by one to adjust the color contrast. Note that the same minimum and maximum values are applied to both images (shared-scale option, see below for an alternative option). You can also change the color palette in the panel <i>Options</i>. </p>
+
+<p>Select the main item to display the multi-layer map and to save the image.</p>
+
+<center>
+<p><img src="./img/Images_Result4.png" width="500"></p>
+<i><b>Figure 4</b>: Example of multi-layer image with shared color scale for XMg in garnet and biotite.</i>
+</center>
+
+
+<h3><a name="MultiMS"></a>Multi-layer image (multi-scale)</h3> 
+
+<p>Activate the multi-selection mode via the menu <i>Image > Multi-Selection Mode</i>. The item labels in the primary menu are displayed in blue when this mode is active: multiple maps can be selected and data manipulation is not possible. It is not recommanded to use XMapTools with the multi-selection mode on, this mode should only be used to generate images.</p>
+
+<p>Select two (or more) compatible maps to be plotted together, for example a selection of Fe_apfu in biotite and Fe_apfu in garnet or XMg in biotite and XMg in garnet. Different quantities with different scales and units can be selected for different minerals . After selecting the maps, click in the menu <i>Image > Add Multi-Layer Image (Multi-Scale)</i> and a new image object is added to the category <i>Images</i>.</p></p>
+
+<p>You can unfold the item <i>Img (multi-layer MuS) #X</i> (with X the number of the image object) in the primary menu and select the maps one by one to adjust the color contrast. It is strongly recommended to use a different color map (option available in the panel <i>Options</i>) for each map because multiple color bars will be created. An example is given in Figure 5.</p>
+
+<p>Select the main item to display the multi-layer map and to save the image.</p>
+
+<center>
+<p><img src="./img/Images_Result5.png" width="500"></p>
+<i><b>Figure 4</b>: Example of multi-layer image with multi-scale for XMg in garnet and biotite. Note that the contrast is much better than on Figure 4 because two color bars are used.</i>
+</center>
+
+
+
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

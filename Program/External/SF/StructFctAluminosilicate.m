@@ -1,11 +1,11 @@
 function [OutputData,OutputVariables] = StructFctAluminosilicate(InputData,InputVariables,ElOxDataDef)
 % -
-% XMapTools External Function: structural formula of cordierite 
+% XMapTools External Function: structural formula of aluminosilicates 
 %  
 %  ++08.2021 Compatibility with XMapTools 4
 %       - version without loop & all Fe as Fe2O3
 %   
-% 18 Oxygen-basis 
+% 5 Oxygen-basis 
 %
 % P. Lanari - Last update 13.08.2021
 % Find out more at https://xmaptools.ch

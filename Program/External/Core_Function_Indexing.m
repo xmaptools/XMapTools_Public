@@ -106,10 +106,10 @@ Functions.Min(Min).SF.FileName{Fct} = 'StructFctBiotite';
 Functions.Min(Min).TB = [];
 
 Fct = length(Functions.Min(Min).TB)+1;
-Functions.Min(Min).TB.Name{Fct} = 'T.Bt (Henry et al. 2005)';
-Functions.Min(Min).TB.FileName{Fct} = 'Biotite_T_H05';
-Functions.Min(Min).TB.Details(Fct).AddVar = {};
-Functions.Min(Min).TB.Details(Fct).Def = [];
+Functions.Min(Min).TB.Name{Fct} = 'T.Bt (all calibrations)';
+Functions.Min(Min).TB.FileName{Fct} = 'Biotite_T_All';
+Functions.Min(Min).TB.Details(Fct).AddVar = {'P_kbar'};
+Functions.Min(Min).TB.Details(Fct).Def = [7];
 
 % -------------------------------------------------------------------------
 % Multi-equilibrium thermobarometry
@@ -447,7 +447,19 @@ Functions.Min(Min).ME.Details(Fct).Min = {'Grt','Ilm'};
 Functions.Min(Min).ME.Details(Fct).AddVar = {};
 Functions.Min(Min).ME.Details(Fct).Def = [];
 
+Fct = length(Functions.Min(Min).ME.Names)+1;
+Functions.Min(Min).ME.Names{Fct} = 'T.Grt-Opx (all calibrations)';
+Functions.Min(Min).ME.FileName{Fct} = 'GrtOpx_T_All';
+Functions.Min(Min).ME.Details(Fct).Min = {'Grt','Opx'};
+Functions.Min(Min).ME.Details(Fct).AddVar = {'P_kbar'};
+Functions.Min(Min).ME.Details(Fct).Def = [5];
 
+Fct = length(Functions.Min(Min).ME.Names)+1;
+Functions.Min(Min).ME.Names{Fct} = 'T.Grt-Ph (all calibrations)';
+Functions.Min(Min).ME.FileName{Fct} = 'GrtPh_T_All';
+Functions.Min(Min).ME.Details(Fct).Min = {'Grt','Ph'};
+Functions.Min(Min).ME.Details(Fct).AddVar = {'P_kbar'};
+Functions.Min(Min).ME.Details(Fct).Def = [5];
 
 
 %% ILMENITE
@@ -555,6 +567,14 @@ Functions.Min(Min).TB = [];
 Functions.Min(Min).ME = []; 
 Functions.Min(Min).ME.Names = {}; 
 
+Fct = length(Functions.Min(Min).ME.Names)+1;
+Functions.Min(Min).ME.Names{Fct} = 'T.Grt-Opx (all calibrations)';
+Functions.Min(Min).ME.FileName{Fct} = 'GrtOpx_T_All';
+Functions.Min(Min).ME.Details(Fct).Min = {'Grt','Opx'};
+Functions.Min(Min).ME.Details(Fct).AddVar = {'P_kbar'};
+Functions.Min(Min).ME.Details(Fct).Def = [5];
+
+
 
 
 
@@ -624,7 +644,7 @@ Functions.Mineral{Min} = 'Serpentine';
 Functions.Min(Min).SF = [];
 
 Fct = length(Functions.Min(Min).SF)+1;
-Functions.Min(Min).SF.Name{Fct} = 'Srp (SF, 14.5-Ox. basis)';
+Functions.Min(Min).SF.Name{Fct} = 'Srp (SF, 14-Ox. basis)';
 Functions.Min(Min).SF.FileName{Fct} = 'StructFctSerpentine'; 
 
 % -------------------------------------------------------------------------
@@ -731,6 +751,11 @@ Functions.Min(Min).SF.FileName{Fct} = 'StructFctWhiteMica';
 % Thermobarometry
 Functions.Min(Min).TB = [];
 
+Fct = length(Functions.Min(Min).TB)+1;
+Functions.Min(Min).TB.Name{Fct} = 'P.Phg (all calibrations)';
+Functions.Min(Min).TB.FileName{Fct} = 'Phengite_P_All';
+Functions.Min(Min).TB.Details(Fct).AddVar = {'T_C'};
+Functions.Min(Min).TB.Details(Fct).Def = [550];
 
 % -------------------------------------------------------------------------
 % Multi-equilibrium thermobarometry
@@ -738,6 +763,12 @@ Functions.Min(Min).ME = [];
 Functions.Min(Min).ME.Names = {}; 
 
 
+Fct = length(Functions.Min(Min).ME.Names)+1;
+Functions.Min(Min).ME.Names{Fct} = 'T.Grt-Ph (all calibrations)';
+Functions.Min(Min).ME.FileName{Fct} = 'GrtPh_T_All';
+Functions.Min(Min).ME.Details(Fct).Min = {'Grt','Ph'};
+Functions.Min(Min).ME.Details(Fct).AddVar = {'P_kbar'};
+Functions.Min(Min).ME.Details(Fct).Def = [5];
 
 
 

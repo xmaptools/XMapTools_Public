@@ -15,7 +15,8 @@ h2,h3,h4,h5 {margin-top: 2em; }
 <h1> Help > Tools > Converter For LA-ICPMS Data </h1>    	
 <p><i>Help file version 03.12.2021 by M. Tedeschi & P. Lanari</i></p>
 <p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
-<p class="ex">This part of XMapTools 4 is currently at <b>level 1</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
+<p class="ex">This part of XMapTools 4 is currently at <b>level 3</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
+<p class="ex"><b><u>Warning</u>: the algorithm used to generate the maps from LA-ICPMS data is not yet published and evolves on a weekly basis. Therefore, it is strongly recommended to contact us if you want to publish trace element data generated with any beta version of XMapTools 4.</b> </p> 
 <br \>
 <hr>
 <p><b>Table of content</b><br \><br \>
@@ -32,7 +33,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 <hr>
 <br \> 
 
-<p>This help file contains a description of the <i>Converter for LA-ICPMS data</i> which can natively read data from AGILENT (data) and RESONETICS (log file). </p>
+<p>This help file contains a description of the <i>Converter for LA-ICPMS data</i> which can natively read data from AGILENT (mass spectrometer) and RESONETICS (log file). </p>
 
 <p>Contact Pierre Lanari (pierre.lanari@geo.unibe.ch) if you want additional formats to be included in future releases.</p>
 
@@ -57,7 +58,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <h2><a name="Description"></a>Detailed description</h2> 
 
-The following steps must be followed in sequence and there is no way to go back once one step is validated. If something went wrong, simply close the module and start again. 
+The following steps must be followed. The procedure is quick, so if something goes wrong during import, close the module and start over again. 
 
 <h3><a name="Step1"></a>Step 1: Load datafiles</h3> 
 <p>Press the button <i>Load Datafiles</i> <img src="./img/SS_ConverterLAICPMS_Loadfiles.png" height="30"> to select: (1) a data file from the mass spectrometer (AGILENT only) containing timestamps an intensity data (e.g. Data.csv), and immediately after (2) a corresponding log file (e.g. Log.csv) from the laser system (RESONETICS only).</p>
@@ -68,9 +69,9 @@ The following steps must be followed in sequence and there is no way to go back 
 
 <p>The value of the time shift can be adjusted to synchronise the data file and the log file. In the main figure, the total signal is plotted together with the laser on/off signals given in the log file. </p>
 
-<p>Adjust the value until both signals are synchronised (see example in Figure 1 bellow). </p>
+<p>The shift value is automatically adjusted by XMapTools when the data are imported. If necessary, adjust the value until both signals are synchronised (see example in Figure 1 bellow).</p>
 
-<p>It is possible to zoom on the figure. Hold the pointer over the figure and locate the zoom button that appears in the top right corner of the image.</p>
+<p>It is possible to zoom on the figure. Click on the Zoom in butto, or hold the pointer over the figure and locate the zoom button in the plot pannel that appears in the top right corner of the image. You can also pan over the plot by selecting the pan mode (hand button) in the plot pannel. Press the rest button to reset the display. </p>
 
 
 <p><img src="./img/Converter_LAICPMS_TimeShift.png" width="700"></p>
@@ -119,7 +120,7 @@ Note that the following categories are available in this tree menu:
 <li>Spline</li>
 </ul>
 
-<p>Due to the compositional variability of each material analysed, an optimal background correction is usually achieved using a step function. 
+<p>Due to the compositional variability of each material analysed, an optimal background correction is usually obtained using a <b>step function</b>. 
 
 <p>Press the button <i>Apply</i> to apply the background correction.</p>
 
@@ -139,9 +140,9 @@ Note that the following categories are available in this tree menu:
 
 <p>Integrations can be edited following the same strategy as for background integration (see above).</p>
 
-<p>Select then a fitting method. Polynomial is usually a good way to approximate instrument drift during measurement, especially for reconstructing maps. </p>
+<p>Select then a fitting method. A spline function is usually the best method to approximate instrument drift during measurement, especially for reconstructing maps. Step function can also be used in some cases, but it can result in sharp transition between lines in the final map.</p>
 
-<p>Press the button <i>Apply</i> to validate and fit the primary standard signal. The program generates standard data such as shown in the second image of Figure 1. </p>
+<p>Press the button <i>Apply</i> to validate and fit the primary standard signal. The program generates standard data such as shown in the second image of Figure 1. If the standard is not recognised automatically a window containing a list of all available standards will be opened. Note that it is possible to add additional standards using the option pannel available at the bottom left of the interface. </p>
 
 
 <p><img src="./img/Converter_LAICPMS_2.png" width="700"></p>
@@ -163,7 +164,12 @@ Note that the following categories are available in this tree menu:
 
 <p>The table shown in Figure 5 reports the average composition of the secondary material (integrated over all measurements) compared to the reference composition for all elements. The last column shows the difference between the measured and reference composition expressed in %. </p>
 
+<p>The button <i>Cal. Matrix</i> generates a calibration matrix showing how the secondary standard matches the reference composition for any element selected as reference. An example is provided in Figure 6. </p>
+
 <p>Pressing the button <i>Apply</i> ends this step. </p>
+
+<p><img src="./img/Converter_LAICPMS_6.png" width="700"></p>
+<i><b>Figure 6</b>: Calibration matrix showing the drift in percent for each element (x-axis) depending on the element used as internal standard (y-axis). A row represents therefore a calibration using a single-element. </i>
 
 
 <h3><a name="Step7"></a>Step 7: Generate map files</h3>
@@ -182,6 +188,7 @@ Note that the following categories are available in this tree menu:
 
 <p>To use the data oin XMapTools, click on the button <i>Import (Import Maps)</i> available on the tab <i>Project & Import</i>.</p>
 
+<p>After creating the maps, it is possible to calculate a new dataset using the same settings, if more than one dataset is available. </p>
 
 <br \> <br \> <br \>
 <br \> <br \> <br \>

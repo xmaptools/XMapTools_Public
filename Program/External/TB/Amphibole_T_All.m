@@ -3,11 +3,11 @@ function [OutputData,OutputVariables] = Amphibole_T_All(InputData,InputVariables
 % XMapTools External Function: amphibole thermobarometry
 %  
 % List of output variables:
-%       - T_HB94       Holland & BlundY_calibA (1994) – no quartz
-%       - T_HB94q      Holland & BlundY_calibA (1994) – with quartz
+%       - T_HB94       Holland & Blundy (1994) – no quartz
+%       - T_HB94q      Holland & Blundy (1994) – with quartz
 %
 % 23 Oxgen-basis 
-%
+% 
 % P. Lanari - Last update 28.10.2021
 % Find out more at https://xmaptools.ch
 

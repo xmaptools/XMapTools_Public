@@ -35,7 +35,7 @@ A training set is an ensemble of definitions containing a selection of pixels ma
 A classification is divided into four distinct stages: </p>
 <ul>
   <li>(1) Creation of a training set containing a selection of pixels for each mask</li>
-  <li>(2) Definition of the chemical system and the choice of the algorithm</li>
+  <li>(2) Definition of the chemical system, classification options and the choice of the algorithm</li>
   <li>(3) The computation of the classification</li>
   <li>(4) The evaluation of the results and visualisation of the final mask image (Fig. 1)</li>
 </ul>
@@ -121,7 +121,7 @@ Clicking the <img src="./img/icon_add_round.png" width="12"> button adds the sel
 <p>Classification algorithms will be described in a publication soon (Lanari & Tedeschi in prep); a short summary is provided below:</p> 
 
 <ul>
-  <li><b>Random Forest:</b> An ensemble learning method for classification constructing a multitude of decision trees during training. The output of the random forest is the class selected by most trees (it is a majority vote!).</li>
+  <li><b>Random Forest:</b> An ensemble learning method for classification constructing a multitude of decision trees during training. The output of the random forest is the class selected by most trees (it is a majority vote!). The maximum number of tree can be set in the option field below the dropdown menu (default 75).</li>
   <li><b>Discriminant Analysis:</b> Classification method that assumes that different classes generate data based on different Gaussian distributions. To train a classifier, it estimates the parameters of a Gaussian distribution for each class. </li>
   <li><b>Naive Bayes:</b> Classification algorithm applying density estimation to the data and generating a probability model.  Then decision rule is based on the Bayes theorem.</li>
   <li><b>Support Vector Machine:</b> Data points (p-dimensional vector) are separated into n classes by separating them with a (p-1)-dimensional hyperplane. The algorithm chooses the hyperplane so that the distance from it to the nearest data point on each side is maximised. </li>
@@ -143,10 +143,45 @@ Principal component analysis (PCA) is the process of computing the principal com
 <img src="./img/icon_picture.png" width="30"> The button <i>Generate Maps of the Principal Components (PCA)</i> a map for each principal component is generated and stored in the section <i>Other</i> of the primary menu.
 </p>
 
-<p>
-<img src="./img/SS_Classification_includePCA.png" height="30"> If the tick-box <i>incl. PCA</i> is selected, the maps of principal components are included as additional dimensions for the classification. 
-Example: if 8 intensity maps are considered, an total of 14 maps of PC are added to the classification input, 7 for a normal PCA and 7 for a normalised PCA. 
-</p>
+<p>Three distinct PCA are performed:</p>
+<ul>
+  <li><b>PCA-1:</b> applied to the original map data</li>
+  <li><b>PCA-2:</b> applied to rescaled range of data in the interval [0,1]</li>
+  <li><b>PCA-3:</b> applied to normalised data following: Data2 = (Data - mean(Data)) / (std(Data)); </li>
+</ul>
+
+<p>Note that in the classification, PCA-2 and PCA-3 are both applied when the option PCA2 is selected.</p>
+
+<h3>(2.4) Selection of input data and other options </h3>
+
+<center><img src="./img/SS_Classification_includePCA.png" height="80"> </center>
+
+<h4>Input data</h4>
+
+The following data can be selected as input data for the classification function: 
+<ul>
+  <li><b>Maps:</b> Original data scaled using the method selected in the dropdown menu <i>Map Scaling</i> (see below)</li>
+  <li><b>PCA-1:</b> first PCA dataset (see above)</li>
+  <li><b>PCA-2:</b> second and third PCA datasets (PCA-2 and PCA-3 see above)</li>
+  <li><b>TEXF:</b> textural information (undocumented) </li>
+</ul>
+
+<p>Example: if 8 intensity maps are considered, an total of 7 maps will be added if PCA-1 is selected and an additional 14 maps if PCA-2 is selected. </p>
+
+<h4>Map scaling</h4>
+
+The following options are available for data scaling: 
+<ul>
+  <li><b>Robust:</b> DataScaled = (Data - median(Data)) / iqr(Data); with iqr the interquartile range of the values</li>
+  <li><b>MinMax:</b> Rescaled data in the range [0,1]</li>
+  <li><b>Mean:</b> DataScaled = Data / mean(Data);</li>
+  <li><b>NoScaling:</b> Original data</li>
+</ul>
+
+<h4>Reproducibility</h4>
+
+<p>If selected, the option <i>Reprod.<i> controls the random number generator to ensure that results obtained using an algorithm with a random component (e.g. Random Forest) are reproducible for the seed value given in the text field. If the option is unselected, any classification using the Random Forest algorithm will converge to a slightly different result. The same result is obtained by changing the seed value.</p>
+
 
 <h2><a name="step3"></a>Step 3 – Training a Classifier and Classification</h2>
 

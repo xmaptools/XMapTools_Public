@@ -2,21 +2,24 @@ function [OutputData,OutputVariables] = StructFctSerpentine(InputData,InputVaria
 % -
 % XMapTools External Function: structural formula of serpentine 
 %  
+%  ++05.2022 Bug fix
+%       - number of oxygen changed from 14.5 to 14
+%       - add ratio_Si_SiFeMg
 %  ++09.2021 Compatibility with XMapTools 4
 %       - version without loop & Fe2O3 as possible input
+% 
+% 14 Oxygen-basis
 %
-% 14.5 Oxygen-basis
-%
-% P. Lanari - Last update 16.09.2021
+% P. Lanari - Last update 09.05.2022
 % Find out more at https://xmaptools.ch
 
-OutputVariables = {'Si','Al','Fe','Mg','XFe','XMg','Mn','Cr','Ni','SumCat'};
+OutputVariables = {'Si','Al','Fe','Mg','XFe','XMg','Mn','Cr','Ni','ratio_Si_SiFeMg','SumCat'};
 
 OutputData = zeros(size(InputData,1),length(OutputVariables));
 
-% General structural formula function for 14.5 oxygen
+% General structural formula function for 14 oxygen
 WhereMin = find(sum(InputData,2) > 70);
-[MatrixSF,ElementsList] = SF_OxNorm(InputData(WhereMin,:),InputVariables,14.5,ElOxDataDef);
+[MatrixSF,ElementsList] = SF_OxNorm(InputData(WhereMin,:),InputVariables,14,ElOxDataDef);
 
 Si = MatrixSF(:,1);
 Ti = MatrixSF(:,2);
@@ -35,7 +38,9 @@ SumCat = Si+Ti+Al+Fe+Mn+Mg+Ca+Na+K+Cr+Ni;
 XMg = Mg./(Mg+Fe);
 XFe = Fe./(Mg+Fe);
 
-OutputData(WhereMin,:) = [Si,Al,Fe,Mg,XFe,XMg,Mn,Cr,Ni,SumCat];
+ratio_Si_SiFeMg = Si./(Si+Fe+Mg);
+
+OutputData(WhereMin,:) = [Si,Al,Fe,Mg,XFe,XMg,Mn,Cr,Ni,ratio_Si_SiFeMg,SumCat];
  
 end
 
