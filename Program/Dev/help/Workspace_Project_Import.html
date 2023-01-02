@@ -1,0 +1,486 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+
+<h1> Help > Workspace > Project & Import </h1>
+<p><i>Help file version 11.11.2022 by M. Tedeschi & P. Lanari</i></p>
+<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<br \> 
+<hr>
+<p><b>Table of content</b><br \><br \>
+<a href="#part1">1. Project</a><br \>
+<a href="#part2">2. Data conversion</a><br \>
+<a href="#part3">3. Importing maps</a><br \>
+<a href="#part4">4. Options (project)</a><br \>
+</p>
+<hr>
+
+<p>This help file contains a description of the tools available in the workspace <i>Project & Import</i>. Each part is described separately in the following. 
+</p> 
+
+<h2><a name="part1"></a>1. Project</h2>
+
+<p>The progress of a session can be stored in a project file (*.mat) and restored later. 
+All data and settings are saved. 
+</p>
+
+<p>
+<img src="./img/icon_open.png" width="30"> The button <i>Open (Open Project)</i> open and load an existing project in XMapTools. The first map available in <i>Intensity</i> is automatically selected. 
+</p>
+<p> 
+Note that XMapTools 4 uses a different strategy for internal data organisation and data storage. Projects generated with previous versions of XMapTools are not compatible with the new format and a conversion step is required. When a project file generated with XMapTools 3 is opened in XMapTools 4 an automated conversion to the new format is performed. Additional explanations can be found <a href="https://resources.xmaptools.ch/importing-project-files-from-xmaptools-3/" target="_blank">here</a>.
+</p>
+
+<p>
+<img src="./img/icon_save.png" width="30"> The button <i>Save (Save project)</i> save the active project as a MATLAB M-file containing all variables used by XMapTools. If no project was saved a new project is saved.
+</p>
+
+<p>
+<img src="./img/icon_saveas.png" width="30"> The button <i>Save Project As...</i> save the active project as a new MATLAB M-file.
+</p>
+
+<p>
+<img src="./img/SS_Project_Field.png" height="30"> Display the name or the full path of the active project (if saved) depending on the selected option in the dropdown menu (File or Path).
+</p>
+
+<p>Note: The working directory changes automatically when a new project file is opened. It is also possible to change the working directory in using the main menu: <i>XMapTools > Set Working Directory</i>
+</p>
+
+
+<h2><a name="part2"></a>2. Data conversion</h2>
+
+<p>Several tools that convert raw data to a XMapTools-friendly format and generate mosaics are available. </p>
+
+<h3>Raw data conversion using a converter</h3> 
+<p>
+<img src="./img/icon_convert1.png" width="30"> The button <i>Open XMapTools' EPMA converter</i> opens the converter for EPMA data. A description on how to convert EPMA maps is available in a separate help file accessible from <i>Converter For EPMA data</i>.
+</p>
+
+Currently supported data formats:
+<ul>
+  <li><b>EPMA - JEOL (SUN)</b> JEOL microprobes running on SUN-OS </li>
+  <li><b>EPMA - JEOL (WIN)</b> JEOL microprobes running on WINDOWS </li>
+  <li><b>EPMA - CAMECA</b> for recent CAMECA microprobes</li>
+</ul> 
+
+<p>
+<img src="./img/icon_convert2.png" width="30"> The button <i>Open XMapTools' LA-ICP-MS converter</i> opens the converter for LA-ICPMS data. A detailed description on how to convert LA-ICMS data is provided in the <i>Converter for LA-ICPMS data</i>.
+</p>
+
+<h3>Building mosaics</h3> 
+<p>
+<img src="./img/icon_mosaic1.png" width="30"> The button <i>Generate Mosaic (Grid)</i> can stitch several maps together in a grid. Such mosaic allows maps of individual grains to be compiled on a single image and improve the visualisation of possible variations in composition. The original coordinates of <u>each map are not preserved</u>. Spot analyses used as internal standard must have X and Y that are defined manually after creating the mosaic using the XMapTools’ coordinate system. For an alternative option, see the second mosaic option below. 
+</p>
+
+Procedure for creating a mosaic using a predefined grid:
+<ul>
+  <li>Set the working directory to a directory containing a folder <i>Mosaic</i> (case sensitive) via the the main menu: <i>XMapTools > Set Working Directory</i> </li>
+  <li>The folder Mosaic should contain a set of maps with the exact same elements. Each dataset has to be stored in a separate subfolder. Note that the subfolder name is used to define the sequence of the map in the mosaic. Use folder names such as 01_Map34; 02_Map4; 03_Map1 to define the order before importation.</li>
+  <li>If the name of a folder starts with a minus symbol (−), the folder will be skipped and not imported while creating the mosaic</li>
+  <li>Important: the maps must have the same spatial resolution. If a map has a different spatial resolution, the resolution has to be adjusted manually first. Note that <u>XMapTools assumes that the maps have the same spatial resolution and does not check it</u> during mosaic building </li>
+  <li>Press the button <i>Generate Mosaic (Grid)</i> <img src="./img/icon_mosaic1.png" width="12"></li>
+  <li>Define the number of columns in the dialog box</li>
+  <li>XMapTools generates the mosaic and save the new maps in the current working directory.</li>
+</ul> 
+
+<p>
+<img src="./img/icon_mosaic2.png" width="30"> The button <i>Generate Mosaic in Original Coordinate System</i> merges several maps in a referenced system based on their original coordinates. It also calculates the coordinates of the new map for the file Standards.txt. This means that spot analyses obtained during the same probe session can be directly provided and used to calibrate the mosaic.
+</p>
+
+Procedure for creating a referenced mosaic:
+<ul>
+  <li>Set the working directory to a directory containing a folder <i>Mosaic</i> (case sensitive) via the the main menu: <i>XMapTools > Set Working Directory</i> </li>
+  <li>The folder Mosaic should contain a set of maps with the exact same elements. Each dataset has to be stored in a separate subfolder. Note that the subfolder name is used to define the sequence of the map in the mosaic. Use folder names such as 01_Map34; 02_Map4; 03_Map1 to define the order before importation. <u>Each folder must contain the file Standards.txt containing the coordinates of the map</u>. If a file Classification.txt exists, it will be skipped.</li>
+  <li>The spatial resolution of each map will be adjusted automatically to the settings of the map with the higher spatial resolution. Resampling is performed using a linear interpolant for gridded data.</li>
+  <li>Press the button <i>Generate Mosaic in Original Coordinate System</i> <img src="./img/icon_mosaic2.png" width="12"></li>
+  <li>XMapTools generates the mosaic, save the maps in the working directory, generate a file Standards.txt containing <u>only the first block</u> with the map coordinates. The order of oxide (second block) and the analyses (third block) need to be added manually</li>
+</ul> 
+
+
+
+<h2><a name="part3"></a>3. Importing maps & images</h2>
+
+This section describes the tools available to import maps and other images in XMapTools. 
+
+<p>
+<img src="./img/icon_add_sq.png" width="30"> The button <i>Import (Import Maps)</i> opens the Import Tool to load mapping data. Note: A detailed description of the <i>Import Tool</i> is accessible from the module. 
+</p>
+
+<p>
+Format: map files must have *.txt, *.asc, *.dat or *.csv extension, no header line and a name compatible with the default elements names of XMapTools for identification. The default lists for compatible names of elements and oxides are provided bellow (see <a href="#ElList">List of compatible elements</a> and <a href="#OxList">List of compatible oxides</a> )
+</p>
+
+
+<p>
+<img src="./img/icon_stack.png" width="30"> The button <i>Import CT (Import Image Stack)</i> imports slice images obtained after reconstruction of CT data. Compatible image formats are *.jpg and *.png. It is recommended to select the files from the last one to the first one while pressing MAJ. Importing large dataset can take several minutes. 
+</p>
+
+
+
+<h2><a name="part4"></a>4. Options (Project)  </h2>
+
+<p>
+This section describes display options for the displayed map. These options are saved for each project. 
+</p>
+
+<p>
+<img src="./img/SS_Project_Resolution.png" height="30"> Set the map resolution corresponding to the pixel size, also refer to as step size in EPMA instruments. The default value is 20 µm (arbitrary). The resolution value is automatically calculated from the map coordinates defined in <i>Standards.txt</i> when internal standards (spot analyses) are imported. 
+</p>
+
+<p>
+<img src="./img/SS_Project_ScaleBar.png" height="30"> Activate and display the scale bar applying the pixel size defined in resolution. Two options are accessible via the dropdown menu: white (default) or black.  
+</p>
+
+<p>
+<img src="./img/SS_Project_Rotate.png" height="30"> Button <i>Rotate view by 90°</i> adjust the map orientation. The rotation angle is displayed next to the button with possible value: 0 (default orientation), 90, 180 or 270. Note that some of the display features such as drag-for-zoom are not available if a rotation is applied.    
+</p>
+
+<p>
+<img src="./img/SS_Project_MapSize.png" border="1px" height="30"> shows the map size. Format: <i>X</i> x <i>Y</i> corresponding to <i>Columns</i> x <i>lines</i>.    
+</p>
+
+
+
+<h2><a name="ElList"></a>List of compatible elements:</h2>
+
+<table>
+<tr>
+    <th>Element</th>
+    <th>Atomic mass</th> 
+</tr>
+<tr><td>
+H</td><td>1.00797</td></tr>
+<tr><td>
+He</td><td>4.0026</td></tr>
+<tr><td>
+Li</td><td>6.941</td></tr>
+<tr><td>
+Be</td><td>9.01218</td></tr>
+<tr><td>
+B</td><td>10.81</td></tr>
+<tr><td>
+C</td><td>12.011</td></tr>
+<tr><td>
+N</td><td>14.0067</td></tr>
+<tr><td>
+O</td><td>15.9994</td></tr>
+<tr><td>
+F</td><td>18.998403</td></tr>
+<tr><td>
+Ne</td><td>20.179</td></tr>
+<tr><td>
+Na</td><td>22.98977</td></tr>
+<tr><td>
+Mg</td><td>24.305</td></tr>
+<tr><td>
+Al</td><td>26.98154</td></tr>
+<tr><td>
+Si</td><td>28.0855</td></tr>
+<tr><td>
+P</td><td>30.97376</td></tr>
+<tr><td>
+S</td><td>32.06</td></tr>
+<tr><td>
+Cl</td><td>35.453</td></tr>
+<tr><td>
+Ar</td><td>39.948</td></tr>
+<tr><td>
+K</td><td>39.0983</td></tr>
+<tr><td>
+Ca</td><td>40.08</td></tr>
+<tr><td>
+Sc</td><td>44.9559</td></tr>
+<tr><td>
+Ti</td><td>47.9</td></tr>
+<tr><td>
+V</td><td>50.9415</td></tr>
+<tr><td>
+Cr</td><td>51.996</td></tr>
+<tr><td>
+Mn</td><td>54.938</td></tr>
+<tr><td>
+Fe</td><td>55.847</td></tr>
+<tr><td>
+Co</td><td>58.9332</td></tr>
+<tr><td>
+Ni</td><td>58.7</td></tr>
+<tr><td>
+Cu</td><td>63.546</td></tr>
+<tr><td>
+Zn</td><td>65.38</td></tr>
+<tr><td>
+Ga</td><td>69.72</td></tr>
+<tr><td>
+Ge</td><td>72.59</td></tr>
+<tr><td>
+As</td><td>74.9216</td></tr>
+<tr><td>
+Se</td><td>78.96</td></tr>
+<tr><td>
+Br</td><td>79.904</td></tr>
+<tr><td>
+Kr</td><td>83.8</td></tr>
+<tr><td>
+Rb</td><td>85.4678</td></tr>
+<tr><td>
+Sr</td><td>87.62</td></tr>
+<tr><td>
+Y</td><td>88.9059</td></tr>
+<tr><td>
+Zr</td><td>91.22</td></tr>
+<tr><td>
+Nb</td><td>92.9064</td></tr>
+<tr><td>
+Mo</td><td>95.94</td></tr>
+<tr><td>
+Tc</td><td>98</td></tr>
+<tr><td>
+Ru</td><td>101.07</td></tr>
+<tr><td>
+Rh</td><td>102.9055</td></tr>
+<tr><td>
+Pd</td><td>106.4</td></tr>
+<tr><td>
+Ag</td><td>107.868</td></tr>
+<tr><td>
+Cd</td><td>112.41</td></tr>
+<tr><td>
+In</td><td>114.82</td></tr>
+<tr><td>
+Sn</td><td>118.69</td></tr>
+<tr><td>
+Sb</td><td>121.75</td></tr>
+<tr><td>
+Te</td><td>127.6</td></tr>
+<tr><td>
+I</td><td>126.9045</td></tr>
+<tr><td>
+Xe</td><td>131.3</td></tr>
+<tr><td>
+Cs</td><td>132.9054</td></tr>
+<tr><td>
+Ba</td><td>137.33</td></tr>
+<tr><td>
+La</td><td>138.9055</td></tr>
+<tr><td>
+Ce</td><td>140.12</td></tr>
+<tr><td>
+Pr</td><td>140.9077</td></tr>
+<tr><td>
+Nd</td><td>144.24</td></tr>
+<tr><td>
+Pm</td><td>145</td></tr>
+<tr><td>
+Sm</td><td>150.4</td></tr>
+<tr><td>
+Eu</td><td>151.96</td></tr>
+<tr><td>
+Gd</td><td>157.25</td></tr>
+<tr><td>
+Tb</td><td>158.9254</td></tr>
+<tr><td>
+Dy</td><td>162.5</td></tr>
+<tr><td>
+Ho</td><td>164.9304</td></tr>
+<tr><td>
+Er</td><td>167.26</td></tr>
+<tr><td>
+Tm</td><td>168.9342</td></tr>
+<tr><td>
+Yb</td><td>173.04</td></tr>
+<tr><td>
+Lu</td><td>174.967</td></tr>
+<tr><td>
+Hf</td><td>178.49</td></tr>
+<tr><td>
+Ta</td><td>180.9479</td></tr>
+<tr><td>
+W</td><td>183.85</td></tr>
+<tr><td>
+Re</td><td>186.207</td></tr>
+<tr><td>
+Os</td><td>190.2</td></tr>
+<tr><td>
+Ir</td><td>192.22</td></tr>
+<tr><td>
+Pt</td><td>195.09</td></tr>
+<tr><td>
+Au</td><td>196.9665</td></tr>
+<tr><td>
+Hg</td><td>200.59</td></tr>
+<tr><td>
+Tl</td><td>204.37</td></tr>
+<tr><td>
+Pb</td><td>207.2</td></tr>
+<tr><td>
+Bi</td><td>208.9804</td></tr>
+<tr><td>
+Po</td><td>209</td></tr>
+<tr><td>
+At</td><td>210</td></tr>
+<tr><td>
+Rn</td><td>222</td></tr>
+<tr><td>
+Fr</td><td>223</td></tr>
+<tr><td>
+Ra</td><td>226.0254</td></tr>
+<tr><td>
+Ac</td><td>227.0278</td></tr>
+<tr><td>
+Th</td><td>232.0381</td></tr>
+<tr><td>
+Pa</td><td>231.0359</td></tr>
+<tr><td>
+U</td><td>238.029</td></tr>
+<tr><td>
+Np</td><td>237.0482</td></tr>
+<tr><td>
+Pu</td><td>242</td></tr>
+<tr><td>
+Am</td><td>243</td></tr>
+<tr><td>
+Cm</td><td>247</td></tr>
+<tr><td>
+Bk</td><td>247</td></tr>
+<tr><td>
+Cf</td><td>251</td></tr>
+<tr><td>
+Es</td><td>252</td></tr>
+<tr><td>
+Fm</td><td>257</td></tr>
+<tr><td>
+Md</td><td>258</td></tr>
+<tr><td>
+No</td><td>250</td></tr>
+<tr><td>
+Lr</td><td>260</td></tr>
+<tr><td>
+Rf</td><td>261</td></tr>
+<tr><td>
+Db</td><td>262</td></tr>
+<tr><td>
+Sg</td><td>263</td></tr>
+<tr><td>
+Bh</td><td>262</td></tr>
+<tr><td>
+Hs</td><td>255</td></tr>
+<tr><td>
+Mt</td><td>256</td></tr>
+<tr><td>
+Uun</td><td>269</td></tr>
+<tr><td>
+Uuu</td><td>272</td></tr>
+<tr><td>
+Uub</td><td>277</td></tr>
+</table>
+
+
+<h2><a name="OxList"></a>List of compatible oxides</h2>
+
+<table>
+<tr>
+    <th>Oxide</th>
+    <th>Element</th> 
+    <th>NbCat</th>
+    <th>NbOx</th>
+    <th>MolarMass</th>
+    <th>ConversioFactor</th>
+</tr>
+<tr><td>Al2O3</td><td>Al</td><td>2</td><td>3</td><td>101.96128</td><td>0.529251</td></tr>
+<tr><td>As2O3</td><td>As</td><td>2</td><td>3</td><td>197.89</td><td>0.7574</td></tr>
+<tr><td>Au2O</td><td>Au</td><td>2</td><td>1</td><td>409.93</td><td>0.961</td></tr>
+<tr><td>B2O3</td><td>B</td><td> 2</td><td>3</td><td>69.6182</td><td>0.310551</td></tr>
+<tr><td>BaO</td><td>Ba</td><td>1</td><td>1</td><td>153.3394</td><td>0.89566</td></tr>
+<tr><td>BeO</td><td>Be</td><td>1</td><td>1</td><td>25.01158</td><td>0.36032</td></tr>
+<tr><td>CO2</td><td>C</td><td> 1</td><td>2</td><td>44.0098</td><td>0.272916</td></tr>
+<tr><td>CaO</td><td>Ca</td><td>1</td><td>1</td><td>56.0794</td><td>0.714701</td></tr>
+<tr><td>CeO2</td><td>Ce</td><td>1</td><td>2</td><td>172.1188</td><td>0.814089</td></tr>
+<tr><td>Ce2O3</td><td>Ce</td><td>2</td><td>3</td><td>328.2382</td><td>0.85377</td></tr>
+<tr><td>CoO</td><td>Co</td><td>1</td><td>1</td><td>74.9326</td><td>0.786483</td></tr>
+<tr><td>Cr2O3</td><td>Cr</td><td>2</td><td>3</td><td>151.9902</td><td>0.684202</td></tr>
+<tr><td>Cs2O</td><td>Cs</td><td>2</td><td>1</td><td>281.8102</td><td>0.943226</td></tr>
+<tr><td>CuO</td><td>Cu</td><td>1</td><td>1</td><td>79.5454</td><td>0.798865</td></tr>
+<tr><td>Dy2O3</td><td>Dy</td><td>2</td><td>3</td><td>372.9982</td><td>0.871318</td></tr>
+<tr><td>Er2O3</td><td>Er</td><td>2</td><td>3</td><td>382.5182</td><td>0.87452</td></tr>
+<tr><td>EuO</td><td>Eu</td><td>1</td><td>1</td><td>167.9594</td><td>0.904742</td></tr>
+<tr><td>Eu2O3</td><td>Eu</td><td>2</td><td>3</td><td>351.9182</td><td>0.86361</td></tr>
+<tr><td>FeO</td><td>Fe</td><td>1</td><td>1</td><td>71.8464</td><td>0.777311</td></tr>
+<tr><td>Fe2O3</td><td>Fe</td><td>2</td><td>3</td><td>159.6922</td><td>0.699433</td></tr>
+<tr><td>Ga2O3</td><td>Ga</td><td>2</td><td>3</td><td>187.4382</td><td>0.743925</td></tr>
+<tr><td>Gd2O3</td><td>Gd</td><td>2</td><td>3</td><td>362.4982</td><td>0.867591</td></tr>
+<tr><td>GeO2</td><td>Ge</td><td>1</td><td>2</td><td>104.5858</td><td>0.694051</td></tr>
+<tr><td>H2O</td><td>H</td><td> 2</td><td>1</td><td>18.0152</td><td>0.111694</td></tr>
+<tr><td>HfO2</td><td>Hf</td><td>1</td><td>2</td><td>210.4888</td><td>0.847979</td></tr>
+<tr><td>Ho2O3</td><td>Ho</td><td>2</td><td>3</td><td>377.8588</td><td>0.872973</td></tr>
+<tr><td>K2O</td><td>K</td><td> 2</td><td>1</td><td>94.1954</td><td>0.830147</td></tr>
+<tr><td>La2O3</td><td>La</td><td>2</td><td>3</td><td>325.8092</td><td>0.85268</td></tr>
+<tr><td>Li2O</td><td>Li</td><td>2</td><td>1</td><td>29.8814</td><td>0.46457</td></tr>
+<tr><td>Lu2O3</td><td>Lu</td><td>2</td><td>3</td><td>397.9382</td><td>0.879383</td></tr>
+<tr><td>MgO</td><td>Mg</td><td>1</td><td>1</td><td>40.3044</td><td>0.603036</td></tr>
+<tr><td>MnO</td><td>Mn</td><td>1</td><td>1</td><td>70.9374</td><td>0.774457</td></tr>
+<tr><td>MnO2</td><td>Mn</td><td>1</td><td>2</td><td>86.9368</td><td>0.63193</td></tr>
+<tr><td>Mn3O4</td><td>Mn</td><td>3</td><td>4</td><td>228.8116</td><td>0.720304</td></tr>
+<tr><td>MoO3</td><td>Mo</td><td>1</td><td>3</td><td>143.94</td><td>0.6665</td></tr>
+<tr><td>Na2O</td><td>Na</td><td>2</td><td>1</td><td>61.97894</td><td>0.741857</td></tr>
+<tr><td>Nb2O5</td><td>Nb</td><td>2</td><td>5</td><td>265.8098</td><td>0.699044</td></tr>
+<tr><td>Nd2O3</td><td>Nb</td><td>2</td><td>3</td><td>336.4782</td><td>0.857351</td></tr>
+<tr><td>NiO</td><td>Ni</td><td>1</td><td>1</td><td>74.7094</td><td>0.785845</td></tr>
+<tr><td>P2O5</td><td>P</td><td> 2</td><td>5</td><td>141.94452</td><td>0.436421</td></tr>
+<tr><td>PbO</td><td>Pb</td><td>1</td><td>1</td><td>223.1994</td><td>0.928318</td></tr>
+<tr><td>Pr2O3</td><td>Pr</td><td>2</td><td>3</td><td>329.8136</td><td>0.854469</td></tr>
+<tr><td>Rb2O</td><td>Rb</td><td>2</td><td>1</td><td>186.935</td><td>0.914412</td></tr>
+<tr><td>SO3</td><td>S</td><td> 1</td><td>3</td><td>80.0582</td><td>0.400459</td></tr>
+<tr><td>Sb2O3</td><td>Sb</td><td>2</td><td>3</td><td>291.4982</td><td>0.83534</td></tr>
+<tr><td>Sc2O3</td><td>Sc</td><td>2</td><td>3</td><td>137.91</td><td>0.65196</td></tr>
+<tr><td>SiO2</td><td>Si</td><td>1</td><td>2</td><td>60.0848</td><td>0.467439</td></tr>
+<tr><td>Sm2O3</td><td>Sm</td><td>2</td><td>3</td><td>348.7982</td><td>0.86239</td></tr>
+<tr><td>SnO2</td><td>Sn</td><td>1</td><td>2</td><td>150.6888</td><td>0.78765</td></tr>
+<tr><td>SrO</td><td>Sr</td><td>1</td><td>1</td><td>103.6194</td><td>0.845595</td></tr>
+<tr><td>Ta2O5</td><td>Ta</td><td>2</td><td>5</td><td>441.8928</td><td>0.818967</td></tr>
+<tr><td>Tb2O3</td><td>Tb</td><td>2</td><td>3</td><td>365.849</td><td>0.868803</td></tr>
+<tr><td>ThO2</td><td>Th</td><td>1</td><td>2</td><td>264.0369</td><td>0.878809</td></tr>
+<tr><td>TiO2</td><td>Ti</td><td>1</td><td>2</td><td>79.8988</td><td>0.599508</td></tr>
+<tr><td>Ti2O3</td><td>Ti</td><td>2</td><td>3</td><td>143.7982</td><td>0.666211</td></tr>
+<tr><td>Tm2O3</td><td>Tm</td><td>2</td><td>3</td><td>385.8666</td><td>0.875609</td></tr>
+<tr><td>UO2</td><td>U</td><td> 1</td><td>2</td><td>270.0278</td><td>0.881498</td></tr>
+<tr><td>U3O8</td><td>U</td><td> 3</td><td>8</td><td>842.0822</td><td>0.848002</td></tr>
+<tr><td>V2O5</td><td>V</td><td> 2</td><td>5</td><td>181.8798</td><td>0.560166</td></tr>
+<tr><td>WO3</td><td>W</td><td> 1</td><td>3</td><td>231.85</td><td>0.793</td></tr>
+<tr><td>Y2O3</td><td>Y</td><td> 2</td><td>3</td><td>255.81</td><td>0.78744</td></tr>
+<tr><td>Yb2O3</td><td>Yb</td><td>2</td><td>3</td><td>394.0782</td><td>0.878201</td></tr>
+<tr><td>ZnO</td><td>Zn</td><td>1</td><td>1</td><td>81.3794</td><td>0.803397</td></tr>
+<tr><td>ZrO2</td><td>Zr</td><td>1</td><td>2</td><td>123.2188</td><td>0.740309</td></tr>
+</table>
+
+
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

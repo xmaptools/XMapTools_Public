@@ -10,11 +10,12 @@ function [OutputData,OutputVariables] = Rutile_T_All(InputData,InputVariables,Ad
 %       - T_W06     Watson et al. (2006)
 %       - T_FW07    Ferry & Watson (2007), CMP 154:429–437
 %       - T_T07     Tomkins et al. (2007)
+%       - T_K20     Kohn (2020)
 %  
-% P. Lanari, J. Laughton & C. Martin - Last update 21.09.2021
+% P. Lanari, J. Laughton & C. Martin - Last update 30.05.2022
 % Find out more at https://xmaptools.ch
 
-OutputVariables = {'T_Z04','T_W06','T_FW07','T_T07a','T_T07b','T_T07c','Zr_ppm'};
+OutputVariables = {'T_Z04','T_W06','T_FW07','T_T07a','T_T07b','T_T07c','T_K20a','T_K20b','Zr_ppm'};
 OutputData = zeros(size(InputData,1),length(OutputVariables));
 
 %% Input
@@ -39,6 +40,10 @@ T_T07a = (83.9+0.410.*P_kbar)./(0.1428-0.0083144.*log(Zr_ppm))-273.15;
 T_T07b = (85.7+0.473.*P_kbar)./(0.1453-0.0083144.*log(Zr_ppm))-273.15;
 T_T07c = (88.1+0.206.*P_kbar)./(0.1412-0.0083144.*log(Zr_ppm))-273.15;
 
+%% Kohn (2020)
+T_K20a = (71360+0.378.*P_kbar-0.130.*Zr_ppm)./(130.66-8.3145.*log(Zr_ppm))-273.15;  % α-quartz combined data set
+T_K20b = (73910+0.247.*P_kbar-0.130.*Zr_ppm)./(129.65-8.3145.*log(Zr_ppm))-273.15;  % coesite combined data set
+
 %% Output
-OutputData(Idx,:) = [T_Z04,T_W06,T_FW07,T_T07a,T_T07b,T_T07c,Zr_ppm];
+OutputData(Idx,:) = [T_Z04,T_W06,T_FW07,T_T07a,T_T07b,T_T07c,T_K20a,T_K20b,Zr_ppm];
 end

@@ -27,10 +27,11 @@ function [OutputData,OutputVariables] = StructFctBiotite(InputData,InputVariable
 %
 % 11 Oxygen-basis 
 %
-% P. Lanari - Last update 14.01.2021
+% P. Lanari - Last update 14.11.2022
 % Find out more at https://xmaptools.ch
 
-OutputVariables = {'Si_T1','Si_T2','Al_T2', ...
+
+OutputVariables = {'Si','Al_T2', ...
                    'Al_M1','Fe_M1','Mg_M1', ...
                    'Mn_M1','V_M1','Ti_M2', ...
                    'Fe_M2','Mg_M2','Mn_M2', ...
@@ -66,10 +67,7 @@ for ii=1:length(WhereMin)
     XMg = Mg/(Mg+Fe);
     XFe = 1-XMg;
     
-    Si_T1 = 2;
-    Si_T2 = Si-Si_T1;
-    
-    Al_T2_theo = 2-(Si_T2);   % This is the amount free in T2 for Al
+    Al_T2_theo = 2-(Si-2);   % This is the amount free in T2 for Al
     
     if Al_T2_theo > Al
         Al_T2 = Al;         % we have not enough Al !!!
@@ -154,7 +152,7 @@ for ii=1:length(WhereMin)
     
     Xsum = XTibt+XMnbt+XAnn+XPhl+XSid+XEas;
 
-    OutputData(i,:) = [Si_T1,Si_T2,Al_T2, ...
+    OutputData(i,:) = [Si,Al_T2, ...
                    Al_M1,Fe_M1,Mg_M1, ...
                    Mn_M1,V_M1,Ti_M2, ...
                    Fe_M2,Mg_M2,Mn_M2, ...

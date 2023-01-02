@@ -1,5 +1,20 @@
 function [] = install_MATLAB()
 %
+% XMapTools is a free software solution for the analysis of chemical maps
+% Copyright © 2022-2023 University of Bern, Institute of Geological Sciences, Pierre Lanari
+%
+% XMapTools is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or any 
+% later version.
+%
+% XMapTools is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with XMapTools. If not, see https://www.gnu.org/licenses.
 
 Where = which('XMapTools');
 Where = Where(1:end-16);
@@ -24,14 +39,25 @@ addpath([Where,'/External/TB']);
 addpath([Where,'/Modules']);
 
 addpath([Where,'/Addons']);
-addpath([Where,'/Addons/XThermoTools']);
-addpath([Where,'/Addons/XThermoTools/XTT_Dev/logo']);
-addpath([Where,'/Addons/XThermoTools/XTT_Dev/img']);
-addpath([Where,'/Addons/XThermoTools/XTT_Core']);
-addpath([Where,'/Addons/XThermoTools/XTT_Databases']);
-addpath([Where,'/Addons/XThermoTools/XTT_Dev']);
-addpath([Where,'/Addons/XThermoTools/XTT_Functions']);
-addpath([Where,'/Addons/XThermoTools/XTT_Modules']);
+% addpath([Where,'/Addons/XThermoTools']);
+% addpath([Where,'/Addons/XThermoTools/XTT_Dev/logo']);
+% addpath([Where,'/Addons/XThermoTools/XTT_Dev/img']);
+% addpath([Where,'/Addons/XThermoTools/XTT_Core']);
+% addpath([Where,'/Addons/XThermoTools/XTT_Databases']);
+% addpath([Where,'/Addons/XThermoTools/XTT_Dev']);
+% addpath([Where,'/Addons/XThermoTools/XTT_Functions']);
+% addpath([Where,'/Addons/XThermoTools/XTT_Modules']);
+
+% Bingo Antidote (2022.1)
+addpath([Where,'/Addons/BingoAntidote']);
+addpath([Where,'/Addons/BingoAntidote/Dev']);
+addpath([Where,'/Addons/BingoAntidote/Dev/icons']);
+addpath([Where,'/Addons/BingoAntidote/Dev/media']);
+addpath([Where,'/Addons/BingoAntidote/Core']);
+addpath([Where,'/Addons/BingoAntidote/Databases']);
+addpath([Where,'/Addons/BingoAntidote/Functions']);
+addpath([Where,'/Addons/BingoAntidote/Modules']);
+
 
 savepath
 

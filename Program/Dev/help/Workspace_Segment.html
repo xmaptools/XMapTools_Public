@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+<h1> Help > Tabs > Segment </h1>    	
+<p><i>Help file version 22.12.2022 by M. Tedeschi & P. Lanari</i></p>
+<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<br \> 
+<hr>
+<p>This help file contains a description of the tools available in the section <i>Segment</i>. These tools are optimised for CT data and, should not be used with other data types. </p> 
+
+<p>Processing CT-data for segmentation is divided into five steps: </p>
+<ol>
+  <li>Creating a segmentation scheme</li>
+  <li>Setting segmentation parameters</li>
+  <li>Testing the segmentation</li>
+  <li>Applying segmentation and creating a ROI</li>
+  <li>Exporting results</li>
+</ol>
+
+<h2>Step 1 – Segmentation scheme </h2>
+
+A segmentation scheme is set of recipes containing constraints applied to perform data segmentation. It is similar to the training sets for classification, although it does not contain (yet) training data. </p>
+
+<p>Segmentation schemes are available in the secondary menu under <i>Segmentation & Corrections</i> in <i>Schemes (Segmentation)</i>. </p>
+
+<p>Select a CT-image under the node <i>CT-data</i> in the primary menu and select the item <i>Schemes (Segmentation)</i> in the secondary menu.</p>
+
+<img src="./img/icon_add.png" width="30"> The button <i>Add (Scheme / Group / Range)</i>  has several functionalities depending on the item selected in the secondary menu:</p>
+<ul>
+  <li>Add a <i>Segmentation Scheme</i> if the node <i>Schemes (Segmentation)</i> is selected</li>
+  <li>Add a <i>group definition</i> if a <i>segmentation scheme</i> is selected</li>
+  <li>Pick a <i>range of value from the displayed values</i> if a <i>group definition</i> is selected. Adjust the min-max values to select one mineral or group of minerals and press <i>Add</i> <img src="./img/icon_add.png" width="12">. A single range of value can be selected for each group, so any new selection would replace existing data.</li>
+</ul>
+
+<p>Note that selected ranges can overlap, but the algorithm will always consider the group in a sequential order. Pixels can be ignored by the segmentation algorithm if they are out of range.</p>
+
+<p><img src="./img/CT_view1.png" width="700"></p>
+
+<i><b>Figure 1</b>: Example of selection of range of values (hee from 128 to 212.6) for garnet. Note that this range has been saved in the segmentation scheme shown in the secondary menu.</i> 
+
+
+<h2>Step 2 – Segmentation parameters</h2>
+
+<p>These parameters can be adjusted in the section <i>Segment (CT)</i> and <i>Segmentation parameters & Test</i>. Two main algorithms are implemented: <i>Filter GB</i> to eliminate grain boundaries and <i>Interp GB</i> to growth phases and re-interpolate filtered pixels. <p>
+
+<h3>Filter grain boundaries</h3>
+
+<p>Select a CT-image under the node <i>CT-data</i> in the primary menu and a segmentation scheme in the secondary menu.</p>
+
+<p>Four algorithms are available and can be selected using a dropdown menu:</p>
+<ul>
+  <li>Local Gradient</li>
+  <li>Local Standard Deviation</li>
+  <li>Local Range</li>
+  <li>Local Entropy</li>
+</ul>
+
+<p>You can adjust the threshold value (range between 0 and 1) above which a grain boundary will be detected and the order (for local range).</p>
+
+<img src="./img/icon_calculate_GB.png" width="30"> The button <i>Calculate GB map</i> opens a new figure containing two plots (e.g. Fig. 2): the outcome of the algorithm on the left and the same map with the filtered grain boundaries shown in red on the right. The axes of the two plots are liked, zooming on one plot automatically adjusts the view of the second plot. </p>
+
+
+<p><img src="./img/CT_view2.png" width="350"></p>
+
+<i><b>Figure 2</b>: Example of grain boundary filter using the algorithm Local Gradient and a filter threshold of 0.15. Zoom has been used to show display a small portion of the image.</i> 
+
+
+<h3>Interpolate grain boundaries</h3>
+
+An algorithm based on a median filter is used to re-interpolate grain boundary (an equivalent was available in XMapTools 3). The order can be adjusted.
+
+
+
+<h2>Step 3 – Segmentation test</h2>
+
+<p>You can test the segmentation on the selected image by using the button <i>Segment Selected Image</i> <img src="./img/icon_share.png" width="12"> (small one) available in <i>Segmentation parameters & Test</i>. </p>
+
+<p>The resulting ROI is available in the category <i>ROI</i> of the primary menu.</p>
+
+
+
+<h2>Step 4 – Final segmentation</h2>
+
+<p><img src="./img/icon_share.png" width="30"> The button <i>Segment All Images</i> applies the segmentation to all images available in <i>CT-data</i>. The resulting ROI is available in the category <i>ROI</i> of the primary menu.</p>
+
+
+<h2>Step 5 – Exporting Results</h2>
+
+<p>Select a ROI containing multiple slices (3D ROI) in the primary menu. </p>
+
+<p><img src="./img/icon_plot.png" width="30"> The button <i>Plot Phase Proportions</i> generates several plots to investigate the spatial distribution of the segmented groups.</p>
+<ul>
+  <li>Figure 1: evolution of the modes from top (left) to bottom (right)</li>
+  <li>Figure 2: correlation matrix between the modes across vertical slices</li>
+  <li>Figure 3: smooth modal changes (vertical) calculated using the smoothing factor (number of slices to average to calculate a single position).</li>
+  <li>Figure 4: correlation matrix between the smoothed modes across vertical slices</li>
+</ul>
+
+
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+<br \> <br \> <br \>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
