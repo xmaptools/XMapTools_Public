@@ -5,6 +5,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xmaptools/XMapTools_Developers/graphs/commit-activity)
 [![Website xmaptools.ch](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://xmaptools.ch)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](#)
+[![DOI](https://zenodo.org/badge/397986784.svg)](https://zenodo.org/badge/latestdoi/397986784)
 
 This repository contains the source code of the latest stable version of XMapTools and binaries for macOS and Windows. Although XMapTools can be directly downloaded from this repository, we strongly recommand you to take two minutes and to create an account at https://xmaptools.ch. This will allow us to get in touch with you if a major issue is discovered in the software.  
 
