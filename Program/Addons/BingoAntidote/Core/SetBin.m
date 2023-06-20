@@ -27,7 +27,7 @@ BinSet.Bulk2Display(1) = '1'; % Very important
 
 dlmwrite('XBIN',char(BinSet.Database,'no'),'delimiter','');
 
-%disp(['... XBIN has been updated by Bingo - database: ',char(BinSet.Database),' ...']);
+disp(['... XBIN has been updated by Bingo - database: ',char(BinSet.Database),' ...']);
 %disp(' ')
 
 return

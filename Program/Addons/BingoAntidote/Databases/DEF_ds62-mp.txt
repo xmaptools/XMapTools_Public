@@ -1,0 +1,62 @@
+! --------------------------------------------------------------------------------
+! These definitions are compatible with ds62-mp50
+!
+! Recommendations (July 2019):
+!    - 	Pures phases should be included but Qcmp = 100 % if properly analysed
+!    - 	Solid solutions should have all elements involved in the substitutions
+!      	except Fe in minerals having high Fe-content and XFe3+ such as STAU
+!	 - 	Spaces in solution model names in Theriak-Domino are replaced by 
+!		underscores (e.g. WHITE MICA becomes WHITE_MICA)
+! 
+! PL - 17.06.23     tested with Sikkim
+! --------------------------------------------------------------------------------
+
+
+
+>1 SOLIDS (PHASES AND SOLUTIONS)
+ALBITE			8		FSP4TR		[SI,AL,NA,CA,K]	
+ANDALUSITE		5		and			[AL]
+ANORTHITE		8		FSP4TR		[SI,AL,NA,CA,K]
+BIOTITE			11		BI14		[SI,AL,TI,FE,MG,MN]
+CALCITE			3		cc			[CA]
+CHLORITE		14		CHL14		[SI,AL,FE,MG,MN]
+CHLORITOID		7		CTD14		[MG,FE,MN]
+COESITE			2		coe			[SI]
+CORDIERITE		18		CD14		[FE,MG]
+DOLOMITE		6		dol			[CA,MG]
+EPIDOTE			13		EP11		[AL]
+GARNET			12		GRT			[CA,MG,FE,MN]
+GLAUCOPHANE		23		gl			[MG,NA,FE]
+HEMATITE		3		hem			[FE]
+ILMENITE		3		ILM00		[TI,FE]
+KFELDSPAR		8		FSP4TR_san	[SI,AL,NA,CA,K]
+KYANITE			5		ky			[AL]
+LAWSONITE		8		law			[CA]
+MAGNESITE		3		mag			[MG]
+MAGNETITE		4		MTLOW		[FE,TI]
+MUSCOVITE		11		WM			[SI,AL,FE,MG,NA]
+OLIVINE			4		fo			[MG,FE]
+ORTHOPYROXENE	6		OPX14		[FE,MG]
+PARAGONITE		11		WM_pa		[SI,AL,FE,MG,NA]
+PHENGITE		11		WM			[SI,AL,FE,MG,NA]
+PLAGIOCLASE		8		FSP4TR		[SI,AL,NA,CA,K]
+QUARTZ			2		q			[SI]
+RUTILE			2		ru			[TI]
+SILLIMANITE		5		sill		[AL]
+SPHENE			5		sph			[TI,CA]
+SPINEL			4		SP02		[FE,MG,TI]
+STAUROLITE		46		ST14		[FE,MG,AL,TI,MN]
+TITANITE		5		sph			[TI,CA]
+MARGARITE		11		MRG			[SI,AL,FE,MG,NA,CA]
+
+
+
+
+>2 LIQUID (PHASES, SPECIES AND SOLUTIONS) + OXYGEN BUFFERS
+Fluid_H2O		1		H2O			[H]
+Fluid_CO2		2		CO2			[C]
+Melt			8		LIQtc6		[SI,AL,FE,MG,CA,NA,K,H]
+Oxygen			1		O2			[O]
+Buffer_QFM		2		QFM-BUFFER	[O]
+
+

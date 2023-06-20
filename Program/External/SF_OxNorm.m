@@ -32,6 +32,13 @@ end
 
 [lia,loc] = ismember(Ox,ListOx);
 
+% added in 4.2 (12.05.2023) to filter non-oxides/elements
+IdxOk = find(lia);
+Ox = Ox(IdxOk); 
+MatrixOxide = MatrixOxide(:,IdxOk);
+loc = loc(IdxOk);
+% --
+
 NbCalc = size(MatrixOxide,1);
 NbElem = size(MatrixOxide,2);
 

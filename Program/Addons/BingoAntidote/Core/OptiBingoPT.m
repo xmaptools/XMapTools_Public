@@ -15,7 +15,9 @@ end
 D_Temp = num2str(T);
 D_Press = num2str(P * 1e4);
 
+%tic
 [WorkVariMod] = TheriakCall(BinSet,D_Temp,D_Press);
+%toc
 
 DoWePrint = 0;
 

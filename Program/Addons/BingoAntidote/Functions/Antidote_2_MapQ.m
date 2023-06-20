@@ -317,7 +317,7 @@ for i = 1:length(MapData.MinComp.ListMin)
     colormap([0,0,0;RdYlBu(64)])
     xlabel('Temperature (C)')
     ylabel('Pressure (kbar)')
-    title(['Composition of ',char(MapData.MinComp.ListMin{i}),' (%)'])
+    title(['Composition of ',char(MapData.MinComp.ListMin{i}),' (%)'],'Interpreter','none')
     
     saveas(gcf,[Directory,'5_Qcmp_',char(MapData.MinComp.ListMin{i}),'.pdf'],'pdf');
     saveas(gcf,[Directory,'5_Qcmp_',char(MapData.MinComp.ListMin{i}),'.fig'],'fig');
@@ -346,7 +346,7 @@ for i = 1:length(MapData.MinProp.ListMin)
     colormap([0,0,0;RdYlBu(64)])
     xlabel('Temperature (C)')
     ylabel('Pressure (kbar)')
-    title(['Mineral fraction of ',char(MapData.MinProp.ListMin{i}),' (vol%)'])
+    title(['Mineral fraction of ',char(MapData.MinProp.ListMin{i}),' (vol%)'],'Interpreter','none')
     
     saveas(gcf,[Directory,'6_VolFrac_',char(MapData.MinProp.ListMin{i}),'.pdf'],'pdf');
     saveas(gcf,[Directory,'6_VolFrac_',char(MapData.MinProp.ListMin{i}),'.fig'],'fig');

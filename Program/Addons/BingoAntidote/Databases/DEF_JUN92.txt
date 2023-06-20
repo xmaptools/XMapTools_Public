@@ -12,6 +12,8 @@
 ! --------------------------------------------------------------------------------
 
 
+
+
 >1 SOLIDS (PHASES AND SOLUTIONS)
 A-QUARTZ		2   	A-QUARTZ 			[SI]
 B-QUARTZ		2   	B-QUARTZ 			[SI]
@@ -22,7 +24,7 @@ MUSCOVITE		11		WHITE_MICA			[SI,AL,FE,MG,NA]
 PARAGONITE		11  	WHITE_MICA_Pg		[SI,AL,NA]
 PLAGIOCLASE		8   	FSP2				[SI,AL,NA,CA,K]
 ANORTHITE		8   	FSP2_An				[SI,AL,NA,CA,K]
-K-FELDSPAR		8     	FSP2_Kfs			[SI,AL,NA,CA,K]
+KFELDSPAR		8     	FSP2_Kfs			[SI,AL,NA,CA,K]
 GARNET			12  	GARNET				[CA,MG,FE,MN]
 CPX				6   	OMPH				[SI,AL,FE,MG,CA,NA]
 AMPHIBOLE		22  	AMPHx				[SI,AL,MG,CA,NA]
@@ -49,6 +51,7 @@ RHODOCHROSITE	3		RHODOCHROSITE		[MN]
 ANTIGORITE		68		ANTIGORITE			[MG]
 LAWSONITE		8		LAWSONITE			[CA]
 TALC			11		TALC				[MG]
+
 
 
 

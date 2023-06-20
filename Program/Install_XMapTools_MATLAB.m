@@ -1,4 +1,4 @@
-function [] = install_MATLAB()
+function [] = Install_XMapTools_MATLAB()
 %
 % XMapTools is a free software solution for the analysis of chemical maps
 % Copyright © 2022-2023 University of Bern, Institute of Geological Sciences, Pierre Lanari
@@ -56,7 +56,6 @@ addpath([Where,'/Addons/BingoAntidote/Dev/media']);
 addpath([Where,'/Addons/BingoAntidote/Core']);
 addpath([Where,'/Addons/BingoAntidote/Databases']);
 addpath([Where,'/Addons/BingoAntidote/Functions']);
-addpath([Where,'/Addons/BingoAntidote/Modules']);
 
 
 savepath

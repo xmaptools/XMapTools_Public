@@ -621,7 +621,7 @@ if sum(AdditionalVariables) > 0  && isequal(MinimOptions.Search.Symplex.FirstOpt
         Pf = Bypass(2);
     else
         AddComment = '';
-        TCf = round(Result(1)*NORM(1));   % round is important for convergence if X is involved (tested agin june 2019)
+        TCf = round(Result(1)*NORM(1));   % round is important for convergence if X is involved (tested again june 2019)
         Pf = Result(2)*NORM(2); % cannot round in GPa
     end
     %Hf = Result(3)*NORM(3);

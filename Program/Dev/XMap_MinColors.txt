@@ -1,0 +1,64 @@
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!                                                                 !
+!                 XMAPTOOLS  Mineral color definition             !
+!              Last update (24.02.2023)   Pierre Lanari           !
+!                                                                 !
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+! 
+! Format:
+! >
+! Min1		R	G	B  
+! Min2		R	G	B  
+! Min2		R	G	B 
+!
+! The RGB triplet is defined using  values between 0 and 255. 
+!
+!
+
+>
+Albite	244	228	150
+Amphibole	0	162	122
+Andalusite	127	179	193
+Anorthite	243	224	127
+Apatite	161	177	132
+Biotite	118	57	33
+Brucite	142	206	211
+Calcite	170	162	149
+Chlorite	129	192	113
+Chloritoid	94	119	97
+Clinopyroxene	126	191	148
+Coesite	255	255	255
+Cordierite	136	104	168
+Dolomite	242	202	0
+Epidote	187	180	55
+Garnet	181	44	31
+Glaucophane	103	80	152
+Hematite	219	219	211
+Ilmenite	224	93	42
+Kfeldspar	233	184	204
+Kyanite	0	91	147
+Lawsonite	202	108	165
+Magnesite	136	24	87
+Magnetite	66	66	66
+Monazite	231	141	31
+Muscovite	217	199	203
+Olivine	182	205	30
+Omphacite	0	174	165
+Orthoamphibole	161	163	102
+Orthopyroxene	225	124	144
+Paragonite	218	131	80
+Phengite	217	199	203
+Plagioclase	236	220	158
+Pyrite	248	230	0
+Quartz	255	255	255
+Rutile	6	66	118
+Serpentine	17	75	54
+Sillimanite	0	143	188
+Sphene	190	138	67
+Spinel	218	28	84
+Staurolite	226	170	0
+Talc	55	184	203
+Titanite	190	138	67
+Turmalime	56	72	78
+Zircon	221	60	39
+
