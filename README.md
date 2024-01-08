@@ -13,7 +13,7 @@ XMapTools official website: https://xmaptools.ch
 
 Documentation (work in progress): https://resources.xmaptools.ch  
 
-Developer repository: [https://github.com/xmaptools/XMapTools_Public](https://github.com/xmaptools/XMapTools_Developers) 
+Developer repository: [https://github.com/xmaptools/XMapTools_Developers](https://github.com/xmaptools/XMapTools_Developers) 
 
 PTtoolbox (by J. Laughton): https://github.com/JoshuaLaughton/PTtoolbox
 
