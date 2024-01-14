@@ -14,8 +14,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 <BODY>
 
 <h1> Help > Workspace > Project & Import </h1>
-<p><i>Help file version 11.11.2022 by M. Tedeschi & P. Lanari</i></p>
-<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p><i>Help file version 11.01.2024 by M. Tedeschi & P. Lanari</i></p>
 <br \> 
 <hr>
 <p><b>Table of content</b><br \><br \>
@@ -26,48 +25,55 @@ h2,h3,h4,h5 {margin-top: 2em; }
 </p>
 <hr>
 
-<p>This help file contains a description of the tools available in the workspace <i>Project & Import</i>. Each part is described separately in the following. 
+<p>This help file contains a description of the tools available in the <i>Project & Import</i> workspace. Each part is described separately below. 
 </p> 
+
+<br /><br />
+<center>
+<img src="./img/ProjectImport_Tools.png" width="800">
+<p><i><b>Figure 1</b>: Project & Import tools in XMapTools 4.3.</i> </p>
+</center>
 
 <h2><a name="part1"></a>1. Project</h2>
 
-<p>The progress of a session can be stored in a project file (*.mat) and restored later. 
-All data and settings are saved. 
+<p>The progress of a session can be saved to a project file (*.mat) and restored later. 
+All current data and settings will be saved. Project files are generally compatible with all new versions of XMapTools. Project management tools described in the following are available in the <i>Project & Import</i> workspace or from the File menu. 
 </p>
 
 <p>
-<img src="./img/icon_open.png" width="30"> The button <i>Open (Open Project)</i> open and load an existing project in XMapTools. The first map available in <i>Intensity</i> is automatically selected. 
+The <i>Open (Open Project)</i> <img src="./img/icon_open.png" width="30"> button opens and loads an existing project in XMapTools. The first map available in <i>Intensity</i> is automatically selected. The current working directory is automatically changed to the location of the project file.  
 </p>
 <p> 
-Note that XMapTools 4 uses a different strategy for internal data organisation and data storage. Projects generated with previous versions of XMapTools are not compatible with the new format and a conversion step is required. When a project file generated with XMapTools 3 is opened in XMapTools 4 an automated conversion to the new format is performed. Additional explanations can be found <a href="https://resources.xmaptools.ch/importing-project-files-from-xmaptools-3/" target="_blank">here</a>.
+Note that XMapTools 4 uses a different strategy for internal data organisation and storage. Projects created with previous versions of XMapTools are not compatible with the new format and a conversion step is required. When a project file created with XMapTools 3 is opened in XMapTools 4, an automatic conversion to the new format is performed. Further explanation can be found <a href="https://resources.xmaptools.ch/importing-project-files-from-xmaptools-3/" target="_blank">here</a>.
 </p>
 
 <p>
-<img src="./img/icon_save.png" width="30"> The button <i>Save (Save project)</i> save the active project as a MATLAB M-file containing all variables used by XMapTools. If no project was saved a new project is saved.
+The <i>Save (Save Project)</i> <img src="./img/icon_save.png" width="30"> button saves the active project as a MATLAB M-file containing all variables used by XMapTools. If no project has been saved, a new project will be saved. 
 </p>
 
 <p>
-<img src="./img/icon_saveas.png" width="30"> The button <i>Save Project As...</i> save the active project as a new MATLAB M-file.
+The <i>Save Project As...</i> <img src="./img/icon_saveas.png" width="30"> button saves the active project as a new MATLAB M-file.
 </p>
 
 <p>
 <img src="./img/SS_Project_Field.png" height="30"> Display the name or the full path of the active project (if saved) depending on the selected option in the dropdown menu (File or Path).
 </p>
 
-<p>Note: The working directory changes automatically when a new project file is opened. It is also possible to change the working directory in using the main menu: <i>XMapTools > Set Working Directory</i>
+<br />
+<p><b>Note:</b> Remember that the current working directory changes automatically when a new project file is opened. It is also possible to change the working directory in using the main menu: <i>XMapTools > Set Working Directory</i>.
 </p>
 
 
 <h2><a name="part2"></a>2. Data conversion</h2>
 
-<p>Several tools that convert raw data to a XMapTools-friendly format and generate mosaics are available. </p>
+<p>Several tools are available to convert raw data into an XMapTools-friendly format and generate mosaics. </p>
 
 <h3>Raw data conversion using a converter</h3> 
 <p>
-<img src="./img/icon_convert1.png" width="30"> The button <i>Open XMapTools' EPMA converter</i> opens the converter for EPMA data. A description on how to convert EPMA maps is available in a separate help file accessible from <i>Converter For EPMA data</i>.
+The <i>Open XMapTools' EPMA converter</i> <img src="./img/icon_convert1.png" width="30"> button opens the converter for EPMA data. A description on how to convert EPMA maps is available in a separate help file accessible from <i>Converter For EPMA data</i>.
 </p>
 
-Currently supported data formats:
+Data formats currently supported:
 <ul>
   <li><b>EPMA - JEOL (SUN)</b> JEOL microprobes running on SUN-OS </li>
   <li><b>EPMA - JEOL (WIN)</b> JEOL microprobes running on WINDOWS </li>
@@ -75,55 +81,55 @@ Currently supported data formats:
 </ul> 
 
 <p>
-<img src="./img/icon_convert2.png" width="30"> The button <i>Open XMapTools' LA-ICP-MS converter</i> opens the converter for LA-ICPMS data. A detailed description on how to convert LA-ICMS data is provided in the <i>Converter for LA-ICPMS data</i>.
+The <i>Open XMapTools' LA-ICP-MS converter</i> <img src="./img/icon_convert2.png" width="30"> button opens the converter for LA-ICPMS data. A detailed description of how to convert LA-ICP-MS data can be found in the <i>Converter for LA-ICP-MS data</i>.
 </p>
 
 <h3>Building mosaics</h3> 
 <p>
-<img src="./img/icon_mosaic1.png" width="30"> The button <i>Generate Mosaic (Grid)</i> can stitch several maps together in a grid. Such mosaic allows maps of individual grains to be compiled on a single image and improve the visualisation of possible variations in composition. The original coordinates of <u>each map are not preserved</u>. Spot analyses used as internal standard must have X and Y that are defined manually after creating the mosaic using the XMapTools’ coordinate system. For an alternative option, see the second mosaic option below. 
+The <i>Generate Mosaic (Grid)</i> <img src="./img/icon_mosaic1.png" width="30"> button allows multiple maps to be stitched together in a grid. Such a mosaic allows maps of individual grains to be combined on a single image, improving the visualisation of possible variations in composition. The original coordinates of <u>each map are not preserved</u>. Spot analyses used as internal standards must have X and Y manually defined after the mosaic has been created using the XMapTools coordinate system. For an alternative, see the second mosaic option below. 
 </p>
 
-Procedure for creating a mosaic using a predefined grid:
+How to create a mosaic using a predefined grid:
 <ul>
-  <li>Set the working directory to a directory containing a folder <i>Mosaic</i> (case sensitive) via the the main menu: <i>XMapTools > Set Working Directory</i> </li>
-  <li>The folder Mosaic should contain a set of maps with the exact same elements. Each dataset has to be stored in a separate subfolder. Note that the subfolder name is used to define the sequence of the map in the mosaic. Use folder names such as 01_Map34; 02_Map4; 03_Map1 to define the order before importation.</li>
-  <li>If the name of a folder starts with a minus symbol (−), the folder will be skipped and not imported while creating the mosaic</li>
-  <li>Important: the maps must have the same spatial resolution. If a map has a different spatial resolution, the resolution has to be adjusted manually first. Note that <u>XMapTools assumes that the maps have the same spatial resolution and does not check it</u> during mosaic building </li>
-  <li>Press the button <i>Generate Mosaic (Grid)</i> <img src="./img/icon_mosaic1.png" width="12"></li>
-  <li>Define the number of columns in the dialog box</li>
-  <li>XMapTools generates the mosaic and save the new maps in the current working directory.</li>
+  <li>From the main menu, set the working directory to a directory containing a folder called <i>Mosaic</i> (case sensitive): <i>XMapTools > Set Working Directory</i> </li> </li>.
+  <li>The Mosaic folder should contain a set of maps with exactly the same elements. Each set must be stored in a separate subfolder. Note that the subfolder name is used to define the order of the maps in the mosaic. Use folder names such as 01_Map34; 02_Map4; 03_Map1 to define the order before importing.</li
+  <li>If the name of a folder starts with a minus sign (-), the folder will be skipped and not imported when the mosaic is created</li>.
+  <li>Important: The maps must have the same spatial resolution. If a map has a different spatial resolution, the resolution must be adjusted manually first. Note that <u>XMapTools assumes that the maps have the same spatial resolution and does not check this</u> while building the mosaic.
+  <li>Press the button <i>Generate Mosaic (Grid)</i> <img src="./img/icon_mosaic1.png" width="12"></li>.
+  <li>Define the number of columns in the dialogue box</li>
+  <li>XMapTools creates the mosaic and saves the new maps in the current working directory</li>.
 </ul> 
 
 <p>
-<img src="./img/icon_mosaic2.png" width="30"> The button <i>Generate Mosaic in Original Coordinate System</i> merges several maps in a referenced system based on their original coordinates. It also calculates the coordinates of the new map for the file Standards.txt. This means that spot analyses obtained during the same probe session can be directly provided and used to calibrate the mosaic.
+ The <i>Generate Mosaic in Original Coordinate System</i> <img src="./img/icon_mosaic2.png" width="30"> button merges several maps into a referenced system based on their original coordinates. It also calculates the coordinates of the new map for the Standards.txt file. This means that spot analyses obtained during the same probe session can be provided directly and used to calibrate the mosaic.
 </p>
 
-Procedure for creating a referenced mosaic:
+How to create a referenced mosaic:
 <ul>
-  <li>Set the working directory to a directory containing a folder <i>Mosaic</i> (case sensitive) via the the main menu: <i>XMapTools > Set Working Directory</i> </li>
-  <li>The folder Mosaic should contain a set of maps with the exact same elements. Each dataset has to be stored in a separate subfolder. Note that the subfolder name is used to define the sequence of the map in the mosaic. Use folder names such as 01_Map34; 02_Map4; 03_Map1 to define the order before importation. <u>Each folder must contain the file Standards.txt containing the coordinates of the map</u>. If a file Classification.txt exists, it will be skipped.</li>
-  <li>The spatial resolution of each map will be adjusted automatically to the settings of the map with the higher spatial resolution. Resampling is performed using a linear interpolant for gridded data.</li>
-  <li>Press the button <i>Generate Mosaic in Original Coordinate System</i> <img src="./img/icon_mosaic2.png" width="12"></li>
-  <li>XMapTools generates the mosaic, save the maps in the working directory, generate a file Standards.txt containing <u>only the first block</u> with the map coordinates. The order of oxide (second block) and the analyses (third block) need to be added manually</li>
+  <li>From the main menu, set the working directory to a directory containing a folder called <i>Mosaic</i> (case sensitive): <i>XMapTools > Set Working Directory</i> </li> </li>.
+  <li>The Mosaic folder should contain a set of maps with exactly the same elements. Each set must be stored in a separate subfolder. Note that the subfolder name is used to define the order of the maps in the mosaic. Use folder names such as 01_Map34; 02_Map4; 03_Map1 to define the order before importing. <u>Each folder must contain a Standards.txt file containing the map coordinates</u>. If a Classification.txt file exists, it will be skipped. </li
+  <li>The spatial resolution of each map is automatically adjusted to the settings of the map with the higher spatial resolution. Resampling is done using a linear interpolator for raster data.</li
+  <li>Press the button <i>Generate mosaic in original coordinate system</i> <img src="./img/icon_mosaic2.png" width="12"></li>.
+  <li>XMapTools creates the mosaic, saves the maps to the working directory, creates a file Standards.txt containing <u>only the first block</u> with the map coordinates. The order of the oxides (second block) and the analyses (third block) must be added manually</li>.
 </ul> 
 
 
 
 <h2><a name="part3"></a>3. Importing maps & images</h2>
 
-This section describes the tools available to import maps and other images in XMapTools. 
+<p>This section describes the tools available for importing maps and other images into XMapTools. </p>
 
 <p>
-<img src="./img/icon_add_sq.png" width="30"> The button <i>Import (Import Maps)</i> opens the Import Tool to load mapping data. Note: A detailed description of the <i>Import Tool</i> is accessible from the module. 
+The <i>Import (Import Maps)</i> <img src="./img/icon_add_sq.png" width="30"> button opens the Import Tool to load map data. Note: A detailed description of the <i>Import Tool</i> is accessible from within the module. 
 </p>
 
 <p>
-Format: map files must have *.txt, *.asc, *.dat or *.csv extension, no header line and a name compatible with the default elements names of XMapTools for identification. The default lists for compatible names of elements and oxides are provided bellow (see <a href="#ElList">List of compatible elements</a> and <a href="#OxList">List of compatible oxides</a> )
+Format: Map files must have the extension *.txt, *.asc, *.dat or *.csv, no header and a name compatible with the default element names of XMapTools for identification. The default lists of compatible element and oxide names are provided below (see <a href="#ElList">List of compatible elements</a> and <a href="#OxList">List of compatible oxides</a> ).
 </p>
 
 
 <p>
-<img src="./img/icon_stack.png" width="30"> The button <i>Import CT (Import Image Stack)</i> imports slice images obtained after reconstruction of CT data. Compatible image formats are *.jpg and *.png. It is recommended to select the files from the last one to the first one while pressing MAJ. Importing large dataset can take several minutes. 
+The <i>Import CT (Import Image Stack)</i> <img src="./img/icon_stack.png" width="30"> button imports slice images obtained after reconstruction of CT data. Compatible image formats are *.jpg and *.png. It is recommended to select the files from the last one to the first one while pressing MAJ. Importing large dataset can take several minutes. 
 </p>
 
 
@@ -131,24 +137,21 @@ Format: map files must have *.txt, *.asc, *.dat or *.csv extension, no header li
 <h2><a name="part4"></a>4. Options (Project)  </h2>
 
 <p>
-This section describes display options for the displayed map. These options are saved for each project. 
+This section describes the display options for the map being viewed. These options are saved for each project. 
 </p>
 
 <p>
-<img src="./img/SS_Project_Resolution.png" height="30"> Set the map resolution corresponding to the pixel size, also refer to as step size in EPMA instruments. The default value is 20 µm (arbitrary). The resolution value is automatically calculated from the map coordinates defined in <i>Standards.txt</i> when internal standards (spot analyses) are imported. 
+<img src="./img/SS_Project_Resolution.png" height="30"> Set the map resolution corresponding to the pixel size, also known as the step size on EPMA instruments. The default value is 20µm (arbitrary). The resolution value is automatically calculated from the map coordinates defined in <i>Standards.txt</i> when internal standards (spot analyses) are imported. Prior to this step, the default value is applied and used to calculate the scale bar. This value can be edited manually. 
 </p>
 
 <p>
-<img src="./img/SS_Project_ScaleBar.png" height="30"> Activate and display the scale bar applying the pixel size defined in resolution. Two options are accessible via the dropdown menu: white (default) or black.  
+<img src="./img/SS_Project_ScaleBar.png" height="30"> Activate and display the scale bar using the pixel size defined in Resolution. Two options are available from the drop down menu: white (default) or black.  
 </p>
 
 <p>
-<img src="./img/SS_Project_Rotate.png" height="30"> Button <i>Rotate view by 90°</i> adjust the map orientation. The rotation angle is displayed next to the button with possible value: 0 (default orientation), 90, 180 or 270. Note that some of the display features such as drag-for-zoom are not available if a rotation is applied.    
+The <i>Rotate view by 90°</i> <img src="./img/SS_Project_Rotate.png" height="30"> button can be used to adjust the orientation of the map. The rotation angle is displayed next to the button with possible values: 0 (default orientation), 90, 180 or 270. Note that some of the display features, such as drag-for-zoom, are not available when a rotation is applied.    
 </p>
 
-<p>
-<img src="./img/SS_Project_MapSize.png" border="1px" height="30"> shows the map size. Format: <i>X</i> x <i>Y</i> corresponding to <i>Columns</i> x <i>lines</i>.    
-</p>
 
 
 

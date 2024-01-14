@@ -42,6 +42,7 @@ Magnesite	136	24	87
 Magnetite	66	66	66
 Monazite	231	141	31
 Muscovite	217	199	203
+Nepheline	18	158	255
 Olivine	182	205	30
 Omphacite	0	174	165
 Orthoamphibole	161	163	102

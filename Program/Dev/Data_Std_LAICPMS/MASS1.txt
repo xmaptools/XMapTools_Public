@@ -1,0 +1,35 @@
+! Standard Name	S_MASS1
+! Data source	USGS
+! Matrix	Polymetallic Sulfide
+! Brief description
+! Notes
+! URL
+! Parameter	Units	Value	Uncertainty
+Cu	ppm	134000	500
+Fe	ppm	156000	1000
+Na2O	ppm	3300	200
+S	ppm	276000	1000
+Zn	ppm	210000	5000
+Ag	ppm	50	5
+As	ppm	65	3
+Ba	ppm	14	5
+Cd	ppm	60	7
+Co	ppm	60	10
+Cr	ppm	65	11
+Ga	ppm	64	11
+Hg	ppm	57	3
+Mn	ppm	280	80
+Mo	ppm	59	9
+Ni	ppm	97	15
+Pb	ppm	68	7
+Sb	ppm	60	9
+Se	ppm	51	4
+Sn	ppm	59	6
+V	ppm	63	10
+W	ppm	20	2
+Bi	ppm	60	-
+In	ppm	50	-
+Au	ppm	57	-
+Ir	ppm	42	-
+Te	ppm	15	-
+Tl	ppm	50	-

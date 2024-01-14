@@ -13,38 +13,36 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <BODY>
 <h1> Help > Tools > Import Maps </h1>    	
-<p><i>Help file version 21.11.2020 by M. Tedeschi & P. Lanari</i></p>
-<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
-<p class="ex">This part of XMapTools 4 is currently at <b>level 3</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
+<p><i>Help file version 14.01.2024 by M. Tedeschi & P. Lanari</i></p>
 <br \> 
 <hr>
 
-<p>This help file contains a description of the <i>Import Tool</i>, which can be used to import, set the destination and apply basic corrections to maps. Closing the Import Tool stops the import procedure (no data will be imported).</p> 
+<p>This help file contains a description of the <i>Import Tool</i>, which can be used to import maps, set the destination and make basic corrections. Closing the Import Tool will stop the import process (no data will be imported).</p> 
 
-<p><img src="./img/icon_add_round.png" width="30"> <i>Select</i> a set of map files to be imported. Select compatibles files in the pop-up window <i>pick map file(s)</i>. Note that several files can be selected together. If a selected file cannot be imported for example because of incompatible format, this file will be skipped during import.</p>
+<p>The <i>Select</i> <img src="./img/icon_add_round.png" width="30"> allows a set of map files to be imported. Select compatible files from the <i>pick map file(s)</i> pop-up window. Note that multiple files can be selected together. If a selected file cannot be imported, for example due to an incompatible format, it will be skipped during the import.</p>
 
-<p>Format: map files must have *.txt, *.asc, *.dat or *.csv extension, no header line and a name compatible with the default elements names of XMapTools for identification. The default lists for compatible names of elements and oxides are provided <a href="#ElList">bellow</a>.</p>
+<p>Format: Map files must have the *.txt, *.asc, *.dat or *.csv extension, no header and a name compatible with the XMapTools default element names for identification. The default lists of compatible element and oxide names are <a href="#ElList">below</a>.</p>
 
-<p>Selected map files are listed in the main table. More maps can be added by pressing the button <img src="./img/icon_add_round.png" width="15"></p>
+<p>Selected map files are listed in the main table. Additional maps can be added by pressing the <img src="./img/icon_add_round.png" width="15"> button.</p>
 
 <ul>
 <li><b>File</b>: contains the file names</li>
 <li><b>Map Name</b>: contains the name of the corresponding element in the database</li>
-<li><b>Type</b>: element or oxide</li>
-<li><b>Data</b>: intensity or wt%</li>
+<li><b>Type</b>: is element or oxide</li>
+<li><b>Data</b>: is intensity or wt%</li>
 <li><b>Special</b>: EDS or WDS(?); in the case of WDS(?) a DTC is automatically selected</li>
 <li><b>DTC</b>: Dead time correction</li>
-<li><b>OC</b>: Orientation correction (do not use; not tested)</li>
-<li><b>Destination</b>: Destination in XMapTools, can be: Intensity, Quanti, Merged, Other; dropdown menu, can be edited.</li>
-<li><b>Action</b>: Keep or eliminate; dropdown menu, can be edited.</li>
+<li><b>OC</b>: Orientation correction (do not use for EPMA and LA-ICPMS using the approach of Markmann et al. 2024)</li>
+<li><b>Destination</b>: in XMapTools, can be: Intensity, Quanti, Merged, Other; drop down menu, can be edited.</li>
+<li><b>Action</b>: Keep or eliminate; drop down menu, can be edited.</li>
 </ul>
 
-<p>Settings, such as setting the dwell time (as in XMapTools 3) can be changed in the section <i>Corrections</i>. 
+<p>Settings such as the dwell time (as in XMapTools 3) can be changed in the <i>Corrections</i> section. </p>
 
-<p><img src="./img/SS_importdata.png" height="30"> Press <i>Import data</i> to import the selected maps in XMapTools after applying the corrections.
+<p> Press <i>Import data</i> <img src="./img/SS_importdata.png" height="30"> to import the selected maps into XMapTools after the corrections have been applied.
 </p>
 
-<p>The intensity maps will be available in the category <i>Intensity</i> and other maps in in the category <i>Other</i>. </p>
+<p>Intensity maps will be available in the <i>Intensity</i> category and other maps in the <i>Other</i> category. </p>
 
 
 <h2><a name="ElList"></a>List of compatible elements:</h2>

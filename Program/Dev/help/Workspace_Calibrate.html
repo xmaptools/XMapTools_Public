@@ -13,8 +13,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <BODY>
 <h1> Help > Workspace > Calibrate </h1>    	
-<p><i>Help file version 14.11.2022 by M. Tedeschi & P. Lanari</i></p>
-<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p><i>Help file version 09.01.2024 by M. Tedeschi, P. Lanari & T. Markmann</i></p>
 <br \> 
 <hr>
 <p><b>Table of content</b><br \><br \>
@@ -25,12 +24,13 @@ h2,h3,h4,h5 {margin-top: 2em; }
 <b><a href="#LAICPMS">LA-ICPMS</a></b><br \>
 - <a href="#LA_ImportStd">Import standards</a><br \>
 - <a href="#LA_Calibrate">Calibrate intensity data</a><br \>
+- <a href="#LA_Filter">Filter values below LOD</a><br \>
 - <a href="#LA_Spider">Generate spider plots</a><br \>
 </p>
 <hr>
-<p>This help file contains a description of the tools available in the section <i>Calibrate</i>.</p> 
+<p>This help file contains a description of the tools available in the <i>Calibrate</i> section.</p> 
 
-<p>The following steps are required to convert raw data (e.g. X-ray maps or LA-ICPMS intensity maps) into maps of chemical composition:</p> 
+<p>The following steps are required to convert raw intensity maps from EPMA or LA-ICPMS into chemical composition maps:</p> 
 
 <ul>
 <li><b>Import standard data</b>, either as spot analyses for the calibration of EPMA data or as maps for the calibration of LA-ICPMS data</li>
@@ -43,25 +43,25 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <h3><a name="EPMA_Std"></a>Standard Data</h3> 
 
-<p>The spot analyses used as internal standard in the calibration of EPMA data are referred to as "standards" in the following as they permit to define a calibration curve that correlates X-ray intensities to composition (e.g. expressed in oxide/element wt%). </p> 
+<p>The spot analyses used as internal standards in the calibration of EPMA data are hereafter referred to as "standards" as they allow the definition of a calibration curve correlating X-ray intensities with composition (e.g. expressed in oxide/element wt%). </p> 
 
-<p>It is necessary to import the standards from a standard file, check their positions and eventually correct them, check the chemical compositions and eventually create new standards. All these steps can be achieved in XMapTools 4.</p>
+<p>It is necessary to import the standards from a standard file, check their positions and possibly correct them, check the chemical compositions and possibly create new standards. All these steps can be done more or less automatically in XMapTools 4.</p>
 
 
 <h4><a name="Std.txt"></a>File Standards.txt</h4>
 
-<p>The file Standards.txt contains (i) the map coordinates and (ii) the spot analyses used for the standardization. The map coordinates must be listed within a single row below the keyword >1. The oxide order is set below the keyword >2. X and Y must be the two last labels and must be listed in this specific order. The internal standards analyses are listed below the keyword >3 corresponding to the oxide order defined above (keyword >2).
+<p>The file Standards.txt contains (i) the map coordinates and (ii) the spot analyses used for standardisation. The map coordinates must be listed in a single line below the keyword >1. The oxide order is set below the keyword >2. X and Y must be the last two labels and must be listed in this specific order. The internal standard analyses are listed below the keyword >3 according to the oxide order defined above (keyword >2).
 </p>
 
 <hr>
 <code>
->1 Here paste the image coordinates (Xmin Xmax Ymax Ymin)<br \>
+>1 Map coordinates (Xmin Xmax Ymax Ymin)<br \>
 56.739 57.239 43.691 43.371<br \>
 <br \>
->2 Here define the oxides order<br \>
+>2 Oxide order<br \>
 SiO2 MgO FeO Al2O3 X Y<br \>
 <br \>
->3 Here paste the analyses <br \>
+>3 Spot analyses <br \>
 25.4800 11.260 29.050 21.1400 1.4800 68.310 39.999<br \>
 52.9400 3.5300 3.0200 24.2300 0.0197 68.310 39.535<br \>
 52.5800 3.6300 2.7900 24.7200 0.0195 68.331 39.511<br \>
@@ -72,19 +72,21 @@ SiO2 MgO FeO Al2O3 X Y<br \>
 
 <h4><a name="ImportStd"></a>Import standards</h4>
 
-<p><img src="./img/icon_radar.png" width="30"> The button <i>Import (Import spots for Standards (from file))</i> is used to import standards from a file. </p>
+<p><img src="./img/icon_radar.png" width="30"> The <i>Import (Import spots for Standards (from file))</i> button is used to import standards from a file. </p>
 
-<p><img src="./img/SS_Standards.png" height="20"> The box <i>Import from Standards.txt</i> is selected by default allowing the file 'standards.txt' to be read automatically. If the file containing the standard data has a different name, unselect the box and it will be possible to select a file in the <i>Pick a file</i> pop-up window.</p>
+<p><img src="./img/SS_Standards.png" height="20"> The <i>Import from Standards.txt</i> box is checked by default, allowing the file 'standards.txt' to be read automatically. If the file containing the standards data has a different name, uncheck the box and you will be able to select a file in the <i>Pick a File</i> pop-up window.</p>
 
-<p class="ex">At the moment all standards need to be stored within a single file. It is not possible to import standards from different files as existing standards are eliminated when a new file is loaded.</p> 
+<p class="ex">In this version of XMapTools, all standards must be stored in a single file. It is not possible to import standards from different files as existing standards will be deleted when a new file is loaded.</p> 
 
-<p>Once loaded, standards are displayed on the main map with a label including the spot number and several plots are produced and shown in the category "Standards" of the live display module. You can get this global visualisation at any stage by selecting <i>Standards (Spots)</i> in the Secondary Menu. Three plots are produced if an element is selected in the primary menu, from top to bottom: a plot showing <b>intensity/composition versus sequence of standard</b> to visualise if there is a good match between the standard compositions and the intensity values of the matching pixels; two correlations maps, one for the selected element in the primary menu and a second one considering all elements.<p> 
+<p>Once loaded, standards are displayed on the main map with a label including the spot number, and multiple plots are generated and displayed in the Standards category of the Live Display module. This global visualisation can be obtained at any stage by selecting <i>Standards (Spots)</i> from the secondary menu. Three plots are generated when an element is selected in the primary menu, from top to bottom: a plot showing <b>intensity/composition versus sequence of standards</b> to visualise if there is a good match between the standard compositions and the intensity values of the matching pixels; two correlation maps, one for the element selected in the primary menu and a second one considering all elements.<p> 
 
+<center>
 <img src="./img/SS_Standards_options.png" width="300">
 
 <p><i><b>Figure 1</b>: Standard display available if the item "Standards (Spots)" is selected in the secondary menu.</i> </p> 
+</center>
 
-</p> Single standard can aslo be selected by unfolding <i>Standards (Spots)</i>. In this case a table is displayed to show the standard composition</p>
+</p> Individual standards can also be selected by expanding <i>Standards (Spots)</i>. In this case a table showing the composition of the standards will be displayed.</p>
 
 <ul>
 <li><b>Map</b>, shows the element name of the map</li>
@@ -100,26 +102,26 @@ SiO2 MgO FeO Al2O3 X Y<br \>
 
 <p>To adjust the position of the standards (all at once), put the mouse cursor over the blue circle showing up a transparent circle. Click on it and move the blue circle to the new position. The values in the two white field on top will be adjusted. Then click on the button <i>Refresh</i> (<u>important</u>) to update the standard positions. The <i>Refresh</i> button is only available when standard positions have been changed and nee to be saved.</p> 
 
-<p>Note: If no good correlation exists for a given element, the higher value of the second figure could not represent the optimal position.</p>
+<p>Note: If there is no good correlation for a given element, the higher value in the second figure may not represent the optimal position.</p>
 
 
 <h4><a name="AddStd"></a>Adding new standard point(s)</h4>
 
-<p>It is possible to add new standard points directly in XMapTools. Note that these will not be saved to the file Standards.txt, and if the file is loaded again all changes will be lost.</p>
+<p>It is possible to add new standard spots directly in XMapTools. Note that these are not saved in the Standards.txt file, and if the file is reloaded any changes will be lost.</p>
 
-<p><img src="./img/icon_add_round.png" width="30"> The button <i>Add standard point</i> adds a new standard at selected coordinates, set by clicking on the map after pressing the button. Compositional data can be filled directly in the table, when this standard is selected.</p>
+<p><img src="./img/icon_add_round.png" width="30"> The <i>Add Standard Spot</i> button adds a new standard at selected coordinates, set by clicking on the map after pressing the button. Compositional data can be entered directly into the table when this standard is selected.</p>
 
-<p>Procedure:</p>
+<p>How to proceed:</p>
 
 <ul>
-<li>Select an element map (e.g. SiO2 for adding spot of quartz) and select the item "Standards (Spots)" in the secondary menu</li>
-<li>Press the button <img src="./img/icon_add_round.png" width="12"> <i>Add Standard Point</i></li>
+<li>Select an element map (e.g. SiO2 to add a spot of quartz) and select the item "Standards (Spots)" from the secondary menu</li>
+<li>Press the <img src="./img/icon_add_round.png" width="12"> <i>Add Standard Spot</i> button</li>
 <li>Click on the map at the position to add the new standard point </li>
-<li>(Optional) It is posible to adjust the position of the any manual standard by moving the blue spot (transparent circle) or its label (cross-shaped cursor).
-<li>The new standard point is automatically selected in the Secondary Menu and the composition table shown on the right side.</li> 
-<li>You can enter manually the oxide (wt%) composition of the new standard in the column 'wt%' in blue. The X-ray intensity of the corresponding pixel is already available in 'Int' column.</li>
-<li>There is nothing more to do all data are automatically saved</li> 
-<li>(Optional) you can rename any standard by double clicking on his name in the secondary menu.</li> 
+<li>(Optional) It is possible to adjust the position of the any manual standard by dragging the blue point (transparent circle) or its label (cross-shaped cursor).
+<li>The new standard point is automatically selected in the secondary menu and the composition table is shown on the right side.</li> 
+<li>You can manually enter the oxide composition (in wt%) of the new standard in the  'wt%' column in blue. The X-ray intensity of the corresponding pixel is already available in 'Int' column.</li>
+<li>There is nothing more to do, all data are automatically saved</li> 
+<li>(Optional) you can rename each standard by double clicking on its name in the secondary menu.</li> 
 </ul>
 
 
@@ -127,64 +129,66 @@ SiO2 MgO FeO Al2O3 X Y<br \>
 
 <p>A calibration step also known as standardisation is required to convert intensity maps into compositional maps (<a href="#Biblio">Lanari et al. (2019)</a>).</p>
 
-<p>All minerals/objects are calibrated at the same time in XMapTools 4. Therefore it is required to selected a <i>Mask File</i> in the Secondary Menu to activate the button <i>Calibrate</i>.</p>
+<p>All minerals/masks are calibrated at the same time in XMapTools 4. Therefore it is necessary to select a <i>Mask File</i> in the secondary menu to activate the <i>Calibrate</i> button.</p>
 
-<p>The new approach implemented in XMapTools 4 provides a module for auto multi-phase calibration. Note that this is a preliminary version of the calibration assistant. We are expecting significant progress in the coming years once the algorithm is trained to face the most challenging situations. In the same time, please contact Pierre Lanari (pierre.lanari@geo.unibe.ch) if your case is not handled well by the algorithm.</p> 
+<p>The new approach implemented in XMapTools 4 provides a module for automatic multi-phase calibration. Please note that this is a preliminary version of the calibration assistant. We expect significant progress in the coming years as the algorithm is trained to face the most difficult situations. In the meantime, please contact Pierre Lanari (pierre.lanari@unibe.ch) if your case is not well handled by the algorithm.</p> 
 
-<p><img src="./img/icon_record.png" width="30"> The button <i>Calibrate</i> opens the Calibration Assistant for EPMA Data. This button is only available when a mask file is selected in the Secondary Menu.</p>
+<p><img src="./img/icon_record.png" width="30"> The <i>Calibrate</i> button opens the calibration wizard for EPMA data. This button is only available when a mask file is selected in the secondary menu.</p>
 
-<p> The instructions on how to use the <i>Calibration Assitant for EPMA</i> are available in the help file accessible from the assistant.</p>
+<p> Instructions for using the <i>Calibration Assitant for EPMA</i> are available in the help file accessible from the assistant.</p>
 
 
 <h3><a name="LBC"></a>Local Bulk Compositions</h3> 
 
-<p>A local bulk composition (abbreviation: LBC) represents the  bulk composition of a spatial domain in a rock determined by integrating pixel compositions. As discussed in <a href="#Biblio">Lanari and Engi (2017)</a>, it is necessary to apply a density correction prior exporting any local bulk composition.
+<p>A local bulk composition (abbreviated as LBC) represents the  bulk composition of a spatial domain in a rock determined by integrating pixel compositions. As discussed in <a href="#Biblio">Lanari and Engi (2017)</a>, it is necessary to apply a density correction before exporting a local bulk composition.
 
-<p>To export Local Bulk composition the following steps should be employed:</p>
+<p>To export the Local Bulk composition, the following steps should be used:</p>
 <ul>
 <li>Generate a density map</li>
-<li>Generate a merged map (if not available yet)</li>
+<li>Create a merged map (if not already available)</li>
 <li>Select an area of interest to extract the local bulk composition</li>
 </ul>
 
 <h4>Generate a Density Map</h4>
 
-<p>A density map is a map containing density data for each pixel of a map. It is calculated for a given mask file. <u>Select first a mask file in the secondary menu</u>.</p>
+<p>A density map is a map containing density data for each pixel of a map. It is calculated for a given mask file. <u>First select a mask file from the secondary menu</u>.</p>
 
-<p><img src="./img/icon_volumecontrol.png" width="30"> Button <i>Generate Density Map (from a mask file)</i> allows a density map to be generated from the selected mask file. 
-<u>A mask file should be selected to activate the button</u> <img src="./img/icon_volumecontrol.png" width="12">. Pressing this button opens a window with predefined average density values (provided that the mineral name was recognised and a reference value available in the internal database; Wether full names of minerals in English are used, the mineral should be recognised). 
+<p><img src="./img/icon_volumecontrol.png" width="30"> The <i>Generate Density Map (from a mask file)</i> button allows a density map to be generated from the selected mask file. 
+<u>A mask file should be selected to activate the button</u> <img src="./img/icon_volumecontrol.png" width="12">. Pressing this button opens a window with predefined average density values (provided that the mineral name has bee recognised and a reference value available in the internal database; if full English mineral names are used, the mineral should be recognised). 
 
 <p>Note: mineral density values can be obtained from the website <a href="http://www.webmineral.com" target="_blank">webmineral.com</a> </p>
 
-<p>A Density map will be created and stored under the category <i>Other</i> in the Primary Menu with the name 'Density [maskfile_name]' (within brackets the name of the mask file used is shown). Each mask file requires the calculation of a density map.</p>
+<p>A density map is created and saved under the <i>Other</i> category in the Primary Menu with the name 'Density [maskfile_name]' (the name of the mask file used is shown in brackets). Each mask file requires the calculation of a density map.</p>
 
 
 <h4>Generate a Merged Map</h4>
 
-<p>Merged maps are maps for which all pixels hold a chemical composition. A merged map is automatically created by the standardisation function in XMapTools 4. If you need to create a merged map manually, follow the procedure bellow.</p>
+<p>Merged maps are maps for which all pixels have a chemical composition. A merged map is created automatically by the standardisation function in XMapTools 4. If you need to create a merged map manually, follow the procedure below.</p>
 
-<p>In the primary menu, unfold <i>Quanti</i> and select a quanti map (mineral). The button <i>Merge (Merge Quanti Data)</i> in the section Calibrate becomes available.</p>
+<p>From the primary menu, expand <i>Quanti</i> and select a Quanti Map (Mineral). The <i>Merge</i> button in the Calibrate section becomes available.</p>
 
-<img src="./img/icon_windows.png" width="30"> The button <i>Merge (Merge Quanti Data)</i> is used to merge quantified maps. In the window that pop-ups, select the quanti maps to be merged. Select'Ok' to generated the merged maps that will be stored in the category Merged. </p>
+<img src="./img/icon_windows.png" width="30"> The <i>Merge (Merge Quanti Data)</i> button is used to merge quantified maps. In the pop-up window select the quantified maps to be merged. Select 'Ok' to generate the merged maps, which will be saved in the Merged category.</p>
 
 
 <h4>Select ROI and calculate LBC</h4>
 
-<p>A local bulk composition can be calculated from a region-of-interest (ROI). The ROI can be a rectangle or a polygon. The density correction is automatically applied.</p> 
+<p>A local bulk composition can be calculated from a region of interest (ROI). The ROI can be a rectangle or a polygon. Density correction is applied automatically.</p> 
 
-<p>Select a merged map in the primary menu and display an element.</p>
+<p>Select a merged map in the primary menu and select an element/oxide.</p>
 
-<p>In the dropdown menu <img src="./img/SS_ROI_LBC.png" height="30"> select the wanted ROI shape: <i>Retangle ROI</i> or <i>Polygon ROI</i>.</p>
+<p>From the <img src="./img/SS_ROI_LBC.png" height="30"> drop down menu, select the desired ROI shape: <i>Retangle ROI</i> or <i>Polygon ROI</i>.</p>
 
-<img src="./img/icon_ROI.png" width="30"> The button <i>Add a ROI for LBC extraction</i> allows a region-of-interest (ROI) to be drawn on the figure. If <i>Retangle ROI</i> is selected, click on a corner, hold and drag to draw a rectangle. If <i>Polygon ROI</i> is selected, click on the image to draw the polygon and close by selecting the first point of use right-clicking.</p>
+<img src="./img/icon_ROI.png" width="30"> The <i>Add a ROI for LBC extraction</i> button allows a region of interest (ROI) to be drawn on the figure. If <i>Retangle ROI</i> is selected, click on a corner, hold and drag to draw a rectangle. If <i>Polygon ROI</i> is selected, click on the image to draw the polygon and close by right clicking on the first point of use.</p>
 
-<p>When an ROI is available, the table containing the Local bulk composition appears in the live display module. The first column shows the element list, whereas compositions are listed in the column composition (unit: wt%). Below the table, a pie chart shows the repartition of the elements/oxides by weight.</p>
+<p>If an ROI is available, the Local Bulk Composition table will appear in the Live Display module. The first column shows the list of elements, with the compositions listed in the Composition column (unit: wt%). Below the table is a pie chart showing the distribution of elements/oxides by weight.</p>
  
-<p>The ROI can be edited and the composition values in the table and the pie chart are automatically updated. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again.</u></p>
+<p>The ROI can be edited and the composition values in the table and the pie chart are automatically updated. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try to edit the ROI again.</u></p>
 
+<center>
 <p><img src="./img/Calibrate_Window1.png" width="700"></p>
 
 <i><b>Figure 2</b>: Example of LBC determination using a rectangular ROI.</i> 
+</center>
 
 <p>The density map used is shown in a drop-down menu located in the live display module <img src="./img/SS_LBC_dropdownmenu.png" height="30">. </p>
 
@@ -194,15 +198,19 @@ SiO2 MgO FeO Al2O3 X Y<br \>
 
 <h4>Approximation of uncertainties for LBC</h4>
 
-<p>An uncertainty approximation similar to what is described in <a href="#Biblio">Lanari and Engi (2017)</a> is available. </p>
+<p>An uncertainty approximation similar to that described in <a href="#Biblio">Lanari and Engi (2017)</a> is available. </p>
 
-<p>Select a merge map and create a <i>Rectangle ROI</i>. Define the number of simulations <i>Sim</i> (default 100) and the shift <i>Px</i> in pixel (default 20). The shape will be randomly displaced and resized using two random variables calculated from the shift value (assuming a Gaussian distribution and the value of <i>Px</i> as 1 sigma expressed in number of pixels). Click on the button <i>calculate uncertainties using Monte-Carlo</i> <img src="./img/icon_calculator.png" height="30"></p> 
+<p>Select a merge map and create a <i>Rectangle ROI</i>. Specify the number of simulations <i>Sim</i> (default 100) and the shift <i>Px</i> in pixels (default 20). The shape will be randomly shifted and resized using two random variables calculated from the shift value (assuming a Gaussian distribution and the value of <i>Px</i> as 1 sigma expressed in number of pixels). Click on the <i>Calculate uncertainties using Monte Carlo</i> button <img src="./img/icon_calculator.png" height="30"></p> 
  
-<p>The areas used to approximate an uncertainty are plotted in a new figure and the result is showed in the table of the live display module (Figure 3).</p>
+<p>The areas used to approximate an uncertainty are plotted in a new figure and the result is displayed in the table of the live display module (Figure 3).</p>
 
+<center>
 <img src="./img/Calibration_Tab_Uncertainties.png" width="700">
 
-<p><i><b>Figure 3</b>: uncertainty estimation for LBC. The figure on the left show the distribution of the 100 areas used to determine the uncertainty (taken here as the standard deviation). The table on the right show the results. The column composition shows the original local bulk composition (selected ROI). The column 2std show the 2 standard deviation value (note that the distributions are usually Gaussian as shown by Lanari & Engi (2017)). The last column show the mean value of all compositions. This value should match the composition of the original ROI. If not, this means that a Gaussian distribution cannot be assumed for this element and the uncertainty is not correct.</i> </p> 
+<p><i><b>Figure 3</b>: Uncertainty estimation for LBC. The figure on the left shows the distribution of the 100 ranges used to determine the uncertainty (here taken as the standard deviation). The table on the right shows the results. The composition column shows the original local bulk composition (selected ROI). The column 2std shows the 2 standard deviation value (note that the distributions are usually Gaussian, as shown by Lanari & Engi (2017)). The last column shows the mean of all compositions. This value should match the composition of the original ROI. If not, this means that a Gaussian distribution cannot be assumed for this element and the uncertainty is not correct.</i> </p> 
+</center>
+
+
 
 
 <h2><a name="LAICPMS"></a>LA-ICPMS</h2>
@@ -217,33 +225,66 @@ Intensity maps obtained by LA-ICPMS can be calibrated to element/oxide compositi
 
 <h3><a name="LA_ImportStd"></a>Import standard maps</h3>
 
-<p>Only standard maps generated by the <i>Converter for LA-ICPMS data</i> can be imported and used to calibrate LA-ICPMS maps in XMapTools 4.</p>
+<p>Only standard maps generated by the <i>Converter for LA-ICPMS</i> can be imported and used to calibrate LA-ICPMS maps in XMapTools.</p>
 
-<p><img src="./img/icon_radar.png" width="30"> The Button <i>Import (Import Maps for Standards (from file))</i> is used to open a window in which the file 'MapStandards_Import.mat' must be selected. </p>
+<p><img src="./img/icon_radar.png" width="30"> The <i>Import (Import Standards Maps (from file))</i> button opens a pop up window in which the file 'MapStandards_Import.mat' must be selected. This file is located in the 'Maps_cps' folder created by the converter module. </p>
 
-<p>Once standard data are imported they become available under the category <i>Standards (Maps)</i> in the <i>Secondary Menu</i>. Select an element to plot a map corresponding to the intensity of the primary standard material. Note that the standard composition cannot be shown.</p>
+<p>Standard data cannot be modified in XMapTools. Existing data is automatically deleted when new data is selected after the Import button is pressed. Updating the interface can take up to a minute depending on the number of standard maps available. </p>
+
+<p>Once standard data has been imported, it is available in the <i>Standards (Maps)</i> category of the <i>Secondary Menu</i>. Select an element to plot a map corresponding to the intensity of the primary standard material. Other maps are available in the list: El_Int_Back is the map of the number of integrations for background; El_Comp is the composition of the standard in µg/g; El_Sweeps_Back is the number of sweeps for the background and El_Sweeps_Pixel, the number of sweeps per pixel. </p>
 
 
 <h3><a name="LA_Calibrate"></a>Calibrate intensity data</h3>
 
-<p>As for EPMA, the calibration tool for LA-ICPMS data requires a mask file, so the calibrate button is only available when a mask file is selected in the Secondary Menu.</p>
+<p>As with EPMA, the calibration tool for LA-ICPMS data requires a mask file, so the Calibrate button is only available if a mask file is selected in the secondary menu.</p>
 
-<p><img src="./img/icon_record.png" width="30"> Button <i>Calibrate (Open LA-ICP-MS Calibration Tools)</i> opens the calibration assistant.</p>
+<p><img src="./img/icon_record.png" width="30"> The <i>Calibrate (Open LA-ICP-MS Calibration Tools)</i> button opens the Calibration Assistant.</p>
 
-<p> The instructions on how to use the <i>Calibration Assitant for LA-ICPMS</i> are available in the help file accessible from the assistant.</p>
+<p> Instructions for using the <i>Calibration Assitant for LA-ICPMS</i> are available in the help file accessible from the assistant.</p>
+
+
+<h3><a name="LA_Filter"></a>Filter values below LOD</h3>
+
+<p><img src="./img/icon_forbidden.png" width="30"> The <i>Duplicate and Apply LOD Filter</i> button is available when a Quanti file is selected from the primary menu. It duplicates the Quanti file and filters all pixels below the detection limit. Note that it is strongly recommended to apply this filter before interpreting the data (Markmann et al. 2024).</p>
+
+<p>The number of pixels filtered is shown in the log file:<p>
+
+<code>
+LOD filtering: <br />
+Na: 5 px below detection limit (0.10002%) <br />
+P: 3602 px below detection limit (70.5168%) <br />
+K: 92 px below detection limit (1.8167%) <br />
+Cr: 376 px below detection limit (7.3438%) <br />
+Ni: 3896 px below detection limit (75.9602%) <br />
+Rb: 2745 px below detection limit (54.3134%) <br />
+Sr: 13 px below detection limit (0.2585%) <br />
+Ba: 150 px below detection limit (3.0006%) <br />
+La: 264 px below detection limit (5.1643%) <br />
+Ce: 6 px below detection limit (0.11739%) <br />
+Pr: 105 px below detection limit (2.046%) <br />
+Tm: 33 px below detection limit (0.64215%) <br />
+Yb: 10 px below detection limit (0.19459%) <br />
+Lu: 108 px below detection limit (2.1016%) <br />
+Hf: 1859 px below detection limit (36.2449%) <br />
+Pb: 723 px below detection limit (14.1765%) <br />
+</code>
+
+<p><i><b>Example</b> of LOD filtering for garnet show in the log file. The number in brackets is the number of pixels filtered out. </i> </p> 
 
 
 <h3><a name="LA_Spider"></a>Generate spider plots</h3>
 
-<p><img src="./img/icon_more.png" width="30"> The button <i>Spider (Open Spider Module)</i> opens the module <i>Spider Plot</i>. This button is only available when a quanti file or any map within a quanti file is selected in the primary menu.</p>
+<p><img src="./img/icon_more.png" width="30"> The <i>Spider (Open Spider Module)</i> button opens the <i>Spider Plot</i> module. This button is only available when a Quanti file or any map within a Quanti file is selected from the primary menu.</p>
 
-<p> The instructions on how to use the <i>Spider Module</i> are available in the help file accessible from the module.</p>
+<p>Instructions for using the <i>Spider Module</i> are available in the help file accessible from within the module.</p>
 
 
 
 <h2><a name="Biblio"></a>References</h2>
 <ul>
 <li>Lanari, P., & Engi, M. (2017). Local bulk composition effects on metamorphic mineral assemblages, Reviews in Mineralogy and Geochemistry, 83, 55-102</li>
+
+<li>Markmann, T.A., Lanari, P., Piccoli, F., Pettke, T., Tamblyn, R., Tedeschi, M., Lueder, M., Kunz, B., Riel, N., and Laughton, J. (2024). Multi-phase quantitative compositional mapping by LA-ICP-MS: analytical approach and data reduction protocol implemented in XMapTools. Chemical Geology, 646, 121895.</li>
 
 <li>Lanari, P., Vho, A., Bovay, T., Airaghi, L., Centrella, S., (2019). Quantitative compositional mapping of mineral phases by electron probe micro-analyser. Geological Society of London, Special Publications, 478, 39-63.</li>
 

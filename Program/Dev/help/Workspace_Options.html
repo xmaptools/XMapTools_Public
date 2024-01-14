@@ -13,8 +13,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <BODY>
 <h1> Help > Tabs > Options </h1>    	
-<p><i>Help file version 22.12.2022 by M. Tedeschi & P. Lanari</i></p>
-<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p><i>Help file version 11.01.2024 by M. Tedeschi & P. Lanari</i></p>
 <br \> 
 <hr>
 
@@ -25,16 +24,23 @@ h2,h3,h4,h5 {margin-top: 2em; }
 </p>
 <hr>
 
-<p>This help file contains a description of the tools available in the section <i>Options</i>.</p> 
+<p>This help file contains a description of the tools available in the <i>Options</i>. section</p>
+
+<br /><br />
+<center>
+<img src="./img/Options_Tools.png" width="800">
+<p><i><b>Figure 1</b>: Option tools in XMapTools 4.3. Note that the BCR filter is not available in this version.</i> </p>
+</center>
+ 
 
 <h2> <a name="Color"></a>Color Bar & Color Palette </h2>
 
-<p> Use these options to change the color palette, the resolution of the colormap (number of colors), change the scale of the color bar to logarithmic and add a black or white layers at the bottom or/and at the top of the color palette. </p>
+<p>Use these options to change the colour palette, change the resolution of the colour map (number of colours), change the scale of the colour bar to logarithmic and add a black or white layer at the bottom and/or top of the colour palette. </p>
 
 <p><i>Colormap</i>  <img src="./img/SS_Options_colormap.png" height="30">
- Set the color palette to be used for color bar throughout XMapTools. </p> 
+ Set the colour palette to be used for the colour bar throughout XMapTools. </p> 
 
-<p>Recommended color palettes are largely inspired from www.ColorBrewer.org by Cynthia A. Brewer, Geography, Pennsylvania State University. The following abbreviations are employed in the dropdown menu: Colorblind friendly (C), Linear (L), Divergent (D) and Printing friendly (P).</p> 
+<p>The recommended colour palettes are largely inspired by www.ColorBrewer.org by Cynthia A. Brewer, Geography, Pennsylvania State University. The following abbreviations are used in the drop-down menu: Colourblind friendly (C), Linear (L), Divergent (D) and Print friendly (P).</p> 
 
 <ul>
 <li>XMap (default)</li>
@@ -53,7 +59,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 <li>Purples</li>
 </ul>
 
-<p>The following scientific colour maps from Simon Garnier (https://github.com/sjmgarnier/viridisLite) are available: </p>
+<p>The following scientific colour maps by Simon Garnier (https://github.com/sjmgarnier/viridisLite) are available: </p>
 
 <ul>
 <li>VIRIDISLITE plasma</li>
@@ -62,7 +68,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 <li>VIRIDISLITE magma</li>
 </ul>
 
-<p>The following scientific colour maps from Fabio Crameri (https://www.fabiocrameri.ch/colourmaps/) are also available: </p>
+<p>The following scientific colour maps by Fabio Crameri (https://www.fabiocrameri.ch/colourmaps/) are also available: </p>
 
 <ul>
 <li>SCM Acton</li>
@@ -101,25 +107,26 @@ h2,h3,h4,h5 {margin-top: 2em; }
 </ul>
 
 
-<p>Select the box <i>Log (Use a log colormap)</i> <img src="./img/SS_Options_logbox.png" height="30"></h3> to set a logarithmic axis for the color bar. If this option is not selected a linear scale is applied instead. </p>
+<p>Check the <i>Log (Use a log colormap)</i> <img src="./img/SS_Options_logbox.png" height="30"> box to set a logarithmic axis for the colour bar. If this option is not selected, a linear scale is used instead. </p>
 
 
-<p>Field <i>Colormap resolution</i> <img src="./img/SS_Options_resolution.png" height="30"> sets the number of colors used in the colormap (i.e., the resolution of the color bar). The colors palettes defined with more colocrs are resampled. The default value is 256. </p>
+<p>The <i>Colormap resolution</i> <img src="./img/SS_Options_resolution.png" height="30"> field sets the number of colours used in the colormap (i.e. the resolution of the colour bar). Colour palettes defined with more colours are resampled. The default value is 256. </p>
 
-<p>Layer options for <i>Lower</i> and <i>Upper</i> <img src="./img/SS_Options_boxes.png" height="30"> adds a black or white layer at the bottom (lower) or/and at the top (upper) of the color palette. If selected, the layer can be set either to black or white in the corresponding dropdown menu. </p>
+<p>Layer options for <i>Lower</i> and <i>Upper</i> <img src="./img/SS_Options_boxes.png" height="30"> adds a black or white layer at the bottom (lower) and/or top (upper) of the colour palette. When selected, the layer can be set to either black or white in the corresponding drop down menu. </p>
 
-<p> Option <i>Display negative values</i> <img src="./img/SS_Options_negvalues.png" height="30">, if selected negatives values are displayed in the plotted map. By default, XMapTools ignores negative values in plots. </p> 
+<p> Option <i>Display negative values</i> <img src="./img/SS_Options_negvalues.png" height="30">, if selected negative values are displayed in the plotted map. By default, XMapTools ignores negative values in plots. </p> 
+
+<p>The <i>Apply Auto Contrast</i> option activates automatic contrast enhancement each time a new map is displayed.</p>
 
 
+<h2> <a name="Other"></a>Other options </h2> 
 
-<h2> <a name="Other"></a>Other options  </h2> 
-
-<p>Option <i>Med-filter 3D surface</i> <img src="./img/SS_Options_medfilter.png" height="30"> defines the value of the median filter to be applied when a new 3D surface is plotted (see in the main menu <i>Edit > Plot 3D surface</i>). Changing the option does not update the plots already generated.</p>
+<p>Option <i>Median filter 3D surface</i> <img src="./img/SS_Options_medfilter.png" height="30"> defines the value of the median filter to be applied when plotting a new 3D surface (see main menu <i>Edit > Plot 3D surface</i>). Changing this option will not update plots already generated.</p>
 
 
 <h2> <a name="Details"></a>XMapTools main window  </h2>
 
-<p>The current resolution of the program is displayed here. Please send this value if you experience display issues with XMapTools.</p> 
+<p>This is the current resolution of the programme. Please submit this value if you are experiencing display problems with XMapTools.</p> 
 
 <br \> <br \> <br \>
 <br \> <br \> <br \>

@@ -1,0 +1,42 @@
+! Standard Name	S_STDGL3			
+! Data source	University of Tasmania			
+! Matrix	Lithium tertraborate sulphide glass			
+! Brief description				
+! Notes				
+! URL				
+! Parameter	Units	Value	Uncertainty	
+Na	ppm	53214	638.6	
+Mg	ppm	58	1.9	
+Al	ppm	117	2.6	
+S	ppm	12361	309.0	
+Ti	ppm	256	11.8	
+Mn	ppm	215	2.8	
+Fe	ppm	17067	256.0	
+Co	ppm	76	1.4	
+Ni	ppm	243	5.1	
+Cu	ppm	361	8.3	
+Zn	ppm	5898	64.9	
+Ge	ppm	178	2.7	
+As	ppm	356	6.4	
+Se	ppm	4027	161.1	
+Sr	ppm	28	0.8	
+Zr	ppm	45	1.3	
+Mo	ppm	173	4.0	
+Ag	ppm	102	2.6	
+Cd	ppm	552	11.6	
+In	ppm	104	1.2	
+Sn	ppm	134	2.0	
+Sb	ppm	96	1.7	
+Te	ppm	1328	23.9	
+Gd	ppm	82	2.1	
+Hf	ppm	37	1.0	
+Ta	ppm	16	0.4	
+W	ppm	80	1.8	
+Re	ppm	15.5	0.4	
+Pt	ppm	22.3	0.9	
+Au	ppm	19.8	0.8	
+Tl	ppm	108	2.2	
+Pb	ppm	61	0.8	
+Bi	ppm	19.4	0.3	
+Th	ppm	14.2	0.3	
+U 	ppm	13.5	0.3	

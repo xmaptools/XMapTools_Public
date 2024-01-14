@@ -13,92 +13,104 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <BODY>
 <h1> Help > Tabs > Functions </h1>    	
-<p><i>Help file version 22.12.2022 by M. Tedeschi & P. Lanari</i></p>
-<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
+<p><i>Help file version 11.01.2024 by M. Tedeschi & P. Lanari</i></p>
 <br \> 
 <hr>
 <p><b>Table of content</b><br \><br \>
 <a href="#SF">Normalisation & Structural Formula</a><br \>
-<a href="#Export">Export mineral composition and structural formula</a><br \>
+<a href="#Export">Export Mineral Composition and Structural Formula</a><br \>
 <a href="#TB">Thermobarometry & Other Methods</a><br \>
 - <a href="#MM">Map-mode</a><br \>
 - <a href="#ME">Multi-equilibrium</a><br \>
 </p>
 <hr>
 
-<p>This help file contains a description of the tools available in the section <i>Functions</i>.</p> 
+<p>This help file contains a description of the tools available in the <i>Functions</i> section.</p> 
 
-<p>Not all functions from XMapTools 3 are implemented yet. Contact Pierre Lanari (pierre.lanari@geo.unibe.ch) if you want additional functions to be added in future releases.</p>
+<p>Several functions are taken from J. Laughton's <a href="https://github.com/JoshuaLaughton/PTtoolbox">PTtoolbox</a>. </b>
 
 
 <h2><a name="SF"></a>Normalisation & Structural Formula</h2>
 
-<p>These tools allow maps of structural formulas expressed in atoms per formula units (apfu) to be calculated for selected minerals. Select a quanti file under the category <i>Quanti</i> in the primary menu to activate these tools. </p>
+<p>These tools allow the calculation of structural formula maps expressed in atoms per formula unit (apfu) for selected minerals (see Fig. 1). Select a Quanti file from the <i>Quanti</i> category in the primary menu to activate these tools. </p>
 
-<p>Three modes are available: </p>
+<p>Three modes are available:</p>
 <ul>
-<li><b>Functions</b>, use one of the implemented function to calculate a structural formula. Select the mineral in the first dropdown menu and the function in the second dropdown menu. Note that several functions can be available for one mineral. A description for each function can be displayed by pressing the button <i>Display function description</i> <img src="./img/icon_info_C.png" width="15"></li>
+<li><b>Functions</b>, use one of the implemented functions to calculate a structural formula. Select the mineral from the first drop down menu and the function from the second drop down menu. Note that there may be several functions available for a mineral. A description of each function can be displayed by pressing the <i>Show Function Description</i> button. <img src="./img/icon_info_C.png" width="15"></li>
 <li><b>Oxygen</b>, calculate a generic structural formula by normalising to a given number of anhydrous oxygen.</li>
 <li><b>Cations</b>, calculate a generic structural formula by normalising to a given number of cations.</li>
 </ul>
 
-<p>Select the mode and either pick a function via the menus or set the number of oxygen or cations to be used for the normalisation.</p>
+<p>Select the mode and either select a function from the menus or set the number of oxygen or cations to be used for normalisation.</p>
 
-<p><img src="./img/icon_create.png" width="30"> The button <i>Apply (Apply the Selected Function (Structural Formula))</i> calculates a structural formula and store the results under a new entry in the category <i>Results</i> in the <i>Primary Menu</i>. To display the result, unfold the menu by clicking on the arrow on the left side of the mineral name and pick a map.<p>
+The <i>Apply (Apply the Selected Function (Structural Formula))</i> <p><img src="./img/icon_create.png" width="30"> button calculates a structural formula and saves the results under a new entry in the <i>Results</i> category of the <i>Primary Menu</i>. To view the result, expand the menu by clicking on the arrow to the left of the mineral name and select a map.<p>
+
+<center>
+<img src="./img/Functions_SF.png" width="450">
+<p><i><b>Figure 1</b>: Normalisation and structural formula tools.</i> </p>
+</center>
 
 
-<h2><a name="Export"></a>Export mineral composition and structural formula</h2>
+<h2><a name="Export"></a>Export Mineral Composition and Structural Formula</h2>
 
 <p>It is possible to export average mineral composition and the corresponding structural formula. </p>
 
-<p>Select a quanti file and display one element (e.g. CaO in plagioclase in Fig. 1 below). This selection will activate the export mode available in the section <i>Functions</i>. Select a ROI shape using the dropdown menu (circle, rectangle or polygon). </p>
+<p>Select a Quanti file and display an element (e.g. CaO in plagioclase in Fig. 2). This selection activates the export mode available in the <i>Functions</i> section. Select the structural formula function to be applied (see above). Then select a ROI shape from the drop down menu (circle, rectangle or polygon). </p>
 
-<p><img src="./img/icon_ROI.png" width="30"> The button <i>Add ROI for Exporting Compositions</i> activate the drawing mode. Draw a ROI and the average mineral composition. Results are displayed in the live display module. The ROI can be edited and the results will be updated. </p>
+<p>The <i>Add ROI for Exporting Compositions</i> <img src="./img/icon_ROI.png" width="30"> button activates the drawing mode. Draw a ROI and average mineral composition. The results are displayed in the live display module. The ROI can be edited and the results updated. </p>
 
+<br />
+<center>
 <p><img src="./img/Functions_Window1.png" width="700"></p>
 
-<i><b>Figure 1</b>: Exporting composition and structural formula of plagioclase. The ROI is located in the top-right corner of the image and the average composition of 1094 pixels shown in the table of the live display module. </i> 
+<i><b>Figure 2</b>: Export of the composition and structural formula of plagioclase. The ROI is in the top right corner of the image and the average composition of 1094 pixels is shown in the table of the live display module. </i> 
 
+<br /><br />
 <p><img src="./img/Functions_Window2.png" width="700"></p>
 
-<i><b>Figure 2</b>: Exporting the average composition of garnet. Only garnet compositions are used to calculate the structural formula (239'008/1'000'000 pixels). </i> 
+<i><b>Figure 3</b>: Export of the average garnet composition. Only garnet compositions are used to calculate the structural formula (239'008/1'000'000 pixels). </i> 
+</center>
 
 
 <h2><a name="TB"></a>Thermobarometry & Other Methods </h2>
 
-<p>External functions not dedicated to structural formula calculations are available here. They are divided into two categories: </p>
+<p>External functions not related to structural calculations are available here. These are divided into two categories: </p>
 
 <ul>
-<li><b>Map-mode</b> for functions that calculate maps as results (e.g. map of <i>T</i> or <i>P</i> conditions)</li>
-<li><b>Multi-Equilibrium</b> for all functions performing multi-mineral thermobarometry</li>
+<li><b>Map Mode</b> for functions that calculate maps as a result (e.g. map of <i>T</i> or <i>P</i> conditions)</li>.
+<li><b>Multi-Equilibrium</b> for all functions that perform multi-mineral thermobarometry</li>.
 </ul>
 
 <h2><a name="MM"></a>Map-mode</h2>
 
-<p>Select a quanti file in the <i>Primary Menu</i> and activate the mode <i>Map-mode</i>. Select the mineral in the second dropdown menu and the calibration in the third menu. An example is provided below in Figure 3.</p>
+<p>Select a Quanti file from the <i>Primary Menu</i> and activate the <i>Map Mode</i>. Select the mineral from the second drop down menu and the calibration from the third. An example is shown in Figure 4.</p>
 
-<p><img src="./img/icon_create.png" width="30"> The button <i>Apply (Apply the Selected Function (other))</i> calculates runs the selected function and store the results under a new entry in the category <i>Results</i> in the <i>Primary Menu</i>. To display the result, unfold the menu by clicking on the arrow on the left side of the mineral name and pick a map.</p>
+<p>The <i>Apply (Apply the Selected Function (other))</i> <img src="./img/icon_create.png" width="30"> button applies the selected function and saves the results under a new entry in the <i>Results</i> category of the <i>Primary Menu</i>. To view the result, expand the menu by clicking on the arrow to the left of the mineral name and select a map.</p>
 
+<br />
+<center>
 <p><img src="./img/Functions_Window3.png" width="700"></p>
 
-<i><b>Figure 2</b>: Example of calculation of temperature map for biotite. Note that a map of the quanti file Biotite is displayed. The map-mode is activated, the mineral biotite was picked and the function T.Bt (Henry et al. 2005). </i> 
-
+<i><b>Figure 4</b>: Example of calculation of temperature map for biotite. Note that a map of the biotite quantum file is displayed. The map mode is activated, the mineral Biotite is selected and the function T.Bt (Henry et al. 2005) is selected. </i> 
+</center>
 
 
 <h2><a name="ME"></a>Multi-equilibrium</h2>
 
-<p>Select a merged map in the <i>Primary Menu</i> and activate the mode <i>Multi-equilibrium</i>. This mode is only available with merged maps as the composition of multiple minerals are required. Note that it is possible to generate a merged map with a limited number of minerals (in Calibrate).</p>
+<p>Select a merged map from the <i>Primary Menu</i> and activate the <i>Multi-Equilibrium</i> mode. This mode is only available for merged maps as it requires the composition of multiple minerals. Note that it is possible to create a merged map with a limited number of minerals (in Calibrate).</p>
 
-<p>Select a mineral in the second dropdown menu and the calibration in the third menu. An example is provided below in Figure 4.</p>
+<p>Select a mineral from the second drop down menu and the calibration from the third. An example is shown in Figure 5 below.</p>
 
-<p>Each function name contain the variable that is calculated, and the mineral pair. The order of the mineral pair (e.g. Grt-Bt) is important because the minerals need to be selected in this specific order.</p>
+<p>Each function name contains the variable to be calculated and the mineral pair. The order of the mineral pair (e.g. Grt-Bt) is important because the minerals must be selected in that particular order.</p>
 
-<p><img src="./img/icon_ROI.png" width="30"> The button <i>Apply (Apply the Selected Function (other))</i> enables the drawing mode. Select several ROI for the minerals, in the order indicated in the function name. Results are displayed in a table of the live module. </p>
+<p>The <i>Apply (Apply selected function (other))</i> <img src="./img/icon_ROI.png" width="30"> button activates the drawing mode. Select multiple ROI for the minerals in the order given in the function name. The results are displayed in a table in the live display module. </p>
 
+<br />
+<center>
 <p><img src="./img/Functions_Window4.png" width="700"></p>
 
-<i><b>Figure 2</b>: Example of calculation of temperature for the couple garnet-biotite. Note that a merged map is displayed. The multi-equilibrium is activated, the mineral biotite was picked and the function T.Grt-Bt (all calibrations). In this case, garnet (Grt) needs to be selected first and biotite (Bt) second. Results are displayed in the live display module on the right. </i> 
-
+<i><b>Figure 5</b>: Example of temperature calculation for the garnet-biotite pair. Note that a merged map is displayed. The multi-equilibrium has been activated, the mineral biotite has been selected and the function T.Grt-Bt (all calibrations) has been selected. In this case garnet (Grt) must be selected first and biotite (Bt) second. The results are displayed in the live display module on the right. </i> 
+</center>
 
 
 <br \> <br \> <br \>

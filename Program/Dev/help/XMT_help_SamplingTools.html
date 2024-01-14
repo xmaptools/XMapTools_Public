@@ -13,10 +13,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <BODY>
 <h1> Help > Sampling Tools </h1>    	
-<p><i>Help file version 21.11.2020 by M. Tedeschi & P. Lanari</i></p>
-<p><a href="https://resources.xmaptools.ch" target="_blank">Access XMapTools resources online</a></p>
-<p class="ex">This part of XMapTools 4 is currently at <b>level 2</b> of development (<i>1, largely untested; 2, tested for a few cases; 3, tested and benchmarked; 4, publication quality</i>). </p> 
-<br \> 
+<p><i>Help file version 14.01.2024 by M. Tedeschi & P. Lanari</i></p><br \> 
 <hr>
 <p><b>Table of content</b><br \><br \>
 <a href="#Circle">Circle</a><br \>
@@ -28,71 +25,95 @@ h2,h3,h4,h5 {margin-top: 2em; }
 <br \> 
 
 
-<p>This help file contains a description of the <i>Sampling Tools</i>. These tools are available at any stage of the data procedure and apply to the map plotted in the main figure.</p>
+<p>This help file contains a description of the <i>Sampling Tools</i>. These tools are available at any stage of the data procedure and apply to the map shown in the main figure.</p>
 
-<p>The following sampling functions are available vial the menu <i>Sampling</i> or in the section sampling of the live output display located below the live histogram:</p> 
+<p>The following sampling functions are available from the <i>Sampling</i> menu or from the Sampling section of the live output display, located below the live histogram:</p> 
 <ul>
-<li><img src="./img/icon_Shaded_Circle.png" width="20"> <b>Circle</b>, obtain the average value and standard deviation of selected pixels</li>
-<li><img src="./img/icon_Shaded_Square.png" width="20"> <b>Area (polygon)</b>, obtain the average value and standard deviation of selected pixels</li>
-<li><img src="./img/icon_path4sampling.png" width="20"> <b>Transect</b>, display compositional changes along a path</li>
-<li><img src="./img/icon_FocusHorizontal.png" width="20"> <b>Strip</b>, display averaged compositional changes along a strip.</li>
+<li><img src="./img/icon_Shaded_Circle.png" width="20"> <b>Circle</b>, gives the average value and standard deviation of selected pixels</li>
+<li><img src="./img/icon_Shaded_Square.png" width="20"> <b>Area (polygon)</b>, obtains the average value and standard deviation of selected pixels</li>
+<li><img src="./img/icon_path4sampling.png" width="20"> <b>Transect</b>, shows changes in composition/intensity along a path</li>
+<li><img src="./img/icon_FocusHorizontal.png" width="20"> <b>Strip</b>, shows averaged compositional/intensity changes along a strip.</li>
 </ul>
 
-Each sampling function is described below. 
+<p>The individual sampling functions are described below. </p>
+
+<p>Once a ROI has been selected, the results are displayed in the Sampling Viewer to the right of the main window. Data can be saved using the tools available in the Sampling menu under 'Save Results'. The 'Single Map' option saves data for the map selected from the primary menu, while the 'Multiple Map' option saves all element maps available in the selected data category. Data is automatically saved to an 'Exported-Sampling' folder in the working directory.</p>
+
+
 
 <h2><a name="Circle"></a>Circle</h2> 
-<p>In the main menu, select <i> Sampling > Circle</i> and draw a circle on the map by clicking on a position, holding and dragging the mouse over an area. Note that a cross cursor becomes available when the mouse pointer is over the map and the sampling option has been activated. </p>
+<p>Select <i> Sampling > Circle</i> from the main menu and draw a circle on the map by clicking on a location, holding the mouse down and dragging over an area. Note that a crosshair cursor becomes available when the mouse pointer is over the map and the Sampling option is enabled. </p>
 
-<p>After drawing the circle, click and hold one of the four filled dots located in the circle to change its size. In the inner area of the circle, a cross cursor may be used to move the circle's position. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u>.</p>
+<p>Once you have drawn the circle, click and hold one of the four filled dots inside the circle to change its size. Inside the circle a cross cursor can be used to move the position of the circle. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u>.</p>
 
-<p>The result of the data extraction is exhibited by the green bar in the graphic on the top right of the main window and its correspondent numbers located immediately below. In addition an histogram is plotted using all pixel data contained within the ROI.</p>
+<p>The result of the data extraction is shown by the green bar in the graph at the top right of the main window and the corresponding numbers immediately below. A histogram is also plotted using all the pixel data contained within the ROI.</p>
 
-
+<br />
+<center>
 <p><img src="./img/Sampling_Circle.png" width="700"></p>
 
-<i><b>Figure 1</b>: Example sampling of an intensity map (Ca) using the circle shape. Note that in this example, the average value of the selected pixels (Nb = 774) is 1028 ± 35.24 (stdev).</i> 
+<p><i><b>Figure 1</b>: Example sampling of an intensity map (Ca) using the circle shape. Note that in this example, the average value of the selected pixels (Nb = 774) is 1028 ± 35.24 (stdev).</i></p> 
+</center>
+
 
 
 <h2><a name="Area"></a>Area (Polygon)</h2>
-<p>In the main menu, select <i> Sampling > Area (Polygon)</i> and draw a polygon on the map by clicking on several positions. Click on the first point to close the polygon (a circle pointer mouse appears).</p>
+<p>Select <i>Sampling > Area (Polygon)</i> from the main menu and draw a polygon on the map by clicking on several points. Click on the first point to close the polygon (a circle cursor appears).</p>
 
 <p>The polygon shape can be edited. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u>.</p>
 
-
+<br />
+<center>
 <p><img src="./img/Sampling_Polygon.png" width="700"></p>
 
-<i><b>Figure 2</b>: Example sampling of an intensity map (Ca) using the polygon shape. Note that in this example, the average value of the selected pixels (Nb = 774) is 999.8 ± 63.9 (stdev) nut two plagioclase compositions are visible on the histogram (at 900 and 1030 counts).</i> 
+<p><i><b>Figure 2</b>: Example sampling of an intensity map (Ca) using the polygon shape. Note that in this example, the average value of the selected pixels (Nb = 774) is 999.8 ± 63.9 (stdev), but two plagioclase compositions are visible on the histogram (at 900 and 1030 counts).</i> </p>
+</center>
+
 
 
 <h2><a name="Transect"></a>Transect</h2> 
-<p>In the main menu, select <i> Sampling > Transect</i> and draw a polygon on the map by clicking on several positions. Right-clicking ends the selection. You need two select at least two positions to obtain a valid transect.</p>
+<p>Select <i>Sampling > Transect</i> from the main menu and draw a polygon on the map by clicking on several positions. Right-click to complete the selection. You must select at least two positions to obtain a valid transect.</p>
 
-<p>The resulting profile is shown in the live display, in category sampling (Fig 3).</p>
+<p>The resulting profile is shown in the live display in the category sampling (Fig. 3).</p>
 
-<p>The transect position can be edited and the plot is automatically updated. Note that changing the color bar limits changes the profile as colors from the color bar are used to plot the spots. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u>.</p>
+<p>The transect position can be edited and the plot will be updated automatically. Note that changing the colour bar boundaries will change the profile as the colours from the colour bar are used to plot the points. <u>If it is not possible to edit or move the ROI, select XMapTools, press ctr (control) and try editing the ROI again</u>.</p>
 
-
+<br />
+<center>
 <p><img src="./img/Sampling_Transect.png" width="700"></p>
 
-<i><b>Figure 3</b>: Example sampling of an intensity map (Ca) using a transect starting at the point located to-left.</i> 
+<p><i><b>Figure 3</b>: Example of sampling an intensity map (Ca) using a transect starting at the point located to the left.</i> </p>
+</center>
+
 
 
 <h2><a name="Strip"></a>Strip</h2> 
-<p>This tools is used to extract the mean and median profile from a strip with a rectangular shape using the composition of each transect. For a given pixel on the central transect, the value is calculated as the mean and median of the pixel compositions perpendicular to the reference transect. </p>
+<p>This tool is used to extract the mean and median profile from a rectangular strip, using the composition of each transect. For a given pixel on the central transect, the value is calculated as the mean and median of the pixel compositions perpendicular to the reference transect. </p>
 
-<p>In the main menu, select <i> Sampling > Strip</i> and draw an horizontal rectangle on the map by clicking on the corner position (top-left), holding and dragging the mouse over an area. Note that a cross cursor becomes available when the mouse pointer is over the map and the sampling option has been activated. </p>
+<p>Select <i> Sampling > Strip</i> from the main menu and draw a horizontal rectangle on the map by clicking on the corner position (top left), holding the mouse down and dragging over an area. Note that a crosshair cursor becomes available when the mouse pointer is over the map and the Sampling option is enabled. </p>
 
-<p>To move the rectangle, position the cursor on the central part of the rectangle, left-click, hold and move it, droping it in the new position.  </p> 
+<p>To move the rectangle, position the cursor in the centre of the rectangle, left-click, hold and drag, and drop it into the new position.  </p> 
 
-<p>Note: The retangle must be delineated with its elongation horizontally positioned. However, it can be later rotated by positioning the cursor on the rectangle's perimeter, nearby one of its edges and then rotation cursor is activated. </p>
+<p>Note: The retangle must be drawn with its extension horizontal. However, it can be rotated later by positioning the cursor on the perimeter of the rectangle, near one of its edges, and then activating the rotation cursor. </p>
 
-<p>Once the rectangle is created (or edited), plots are updated in the live display sampling category. Two plots are available: (top) two curves, in red, the median, and in blue, the mean; (bottom) all profiles used to generated the plot above are plotted in grey.</p>
+<p>Once the rectangle has been created (or edited), the plots in the Live Display Sampling category are updated. Two plots are available: (top) two curves, in red the median and in blue the mean; (bottom) all profiles used to generate the above plot are plotted in grey.<p>.
 
-
+<br />
+<center>
 <p><img src="./img/Sampling_Strip.png" width="700"></p>
 
-<i><b>Figure 3</b>: Example sampling of an intensity map (Ca) using a strip from bottom left to top right.</i> 
+<p><i><b>Figure 4</b>: Example sampling of an intensity map (Ca) using a strip from bottom left to top right.</i></p>
+</center>
 
+<br />
+<p>The orientation of the strip is shown in Figure 5.</p>
+
+<br />
+<center>
+<p><img src="./img/Sampling_StripOrientation.jpg" width="800"></p>
+
+<p><i><b>Figure 5</b>: Orientation of the sampling strip.</i></p>
+</center>
 
 
 <br \> <br \> <br \>

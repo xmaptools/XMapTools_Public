@@ -1,0 +1,27 @@
+! Standard Name	G_FGS2
+! Data source	"Forensic Science Institute, germany"
+! Matrix	Float glass
+! Brief description
+! Notes
+! URL
+! Parameter	Units	Value	Uncertainty
+Na	ppm	100500	2500
+Mg	ppm	23400	3600
+Si	ppm	335200	1800
+Ca	ppm	59300	4100
+Li	ppm	29	2
+Al	ppm	7400	100
+K	ppm	4600	200
+Ti	ppm	326	20
+Mn	ppm	221	20
+Fe	ppm	2600	100
+Rb	ppm	35	3
+Sr	ppm	253	13
+Zr	ppm	223	15
+Sn	ppm	94	12
+Ba	ppm	199	15
+La	ppm	18	1
+Ce	ppm	23	2
+Nd	ppm	25	2
+Hf	ppm	15	1
+Pb	ppm	24	2

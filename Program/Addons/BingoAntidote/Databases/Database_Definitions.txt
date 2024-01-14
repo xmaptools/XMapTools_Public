@@ -115,11 +115,11 @@ Last_Change:		17.06.2023
 Comment:			Database td-ds62-mb50 for metabasite by D. Tinkham (no ma in WM; requires extra O)
 
 
-###
-File_Name:			td-ds62-mb50-v07.txt
-Definition_File:	DEF_ds62-mb.txt		
-Last_Change:		17.06.2023
-Comment:			Database td-ds62-mb50 for metabasite by D. Tinkham (no ma in WM; requires extra O)
+! ###
+! File_Name:			td-ds62-mb50-v07.txt
+! Definition_File:	DEF_ds62-mb.txt		
+! Last_Change:		17.06.2023
+! Comment:			Database td-ds62-mb50 for metabasite by D. Tinkham (no ma in WM; requires extra O)
 
 
 ! ###

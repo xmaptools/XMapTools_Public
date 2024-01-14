@@ -1,7 +1,7 @@
 function [Functions] = Core_Function_Indexing()
 %
 % XMapTools is a free software solution for the analysis of chemical maps
-% Copyright © 2022-2023 University of Bern, Institute of Geological Sciences, Pierre Lanari
+% Copyright © 2022-2024 University of Bern, Institute of Geological Sciences, Pierre Lanari
 %
 % XMapTools is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by

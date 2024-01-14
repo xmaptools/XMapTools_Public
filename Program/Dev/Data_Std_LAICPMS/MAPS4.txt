@@ -1,0 +1,65 @@
+! Standard Name	P_MAPS4	
+! Data source	USGS & GeoREM (red)	
+! Matrix	Pellet	
+! Brief description		
+! Notes		
+! URL		
+! Parameter	Units	Value	Uncertainty
+Al	ppm	2000	700
+Ag	ppm	7.3		0.6
+As	ppm	190		16
+Au	ppm	9		-
+B	ppm	53		4
+Ba	ppm	2900	250
+Be	ppm	12		-
+Bi	ppm	19		0.6
+Ca	ppm	338300	12900
+Cd	ppm	23		2
+Ce	ppm	2600	260
+Co	ppm	51		3
+Cr	ppm	110		20
+Cu	ppm	340		50
+Dy	ppm	194		33
+Er	ppm	110		22
+Eu	ppm	27		3
+Fe	ppm	1600	90
+Ga	ppm	25		-
+Gd	ppm	270		22
+Ge	ppm	10		0.8
+Hf	ppm	21		2
+Hg	ppm	3		0.2
+Ho	ppm	30		5
+La	ppm	926		78
+Li	ppm	9.6		1
+Lu	ppm	9		0.7
+P	ppm	167000	16400
+Mg 	ppm	680		68
+Mn	ppm	910		37
+Mo	ppm	1.8		0.4
+Na	ppm	10000	600
+Nb	ppm	10.3	1.9
+Nd	ppm	1860	150
+Ni	ppm	120		21
+Pb 	ppm	220		22
+Pr	ppm	280		18
+Sb	ppm	3		-
+Sc	ppm	18		2
+Se	ppm	23		-
+Sm	ppm	360		20
+Sn	ppm	100		-
+Sr	ppm	3100	270
+Ta	ppm	12		1.5
+Tb	ppm	39		4.5
+Th	ppm	91		8
+Tl	ppm	17		2
+Tm	ppm	10		0.8
+U	ppm	17		1
+V	ppm	14		2
+W	ppm	2		-
+Y	ppm	990		130
+Yb	ppm	57		12
+Zn	ppm	470		70
+Zr	ppm	44		9
+
+
+

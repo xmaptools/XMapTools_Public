@@ -1,0 +1,79 @@
+! Standard Name	G_NIST614		
+! Data source	GeoREM		
+! Matrix	GLASS		
+! Brief description			
+! Notes			
+! URL			
+! Parameter	Units	Value	Uncertainty
+Ag	ppm	0.41	-
+Al	ppm	10797	-
+As	ppm	0.74	-
+Au	ppm	0.48	-
+B	ppm	1.49	-
+Ba	ppm	3.2	-
+Be	ppm	0.753	-
+Bi	ppm	0.581	-
+Ca	ppm	85049	-
+Cd	ppm	0.56	-
+Ce	ppm	0.813	-
+Cl	ppm	102	-
+Co	ppm	0.79	-
+Cr	ppm	1.19	-
+Cs	ppm	0.664	-
+Cu	ppm	1.37	-
+Dy	ppm	0.746	-
+Er	ppm	0.74	-
+Eu	ppm	0.77	-
+F	ppm	6.2	-
+Fe	ppm	18.8	-
+Ga	ppm	1.31	-
+Gd	ppm	0.763	-
+Ge	ppm	0.942	-
+Hf	ppm	0.711	-
+Ho	ppm	0.749	-
+In	ppm	0.79	-
+Ir	ppm	0.002	-
+K	ppm	30	-
+La	ppm	0.72	-
+Li	ppm	1.69	-
+Lu	ppm	0.732	-
+Mg	ppm	33.8	-
+Mn	ppm	1.42	-
+Mo	ppm	0.8	-
+Na	ppm	101635	-
+Nb	ppm	0.824	-
+Nd	ppm	0.752	-
+Ni	ppm	1.1	-
+P	ppm	11.4	-
+Pb	ppm	2.32	-
+Pd	ppm	2.05	-
+Pr	ppm	0.768	-
+Pt	ppm	2.36	-
+Rb	ppm	0.855	-
+Re	ppm	0.17	-
+Rh	ppm	1.54	-
+S	ppm	291	-
+Sb	ppm	0.79	-
+Sc	ppm	0.74	-
+Se	ppm	0.4	-
+Si	ppm	337024	-
+Sm	ppm	0.754	-
+Sn	ppm	1.68	-
+Sr	ppm	45.8	-
+Ta	ppm	0.808	-
+Tb	ppm	0.739	-
+Th	ppm	0.748	-
+Ti	ppm	3.61	-
+Tl	ppm	0.273	-
+Tm	ppm	0.732	-
+U	ppm	0.823	-
+V	ppm	1.01	-
+W	ppm	0.806	-
+Y	ppm	0.79	-
+Yb	ppm	0.777	-
+Zn	ppm	2.79	-
+Zr	ppm	0.848	-
+
+
+
+

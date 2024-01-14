@@ -1,0 +1,20 @@
+! Standard Name	S_NiS3
+! Data source	"Uni of Tasmania (Gilbert et al. GGR, 2013)"
+! Matrix	Ni-sulphide fused bead
+! Brief description
+! Notes
+! URL
+! Parameter	Units	Value	Uncertainty
+Ru	ppm	23.3	0.7456
+Rh	ppm	22.9	1.3053
+Pd	ppm	24.1	4.338
+Os	ppm	23.8	0.8092
+Ir	ppm	22.5	0.8775
+Pt	ppm	22.5	1.71
+Au	ppm	20.8	1.664
+Ni	ppm	705000	20445
+Fe	ppm	350	185.5
+
+
+
+

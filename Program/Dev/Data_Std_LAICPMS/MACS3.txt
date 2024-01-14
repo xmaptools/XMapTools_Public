@@ -1,0 +1,65 @@
+! Standard Name	C_MACS3		
+! Data source	USGS		
+! Matrix	Pellet		
+! Brief description			
+! Notes			
+! URL			
+! Parameter	Units	Value	Uncertainty
+Ag	ppm	53.3	1.8
+As	ppm	44.2	1.4
+Au	ppm	7.12	-
+Ba	ppm	58.7	2
+Be	ppm	56.4	1.7
+Bi	ppm	19.9	1.6
+Br	ppm	0.44	-
+C	ppm	115000	600
+Ca	ppm	376900	5200
+Cd	ppm	54.6	2.2
+Ce	ppm	11.2	0.33
+Cl	ppm	61		2
+Co	ppm	57.1	2
+Cr	ppm	117		5
+Cu	ppm	120		5
+Dy	ppm	10.7	0.5
+Er	ppm	11.2	0.22
+Eu	ppm	11.8	0.13
+Fe	ppm	11200	300
+Ga	ppm	16.1	1.1
+Gd	ppm	10.8	0.3
+Ge	ppm	56.9	4
+Hf	ppm	4.73	0.21
+Hg	ppm	10.2	0.4
+Ho	ppm	11.3	0.14
+I	ppm	20.3	-
+La	ppm	10.4	0.5
+Li	ppm	62.2	4.2
+Lu	ppm	10.8	0.3
+Mg 	ppm	1756	136
+Mn	ppm	536		28
+Mo	ppm	1.21	0.14
+Na	ppm	5900	400
+Nb	ppm	35.2	3.1
+Nd	ppm	11		0.41	
+Ni	ppm	57.4	4.9
+Pb 	ppm	56.5	1.8
+Pd	ppm	3.4		-
+Pr	ppm	12.1	0.23
+Pt	ppm	17.8	-
+Ru	ppm	20.1	-	
+Sb	ppm	20.6	1.1
+Sc	ppm	21		0.8
+Sm	ppm	11		0.27
+Sn	ppm	58.1	8.8
+Sr	ppm	6760	350
+Ta	ppm	20.5	5.3
+Th	ppm	55.4	1.1
+Ti	ppm	54.9	0.18
+Tl	ppm	14.2	1.7
+U	ppm	1.52	0.04
+V	ppm	46.3	1.13
+W	ppm	2.16	0.19
+Zn	ppm	111		5.7
+Zr	ppm	8.67	0.63
+
+
+
