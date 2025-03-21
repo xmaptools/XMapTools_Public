@@ -21,6 +21,13 @@ Last_Change:		05.07.2019
 Comment:			JUN92 database with an extended biotite solution model (Al,Ti) from Rob (DEC06.bs)
 
 ###
+File_Name:			JUN92_Pourteau2014.txt
+Definition_File:	DEF_JUN92_Pourteau2014.txt		
+Last_Change:		31.01.2025
+Comment:			JUN92 database with Vidal's models for low grade metapelites from A. Pourteau
+
+
+###
 File_Name:			BED92v2.bs
 Definition_File:	DEF_BED92.txt		
 Last_Change:		23.07.2019
@@ -116,7 +123,7 @@ Comment:			Database td-ds62-mb50 for metabasite by D. Tinkham (no ma in WM; requ
 
 
 ! ###
-! File_Name:			td-ds62-mb50-v07.txt
+! File_Name:		td-ds62-mb50-v07.txt
 ! Definition_File:	DEF_ds62-mb.txt		
 ! Last_Change:		17.06.2023
 ! Comment:			Database td-ds62-mb50 for metabasite by D. Tinkham (no ma in WM; requires extra O)

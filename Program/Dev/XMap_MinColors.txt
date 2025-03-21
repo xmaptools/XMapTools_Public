@@ -60,6 +60,6 @@ Spinel	218	28	84
 Staurolite	226	170	0
 Talc	55	184	203
 Titanite	190	138	67
-Turmalime	56	72	78
+Tourmaline	56	72	78
 Zircon	221	60	39
 

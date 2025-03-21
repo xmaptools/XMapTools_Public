@@ -34,4 +34,4 @@ config.bingoantidote.setup_path = '';
 save('config_xmaptools.mat','config');
 
 clear all
-disp('Completed – configuration has been reset')
+disp('XMapTools Config data have been reset')

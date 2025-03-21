@@ -13,14 +13,15 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <BODY>
 <h1> Help > Tools > Converter For LA-ICPMS Data </h1>    	
-<p><i>Help file version 04.01.2024 by P. Lanari & T. Markmann</i></p>
+<p><i>Help file version 28.02.2025 by P. Lanari & T. Markmann</i></p>
 
 <br \>
 <hr>
 <p><b>Table of content</b><br \><br \>
 <a href="#MainSteps">Main steps</a><br \>
 <a href="#Description">Detailed description</a><br \>
-<a href="#Step1">- Step 1: Load datafiles</a><br \>
+<a href="#Step0">- Step 0: Load datafiles</a><br \>
+<a href="#Step1">- Step 1: Log Generator Module (Optional)</a><br \>
 <a href="#Step2">- Step 2: Adjust time shift</a><br \>
 <a href="#Step3">- Step 3: Extract integrations & plot data</a><br \>
 <a href="#Step4">- Step 4: Apply background correction</a><br \>
@@ -62,16 +63,16 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 The data processing steps are described below. The process is fast, so if something goes wrong during the import, it is recommended that you close the module and start again. 
 
-<h3><a name="Step1"></a>Step 1: Load datafile(s)</h3>
+<h3><a name="Step0"></a>Step 0: Load datafile(s)</h3>
 
-<p>The import tools are located at the top of the interface (Figure 2). The data format can be selected from the first drop down menu and the file format (single or multiple) from the second drop down menu. The data from a measurement session can be contained in a single file or multiple files. <u>If multiple files are selected, it is recommended that you select the last file first and then hold maj while selecting the first file, not vice versa</u>.
-</p>
+<p>The import tools are located at the top of the interface (Figure 2). The following options can be selected:</p>
 
-<p>For the laser, deselect the log file option if no compatible log file is available. In this case, the Log Generator module will appear when the Load Datafiles button is pressed. </p>
-
-<p>Once appropriate options have been selected, press the <i>Load Datafiles</i> <img src="./img/SS_ConverterLAICPMS_Loadfiles.png" height="30"> button to select: (1) a single data file from the mass spectrometer containing timestamps and intensity data (e.g. Data.csv) or multiple files (see warning above), and (2) if the Log File option is enabled, immediately after a corresponding log file (e.g. Log.csv) from the laser system (tested with RESONETICS only).</p>
-
-<p>When the opening window pops up, select the data first. A new window will automatically pop up if the Log File option is enabled to select a compatible log file.</p>
+<ul>
+<li><u>File format</u> (Mass spectrometer): current compatible file formats are Agilent, Thermo.  </li>
+<li><u>File type</u>: can be "single file" or "multiple files". The data from a measurement session can be contained in a single file or multiple files. Note that if multiple files are selected, it is recommended that you select the last file first and then hold maj while selecting the first file, not vice versa.</li>
+<li><u>Laser log file</u>: "yes" if selected, otherwise "no". If no log file is available the Log Generator module will appear when the Load Datafiles button is pressed. Note that a log file cannot currently be used with multiple files.</li>
+<li><u>Analysis name format</u>: current compatible formats are "Name - ID" or "Name_ID"</li>
+</ul>
 
 <br />
 <center>
@@ -79,6 +80,83 @@ The data processing steps are described below. The process is fast, so if someth
 
 <p><i><b>Figure 2</b>: Options for importing LA-ICPMS data. </i></p>.
 </center>
+
+<p>Once appropriate options have been selected, press the <i>Load Datafiles</i> <img src="./img/SS_ConverterLAICPMS_Loadfiles.png" height="30"> button to select: (1) a single data file from the mass spectrometer containing timestamps and intensity data (e.g. Data.csv) or multiple files (see warning above), and (2) if the Log File option is enabled, immediately after a corresponding log file (e.g. Log.csv) from the laser system (tested with RESONETICS only).</p>
+
+<p>When the opening window pops up, select the data first. A new window will automatically pop up if the Log File option is enabled to select a compatible log file.</p>
+
+<p>For each file, the date and time format can be set by selecting the correct format from the list (Fig. 3). The date and time read is displayed at the top of the window under Label.
+</p>
+
+<br />
+<center>
+<img src="./img/Converter_LAICPMS_DateFormat.png" width="250">
+
+<p><i><b>Figure 3</b>: Example of selecting the date and time format for each file type. </i></p>.
+</center>
+
+
+<h3><a name="Step1"></a>Step 1: Log Generator Module (Optional)</h3>
+
+<p>The Log Generator module opens when multiple files are selected (Fig. 4). This module can be used to set the map size (Map Settings) and the laser on and off times for each measurement.</p>
+
+<br />
+<center>
+<img src="./img/Converter_LAICPMS_LogGenerator_1.png" width="800">
+
+<p><i><b>Figure 4</b>: Log Generator Module. </i></p>.
+</center>
+
+<p>The first step is to set the <u>map settings</u>. You can set the start position (<i>X</i> and <i>Y</i>), but the default values [1,1] should work for most applications. The laser diameter must be set to obtain the correct pixel size in the generated maps. The scan speed must be defined to allow the spatial coordinates of each sweep to be calculated. An incorrect scan speed would result in a deformed map around the <i>X</i> dimension. 
+</p>
+
+<p>The second step is to adjust the file names using the tools in the File Names tab. The aim is to have identical file names for each type of measurement. In the example shown in Figure 5, the original file name is 493-STDGL3. The material name is STGDGL3 and therefore the name position is 2 when the string is split with a '-' delimiter. Adjust the format and if the example shown for the first name works, press the <i>Apply to all</i> button.</p>
+
+<br />
+<center>
+<img src="./img/Converter_LAICPMS_LogGenerator_2.png" width="300">
+
+<p><i><b>Figure 5</b>: Customise file names in the Log Generator module. </i></p>.
+</center>
+
+<p>The third step is to select a filename from the table to display the signal (sum of the intensities). In the signal definition section you can use a ROI to select a part of the signal (e.g. between sweeps 13 and 93 in Figure 6). Here the sweep start value has been manually set to 1 and the type is background. Then, press <i>Add to table</i> to add the entry to the table (Fig. 6). Then a measurement can be added between the next sweep and the last sweep (2 to 258 in Fig. 7)
+</p>
+
+<br />
+<center>
+<img src="./img/Converter_LAICPMS_LogGenerator_3.png" width="800">
+
+<p><i><b>Figure 6</b>: Example of signal definition </i></p>.
+</center>
+
+<br />
+<center>
+<img src="./img/Converter_LAICPMS_LogGenerator_4.png" width="800">
+
+<p><i><b>Figure 7</b>: Example of signal definition (continued) </i></p>.
+</center>
+
+<p>The fourth step is to select the <i>Apply</i> tab and press the <i>Apply to Same Name</i> button. The signal definition will then be applied to the file names with the same name (Fig. 8). 
+</p>
+
+<br />
+<center>
+<img src="./img/Converter_LAICPMS_LogGenerator_5.png" width="800">
+
+<p><i><b>Figure 8</b>: Example of signal definition (continued) </i></p>.
+</center>
+
+<p>This operation must be repeated to apply the signal definitions to all measurements. Note that the number of sweeps for each type of signal (background/measurement) can be edited in the table (e.g. Sweep_End to 315 in the bottom right table in Fig. 9). </p>
+
+<p>Finally, press the <i>GENERATEW LOG</i> button to apply the changes and return to the Converter module.</p>
+
+<br />
+<center>
+<img src="./img/Converter_LAICPMS_LogGenerator_6.png" width="800">
+
+<p><i><b>Figure 9</b>: Example of signal definition (continued) </i></p>.
+</center>
+
 
 <h3><a name="Step2"></a>Step 2: Adjust time shift</h3> 
 

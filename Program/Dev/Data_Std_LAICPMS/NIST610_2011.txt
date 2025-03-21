@@ -1,0 +1,90 @@
+! Standard Name	G_NIST610_2011		
+! Data source	GeoRem database as of Dec09		
+! Matrix	Glass		
+! Brief description	NIST 610 glass		
+! Notes	"GEOREM preferred values, as at 050509. Uncertainties for some major elements have not been included"		
+! URL			
+! Parameter	Units	Value	Uncertainty
+Ag 	ppm	251	9
+Al 	ppm	10320.3945	211.7004
+As 	ppm	325	18
+Au 	ppm	23.6	1.7
+B 	ppm	350	56
+Ba 	ppm	452	9
+Be 	ppm	476	31
+Bi 	ppm	384	26
+Br	ppm	93	-
+Ca	ppm	81475.914	1429.402
+Cd 	ppm	270	16
+Ce 	ppm	453	8
+Cl 	ppm	274	67
+Co 	ppm	410	10
+Cr 	ppm	408	10
+Cs 	ppm	366	9
+Cu 	ppm	441	15
+Dy 	ppm	437	11
+Er 	ppm	455	14
+Eu 	ppm	447	12
+F 	ppm	304	-
+Fe 	ppm	458	9
+Ga 	ppm	433	13
+Gd 	ppm	449	12
+Ge 	ppm	447	78
+Hf 	ppm	435	12
+Ho 	ppm	449	12
+In 	ppm	434	19
+K 	ppm	464	21
+La 	ppm	440	10
+Li 	ppm	468	24
+Lu 	ppm	439	8
+Mg 	ppm	432	29
+Mn 	ppm	444	13
+Mo 	ppm	417	21
+Na 	ppm	99408.838	2225.571
+Nb 	ppm	465	34
+Nd 	ppm	430	8
+Ni 	ppm	458.7	4
+P 	ppm	413	46
+Pb 	ppm	426	1
+Pd 	ppm	1.21	0.44
+Pr 	ppm	448	7
+Pt 	ppm	3.12	0.08
+Rb 	ppm	425.7	1
+Re 	ppm	49.9	3.7
+Rh 	ppm	1.29	0.07
+S 	ppm	575	32
+Sb 	ppm	396	19
+Sc 	ppm	455	10
+Se 	ppm	138	42
+Si	ppm	325804.983	2337.195
+Sm 	ppm	453	11
+Sn 	ppm	430	29
+Sr 	ppm	515.5	1
+Ta 	ppm	446	33
+Tb 	ppm	437	9
+Te	ppm	302	-
+Th 	ppm	457.2	1.2
+Ti 	ppm	452	10
+Tl 	ppm	59.6	2.8
+Tm 	ppm	435	10
+U 	ppm	461.5	1
+V 	ppm	450	9
+W 	ppm	444	29
+Y 	ppm	462	11
+Yb 	ppm	450	9
+Zn 	ppm	460	18
+Zr 	ppm	448	9
+! 11B/10B		4.049	-
+! 143Nd/144Nd		0.511927	
+! 206Pb/204Pb		17.045	0.016
+! 207Pb/204Pb		15.504	0.018
+! 207Pb/206Pb		0.9096	0.0006
+! 208Pb/204Pb		36.964	0.044
+! 208Pb/206Pb		2.168	0.002
+! 87Sr/86Sr		0.709699	
+! d7Li		32.5	0.02
+! 207Pb/235U		85.424	
+! 206Pb/238U		0.2236	
+! 238U/235U		419.853	
+! 208Pb/232Th		0.48845	
+! 206Pb/208Pb		0.461255	

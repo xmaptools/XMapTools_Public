@@ -1,0 +1,74 @@
+! Standard Name	G_ARM-3													
+! Data source	GeoRem database as of Dec09													
+! Matrix	Glass													
+! Brief description	ARM-3 glass													
+! Notes	"GEOREM preferred values, as at 050509. Uncertainties for some major elements have not been included"													
+! URL														
+! Parameter	Units	Value	Uncertainty																					
+Al 	ppm	73035	529											
+As 	ppm	3780	170																					
+B 	ppm	60.6	3.7											
+Ba 	ppm	28.4	0.5											
+Be 	ppm	6.29	0.34											
+Bi 	ppm	13.9	0.7																						
+Ca	ppm	38022	371											
+Cd 	ppm	6	0.46											
+Ce 	ppm	7.97	0.54																					
+Co 	ppm	7.45	0.22											
+Cr 	ppm	9.07	1.85											
+Cs 	ppm	7.53	0.22											
+Cu 	ppm	13.6	0.8											
+Dy 	ppm	6.18	0.19											
+Er 	ppm	6.28	0.16											
+Eu 	ppm	5.71	0.14																					
+Fe 	ppm	45939	700											
+Ga 	ppm	17.7	0.4											
+Gd 	ppm	6	0.46											
+Ge 	ppm	8.84	0.79											
+Hf 	ppm	6.21	0.15											
+Ho 	ppm	7.17	0.25																					
+K 	ppm	26399	332											
+La 	ppm	6.62	0.15											
+Li 	ppm	18.6	1											
+Lu 	ppm	6.48	0.19											
+Mg 	ppm	21166	282											
+Mn 	ppm	387	77											
+Mo 	ppm	9.49	0.27											
+Na 	ppm	34570	371											
+Nb 	ppm	12.2	0.4											
+Nd 	ppm	7.53	0.42											
+Ni 	ppm	12.3	1.4											
+P 	ppm	1178	87											
+Pb 	ppm	12.7	0.6																					
+Pr 	ppm	5.68	0.21																					
+Rb 	ppm	7.54	0.34																					
+Sb 	ppm	13	0.8											
+Sc 	ppm	7.02	0.36																					
+Si	ppm	281868	274											
+Sm 	ppm	6	0.1											
+Sn 	ppm	12.3	1.1											
+Sr 	ppm	19.6	0.7											
+Ta 	ppm	6.16	0.26											
+Tb 	ppm	6.62	0.24																					
+Th 	ppm	3.28	0.11											
+Ti 	ppm	6055	180											
+Tl 	ppm	3.57	0.35											
+Tm 	ppm	6.47	0.21											
+U 	ppm	3.75	0.13											
+V 	ppm	12.2	1.1											
+W 	ppm	9.12	0.37											
+Y 	ppm	7.05	0.32											
+Yb 	ppm	8.88	0.29											
+Zn 	ppm	36.1	3.1											
+Zr 	ppm	10.9	0.6																					
+! 206Pb/238U		0.848994												
+! 207Pb/235U		97.25401												
+! 208Pb/232Th		1.8117												
+! 207Pb/206Pb		0.85071	0.0001											
+! 206Pb/204Pb		18.439	0.004			73.799								
+! 207Pb/204Pb		15.686	0.005			0.013550319		0.249854334	3.173150043		U238	3.737541528		0.848993923
+! 208Pb/204Pb		38.674	0.017					0.212550306	2.699388881		u235	0.012458472		216.6709475
+! 208Pb/206Pb		2.0974	0.0004					0.524045041	6.655372024					
+! 87Sr/86Sr		0.70881	0.000038											
+! 143Nd/144Nd		0.512088	0.000016											
+! 176Hf/177Hf		0.282136	0.00001											

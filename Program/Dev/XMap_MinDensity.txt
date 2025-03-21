@@ -338,6 +338,7 @@ Technetium				11000
 Terbium					8230
 Tin						7280
 Titanium				4500
+Titanite				3480
 Thalium					11800
 Thorium					11700
 Thulium					9320

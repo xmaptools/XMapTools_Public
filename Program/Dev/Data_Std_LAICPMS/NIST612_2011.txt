@@ -1,0 +1,91 @@
+! Standard Name	G_NIST612_2011		
+! Data source	GeoRem database as of Dec09		
+! Matrix	Glass		
+! Brief description	"NIST 612 glass, nominal 40 ppm for many elements"		
+! Notes	These are the preferred values of NIST 612 from GEOREM. All uncertainties are 95%CL or 2 SD. Uncertainties for some major elements have not been included.		
+! URL			
+! Parameter	Units	Value	Uncertainty
+Ag 	ppm	22	0.3
+Al 	ppm	10743.58296	211.6962159
+As 	ppm	35.7	5.5
+Au 	ppm	4.77	0.31
+B 	ppm	34.3	1.7
+Ba 	ppm	39.3	0.9
+Be 	ppm	37.5	1.5
+Bi 	ppm	30.2	2.3
+Br	ppm	9.3	0.9
+Ca 	ppm	85048.5992	714.6941109
+Cd 	ppm	28.1	1.1
+Ce 	ppm	38.4	0.7
+Cl 	ppm	142	58
+Co 	ppm	35.5	1
+Cr 	ppm	36.4	1.5
+Cs 	ppm	42.7	1.8
+Cu 	ppm	37.8	1.5
+Dy 	ppm	35.5	0.7
+Er 	ppm	38	0.9
+Eu 	ppm	35.6	0.8
+F 	ppm	80	89
+Fe 	ppm	51	2
+Ga 	ppm	36.9	1.5
+Gd 	ppm	37.3	0.9
+Ge 	ppm	36.1	3.8
+Hf 	ppm	36.7	1.2
+Ho 	ppm	38.3	0.8
+In 	ppm	38.9	2.1
+Ir	ppm	0.0045	-
+K 	ppm	62.3	2.4
+La 	ppm	36	0.7
+Li 	ppm	40.2	1.3
+Lu 	ppm	37	0.9
+Mg 	ppm	68	5.1
+Mn 	ppm	38.7	0.9
+Mo 	ppm	37.4	1.5
+Na 	ppm	101632.0475	2225.519288
+Nb 	ppm	38.9	2.1
+Nd 	ppm	35.5	0.7
+Ni 	ppm	38.8	0.2
+P 	ppm	46.6	6.9
+Pb 	ppm	38.57	0.2
+Pd 	ppm	1.05	0.1
+Pr 	ppm	37.9	1
+Pt 	ppm	2.51	0.1
+Rb 	ppm	31.4	0.4
+Re 	ppm	6.63	0.61
+Rh 	ppm	0.91	0.02
+S 	ppm	377	70
+Sb 	ppm	34.7	1.8
+Sc 	ppm	39.9	2.5
+Se 	ppm	16.3	1.9
+Si 	ppm	337026.13	2804.655729
+Sm 	ppm	37.7	0.8
+Sn 	ppm	38.6	1.3
+Sr 	ppm	78.4	0.2
+Ta 	ppm	37.6	1.9
+Tb 	ppm	37.6	1.1
+Te	ppm	30.2	3
+Th 	ppm	37.79	0.08
+Ti 	ppm	44	2.3
+Tl 	ppm	14.9	0.5
+Tm 	ppm	36.8	0.6
+U 	ppm	37.38	0.08
+V 	ppm	38.8	1.2
+W 	ppm	38	1.1
+Y 	ppm	38.3	1.4
+Yb 	ppm	39.2	0.9
+Zn 	ppm	39.1	1.7
+Zr 	ppm	37.9	1.2
+! 11B/10B		4.048	-
+! 143Nd/144Nd		0.51193	
+! 206Pb/204Pb		17.095	0.004
+! 207Pb/204Pb		15.511	0.006
+! 207Pb/206Pb		0.9073	0.0002
+! 208Pb/204Pb		37.005	0.02
+! 208Pb/206Pb		2.1647	0.0008
+! 87Sr/86Sr		0.709063	
+! d7Li		31.2	0.2
+! 207Pb/235U		36.70497	
+! 206Pb/238U		0.29336	
+! 238U/235U		417.7381	
+! 208Pb/232Th		0.625792	
+! 206Pb/208Pb		0.46184	

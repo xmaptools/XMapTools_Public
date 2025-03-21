@@ -1,7 +1,7 @@
 function [OutputData,OutputVariables] = Core_Call_SF(Data,OxList,ExtFct,ElOxDataDef)
 %
 % XMapTools is a free software solution for the analysis of chemical maps
-% Copyright © 2022-2024 University of Bern, Institute of Geological Sciences, Pierre Lanari
+% Copyright © 2022-2025 University of Bern, Institute of Geological Sciences, Pierre Lanari
 %
 % XMapTools is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -37,6 +37,11 @@ switch ExtFct
         InputVariables = {'SiO2','TiO2','Al2O3','FeO','Fe2O3','MnO','MgO','CaO','Na2O','K2O'};
         InputData = GenerateInputData(Data,OxList,InputVariables);
         [OutputData,OutputVariables] = StructFctBiotite(InputData,InputVariables,ElOxDataDef);
+
+    case 'StructFctBiotite_Ti'
+        InputVariables = {'SiO2','TiO2','Al2O3','FeO','Fe2O3','MnO','MgO','CaO','Na2O','K2O'};
+        InputData = GenerateInputData(Data,OxList,InputVariables);
+        [OutputData,OutputVariables] = StructFctBiotite_Ti(InputData,InputVariables,ElOxDataDef);
         
     case 'StructFctBrucite'
         InputVariables = {'SiO2','TiO2','Al2O3','FeO','Fe2O3','MnO','MgO','CaO','Na2O','K2O','As2O3','Sb2O3','Cs2O'};

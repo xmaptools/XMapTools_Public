@@ -1,7 +1,10 @@
 function [OutputData,OutputVariables] = StructFctGarnet_Fe3(InputData,InputVariables,ElOxDataDef)
 % -
-% XMapTools External Function: structural formula of garnet 
+% XMapTools External Function: structural formula of garnet with Fe3+
 %  
+%  ++09.2024 Fix an issue with end-member calculation for Fe3+ rich garnet
+%       - Strategy changed
+%       - Tested for And- and Alm-rich garnet compositions
 %  ++09.2021 Improvement in Fe3+ calculation
 %       - Method of Droop (1987) implemented
 %  ++01.2021 Compatibility with XMapTools 4
@@ -19,10 +22,10 @@ function [OutputData,OutputVariables] = StructFctGarnet_Fe3(InputData,InputVaria
 %
 % 12 Oxygen-basis 
 %
-% P. Lanari - Last update 14.01.2021
+% P. Lanari - Last update 26.09.2024
 % Find out more at https://xmaptools.ch
 
-OutputVariables = {'Si','Ti','Al','Mg','Fe2','Fe3','Mn','Ca','SumCat','Xalm','Xsps','Xprp','Xgrs','Xand','XMg','XFe3','ratio_CaFe'};
+OutputVariables = {'Si','Ti','Al','Mg','Fe2','Fe3','Mn','Ca','SumCat','Xalm','Xsps','Xprp','Xgrs','Xand','Xsum','XMg','XFe3','ratio_CaFe'};
 
 OutputData = zeros(size(InputData,1),length(OutputVariables));
 
@@ -65,16 +68,33 @@ SumCat = Si+Ti+Al+Fe2+Fe3+Mn+Mg+Ca+Na+K;
 
 ratio_CaFe = Ca./Fe2;
 
-Xalm = Fe2./(Fe2+Mg+Ca+Mn+Fe3);
-Xsps = Mn./(Fe2+Mg+Ca+Mn+Fe3);
-Xprp = Mg./(Fe2+Mg+Ca+Mn+Fe3);
-Xgrs = Ca./(Fe2+Mg+Ca+Mn+Fe3);
-Xand = Fe3./(Fe2+Mg+Ca+Mn+Fe3);
+% The end-member calculation function was changed on 26.09.24 to fix an
+% issue with andradite garnet (reported by Rich Taylor). 
+
+% Xand is now calculated first: 
+Xand = Fe3./(Fe3+Al);
+WhereZeros = find(Xand <= 0);
+Xand(WhereZeros) = 0;
+
+% Ca is corrected for the andradite components: 
+Ca_corr = Ca - 3/2 .* Fe3;
+WhereZeros = find(Ca_corr <= 0);
+Ca_corr(WhereZeros) = 0;
+
+% Other end-members are calculated on the remaining fraction from the
+% proportions of Ca_corr, Fe, Mg and Mn:
+Xalm = (1-Xand) .* (Fe2./(Fe2+Mg+Ca_corr+Mn));
+Xsps = (1-Xand) .* (Mn./(Fe2+Mg+Ca_corr+Mn));
+Xprp = (1-Xand) .* (Mg./(Fe2+Mg+Ca_corr+Mn));
+Xgrs = (1-Xand) .* (Ca_corr./(Fe2+Mg+Ca_corr+Mn));
+
+% The sum should always be one. 
+Xsum = Xand + Xalm + Xsps + Xprp + Xgrs;
 
 XMg = Mg./(Mg+Fe2);
 XFe3 = Fe3./(Fe2+Fe3);
 
-OutputData(WhereMin,:) = [Si,Ti,Al,Mg,Fe2,Fe3,Mn,Ca,SumCat,Xalm,Xsps,Xprp,Xgrs,Xand,XMg,XFe3,ratio_CaFe];
+OutputData(WhereMin,:) = [Si,Ti,Al,Mg,Fe2,Fe3,Mn,Ca,SumCat,Xalm,Xsps,Xprp,Xgrs,Xand,Xsum,XMg,XFe3,ratio_CaFe];
 
 end
 

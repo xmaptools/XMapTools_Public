@@ -60,6 +60,9 @@ addpath([Where,'/Addons/BingoAntidote/Functions']);
 
 savepath
 
+% Added on 21.02.2025 for MATLAB installation
+RESET_CONFIG;
+
 disp('Installation completed')
 
 end
