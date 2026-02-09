@@ -11,7 +11,7 @@ This repository contains the source code of the latest stable version of XMapToo
 
 XMapTools official website: https://xmaptools.ch
 
-Documentation (work in progress): https://resources.xmaptools.ch  
+Documentation: https://xmaptools.github.io/Documentation/
 
 Developer repository: [https://github.com/xmaptools/XMapTools_Developers](https://github.com/xmaptools/XMapTools_Developers) 
 
