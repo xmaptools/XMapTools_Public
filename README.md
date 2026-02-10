@@ -9,7 +9,7 @@
 
 This repository contains the source code for the latest stable version of XMapTools, as well as binaries for macOS and Windows. All commits and developer versions can be found in the developer repository.
 
-Although the XMapTools binaries can be downloaded directly from this repository, we strongly recommend that you use the official bootstrap scripts provided in the documentation instead. If you are using the installer on macOS without the bootstrap scripts, you must first clear the Gatekeeper quarantine flags manually (e.g. using the command 'sudo xattr -cr XMapToolsInstaller_macOS.app || true') and change the permission of config file within the XMapTools.app (e.g. using the command 'sudo chmod 666 "TARGET_APP_PATH/Contents/Resources/XMapTools_mcr/XMapTools/config_xmaptools.mat"').  
+Although the XMapTools binaries can be downloaded directly from this repository, we strongly recommend that you use the official bootstrap scripts provided in the documentation instead. If you are using the installer on macOS without the bootstrap scripts, you must first clear the Gatekeeper quarantine flags manually (e.g. using the command 'sudo xattr -cr XMapToolsInstaller_macOS.app || true') and change the permission of config file within the XMapTools.app (e.g. using the command 'sudo chmod -R 755 /Applications/XMapTools/').  
 
 XMapTools official website: https://xmaptools.ch
 
