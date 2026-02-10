@@ -46,8 +46,8 @@ classdef Import_Tool_exported < matlab.apps.AppBase
         ListMaps                        matlab.ui.control.DropDown
         UncorrecteddataLabel            matlab.ui.control.Label
         CorrecteddataLabel              matlab.ui.control.Label
-        UIAxes_Ori                      matlab.ui.control.UIAxes
         UIAxes_Cor                      matlab.ui.control.UIAxes
+        UIAxes_Ori                      matlab.ui.control.UIAxes
     end
 
     
@@ -329,7 +329,7 @@ classdef Import_Tool_exported < matlab.apps.AppBase
         function startupFcn(app, XMapToolsApp)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -1252,15 +1252,6 @@ classdef Import_Tool_exported < matlab.apps.AppBase
             app.CorrecteddataLabel.Layout.Column = [5 8];
             app.CorrecteddataLabel.Text = 'Corrected data';
 
-            % Create UIAxes_Ori
-            app.UIAxes_Ori = uiaxes(app.GridLayout6);
-            xlabel(app.UIAxes_Ori, 'X (columns)')
-            ylabel(app.UIAxes_Ori, 'Y (rows)')
-            app.UIAxes_Ori.PlotBoxAspectRatio = [1.11174242424242 1 1];
-            app.UIAxes_Ori.YTick = [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1];
-            app.UIAxes_Ori.Layout.Row = [3 9];
-            app.UIAxes_Ori.Layout.Column = [1 4];
-
             % Create UIAxes_Cor
             app.UIAxes_Cor = uiaxes(app.GridLayout6);
             xlabel(app.UIAxes_Cor, 'X (columns)')
@@ -1269,6 +1260,15 @@ classdef Import_Tool_exported < matlab.apps.AppBase
             app.UIAxes_Cor.YTick = [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1];
             app.UIAxes_Cor.Layout.Row = [3 9];
             app.UIAxes_Cor.Layout.Column = [5 8];
+
+            % Create UIAxes_Ori
+            app.UIAxes_Ori = uiaxes(app.GridLayout6);
+            xlabel(app.UIAxes_Ori, 'X (columns)')
+            ylabel(app.UIAxes_Ori, 'Y (rows)')
+            app.UIAxes_Ori.PlotBoxAspectRatio = [1.11174242424242 1 1];
+            app.UIAxes_Ori.YTick = [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1];
+            app.UIAxes_Ori.Layout.Row = [3 9];
+            app.UIAxes_Ori.Layout.Column = [1 4];
 
             % Show the figure after all components are created
             app.ImportToolXMapToolsUIFigure.Visible = 'on';

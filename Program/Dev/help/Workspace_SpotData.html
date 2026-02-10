@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<style>
+body {background-color: transparent;}
+th, td {vertical-align: top;}
+a    {color: blue;}
+p.ex {color: red;}
+h2,h3,h4,h5 {margin-top: 2em; }
+</style>
+<TITLE>Help XMapTools</TITLE>
+</HEAD>
+
+<BODY>
+
+<h1> Help > Workspace > Spot Data </h1>
+<p><i>Help file version 09.02.2026 by P. Lanari</i></p>
+<br \> 
+<hr>
+<p><b>Table of content</b><br \><br \>
+<a href="#part1">Adding Datasets and Spots in XMapTools</a><br \>
+<a href="#part2">Importing external data for spots</a><br \>
+
+</p>
+<hr>
+
+<p>This help file contains a description of the tools available in the <i>Spot Data</i> workspace. This feature was added in XMapTools 4.5. 
+</p>
+
+<h2><a name="part1"></a>Datasets and adding Spots in XMapTools</h2>
+
+<p>In XMapTools, spot data is stored in datasets. A dataset is a collection of spot positions, and each position can be linked to external data. </p>
+
+<p>New datasets can be created by selecting the "Spot Dataset" item in the secondary menu and by clicking on the <i>Add</i> <img src="./img/icon_add.png" width="30"> button. 
+New datasets are added to the list of datasets in the secondary menu on the left. The name of the dataset is automatically generated using the name provided in the text field (Fig. 1).
+A dataset can be renamed by double-clicking on its name in the list. To delete a dataset, first select it in the list. Then right-click on its name and select <i>Delete</i>. </p>
+
+<p>Spots can be automatically added while creating a dataset if the <i>Randomly populate</i> option is selected. In this case the number of spots and their names is defined in the <i>Nb</i> and <i>Spot Name </i>fields.
+Spots are automatically distributed using the display image and only the pixels with a value between <i>Cmin</i> and <i>Cmax</i>. 
+This allows users to select one mask/submask or a specific composition of the map.</p>
+
+<br /><br />
+<center>
+<img src="./img/SpotData_01.png" width="250">
+<p><i><b>Figure 1</b>: Dataset tools for spot data in XMapTools 4.5</i> </p>
+</center>
+<br />
+
+<p>Each spot corresponds to a set of <i>X,Y</i> coordinates, but the compositional data can be extracted from taking the median and MAD values of the surrounding pixels.
+If the <i>Integrate Pixels</i> option is activated, the compositional data is extracted by integrating the values of the surrounding pixels. 
+The number of pixels to be integrated is defined in the <i>Nb</i> x <i>Nb</i> fields corresponding to the number of pixels along <i>X</i> and <i>Y</i> directions. 
+These two number must be odd to ensure that the central pixel is included in the integration. 
+<p/>
+
+<br /><br />
+<center>
+<img src="./img/SpotData_02.png" width="250">
+<p><i><b>Figure 2</b>: Spot tools for spot data in XMapTools 4.5</i> </p>
+</center>
+<br />
+
+<p> Additional spots can be added by pressing the <i>Add Spot</i> <img src="./img/icon_add_round.png" width="30"> button and by immediatly clicking on the map to define the spot position.
+The spots can be deleted by selecting them in the secondary menu and then by right-clicking on their name and selecting <i>Delete</i>. 
+The position of the spots can be edited by selecting their name in the list and dragging them on the map. The coordinates of the spots are automatically updated.
+</p>
+
+<p>In the example reported in Figure 3 below, 10 spots were automatically added to the newly created dataset 'Garnet'. 
+The default names were used for the spot (Spot_#). The compositional data of the spots are extracted by integrating the values of the surrounding pixels in a 5x5 grid (Nb = 25).  
+Note that the spot coordinates are available in a table on the right of the interface when the dataset garnet is selected (Fig. 3). 
+</p>
+
+<br /><br />
+<center>
+<img src="./img/SpotData_Interface_01.png" width="600">
+<p><i><b>Figure 3</b>: Spot tools for spot data in XMapTools 4.5</i> </p>
+</center>
+<br />
+
+<p> If a spot is selected in the secondary menu, the, names, coordinates and value of each pixel are listed in the table on the right of the interface. 
+The compositional data of the spot is extracted by taking the median and MAD values of the surrounding pixels. 
+You can delete pixels by selecting them in the table and by pressing the <i>Delete</i> button.
+You can reset to the original nxn grid of pixels by pressing the <i>Reset</i> button.
+</p>
+
+<br /><br />
+<center>
+<img src="./img/SpotData_Interface_02.png" width="500">
+<p><i><b>Figure 4</b>: Spot tools for spot data in XMapTools 4.5</i> </p>
+</center>
+<br />
+
+<h2><a name="part2"></a>Importing external data for spots</h2>
+
+<p>External data for the spots can be imported and visualised in XMapTools. The following procedure is recommended.
+</p>
+
+<p>Select a Spot dataset in the secondary menu. The list of spots will be displayed in the table on the right (Fig. 3).
+Use the copy <img src="./img/icon_photo camera.png" width="30"> button to copy the content of the table to the clipboard. 
+Paste the content of the clipboard in a spreadsheet software (e.g., Excel) and add the compositional data for each spot in new columns after the name.
+Save the excel file as a CSV file.   
+</p>
+
+<p>Import the spot external data by using the <i>import</i> <img src="./img/icon_add_sq.png" width="30"> button available in the <i>Spot External Data</i> section (Fig. 5).
+The number of columns in the CSV file (except the name column) corresponds to the number of variables that will be imported and visualised in XMapTools (e.g. one variable in Fig. 5).
+You can use the display button to open a table containing the spot names and external values. The external data can be visualised on the map by selecting the variable to be displayed in the <i>Add to plot</i> dropdown menu in the <i>Plot external data</i> section.
+</p>
+
+<br /><br />
+<center>
+<img src="./img/SpotData_03.png" width="250">
+<p><i><b>Figure 5</b>: Spot External Data tools for spot data in XMapTools 4.5</i> </p>
+</center>
+<br />
+
+<p>Two options <i>Apply a colour gradient</i> and <i>Apply spot size gradient</i> can be selected in the <i>Plot external data</i> section (e.g. colour gradient for Fig. 6).</p>
+
+<br /><br />
+<center>
+<img src="./img/SpotData_04.png" width="550">
+<p><i><b>Figure 6</b>: Example of (a) spot data in XMapTools, (b) external data for d18O saved in a CSV file, (3) external spot data (d18O) plotted onto the map. </i> </p>
+</center>
+<br />
+
+<h2><a name="part3"></a>Exporting spot data</h2>
+<p>Spot data can be exported using the <i>Export</i> module available in the <i>Add-on</i> section.
+Open the module and select the <i>Export Spot Data</i> mode. Select your data source (e.g. Quanti in Fig. 7) and press the <i>Generate & Save</i> button.</p>
+
+<br /><br />
+<center>
+<img src="./img/SpotData_Interface_03.png" width="500">
+<p><i><b>Figure 7</b>: Export module for Spot Data in XMapTools 4.5</i> </p>
+</center>
+<br />
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

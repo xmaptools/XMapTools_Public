@@ -201,10 +201,10 @@ classdef BingoAntidote_exported < matlab.apps.AppBase
         TotalLabel_2                    matlab.ui.control.Label
         LiveDisplaySwitchLabel          matlab.ui.control.Label
         LiveDisplaySwitch               matlab.ui.control.Switch
-        UIAxes_LiveAntidote1            matlab.ui.control.UIAxes
-        UIAxes_LiveAntidote2            matlab.ui.control.UIAxes
-        UIAxes_LiveAntidote3            matlab.ui.control.UIAxes
         UIAxes_LiveAntidote4            matlab.ui.control.UIAxes
+        UIAxes_LiveAntidote3            matlab.ui.control.UIAxes
+        UIAxes_LiveAntidote2            matlab.ui.control.UIAxes
+        UIAxes_LiveAntidote1            matlab.ui.control.UIAxes
         ResultsTab                      matlab.ui.container.Tab
         GridLayout11                    matlab.ui.container.GridLayout
         Gaude_Qasm                      matlab.ui.control.SemicircularGauge
@@ -219,9 +219,9 @@ classdef BingoAntidote_exported < matlab.apps.AppBase
         Gauge_Qtotal                    matlab.ui.control.Gauge
         TotalLabel                      matlab.ui.control.Label
         EditField_Qtotal                matlab.ui.control.NumericEditField
-        UIAxes2                         matlab.ui.control.UIAxes
-        Result_Plot1                    matlab.ui.control.UIAxes
         Result_Plot2                    matlab.ui.control.UIAxes
+        Result_Plot1                    matlab.ui.control.UIAxes
+        UIAxes2                         matlab.ui.control.UIAxes
         Tree_Phases                     matlab.ui.container.Tree
         Tree_Elem                       matlab.ui.container.Tree
     end
@@ -4667,15 +4667,26 @@ classdef BingoAntidote_exported < matlab.apps.AppBase
             app.LiveDisplaySwitch.Layout.Column = [11 13];
             app.LiveDisplaySwitch.Value = 'On';
 
-            % Create UIAxes_LiveAntidote1
-            app.UIAxes_LiveAntidote1 = uiaxes(app.GridLayout13);
-            title(app.UIAxes_LiveAntidote1, 'Title')
-            xlabel(app.UIAxes_LiveAntidote1, 'X')
-            ylabel(app.UIAxes_LiveAntidote1, 'Y')
-            app.UIAxes_LiveAntidote1.PlotBoxAspectRatio = [1.60102301790281 1 1];
-            app.UIAxes_LiveAntidote1.FontSize = 10;
-            app.UIAxes_LiveAntidote1.Layout.Row = [1 7];
-            app.UIAxes_LiveAntidote1.Layout.Column = [1 10];
+            % Create UIAxes_LiveAntidote4
+            app.UIAxes_LiveAntidote4 = uiaxes(app.GridLayout13);
+            title(app.UIAxes_LiveAntidote4, 'Title')
+            xlabel(app.UIAxes_LiveAntidote4, 'X')
+            ylabel(app.UIAxes_LiveAntidote4, 'Y')
+            zlabel(app.UIAxes_LiveAntidote4, 'Z')
+            app.UIAxes_LiveAntidote4.PlotBoxAspectRatio = [1.3804347826087 1 1];
+            app.UIAxes_LiveAntidote4.FontSize = 9;
+            app.UIAxes_LiveAntidote4.Layout.Row = [9 13];
+            app.UIAxes_LiveAntidote4.Layout.Column = [14 19];
+
+            % Create UIAxes_LiveAntidote3
+            app.UIAxes_LiveAntidote3 = uiaxes(app.GridLayout13);
+            title(app.UIAxes_LiveAntidote3, 'Title')
+            xlabel(app.UIAxes_LiveAntidote3, 'X')
+            ylabel(app.UIAxes_LiveAntidote3, 'Y')
+            zlabel(app.UIAxes_LiveAntidote3, 'Z')
+            app.UIAxes_LiveAntidote3.FontSize = 9;
+            app.UIAxes_LiveAntidote3.Layout.Row = [9 13];
+            app.UIAxes_LiveAntidote3.Layout.Column = [8 13];
 
             % Create UIAxes_LiveAntidote2
             app.UIAxes_LiveAntidote2 = uiaxes(app.GridLayout13);
@@ -4688,26 +4699,15 @@ classdef BingoAntidote_exported < matlab.apps.AppBase
             app.UIAxes_LiveAntidote2.Layout.Row = [9 13];
             app.UIAxes_LiveAntidote2.Layout.Column = [2 7];
 
-            % Create UIAxes_LiveAntidote3
-            app.UIAxes_LiveAntidote3 = uiaxes(app.GridLayout13);
-            title(app.UIAxes_LiveAntidote3, 'Title')
-            xlabel(app.UIAxes_LiveAntidote3, 'X')
-            ylabel(app.UIAxes_LiveAntidote3, 'Y')
-            zlabel(app.UIAxes_LiveAntidote3, 'Z')
-            app.UIAxes_LiveAntidote3.FontSize = 9;
-            app.UIAxes_LiveAntidote3.Layout.Row = [9 13];
-            app.UIAxes_LiveAntidote3.Layout.Column = [8 13];
-
-            % Create UIAxes_LiveAntidote4
-            app.UIAxes_LiveAntidote4 = uiaxes(app.GridLayout13);
-            title(app.UIAxes_LiveAntidote4, 'Title')
-            xlabel(app.UIAxes_LiveAntidote4, 'X')
-            ylabel(app.UIAxes_LiveAntidote4, 'Y')
-            zlabel(app.UIAxes_LiveAntidote4, 'Z')
-            app.UIAxes_LiveAntidote4.PlotBoxAspectRatio = [1.3804347826087 1 1];
-            app.UIAxes_LiveAntidote4.FontSize = 9;
-            app.UIAxes_LiveAntidote4.Layout.Row = [9 13];
-            app.UIAxes_LiveAntidote4.Layout.Column = [14 19];
+            % Create UIAxes_LiveAntidote1
+            app.UIAxes_LiveAntidote1 = uiaxes(app.GridLayout13);
+            title(app.UIAxes_LiveAntidote1, 'Title')
+            xlabel(app.UIAxes_LiveAntidote1, 'X')
+            ylabel(app.UIAxes_LiveAntidote1, 'Y')
+            app.UIAxes_LiveAntidote1.PlotBoxAspectRatio = [1.60102301790281 1 1];
+            app.UIAxes_LiveAntidote1.FontSize = 10;
+            app.UIAxes_LiveAntidote1.Layout.Row = [1 7];
+            app.UIAxes_LiveAntidote1.Layout.Column = [1 10];
 
             % Create ResultsTab
             app.ResultsTab = uitab(app.TabGroup2);
@@ -4816,6 +4816,23 @@ classdef BingoAntidote_exported < matlab.apps.AppBase
             app.EditField_Qtotal.Layout.Row = 7;
             app.EditField_Qtotal.Layout.Column = [15 17];
 
+            % Create Result_Plot2
+            app.Result_Plot2 = uiaxes(app.GridLayout11);
+            app.Result_Plot2.PlotBoxAspectRatio = [1.11977715877437 1 1];
+            app.Result_Plot2.XTick = [];
+            app.Result_Plot2.YTick = [];
+            app.Result_Plot2.FontSize = 9;
+            app.Result_Plot2.Layout.Row = [10 15];
+            app.Result_Plot2.Layout.Column = [13 18];
+
+            % Create Result_Plot1
+            app.Result_Plot1 = uiaxes(app.GridLayout11);
+            app.Result_Plot1.XTick = [];
+            app.Result_Plot1.YTick = [];
+            app.Result_Plot1.FontSize = 9;
+            app.Result_Plot1.Layout.Row = [10 15];
+            app.Result_Plot1.Layout.Column = [4 9];
+
             % Create UIAxes2
             app.UIAxes2 = uiaxes(app.GridLayout11);
             xlabel(app.UIAxes2, 'Temperature (°C)')
@@ -4826,23 +4843,6 @@ classdef BingoAntidote_exported < matlab.apps.AppBase
             app.UIAxes2.FontSize = 9;
             app.UIAxes2.Layout.Row = [1 8];
             app.UIAxes2.Layout.Column = [1 10];
-
-            % Create Result_Plot1
-            app.Result_Plot1 = uiaxes(app.GridLayout11);
-            app.Result_Plot1.XTick = [];
-            app.Result_Plot1.YTick = [];
-            app.Result_Plot1.FontSize = 9;
-            app.Result_Plot1.Layout.Row = [10 15];
-            app.Result_Plot1.Layout.Column = [4 9];
-
-            % Create Result_Plot2
-            app.Result_Plot2 = uiaxes(app.GridLayout11);
-            app.Result_Plot2.PlotBoxAspectRatio = [1.11977715877437 1 1];
-            app.Result_Plot2.XTick = [];
-            app.Result_Plot2.YTick = [];
-            app.Result_Plot2.FontSize = 9;
-            app.Result_Plot2.Layout.Row = [10 15];
-            app.Result_Plot2.Layout.Column = [13 18];
 
             % Create Tree_Phases
             app.Tree_Phases = uitree(app.GridLayout);

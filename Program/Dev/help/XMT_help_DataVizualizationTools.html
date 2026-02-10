@@ -13,7 +13,7 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 <BODY>
 <h1> Help > Data Visualization Tools </h1>    	
-<p><i>Help file version 13.01.2024 by M. Tedeschi & P. Lanari</i></p>
+<p><i>Help file version 09.05.2025 by M. Tedeschi & P. Lanari</i></p>
 <br \>
 <hr>
 <p><b>Table of content</b><br \><br \>
@@ -131,11 +131,40 @@ h2,h3,h4,h5 {margin-top: 2em; }
 
 
 
-<h4>Statistics</h4>
+<h4>Plot "Bulk Value" (Average)</h4>
+
+<p> The "Bulk Value" (Average) is calculated from the data plotted in the figure, e.g. 20% when Low Resource Mode is enabled. There is <u>no</u> density correction applied, so deviations from the true bulk composition are expected if phases have different densities.</p>
+
+
+<h4>Statistics and plotting report</h4>
 
 <p>Statistics are reported in the Statistics section and are updated each time the plot is changed.</p>
 
-<p>A detailed description will be added in the future.</p>
+<p>The statistics section can contain the following information:</p>
+<ul>
+  <li>Bulk Value (average of plotted pixels) in binary & ternary plots if the "Plot "Bulk Value" (Average)" option is enabled.</li>
+  <li>Bulk Value (std of plotted pixels) in binary & ternary plots if the "Plot "Bulk Value" (Average)" option is enabled.</li>
+  <li>Bulk Value (relative fraction of <i>X</i>, <i>Y</i> and <i>Z</i>) in ternary plots if the "Plot "Bulk Value" (Average)" option is enabled.</li>
+  <li>Correlation coefficient between <i>X</i> and <i>Y</i> in binary plots.</li>
+</ul>
+
+<p>The plotting report section can contain the following information:</p>
+
+<ul>
+  <li>Plot type and Low Resource Mode status.</li>
+  <li>Size of dataset: number of pixels and fraction displayed. </li>
+  <li>Various plotting times that can be reported to the developers in case of problems with the module (see example below).</li>
+</ul>
+
+<code>Plotting binary data [low ressource mode: ON]</code> <br /><br />
+
+<code>Size of dataset: 687718 data points (20% plotted)</code><br />
+<code>Extracting & Plotting data: 0.10176s</code><br />
+<code>Adjusting plot; force plotting: 0.089678s</code><br />
+<code>Calculating and plotting the density map : 0.34156s</code><br />
+<code>Final update of plots & interface : 0.00819s</code><br />
+<code>Drawnow : 0.073919s</code><br />
+
 
 
 

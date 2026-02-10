@@ -1,0 +1,30 @@
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!                                                                 !
+!                    XMAPTOOLS  ROI Color definition              !
+!              Last update (06.05.2025)   Pierre Lanari           !
+!                                                                 !
+!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+! 
+! Name	Color code (RGB)  
+! 
+! Format:
+! >
+! Color1		R	G	B  
+! Color2		R	G	B  
+! Color3		R	G	B 
+!
+! The RGB triplet is defined using  values between 0 and 255. 
+! 
+! You can add your favourite colour to the list, but don't remove the default colours.
+!
+
+>
+Pink		1.00    0.30    0.89
+Green		0.47	0.67	0.19
+Violet		0.57	0.00	0.69
+Orange		1.00    0.49    0.30
+Blue		0.30    0.44    1.00
+White		1.00	1.00	1.00
+Black		0.00	0.00	0.00
+
+

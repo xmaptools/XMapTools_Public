@@ -1,4 +1,4 @@
-function [OutputData,OutputVariables] = Biotite_T_H05(InputData,InputVariables,AddParameters,ElOxDataDef)
+function [OutputData,OutputVariables] = Biotite_T_All(InputData,InputVariables,AddParameters,ElOxDataDef)
 % -
 % XMapTools External Function: biotite thermobarometry 
 %  

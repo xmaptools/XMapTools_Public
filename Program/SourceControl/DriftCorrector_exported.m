@@ -28,9 +28,9 @@ classdef DriftCorrector_exported < matlab.apps.AppBase
         MinEditField                   matlab.ui.control.NumericEditField
         MinLabel                       matlab.ui.control.Label
         MaxLabel                       matlab.ui.control.Label
-        UIAxes3                        matlab.ui.control.UIAxes
-        UIAxes2                        matlab.ui.control.UIAxes
         UIAxes                         matlab.ui.control.UIAxes
+        UIAxes2                        matlab.ui.control.UIAxes
+        UIAxes3                        matlab.ui.control.UIAxes
     end
 
     
@@ -314,7 +314,7 @@ classdef DriftCorrector_exported < matlab.apps.AppBase
         function startupFcn(app, XMapToolsApp, MapID, MaskId)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -682,11 +682,14 @@ classdef DriftCorrector_exported < matlab.apps.AppBase
             app.MaxLabel.Layout.Column = [16 17];
             app.MaxLabel.Text = 'Max';
 
-            % Create UIAxes3
-            app.UIAxes3 = uiaxes(app.GridLayout);
-            app.UIAxes3.FontSize = 9;
-            app.UIAxes3.Layout.Row = [7 15];
-            app.UIAxes3.Layout.Column = [1 35];
+            % Create UIAxes
+            app.UIAxes = uiaxes(app.GridLayout);
+            app.UIAxes.XTick = [];
+            app.UIAxes.YTick = [];
+            app.UIAxes.FontSize = 9;
+            app.UIAxes.Box = 'on';
+            app.UIAxes.Layout.Row = [16 24];
+            app.UIAxes.Layout.Column = [1 15];
 
             % Create UIAxes2
             app.UIAxes2 = uiaxes(app.GridLayout);
@@ -697,14 +700,11 @@ classdef DriftCorrector_exported < matlab.apps.AppBase
             app.UIAxes2.Layout.Row = [16 24];
             app.UIAxes2.Layout.Column = [21 35];
 
-            % Create UIAxes
-            app.UIAxes = uiaxes(app.GridLayout);
-            app.UIAxes.XTick = [];
-            app.UIAxes.YTick = [];
-            app.UIAxes.FontSize = 9;
-            app.UIAxes.Box = 'on';
-            app.UIAxes.Layout.Row = [16 24];
-            app.UIAxes.Layout.Column = [1 15];
+            % Create UIAxes3
+            app.UIAxes3 = uiaxes(app.GridLayout);
+            app.UIAxes3.FontSize = 9;
+            app.UIAxes3.Layout.Row = [7 15];
+            app.UIAxes3.Layout.Column = [1 35];
 
             % Show the figure after all components are created
             app.DriftCorrectorGUI.Visible = 'on';

@@ -718,7 +718,7 @@ classdef Converter_EPMA_exported < matlab.apps.AppBase
         function startupFcn(app, XMapToolsApp)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -1446,7 +1446,7 @@ classdef Converter_EPMA_exported < matlab.apps.AppBase
             app.Select_Map.Icon = '323-add.png';
             app.Select_Map.Layout.Row = 3;
             app.Select_Map.Layout.Column = [1 2];
-            app.Select_Map.Text = 'Add Maps ';
+            app.Select_Map.Text = 'Add Map Folder';
 
             % Create Image
             app.Image = uiimage(app.GridLayout);

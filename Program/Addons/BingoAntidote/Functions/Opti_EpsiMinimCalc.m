@@ -2,6 +2,22 @@ function [Emin,Evaluation] = Opti_EpsiMinimCalc(WorkVariMod,WorkVariXMap,MinimOp
 
 Report = [];
 
+% Step 0 – Exclude melt (added 11.09.2025)
+if isequal(app.BinGfDef.Melt.Activate,1)
+    if isequal(app.BinGfDef.Melt.Include,0)
+        [IsMelt,WhereMelt] = find(ismember(WorkVariMod.Names,app.BinGfDef.Melt.DBName));
+        if isequal(IsMelt,1)
+            WorkVariMod.Names(WhereMelt) = [];
+            WorkVariMod.Indice = [1:length(WorkVariMod.Names)];
+            WorkVariMod.COMP(WhereMelt,:) = [];
+            WorkVariMod.VolFrac(WhereMelt) = [];
+            WorkVariMod.VolFrac = WorkVariMod.VolFrac ./ sum(WorkVariMod.VolFrac);
+            WorkVariMod.Dens(WhereMelt) = [];
+            WorkVariMod.NbPhases = length(WorkVariMod.Names);
+        end
+    end
+end
+
 [Evaluation.assemblage,Link] = Bingo_Qasm(WorkVariMod,WorkVariXMap,Report,DoWePrint,0,app);
 
 [Evaluation] = Bingo_Qvol(WorkVariMod,WorkVariXMap,Link,Evaluation,Report,DoWePrint,0,app);

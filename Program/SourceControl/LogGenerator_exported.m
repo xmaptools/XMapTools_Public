@@ -285,7 +285,7 @@ classdef LogGenerator_exported < matlab.apps.AppBase
         function startupFcn(app, AppConverter, DataFiles, XMapToolsApp)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -452,11 +452,16 @@ classdef LogGenerator_exported < matlab.apps.AppBase
         function ApplytoAllButtonPushed(app, event)
             app.WaitBar = uiprogressdlg(app.LogGeneratorGUI,'Title','XMapTools');
             app.WaitBar.Message = 'Applying settings to all, please wait';
-            for i = 1:size(app.UITable.Data(Selected,1))
-                app.UITable.Data(Selected(i,1),3) = {Str};
-                app.WaitBar.Value = i/size(app.UITable.Data(Selected,1));
+            
+            Str = ExtractCodeFromTable(app);
+            
+            for i = 1:numel(app.UITable.Data(:,1))
+                app.UITable.Data(i,3) = {Str};
+                app.WaitBar.Value = i/size(app.UITable.Data(:,1),1);
             end
             close(app.WaitBar);
+            
+            CheckTableState(app);
         end
 
         % Button pushed function: ApplytoSelectedButton
@@ -532,7 +537,7 @@ classdef LogGenerator_exported < matlab.apps.AppBase
             
             DeactivatePlotZoomPanOptions(app);
             
-            app.ROI_Object = drawrectangle(app.Plot,'Color',[0.57,0.00,0.69]);
+            app.ROI_Object = drawrectangle(app.Plot,'Color',app.XMapToolsApp.GetROIColor);
             
             app.ROI_Listener = addlistener(app.ROI_Object, 'ROIMoved', @(varargin)ROI_changed(app, app.ROI_Object));
             

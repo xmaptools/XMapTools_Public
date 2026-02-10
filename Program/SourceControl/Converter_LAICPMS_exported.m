@@ -3,6 +3,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
     % Properties that correspond to app components
     properties (Access = public)
         ConverterLAICPMS                matlab.ui.Figure
+        ToolsMenu                       matlab.ui.container.Menu
+        ConvertFIN2toCSVMenu            matlab.ui.container.Menu
+        OptionsMenu                     matlab.ui.container.Menu
+        SkipDateTimeformatconfirmationMenu  matlab.ui.container.Menu
         GridLayout                      matlab.ui.container.GridLayout
         Image                           matlab.ui.control.Image
         Tree                            matlab.ui.container.Tree
@@ -56,6 +60,7 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
         ShowButton                      matlab.ui.control.Button
         ExportButton                    matlab.ui.control.Button
         Maps_SelElement                 matlab.ui.control.DropDown
+        Maps_MapInterpolationMethod     matlab.ui.control.DropDown
         GridLayout9                     matlab.ui.container.GridLayout
         SweepLabel                      matlab.ui.control.Label
         Position_Min                    matlab.ui.control.Spinner
@@ -86,7 +91,6 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
         XMapToolsApp
         LastDir         % from XMapTools (startup)
         DataFiles       % Data not organised from different files
-        Data            % Data clean
         
         TimeShiftCorrData   % Data from the automated time shift correction
         Integrations
@@ -114,12 +118,264 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
     properties (Access = public)
         Log             % Data from the log file
         ExchangeFormator
+        ExchangeSelector
+        
+        Data            % Data clean
         
     end
     
     methods (Access = private)
         
         function ExtractTimeIntegration(app)
+            
+            t = app.Data.tsec;
+            
+            %List_Type = '';
+            Type = zeros(size(t));
+            SeqN = zeros(size(t));
+            SeqListName = {};
+            StartSeq = zeros(size(t));
+            BackMeas = zeros(size(t));
+            BackMeasID = zeros(size(t));
+            SignalMeas = zeros(size(t));
+            SignalMeasTotal = zeros(size(t));
+            SignalMeasID = zeros(size(t));
+            
+            ComptScan = 0;
+            
+            app.Integrations.SeqListName = '';
+            
+            app.Integrations.Background.Names = {};
+            app.Integrations.Background.PositionsOri = [];
+            app.Integrations.Background.Positions = [];
+            app.Integrations.Background.Times = NaT(1);
+            %app.Integrations.Background.ROI(1).ROI = [];
+            
+            app.Integrations.TypeNames = '';
+            app.Integrations.Measurements(1).Names = {};
+            app.Integrations.Measurements(1).PositionsOri = [];
+            app.Integrations.Measurements(1).Positions = [];
+            app.Integrations.Measurements(1).Times = NaT(1);
+            
+            app.Integrations.Measurements(1).X1 = [];
+            app.Integrations.Measurements(1).Y1 = [];
+            app.Integrations.Measurements(1).X2 = [];
+            app.Integrations.Measurements(1).Y2 = [];
+            app.Integrations.Measurements(1).SpotSize = [];
+            app.Integrations.Measurements(1).ScanVel = [];
+            
+            %app.Integrations.Measurements(1).Distance = [];
+            %app.Integrations.Measurements(1).Slope = [];
+            %app.Integrations.Measurements(1).Intercept = [];
+            
+            %figure, hold on
+            
+            CountMeasurements = zeros(10);
+            ComptBackground = 0;
+            
+            % Sequence
+            SqIndex = find(~isnan(app.Log.Table.SequenceNumber));
+            for i = 1:length(SqIndex)
+                
+                Id1 = SqIndex(i);
+                t1 = app.Log.DT_Log_Corr(Id1);
+                if i < length(SqIndex)
+                    Id2 = SqIndex(i+1);
+                    t2 = app.Log.DT_Log_Corr(Id2);
+                else
+                    Id2 = length(app.Log.Table.SequenceNumber);
+                    t2 = app.Log.DT_Log_Corr(Id2);
+                end
+                
+                tf = find(isbetween(app.Data.time_DT,t1,t2));
+                SeqN(tf) = i*ones(size(tf));
+                
+                SeqLaserState = app.Log.Table.LaserState(Id1:Id2);
+                IsLaserOn = find(ismember(SeqLaserState,'On'));
+                
+                StartSeq(tf(1)) = 1;
+                for j = Id1:Id2
+                    if isequal(app.Log.Table.LaserState{j},'On')
+                        tback = find(isbetween(app.Data.time_DT,app.Log.DT_Log_Corr(SqIndex(i)),app.Log.DT_Log_Corr(j)));
+                        % we filter 10%
+                        %Filter = round(length(tback)*0.05);
+                        %BackMeas(tback(Filter:end-Filter)) = ones(size(tback(Filter:end-Filter)));
+                        %BackMeasID(tback(Filter:end-Filter)) = i*ones(size(tback(Filter:end-Filter)));
+                        break
+                    end
+                end
+                
+                SeqName = app.Log.Table.Comment{SqIndex(i)};  
+                %if isequal(length(SeqName{1}),3)         
+                %    AnaID = str2num(SeqName{1}{3}); 
+                %else 
+                %    AnaID = 0;
+                %end
+                
+                if isequal(app.NameFormatDropDown.Value,'Format 1 (Name - ID)')
+                    SeqName = textscan(SeqName,'%s'); 
+                    SeqName = SeqName{1}{1};
+                end
+                
+                if isequal(app.NameFormatDropDown.Value,'Format 2 (Name-ID)')
+                    SeqName = textscan(SeqName,'%s','delimiter','-'); 
+                    if length(SeqName{1}) > 2
+                        SeqName = strcat(SeqName{1}{1:end-1});
+                    else
+                        SeqName = SeqName{1}{1};
+                    end
+                end
+                
+                if isequal(app.NameFormatDropDown.Value,'Format 3 (Name_ID)')
+                    SeqName = textscan(SeqName,'%s','delimiter','_'); 
+                    SeqName = SeqName{1}{1};
+                end
+                
+                if isequal(app.NameFormatDropDown.Value,'Format 4 (Name before symbol/space)')
+                    for j = 2:numel(SeqName)
+                        if isequal(SeqName(j),'_') || isequal(SeqName(j),'-') || isequal(SeqName(j),'(') || isequal(SeqName(j),' ')
+                            SeqName = SeqName(1:j-1);
+                            break
+                        end
+                    end
+                end
+                
+                % TEMPORARY 4.5
+                % disp(SeqName)
+                
+                IsSeq = find(ismember(app.Integrations.TypeNames,SeqName));
+                if ~isempty(IsSeq)
+                    Type(tf) = IsSeq*ones(size(tf));
+                else
+                    app.Integrations.TypeNames{end+1} = SeqName;
+                    IsSeq = length(app.Integrations.TypeNames);
+                    Type(tf) = IsSeq*ones(size(tf));
+                end
+                
+                % Detect problem with format:
+                if isequal(length(app.Integrations.TypeNames),7) && isequal(i,length(app.Integrations.TypeNames))
+                    
+                    choice = uiconfirm(app.ConverterLAICPMS,[{'It seems that XMapTools has trouble identifying the measurement names and that the format selected is not appropriate. Here are the names of the first files after cleaning the analysis ID: '},{' '},app.Integrations.TypeNames],'Error – XMapTools','Options',{'Cancel', 'Continue'},'DefaultOption','Cancel','Icon', 'Error');
+                    
+                    if isequal(choice,'Cancel')
+                        app.Integrations.SeqListName = ''; 
+                        
+                        app.Integrations.Background.Names = {};
+                        app.Integrations.Background.PositionsOri = [];
+                        app.Integrations.Background.Positions = [];
+                        app.Integrations.Background.Times = NaT(1);
+                        %app.Integrations.Background.ROI(1).ROI = [];
+                        
+                        app.Integrations.TypeNames = '';
+                        app.Integrations.Measurements(1).Names = {};
+                        app.Integrations.Measurements(1).PositionsOri = [];
+                        app.Integrations.Measurements(1).Positions = [];
+                        app.Integrations.Measurements(1).Times = NaT(1);
+                        
+                        app.Integrations.Measurements(1).X1 = [];
+                        app.Integrations.Measurements(1).Y1 = [];
+                        app.Integrations.Measurements(1).X2 = [];
+                        app.Integrations.Measurements(1).Y2 = [];
+                        app.Integrations.Measurements(1).SpotSize = [];
+                        app.Integrations.Measurements(1).ScanVel = [];
+                        
+                        return
+                    end
+                end
+                
+                SeqListName{i} = SeqName;
+                
+                % BACKGROUND (4.5)
+                if length(tback) > 1
+                    ComptBackground = ComptBackground + 1;
+                    app.Integrations.Background.Names{ComptBackground} = SeqName;
+                    app.Integrations.Background.PositionsOri(ComptBackground,1:2) = [tback(1),tback(end)];
+                    app.Integrations.Background.Positions(ComptBackground,1:2) = [tback(1),tback(end)];
+                    app.Integrations.Background.Times(ComptBackground,1:2) = [app.Data.time_DT(tback(1)),app.Data.time_DT(tback(end))];
+                end
+                
+                % SIGNAL
+                CountMeasurements(IsSeq) =  CountMeasurements(IsSeq) + 1; 
+                IdxCount = CountMeasurements(IsSeq);
+                
+                app.Integrations.Measurements(IsSeq).Names{IdxCount} = SeqName;
+                
+                tAblation = find(isbetween(app.Data.time_DT,app.Log.DT_Log_Corr(SqIndex(i)+IsLaserOn(end-1)-1),app.Log.DT_Log_Corr(SqIndex(i)+IsLaserOn(end-1))));
+                
+                app.Integrations.Measurements(IsSeq).PositionsOri(IdxCount,1:2) = [tAblation(1),tAblation(end)];
+                app.Integrations.Measurements(IsSeq).Positions(IdxCount,1:2) = [tAblation(1),tAblation(end)];
+                app.Integrations.Measurements(IsSeq).Times(IdxCount,1:2) = [app.Data.time_DT(tAblation(1)),app.Data.time_DT(tAblation(end))];
+                
+                % add later the coordinates and scan speed, etc...
+                app.Integrations.Measurements(IsSeq).X1(CountMeasurements(IsSeq)) = app.Log.Table.X_um_(SqIndex(i)+IsLaserOn(end-1)-1);
+                app.Integrations.Measurements(IsSeq).Y1(CountMeasurements(IsSeq)) = app.Log.Table.Y_um_(SqIndex(i)+IsLaserOn(end-1)-1);
+                app.Integrations.Measurements(IsSeq).X2(CountMeasurements(IsSeq)) = app.Log.Table.X_um_(SqIndex(i)+IsLaserOn(end-1));
+                app.Integrations.Measurements(IsSeq).Y2(CountMeasurements(IsSeq)) = app.Log.Table.Y_um_(SqIndex(i)+IsLaserOn(end-1));
+                app.Integrations.Measurements(IsSeq).SpotSize(CountMeasurements(IsSeq)) = app.Log.Table.SpotSize_um_(SqIndex(i)+IsLaserOn(end-1)-1);
+                app.Integrations.Measurements(IsSeq).ScanVel(CountMeasurements(IsSeq)) = app.Log.Table.ScanVelocity_um_s_(SqIndex(i)+IsLaserOn(end-1));
+                
+                % Check scan velocity (v 4.5)
+                if isnan(app.Integrations.Measurements(IsSeq).ScanVel(CountMeasurements(IsSeq)))
+                    
+                    Distance = sqrt((app.Integrations.Measurements(IsSeq).X2(CountMeasurements(IsSeq))-app.Integrations.Measurements(IsSeq).X1(CountMeasurements(IsSeq)))^2 + (app.Integrations.Measurements(IsSeq).Y2(CountMeasurements(IsSeq))-app.Integrations.Measurements(IsSeq).Y1(CountMeasurements(IsSeq)))^2);
+                    dt = seconds(app.Integrations.Measurements(IsSeq).Times(IdxCount,2) -  app.Integrations.Measurements(IsSeq).Times(IdxCount,1));
+                    
+                    app.Integrations.Measurements(IsSeq).ScanVel(CountMeasurements(IsSeq)) = Distance/dt;
+                end
+            end
+            
+            if isempty(app.Integrations.Background.Names)
+                % Here we have no Background measurements detected...
+                
+                waitfor(Signal_Selector(app,app.XMapToolsApp,app.Data,'Manual','Background')); 
+                
+                if isempty(app.ExchangeSelector)
+                    app.Integrations.SeqListName = '';
+                    
+                    app.Integrations.Background.Names = {};
+                    app.Integrations.Background.PositionsOri = [];
+                    app.Integrations.Background.Positions = [];
+                    app.Integrations.Background.Times = NaT(1);
+                    
+                    app.Integrations.TypeNames = '';
+                    app.Integrations.Measurements(1).Names = {};
+                    app.Integrations.Measurements(1).PositionsOri = [];
+                    app.Integrations.Measurements(1).Positions = [];
+                    app.Integrations.Measurements(1).Times = NaT(1);
+                    
+                    app.Integrations.Measurements(1).X1 = [];
+                    app.Integrations.Measurements(1).Y1 = [];
+                    app.Integrations.Measurements(1).X2 = [];
+                    app.Integrations.Measurements(1).Y2 = [];
+                    app.Integrations.Measurements(1).SpotSize = [];
+                    app.Integrations.Measurements(1).ScanVel = [];
+                    
+                    return
+                end
+                
+                app.Integrations.Background = app.ExchangeSelector;
+                
+            end
+            
+            BackListName = app.Integrations.Background.Names;
+            
+            app.Integrations.SeqListName = SeqListName;
+            
+            app.Data.BackgroundCorrection = zeros(size(t));
+            
+            UpdateTimeIntegration_Background(app);
+            
+            % UPDATE TREE
+            CleanTree(app,'Background');
+            for i = 1:length(BackListName)
+                p = uitreenode(app.Node_Background,'Text',char(BackListName{i}),'NodeData',[1,i]);
+            end
+            
+            expand(app.Node_Background);
+            
+        end
+        
+        function ExtractTimeIntegration_backup_v4_3(app)
             
             t = app.Data.tsec;
             
@@ -666,6 +922,301 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             
         end
         
+        function CalculateMapsMatour(app)
+            
+            app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools','Indeterminate','on');
+            app.WaitBar.Message = 'XMapTools is running numbers';
+            
+            Value = app.Maps_List.Value;
+            
+            X1 = app.Integrations.Measurements(Value).X1;
+            Y1 = app.Integrations.Measurements(Value).Y1;
+            
+            X2 = app.Integrations.Measurements(Value).X2;
+            Y2 = app.Integrations.Measurements(Value).Y2;
+            
+            Slope = (Y2-Y1)./(X2-X1);
+            Int = Y1-Slope.*X1;
+            Distance = sqrt((X2-X1).^2+(Y2-Y1).^2);
+            
+            SpotSize = app.Integrations.Measurements(Value).SpotSize;
+            ScanVel = app.Integrations.Measurements(Value).ScanVel;
+            
+            DurationReal = Distance./ScanVel; % in seconds
+            NbPixels = floor((Distance-SpotSize)./SpotSize); % -SpotSize added because 1/2 spot size is ignored at the begining and at the end
+            
+            DtPixel = seconds(DurationReal./(Distance./SpotSize));  % this is correct to get a constant DtPixel.
+            % DtPixel = seconds(DurationReal./NbPixels);
+            
+            % I don't understand this line below (12.04.22)
+            %NbSwipePerPixel = floor(DurationReal./NbPixels);
+            
+            % To avoid having zeros!
+            %WhereZeros = find(NbSwipePerPixel == 0);
+            %NbSwipePerPixel(WhereZeros) = ones(size(WhereZeros));
+            
+            NbSwipePerPixel = zeros(size(DurationReal));
+            
+            % -------------------------------------------------------------
+            % Map reconstruction (second version Theoule-sur-Mer)
+            Xi_all = [];
+            Yi_all = [];
+            Ti_all = [];
+            
+            %Xi = [];
+            %Yi = [];
+            %TableXY(1).Xi = [];
+            %TableXY(1).Yi = [];
+            %DistanceCheck = zeros(size(Distance));
+            
+            %CountPx = 0;
+            
+            app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools');
+            app.WaitBar.Message = 'Building raw intensity datasets, please wait';
+            
+            for i = 1:length(X1)
+                
+                % Method: Theoule
+                ti = find(isbetween(app.Data.time_DT,app.Integrations.Measurements(Value).Times(i,1),app.Integrations.Measurements(Value).Times(i,2)))';
+                
+                if isequal(X1(i),X2(i))
+                    xi = X1(i).*ones(size(ti));
+                else
+                    xi = X1(i):(X2(i)-X1(i))/(length(ti)-1):X2(i);
+                end
+                if isequal(Y1(i),Y2(i))
+                    yi = Y1(i).*ones(size(ti));
+                else
+                    yi = Y1(i):(Y2(i)-Y1(i))/(length(ti)-1):Y2(i);
+                end
+                
+                Xi_all(end+1:end+length(xi)) = xi;
+                Yi_all(end+1:end+length(yi)) = yi;
+                Ti_all(end+1:end+length(ti)) = ti;
+                
+                if NbPixels(i) > 0
+                    if floor(length(xi)/NbPixels(i)) > 0
+                        NbSwipePerPixel(i) = floor(length(xi)/NbPixels(i));
+                    end
+                end
+                
+                % The old Wengen method has been deleted in this function (4.4)
+            end
+            
+            [X_grid,Y_grid] = meshgrid([min(Xi_all):SpotSize(1):max(Xi_all)],[min(Yi_all):SpotSize(1):max(Yi_all)]);
+            
+            EdgesX = min(X_grid(:))-0.5*SpotSize(1):SpotSize(1):max(X_grid(:))+0.5*SpotSize(1);
+            EdgesY = min(Y_grid(:))-0.5*SpotSize(1):SpotSize(1):max(Y_grid(:))+0.5*SpotSize(1);
+            
+            xbin = discretize(X_grid(1,:), EdgesX);
+            ybin = discretize(Y_grid(:,1)', EdgesY);
+            
+            
+            % ----------------------------------------------------------------------------------------------------------------
+            app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools');
+            app.WaitBar.Message = 'Preparing the extraction of sweep data for PRIP [1/2]';
+            
+            % Search for number of sweeps within each pixel (Cassis):
+            PixelIndices = 1:1:prod(size(X_grid));
+            % PixelIndices = reshape(PixelIndices, size(X_grid));
+            
+            app.PxDataRaw.ElNames = app.Data.ElName;
+            app.PxDataRaw.PixelIndices = PixelIndices;
+            app.PxDataRaw.PixelCoordXY = zeros(length(PixelIndices),2);
+            
+            for iEl = 1:size(app.Data.Cps_BackCorr,2)
+                for i = 1:length(PixelIndices)
+                    app.PxDataRaw.ElData(iEl).PxData(i).NbSweep = [];
+                    app.PxDataRaw.ElData(iEl).PxData(i).SweepIndices = [];
+                    app.PxDataRaw.ElData(iEl).PxData(i).Intensity = [];
+                end
+                app.WaitBar.Value = iEl/(size(app.Data.Cps_BackCorr,2));
+            end
+            
+            MatrixNbSweepPerPixel = zeros(size(X_grid));
+            MatrixX = zeros(size(X_grid));
+            MatrixY = zeros(size(X_grid));
+            
+            app.WaitBar.Message = 'Preparing the extraction of sweep data for PRIP [2/2]';
+            app.WaitBar.Value = 0;
+            
+            count = 0;
+            countWB = 0;
+            for i = 1:length(EdgesY)-1
+                
+                countWB = countWB+1;
+                if countWB > 10
+                    app.WaitBar.Value = i/(length(EdgesY)-1);
+                    countWB = 0;
+                end
+                
+                for j = 1:length(EdgesX)-1
+                    SweepIndices = find(Yi_all >= EdgesY(i) & Yi_all < EdgesY(i+1) & Xi_all >= EdgesX(j) & Xi_all < EdgesX(j+1));
+                    MatrixNbSweepPerPixel(i,j) = length(SweepIndices);
+                    
+                    count = count + 1;
+                    app.PxDataRaw.PixelCoordXY(count,1) = j; 
+                    app.PxDataRaw.PixelCoordXY(count,2) = i; 
+                    
+                    MatrixX(i,j) = j;
+                    MatrixY(i,j) = i;
+                    
+                    for iEl = 1:size(app.Data.Cps_BackCorr,2)
+                        app.PxDataRaw.ElData(iEl).PxData(PixelIndices(count)).NbSweep = MatrixNbSweepPerPixel(i,j);
+                        app.PxDataRaw.ElData(iEl).PxData(PixelIndices(count)).SweepIndices = SweepIndices;
+                        app.PxDataRaw.ElData(iEl).PxData(PixelIndices(count)).Intensity = zeros(size(SweepIndices));
+                    end
+                end
+            end
+            % ----------------------------------------------------------------------------------------------------------------
+            
+            MedianNbSweep = median(MatrixNbSweepPerPixel(find(MatrixNbSweepPerPixel)));
+            
+            app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools');
+            app.WaitBar.Message = {'Interpolation and generation of intensity maps.','It may take a while, so why not make yourself a coffee or tea? Don''t worry, it will eventually get there.'};
+            
+            for i = 1:size(app.Data.Cps_BackCorr,2)
+                
+                app.WaitBar.Value = i/size(app.Data.Cps_BackCorr,2);
+               
+                % Method: Theoule (modified in Matour)
+                app.Data.Cps_Maps(i).Map = zeros(size(X_grid));
+                app.Data.Cps_Maps(i).Std_Map = zeros(size(X_grid));
+                
+                PxCompt = app.Data.Cps_BackCorr(Ti_all,i);
+                IdxOk = find(isnan(PxCompt) == 0); % filter NaN out otherwise interpolation does not work fine
+                
+                % ----------------------------------------------------------------------------------------------------------------
+                % Extract the sweep data                                     New 4.4
+                for IdxPx = 1:length(app.PxDataRaw.PixelIndices)
+                    app.PxDataRaw.ElData(i).PxData(IdxPx).Intensity = PxCompt(app.PxDataRaw.ElData(i).PxData(IdxPx).SweepIndices);
+                end
+                % ----------------------------------------------------------------------------------------------------------------
+                
+                switch app.Maps_MapInterpolationMethod.Value
+                    case '1'
+                        Vq = griddata(Xi_all(IdxOk),Yi_all(IdxOk),PxCompt(IdxOk),X_grid,Y_grid,'cubic');
+                        app.Data.Cps_Maps(i).Map = Vq;
+                    
+                    case '2'
+                        Vq = nan(size(X_grid));
+                        for j = 1:length(app.PxDataRaw.PixelCoordXY)
+                            if ~isempty(app.PxDataRaw.ElData(i).PxData(j).Intensity)
+                                Sel = find(app.PxDataRaw.ElData(i).PxData(j).Intensity > 0);
+                                Vq(app.PxDataRaw.PixelCoordXY(j,2),app.PxDataRaw.PixelCoordXY(j,1)) = mean(app.PxDataRaw.ElData(i).PxData(j).Intensity(Sel));
+                            end
+                        end
+                        app.Data.Cps_Maps(i).Map = Vq;
+                end
+                
+                for j = 1:length(app.Data.PS)
+                    PxCompStd = app.Data.PS(j).Cps_PrimaryStandard(Ti_all,i);
+                    IdxOk_Std = find(isnan(PxCompStd) == 0);
+                    Vq_Std = griddata(Xi_all(IdxOk_Std),Yi_all(IdxOk_Std),PxCompStd(IdxOk_Std),X_grid,Y_grid);
+                    
+                    app.Data.StdMaps(i).Std_Map(j).Cps = Vq_Std;
+                    app.Data.StdMaps(i).Std_Map(j).Conc = app.Data.PS(j).PrimaryStandard_ElemConc(i).*ones(size(Vq));
+                    app.Data.StdMaps(i).Std_Map(j).StdName = app.SecondaryStd_ListPS.Items{j};
+                end
+                
+                Vq_BackNbIntegration = griddata(Xi_all,Yi_all,app.Data.BackgroundNbIntegration(Ti_all),X_grid,Y_grid,'nearest');
+                Vq_BackgroundCorrection = griddata(Xi_all,Yi_all,app.Data.BackgroundCorrection(Ti_all,i),X_grid,Y_grid,'nearest');
+                % Vq_PixelNbIntegration = NbSwipePerPixel(1).*ones(size(Vq_BackNbIntegration));
+                
+                Vq_PixelNbIntegration = MatrixNbSweepPerPixel; % changed in 4.5 to be compatible with PRIP; The first value used above was sometimes wrong (median value should be used instead with the old strategy)
+                
+                app.Data.StdMaps(i).Int_Back = Vq_BackgroundCorrection;
+                app.Data.StdMaps(i).Sweeps_Back = Vq_BackNbIntegration;
+                app.Data.StdMaps(i).Sweeps_Pixel = Vq_PixelNbIntegration;
+                
+                
+                if 0 % && isequal(i,36)
+%                     figure, imagesc(X_grid(1,:),Y_grid(:,1)',Vq), hold on, scatter(Xi_all,Yi_all,20*ones(size(Xi_all)),PxCompt,'filled'), colorbar
+%                     % axis([1.2385e+05    1.2643e+05    0.5492e+05    0.5508e+05])
+%                     
+%                     % caxis([0 1000])
+%                     colormap([0,0,0;parula(64)]);
+                    
+                    %figure, imagesc(X_grid(1,:),Y_grid(:,1)',Vq_Std), hold on, scatter(Xi_all,Yi_all,20*ones(size(Xi_all)),PxCompStd,'filled'), colorbar
+                    
+                    IdxOk = find(isnan(PxCompt) == 0);
+                    
+                    Vq_nearest = griddata(Xi_all(IdxOk),Yi_all(IdxOk),PxCompt(IdxOk),X_grid,Y_grid,'nearest');
+                    Vq_linear = griddata(Xi_all(IdxOk),Yi_all(IdxOk),PxCompt(IdxOk),X_grid,Y_grid,'linear');
+                    Vq_natural = griddata(Xi_all(IdxOk),Yi_all(IdxOk),PxCompt(IdxOk),X_grid,Y_grid,'natural');
+                    Vq_cubic = griddata(Xi_all(IdxOk),Yi_all(IdxOk),PxCompt(IdxOk),X_grid,Y_grid,'cubic');
+                    
+                    figure,
+                    tiledlayout('flow')
+                    nexttile, imagesc(Vq_nearest), axis image, colorbar, title([app.PxDataRaw.ElNames{i},' ','Vq_nearest'])
+                    SelFig = gca; SelFig.ColorScale = 'log';
+                    nexttile, imagesc(Vq_linear), axis image, colorbar, title([app.PxDataRaw.ElNames{i},' ','Vq_linear'])
+                    SelFig = gca; SelFig.ColorScale = 'log';
+                    nexttile, imagesc(Vq_natural), axis image, colorbar, title([app.PxDataRaw.ElNames{i},' ','Vq_natural'])
+                    SelFig = gca; SelFig.ColorScale = 'log';
+                    nexttile, imagesc(Vq_cubic), axis image, colorbar, title([app.PxDataRaw.ElNames{i},' ','Vq_cubic'])
+                    SelFig = gca; SelFig.ColorScale = 'log';
+                    
+                    
+                    
+%                     Sel = find(Yi_all > 5.492e4 & Yi_all < 5.493e4);
+%                     figure, hold on, plot(Xi_all(Sel),PxCompt(Sel),'.-k'),
+%                     Sel = find(Y_grid(:) > 5.492e4 & Y_grid(:) < 5.493e4);
+%                     plot(X_grid(Sel),Vq_nearest(Sel),'o-r')
+%                     plot(X_grid(Sel),Vq_linear(Sel),'o-b')
+%                     plot(X_grid(Sel),Vq_natural(Sel),'o-g')
+%                     plot(X_grid(Sel),Vq_cubic(Sel),'o-m')
+%                     % plot(X_grid(Sel),Vq_old(Sel),'o-g')
+%                     
+%                     legend('scan','nearest','linear','cubic','old')
+                    %legend('scan','nearest','linear','natural','cubic','old')
+                    
+                    % keyboard
+                end
+                
+            end
+            
+            % ----------------------------------------------------------------------------------------------------------------
+            if 0
+                % benchmark test for sweep data extraction
+                ElIdx = 1;   % Si for Jiahui's test dataset
+                
+                TheMapTheoule = app.Data.Cps_Maps(ElIdx).Map;
+                
+                TheMapCassis = zeros(size(TheMapTheoule));
+                
+                for i = 1:length(app.PxDataRaw.PixelCoordXY)
+                    if ~isempty(app.PxDataRaw.ElData(ElIdx).PxData(i).Intensity)
+                        TheMapCassis(app.PxDataRaw.PixelCoordXY(i,2),app.PxDataRaw.PixelCoordXY(i,1)) = mean(app.PxDataRaw.ElData(ElIdx).PxData(i).Intensity);
+                    end
+                end
+                
+                figure,
+                tiledlayout('flow')
+                nexttile
+                imagesc(TheMapTheoule), axis image, colorbar
+                %caxis([3e6,1e7])
+                nexttile
+                imagesc(TheMapCassis), axis image, colorbar
+                %caxis([3e6,1e7])
+            end
+            
+            app.Data.MapGeometryCheck.XY_Spots = [Xi_all;Yi_all]';
+            app.Data.MapGeometryCheck.Radius_Spots = repmat(SpotSize(1)/2,length(Xi_all),1);
+            app.Data.MapGeometryCheck.X_grid = X_grid;
+            app.Data.MapGeometryCheck.Y_grid = Y_grid;
+            app.Data.MapGeometryCheck.xbin = [];            % not used in this version
+            app.Data.MapGeometryCheck.ybin = [];            % not used in this version
+            
+            close(app.WaitBar)
+            
+            return
+            
+        end
+        
+        
+        
+        
         function CalculateMapsCassis(app)
             
             app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools','Indeterminate','on');
@@ -738,8 +1289,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                 Yi_all(end+1:end+length(yi)) = yi;
                 Ti_all(end+1:end+length(ti)) = ti;
                 
-                if floor(length(xi)/NbPixels(i)) > 0
-                    NbSwipePerPixel(i) = floor(length(xi)/NbPixels(i));
+                if NbPixels(i) > 0
+                    if floor(length(xi)/NbPixels(i)) > 0
+                        NbSwipePerPixel(i) = floor(length(xi)/NbPixels(i));
+                    end
                 end
                 
                 % The old Wengen method has been deleted in this function (4.4)
@@ -831,7 +1384,9 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                 
                 Vq_BackNbIntegration = griddata(Xi_all,Yi_all,app.Data.BackgroundNbIntegration(Ti_all),X_grid,Y_grid,'nearest');
                 Vq_BackgroundCorrection = griddata(Xi_all,Yi_all,app.Data.BackgroundCorrection(Ti_all,i),X_grid,Y_grid,'nearest');
-                Vq_PixelNbIntegration = NbSwipePerPixel(1).*ones(size(Vq_BackNbIntegration));
+                % Vq_PixelNbIntegration = NbSwipePerPixel(1).*ones(size(Vq_BackNbIntegration));
+                
+                Vq_PixelNbIntegration = MatrixNbSweepPerPixel; % changed in 4.5 to be compatible with PRIP; The first value used above was sometimes wrong (median value should be used instead with the old strategy)
                 
                 app.Data.StdMaps(i).Int_Back = Vq_BackgroundCorrection;
                 app.Data.StdMaps(i).Sweeps_Back = Vq_BackNbIntegration;
@@ -844,12 +1399,12 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                 end
                 % ----------------------------------------------------------------------------------------------------------------
                 
-                if 0 && isequal(i,36)
-                    figure, imagesc(X_grid(1,:),Y_grid(:,1)',Vq), hold on, scatter(Xi_all,Yi_all,20*ones(size(Xi_all)),PxCompt,'filled'), colorbar
-                    axis([1.2385e+05    1.2643e+05    0.5492e+05    0.5508e+05])
-                    
-                    caxis([0 1000])
-                    colormap([0,0,0;parula(64)]);
+                if 0 % && isequal(i,36)
+%                     figure, imagesc(X_grid(1,:),Y_grid(:,1)',Vq), hold on, scatter(Xi_all,Yi_all,20*ones(size(Xi_all)),PxCompt,'filled'), colorbar
+%                     % axis([1.2385e+05    1.2643e+05    0.5492e+05    0.5508e+05])
+%                     
+%                     % caxis([0 1000])
+%                     colormap([0,0,0;parula(64)]);
                     
                     %figure, imagesc(X_grid(1,:),Y_grid(:,1)',Vq_Std), hold on, scatter(Xi_all,Yi_all,20*ones(size(Xi_all)),PxCompStd,'filled'), colorbar
                     
@@ -860,19 +1415,32 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     Vq_natural = griddata(Xi_all(IdxOk),Yi_all(IdxOk),PxCompt(IdxOk),X_grid,Y_grid,'natural');
                     Vq_cubic = griddata(Xi_all(IdxOk),Yi_all(IdxOk),PxCompt(IdxOk),X_grid,Y_grid,'cubic');
                     
-                    Sel = find(Yi_all > 5.492e4 & Yi_all < 5.493e4);
-                    figure, hold on, plot(Xi_all(Sel),PxCompt(Sel),'.-k'),
-                    Sel = find(Y_grid(:) > 5.492e4 & Y_grid(:) < 5.493e4);
-                    plot(X_grid(Sel),Vq_nearest(Sel),'o-r')
-                    plot(X_grid(Sel),Vq_linear(Sel),'o-b')
-                    %plot(X_grid(Sel),Vq_natural(Sel),'o-g')
-                    plot(X_grid(Sel),Vq_cubic(Sel),'o-m')
-                    plot(X_grid(Sel),Vq_old(Sel),'o-g')
+                    figure,
+                    tiledlayout('flow')
+                    nexttile, imagesc(Vq_nearest), axis image, colorbar, title([app.PxDataRaw.ElNames{i},' ','Vq_nearest'])
+                    SelFig = gca; SelFig.ColorScale = 'log';
+                    nexttile, imagesc(Vq_linear), axis image, colorbar, title([app.PxDataRaw.ElNames{i},' ','Vq_linear'])
+                    SelFig = gca; SelFig.ColorScale = 'log';
+                    nexttile, imagesc(Vq_natural), axis image, colorbar, title([app.PxDataRaw.ElNames{i},' ','Vq_natural'])
+                    SelFig = gca; SelFig.ColorScale = 'log';
+                    nexttile, imagesc(Vq_cubic), axis image, colorbar, title([app.PxDataRaw.ElNames{i},' ','Vq_cubic'])
+                    SelFig = gca; SelFig.ColorScale = 'log';
                     
-                    legend('scan','nearest','linear','cubic','old')
+                    
+                    
+%                     Sel = find(Yi_all > 5.492e4 & Yi_all < 5.493e4);
+%                     figure, hold on, plot(Xi_all(Sel),PxCompt(Sel),'.-k'),
+%                     Sel = find(Y_grid(:) > 5.492e4 & Y_grid(:) < 5.493e4);
+%                     plot(X_grid(Sel),Vq_nearest(Sel),'o-r')
+%                     plot(X_grid(Sel),Vq_linear(Sel),'o-b')
+%                     plot(X_grid(Sel),Vq_natural(Sel),'o-g')
+%                     plot(X_grid(Sel),Vq_cubic(Sel),'o-m')
+%                     % plot(X_grid(Sel),Vq_old(Sel),'o-g')
+%                     
+%                     legend('scan','nearest','linear','cubic','old')
                     %legend('scan','nearest','linear','natural','cubic','old')
                     
-                    keyboard
+                    % keyboard
                 end
                 
             end
@@ -991,8 +1559,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                 Yi_all(end+1:end+length(yi)) = yi;
                 Ti_all(end+1:end+length(ti)) = ti;
                 
-                if floor(length(xi)/NbPixels(i)) > 0
-                    NbSwipePerPixel(i) = floor(length(xi)/NbPixels(i));
+                if NbPixels(i) > 0
+                    if floor(length(xi)/NbPixels(i)) > 0
+                        NbSwipePerPixel(i) = floor(length(xi)/NbPixels(i));
+                    end
                 end
                 
                 % Method: Wengen
@@ -1672,10 +2242,18 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     PositionAMPM = CheckAM;
                 end
                 
-                if isempty(PositionAMPM)
-                    StartingDate = [Str{3},' ',Str{4},'.000'];
+                if isequal(Str{1},'Monday,') || isequal(Str{1},'Tuesday,') || isequal(Str{1},'Wednesday,') || isequal(Str{1},'Thursday,') || isequal(Str{1},'Friday,') || isequal(Str{1},'Saturday,') || isequal(Str{1},'Sunday,')
+                    if isempty(PositionAMPM)
+                        StartingDate = [TheL,'.000'];
+                    else
+                        StartingDate = [TheL,'.000',' ',Str{PositionAMPM}];
+                    end
                 else
-                    StartingDate = [Str{3},' ',Str{4},'.000',' ',Str{PositionAMPM}];
+                    if isempty(PositionAMPM)
+                        StartingDate = [Str{3},' ',Str{4},'.000'];
+                    else
+                        StartingDate = [Str{3},' ',Str{4},'.000',' ',Str{PositionAMPM}];
+                    end
                 end
                 
                 DT_MapStart = ReadDateTime(app,StartingDate);
@@ -1710,8 +2288,152 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             app.CheckDateTimeFormat = 0;
         end
         
+        function ReadDataFile_PerkinElmer(app,PathName,FileName,Idx)
+            %
+            try
+                TableData = readtable([PathName,FileName],'NumHeaderLines',1);
+                DataCps = table2array(TableData);
+                DataCps = DataCps(1:end-1,2:end); % exclude time
+                
+                file_info = dir([PathName,FileName]);
+                
+                DT_MapEnd = datetime(file_info.date);
+                
+                ElList = TableData.Properties.VariableNames(2:end);
+                
+                for i = 1:length(ElList)
+                    CString = char(ElList{i});
+                    Str = textscan(CString,'%s','Delimiter','_'); 
+                    ElListClean{i} = Str{1}{1};
+                    ElListFormated{i} = CString;
+                end
+                
+                % disp([datestr(StartingDate),' -> ',datestr(DT_MapStart)])
+                
+                t =  TableData.TimeInSeconds(1:end-1);
+                tinv = t(end)-t;
+                DT_Map = DT_MapEnd-seconds(tinv);
+                
+                DT_DN = datenum(DT_Map);
+                
+                % Adjust FileName for multi-phase
+                FileName = AdjustFileName(app,FileName);
+                
+            catch ME
+                uialert(app.ConverterLAICPMS,['Error while reading file: ',FileName],'Error – XMapTools');
+                close(app.WaitBar)
+                app.ErrorTracker = 1;
+            end
+            
+            % Update the variable DataFiles
+            app.DataFiles(Idx).FileName = FileName;
+            app.DataFiles(Idx).DataCps = DataCps;
+            app.DataFiles(Idx).ElListClean = ElListClean;
+            app.DataFiles(Idx).ElList = ElList;
+            app.DataFiles(Idx).ElListFormated = ElListFormated;
+            app.DataFiles(Idx).t  = t;
+            app.DataFiles(Idx).DT_Map = DT_Map;
+            app.DataFiles(Idx).DT_DN = DT_DN;
+            app.DataFiles(Idx).dt = t(2)-t(1);
+            
+            app.CheckDateTimeFormat = 0;
+        end
         
-        function ReadDataFile_Thermo(app,PathName,FileName,Idx)
+        
+        function ReadDataFile_Thermo_fin2(app,PathName,FileName,Idx)
+            
+            try               
+                
+                NumHeaderLines = 7;
+                
+                TableData = readtable([PathName,FileName],'NumHeaderLines',NumHeaderLines);
+                DataCpsRaw = table2array(TableData);
+                DataCps = DataCpsRaw(3:end-1,2:end); % exclude time & first two rows (shit)
+                
+                fid = fopen([PathName,FileName]);
+                for i = 1:NumHeaderLines
+                    if isequal(i,2)
+                        TheL1 = fgetl(fid);
+                    else
+                        TheL = fgetl(fid);
+                    end
+                end
+                TheInput = fgetl(fid);
+                fclose(fid);
+                
+                Str = textscan(TheInput,'%s','Delimiter',',');
+                ElList = Str{1}(2:end);
+                for i = 1:length(ElList)
+                    CString = char(ElList{i});
+                    TF = isletter(CString);
+                    ElListClean{i} = CString(find(TF));
+                    ElListFormated{i} = [CString(find(TF)),'_',CString(find(TF==0))];
+                end
+                
+                Str = textscan(TheL1,'%s');
+                Str = Str{1};
+                
+                % Check for AM or PM in the date
+                PositionAMPM = [];
+                CheckPM = find(ismember(Str,'PM'));
+                if ~isempty(CheckPM)
+                    PositionAMPM = CheckPM;
+                end
+                CheckAM = find(ismember(Str,'AM'));
+                if ~isempty(CheckAM)
+                    PositionAMPM = CheckAM;
+                end
+                
+                if isequal(Str{1},'Monday,') || isequal(Str{1},'Tuesday,') || isequal(Str{1},'Wednesday,') || isequal(Str{1},'Thursday,') || isequal(Str{1},'Friday,') || isequal(Str{1},'Saturday,') || isequal(Str{1},'Sunday,')
+                    if isempty(PositionAMPM)
+                        StartingDate = [TheL1,'.000'];
+                    else
+                        StartingDate = [TheL1,'.000',' ',Str{PositionAMPM}];
+                    end
+                else
+                    if isempty(PositionAMPM)
+                        StartingDate = [Str{3},' ',Str{4},'.000'];
+                    else
+                        StartingDate = [Str{3},' ',Str{4},'.000',' ',Str{PositionAMPM}];
+                    end
+                end
+                
+                DT_MapStart = ReadDateTime(app,StartingDate);
+                
+                % disp([datestr(StartingDate),' -> ',datestr(DT_MapStart)])
+                
+                t =  DataCpsRaw(3:end-1,1);
+                
+                DT_Map = seconds(t)+DT_MapStart;
+                
+                DT_DN = datenum(DT_Map);
+                
+                % Adjust FileName for multi-phase
+                FileName = AdjustFileName(app,FileName);
+                
+            catch ME
+                uialert(app.ConverterLAICPMS,['Error while reading file: ',FileName],'Error – XMapTools');
+                close(app.WaitBar)
+                app.ErrorTracker = 1;
+            end
+            
+            % Update the variable DataFiles
+            app.DataFiles(Idx).FileName = FileName;
+            app.DataFiles(Idx).DataCps = DataCps;
+            app.DataFiles(Idx).ElListClean = ElListClean;
+            app.DataFiles(Idx).ElList = ElList;
+            app.DataFiles(Idx).ElListFormated = ElListFormated;
+            app.DataFiles(Idx).t  = t;
+            app.DataFiles(Idx).DT_Map = DT_Map;
+            app.DataFiles(Idx).DT_DN = DT_DN;
+            app.DataFiles(Idx).dt = t(2)-t(1);
+            
+            app.CheckDateTimeFormat = 0;
+            
+        end
+        
+        
+        function ReadDataFile_Thermo_csv(app,PathName,FileName,Idx)
             
             try
                 NumHeaderLines = 13;
@@ -1757,10 +2479,18 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     PositionAMPM = CheckAM;
                 end
                 
-                if isempty(PositionAMPM)
-                    StartingDate = [Str{1},' ',Str{2},'.000'];
+                if isequal(Str{1},'Monday,') || isequal(Str{1},'Tuesday,') || isequal(Str{1},'Wednesday,') || isequal(Str{1},'Thursday,') || isequal(Str{1},'Friday,') || isequal(Str{1},'Saturday,') || isequal(Str{1},'Sunday,')
+                    if isempty(PositionAMPM)
+                        StartingDate = [TheL1,'.000'];
+                    else
+                        StartingDate = [TheL1,'.000',' ',Str{PositionAMPM}];
+                    end
                 else
-                    StartingDate = [Str{1},' ',Str{2},'.000',' ',Str{PositionAMPM}];
+                    if isempty(PositionAMPM)
+                        StartingDate = [Str{1},' ',Str{2},'.000'];
+                    else
+                        StartingDate = [Str{1},' ',Str{2},'.000',' ',Str{PositionAMPM}];
+                    end
                 end
                 
                 DT_MapStart = ReadDateTime(app,StartingDate);
@@ -1828,11 +2558,13 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                 'MM-dd-yyyy HH:mm:ss.SSS', ...
                 'dd/MM/yyyy HH:mm:ss.SSS', ...
                 'MM/dd/yyyy HH:mm:ss.SSS', ...
+                'eeee, MMMM dd, yyyy HH:mm:ss.SSS', ...
                 'yyyy-MM-dd hh:mm:ss.SSS a', ...
                 'dd-MM-yyyy hh:mm:ss.SSS a', ...
                 'MM-dd-yyyy hh:mm:ss.SSS a', ...
                 'dd/MM/yyyy hh:mm:ss.SSS a', ...
-                'MM/dd/yyyy hh:mm:ss.SSS a'};
+                'MM/dd/yyyy hh:mm:ss.SSS a', ...
+                'eeee, MMMM dd, yyyy hh:mm:ss.SSS a'};
             
             % - a	    Day period (AM or PM)
             
@@ -1860,6 +2592,7 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             SelFormat = app.ExchangeFormator;
             
         end
+        
     end
     
 
@@ -1870,7 +2603,7 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
         function startupFcn(app, XMapToolsApp)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -1979,6 +2712,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     '*.*',  'All Files (*.*)'},'Select DATA files...','MultiSelect', 'on');
                 delete(f)
                 figure(app.ConverterLAICPMS);
+                if isequal(FileName,0)
+                    close(app.WaitBar)
+                    return
+                end
                 
                 app.WaitBar.Message = 'Reading data files, please wait';
                 app.WaitBar.Indeterminate = 'off';
@@ -1988,11 +2725,14 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     switch app.TypeOfInstrumentDropDown.Value
                         case 'Agilent'
                             ReadDataFile_Agilent(app,PathName,FileName{i},i);
-                        case 'Thermo'
-                            ReadDataFile_Thermo(app,PathName,FileName{i},i);
+                        case 'Thermo CSV'
+                            ReadDataFile_Thermo_csv(app,PathName,FileName{i},i);
+                        case 'Thermo FIN2'
+                            ReadDataFile_Thermo_fin2(app,PathName,FileName{i},i);
+                        case 'PerkinElmer'
+                            ReadDataFile_PerkinElmer(app,PathName,FileName{i},i);
                     end
                     
-                    % ReadDataFile_Agilent(app,PathName,FileName{i},i);
                     if isequal(app.ErrorTracker,1)
                         app.ErrorTracker = 0;
                         return
@@ -2025,6 +2765,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     '*.*',  'All Files (*.*)'},'Select DATA file...');
                 delete(f)
                 figure(app.ConverterLAICPMS);
+                if isequal(FileName,0)
+                    close(app.WaitBar)
+                    return
+                end
                 
                 app.WaitBar.Message = 'Importing the data file, please wait...';
                 
@@ -2033,13 +2777,18 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     switch app.TypeOfInstrumentDropDown.Value
                         case 'Agilent'
                             ReadDataFile_Agilent(app,PathName,FileName,1);
-                        case 'Thermo'
-                            ReadDataFile_Thermo(app,PathName,FileName,1);
+                        case 'Thermo FIN2'
+                            ReadDataFile_Thermo_fin2(app,PathName,FileName,1);
+                        case 'Thermo CSV'
+                            ReadDataFile_Thermo_csv(app,PathName,FileName,1);
+                        case 'PerkinElmer'
+                            ReadDataFile_PerkinElmer(app,PathName,FileName,1);
                     end
                     
                 catch ME
                    errordlg('This file is not yet a valid file for XMapTools. ','XMapTools')
                    close(app.WaitBar)
+                   return
                 end
                 warning('on','all')
                 
@@ -2056,6 +2805,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     '*.*',  'All Files (*.*)'},'Select LOG file...');
                 delete(f)
                 figure(app.ConverterLAICPMS);
+                if isequal(FileName,0)
+                    close(app.WaitBar)
+                    return
+                end
                 
                 app.WaitBar.Message = 'Importing the data file, please wait...';
                 
@@ -2076,7 +2829,39 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     
                     DtLOG = datetime(TableLOG.Timestamp,'InputFormat',SelFormat);
                     
+                    % Check for compatibility (column name): 
+                    if ~isempty(find(strcmp('X',TableLOG.Properties.VariableNames)))
+                        TableLOG.X_um_ = TableLOG.X;
+                    end
+                    if ~isempty(find(strcmp('Y',TableLOG.Properties.VariableNames)))
+                        TableLOG.Y_um_ = TableLOG.Y;
+                    end
+                    if ~isempty(find(strcmp('SpotSize',TableLOG.Properties.VariableNames)))
+                        TableLOG.SpotSize_um_ = TableLOG.SpotSize;
+                    end
+                    if ~isempty(find(strcmp('ScanVelocity',TableLOG.Properties.VariableNames)))
+                        TableLOG.ScanVelocity_um_s_ = TableLOG.ScanVelocity;
+                    end
+                    
+                    if iscell(TableLOG.SpotSize_um_(1))
+                        % We need to convert the spotsize format (maybe a
+                        % slit was used)
+                        NewSpotSize = zeros(size(TableLOG.SpotSize_um_));
+                        for i = 1:length(TableLOG.SpotSize_um_)
+                            Str = strread(char(TableLOG.SpotSize_um_(i)),'%s');
+                            if ~isempty(Str)
+                                NewSpotSize(i) = str2num(Str{1});   % this should be x
+                            end
+                        end
+                        TableLOG.SpotSize_um_ = NewSpotSize;
+                    end
+                    %
+                                        
                 catch ME
+                    % Print the error: 
+                    fprintf(2,'The identifier was:\n%s',ME.identifier);
+                    fprintf(2,'There was an error! The message was:\n%s\n',ME.message);
+                    
                     errordlg('This log file is not a valid file','XMapTools')
                     close(app.WaitBar)
                     return
@@ -2240,6 +3025,11 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             
             ExtractTimeIntegration(app);
             
+            if isempty(app.Integrations.Background.Names)
+                close(app.WaitBar)
+                return
+            end
+            
             app.WaitBar.Message = 'Saving data and preparing display';
             
             app.Background_CorrectionList.Visible = 'On';
@@ -2256,6 +3046,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             ZoomResetButtonPushed(app);
             
             close(app.WaitBar)
+            
+            app.Background_CorrectionList.Value = 4;
+            Background_CorrectionListValueChanged(app);
+            
             
         end
 
@@ -2348,12 +3142,12 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     end
                     
                     % new version (4.4) with no outlier rejection
-                    SelectedBackgroundPlot = find(Yi > 0);
+                    SelectedSignalPlot = find(Yi > 0);
                     
-                    if ~isempty(SelectedBackgroundPlot)
+                    if ~isempty(SelectedSignalPlot)
                         
-                        YValue = mean(Yi(SelectedBackgroundPlot));
-                        YStd = std(Yi(SelectedBackgroundPlot));
+                        YValue = mean(Yi(SelectedSignalPlot));
+                        YStd = std(Yi(SelectedSignalPlot));
                         
                         if YStd < 0.1
                             YStd = 0.1 * YValue;
@@ -2371,8 +3165,14 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                         p=fill(app.Plot,[Xinterval(1) Xinterval(2) Xinterval(2) Xinterval(1)],[YValue+0.5*YStd YValue+0.5*YStd YValue-0.5*YStd YValue-0.5*YStd],'r');
                         p.FaceAlpha = 0.5;
                         
-                        app.Position_Min.Value = app.Integrations.Background.Positions(NodeData(2),1);
-                        app.Position_Max.Value = app.Integrations.Background.Positions(NodeData(2),2);
+                        % New limits (4.5) for compatibility with absence of background measurements:
+                        if NodeData(1) > 1
+                            app.Position_Min.Value = app.Integrations.Measurements(ValuePs).Positions(NodeData(2),1);
+                            app.Position_Max.Value = app.Integrations.Measurements(ValuePs).Positions(NodeData(2),2);
+                        else
+                            app.Position_Min.Value = app.Integrations.Background.Positions(NodeData(2),1); 
+                            app.Position_Max.Value = app.Integrations.Background.Positions(NodeData(2),2);
+                        end
                         
                         app.SweepLabel.Visible = 'on';
                         app.Position_Min.Visible = 'on';
@@ -2386,8 +3186,8 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                         app.Plot.XLim = [PositionInter-3*DurationInter PositionInter+3*DurationInter];
                         
                         if ModeLarge
-                            Min = min(Yi(SelectedBackgroundPlot)) - 0.1 * min(Yi(SelectedBackgroundPlot));
-                            Max = max(Yi(SelectedBackgroundPlot)) + 0.1 * max(Yi(SelectedBackgroundPlot));
+                            Min = min(Yi(SelectedSignalPlot)) - 0.1 * min(Yi(SelectedSignalPlot));
+                            Max = max(Yi(SelectedSignalPlot)) + 0.1 * max(Yi(SelectedSignalPlot));
                         else
                             Min = YValue-0.5*YValue;
                             if Min <= 0
@@ -2675,6 +3475,7 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     ValuePs = app.PrimaryStd_List.Value;
                     
                     if Idx
+                        
                         app.Integrations.Measurements(ValuePs).Positions(Idx,1) = app.Position_Min.Value;
                         app.Integrations.Measurements(ValuePs).Positions(Idx,2) = app.Position_Max.Value;
                         
@@ -2685,7 +3486,6 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     
                     
             end
-            
             
         end
 
@@ -2945,6 +3745,9 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             
             close(app.WaitBar)
             
+            app.PrimaryStd_CorrectionList.Value = 3;
+            PrimaryStd_CorrectionListValueChanged(app);
+            
         end
 
         % Value changed function: PrimaryStd_CorrectionList
@@ -3099,9 +3902,6 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                         app.Data4Plot.Data(app.Start_Idx_Data4Plot_BackgroundCorrected+i).Cps_PrimaryStandard = Yi;
                     end
                     
-                    
-                    
-                    
             end
             
             app.Data4Plot.Data(app.Start_Idx_Data4Plot_BackgroundCorrected-2).Cps_PrimaryStandard = sum(app.Data.PS(app.iPrStd).Cps_PrimaryStandard,2);
@@ -3209,7 +4009,7 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             
             switch Selection
                 case 'Yes'
-                    app.PrimaryStd_CorrectionList.Value = 1;
+                    app.PrimaryStd_CorrectionList.Value = 3;
                     PrimaryStd_CorrectionListValueChanged(app,0);
                     
                     app.iPrStd = app.iPrStd + 1;
@@ -3465,10 +4265,12 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
         % Button pushed function: Maps_ApplyButton
         function Maps_ApplyButtonPushed(app, event)
             
-            CalculateMapsCassis(app);            % XMapTools 4.4
-            %CalculateMapsTheoule(app);          % XMapTools 4.3
-            %CalculateMaps(app);
-            %CalculateMaps_Wengen(app);
+            
+            CalculateMapsMatour(app);           % XMapTools 4.5
+            %CalculateMapsCassis(app);          % XMapTools 4.4
+            %CalculateMapsTheoule(app);         % XMapTools 4.3
+            %CalculateMaps(app);                % XMapTools 4.1
+            %CalculateMaps_Wengen(app);         % XMapTools 4.0
             
             app.CheckButton.Visible = 'On';
             app.ShowButton.Visible = 'On';
@@ -3481,7 +4283,7 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             app.Maps_ApplyButton.Enable = 'Off';
             app.Maps_TimeshiftSpinner.Enable = 'Off';
             app.Maps_List.Enable = 'Off';
-            
+            app.Maps_MapInterpolationMethod.Enable = 'Off';
             
             
         end
@@ -3570,7 +4372,7 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             
             if isdir(fullfile(cd,'Maps_cps'))
                 
-                Answer = uiconfirm(app.ConverterLAICPMS, 'Directory is not empty and existing files will be deleted. Would you like to continue?', 'Warning', 'Options', {'Yes','No'});
+                Answer = uiconfirm(app.ConverterLAICPMS, {'Directory is not empty and existing files will be deleted. Would you like to continue?','Note: If you select No, you will be able to select a different directory.'}, 'Warning', 'Options', {'Yes','No'});
                 
                 if isequal(Answer,'Yes')
                     [SUCCESS,MESSAGE,MESSAGEID] = rmdir(fullfile(cd,'Maps_cps'),'s');
@@ -3615,9 +4417,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             DT_Ok = 10*ones(size(app.Data.ElName));
             
             app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools');
-            app.WaitBar.Message = 'Saving map and standard files';
+            app.WaitBar.Message = {'Saving map data'};
             for i = 1:length(app.Data.Cps_Maps)
                 app.WaitBar.Value = i/length(app.Data.Cps_Maps);
+                
                 TheMap = app.Data.Cps_Maps(i).Map;
                 save(fullfile(Directory,[char(app.Data.ElNameFormated{i}),'.txt']),'TheMap','-ascii');
                 
@@ -3647,6 +4450,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             % ------------------------------
             % MapStandards_Import: 
             
+            app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools');
+            app.WaitBar.Message = {'Saving standard data'};
+            app.WaitBar.Indeterminate = 'on';
+            
             MapStandards_Import.StdMaps = app.Data.StdMaps;
             MapStandards_Import.ElName = app.Data.ElName;
             
@@ -3654,6 +4461,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             
             % ------------------------------
             % SweepData_Import (4.4): 
+            
+            app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools');
+            app.WaitBar.Message = {'Saving sweep data for PRIP.','Almost done — no refill required.'};
+            app.WaitBar.Indeterminate = 'on';
             
             SweepData_Import.PxDataRaw = app.PxDataRaw;
             save(fullfile(Directory,'SweepData_Import.mat'),'SweepData_Import');
@@ -3697,6 +4508,16 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                 fclose(fid);
             end
             
+            fid = fopen(fullfile(cd,'Info_Interpolation.txt'),'w');
+            switch app.Maps_MapInterpolationMethod.Value
+                case '1'
+                    fprintf(fid,'%s\n',['Map generation method: cubic interpolation as in Markmann et al. (2024)']);
+                case '2'
+                    fprintf(fid,'%s\n',['Map generation method: mean of non-zero sweeps per pixel']);
+            end
+            fclose(fid);
+            
+            
             % ------------------------------
             % Copy last standard calibration test (4.4): 
             try 
@@ -3721,6 +4542,8 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                     app.ShowButton.Visible = 'off';
                     app.ExportButton.Visible = 'off';
                     app.Maps_SelElement.Visible = 'off';
+                    
+                    app.Maps_MapInterpolationMethod.Enable = 'On';
                     
                     close(app.WaitBar)
                     return
@@ -3862,10 +4685,10 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             ylabel('Composition in µg/g [range ± 4std only!]')
             
             nexttile
-            yy = smooth(Data,'loess');
-            yy2 = smooth(yy);
-            yy3 = smooth(yy2);
-            yy4 = smooth(yy3);
+            yy = smoothdata(Data);
+            yy2 = smoothdata(yy);
+            yy3 = smoothdata(yy2);
+            yy4 = smoothdata(yy3);
             
             plot(yy,'b'), hold on
             plot(yy4,'r','linewidth',2)
@@ -3921,6 +4744,56 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
                 app.LogfileCheckBox.Value = 0;
             end
         end
+
+        % Value changed function: NameFormatDropDown
+        function NameFormatDropDownValueChanged(app, event)
+            
+        end
+
+        % Menu selected function: ConvertFIN2toCSVMenu
+        function ConvertFIN2toCSVMenuSelected(app, event)
+            
+            app.WaitBar = uiprogressdlg(gcbf,'Title','XMapTools','Indeterminate','on');
+            
+            app.WaitBar.Message = 'Select a folder containing the data files';
+            
+            f=figure('Position',[1,1,5,5],'Unit','Pixel'); drawnow; f.Visible = 'off';
+            cd(app.LastDir);
+            selpath = uigetdir(app.LastDir);
+            delete(f)
+            figure(app.ConverterLAICPMS);
+            
+            if isequal(selpath,0)
+                close(app.WaitBar)
+                return
+            end
+            
+            app.WaitBar.Message = 'Copying the data files';
+            
+            FormatSearch = '.FIN2';
+            NewFormat = '.csv';
+            List = dir(selpath);
+            Files = [];
+            Count = 0;
+            for i = 1:length(List)
+                if isequal(List(i).isdir,0)
+                    if length(List(i).name) > length(FormatSearch)
+                        if isequal(List(i).name(end-length(FormatSearch)+1:end),FormatSearch)
+                            Count = Count + 1;
+                            Files(Count).original = fullfile(selpath,List(i).name);
+                            Files(Count).destination = fullfile(selpath,[List(i).name(1:end-length(FormatSearch)),NewFormat]);
+                            Files(Count).date = List(i).date;
+                        end
+                    end
+                end
+            end
+            
+            for i = 1:length(Files)
+                copyfile(Files(i).original,Files(i).destination);
+            end
+            
+            close(app.WaitBar);
+        end
     end
 
     % Component initialization
@@ -3931,9 +4804,27 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
 
             % Create ConverterLAICPMS and hide until all components are created
             app.ConverterLAICPMS = uifigure('Visible', 'off');
-            app.ConverterLAICPMS.Position = [100 100 1258 760];
+            app.ConverterLAICPMS.Position = [100 100 1258 774];
             app.ConverterLAICPMS.Name = 'Converter For LA-ICPMS Data – XMapTools';
             app.ConverterLAICPMS.CloseRequestFcn = createCallbackFcn(app, @ConverterLAICPMSCloseRequest, true);
+
+            % Create ToolsMenu
+            app.ToolsMenu = uimenu(app.ConverterLAICPMS);
+            app.ToolsMenu.Text = 'Tools';
+
+            % Create ConvertFIN2toCSVMenu
+            app.ConvertFIN2toCSVMenu = uimenu(app.ToolsMenu);
+            app.ConvertFIN2toCSVMenu.MenuSelectedFcn = createCallbackFcn(app, @ConvertFIN2toCSVMenuSelected, true);
+            app.ConvertFIN2toCSVMenu.Text = 'Convert FIN2 to CSV';
+
+            % Create OptionsMenu
+            app.OptionsMenu = uimenu(app.ConverterLAICPMS);
+            app.OptionsMenu.Text = 'Options';
+
+            % Create SkipDateTimeformatconfirmationMenu
+            app.SkipDateTimeformatconfirmationMenu = uimenu(app.OptionsMenu);
+            app.SkipDateTimeformatconfirmationMenu.Checked = 'on';
+            app.SkipDateTimeformatconfirmationMenu.Text = 'Skip Date/Time format confirmation';
 
             % Create GridLayout
             app.GridLayout = uigridlayout(app.ConverterLAICPMS);
@@ -3998,7 +4889,7 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
 
             % Create TypeOfInstrumentDropDown
             app.TypeOfInstrumentDropDown = uidropdown(app.GridLayout2);
-            app.TypeOfInstrumentDropDown.Items = {'Agilent', 'Thermo'};
+            app.TypeOfInstrumentDropDown.Items = {'Agilent', 'Thermo CSV', 'Thermo FIN2', 'PerkinElmer'};
             app.TypeOfInstrumentDropDown.Layout.Row = 1;
             app.TypeOfInstrumentDropDown.Layout.Column = [6 8];
             app.TypeOfInstrumentDropDown.Value = 'Agilent';
@@ -4046,12 +4937,12 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
 
             % Create NameFormatDropDown
             app.NameFormatDropDown = uidropdown(app.GridLayout2);
-            app.NameFormatDropDown.Items = {'Format 1 (Name - ID)', 'Format 2 (Name_ID)'};
-            app.NameFormatDropDown.ItemsData = [1 2];
+            app.NameFormatDropDown.Items = {'Format 1 (Name - ID)', 'Format 2 (Name-ID)', 'Format 3 (Name_ID)', 'Format 4 (Name before symbol/space)'};
+            app.NameFormatDropDown.ValueChangedFcn = createCallbackFcn(app, @NameFormatDropDownValueChanged, true);
             app.NameFormatDropDown.FontSize = 10;
             app.NameFormatDropDown.Layout.Row = 1;
             app.NameFormatDropDown.Layout.Column = [16 19];
-            app.NameFormatDropDown.Value = 1;
+            app.NameFormatDropDown.Value = 'Format 1 (Name - ID)';
 
             % Create BACKGROUNDPanel
             app.BACKGROUNDPanel = uipanel(app.GridLayout);
@@ -4336,6 +5227,14 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             app.Maps_SelElement.Layout.Row = 1;
             app.Maps_SelElement.Layout.Column = 6;
 
+            % Create Maps_MapInterpolationMethod
+            app.Maps_MapInterpolationMethod = uidropdown(app.GridLayout8);
+            app.Maps_MapInterpolationMethod.Items = {'Cubic (Markmann et al. 2024),', 'Mean of non-zero sweeps'};
+            app.Maps_MapInterpolationMethod.ItemsData = {'1', '2'};
+            app.Maps_MapInterpolationMethod.Layout.Row = 1;
+            app.Maps_MapInterpolationMethod.Layout.Column = [3 4];
+            app.Maps_MapInterpolationMethod.Value = '1';
+
             % Create GridLayout9
             app.GridLayout9 = uigridlayout(app.GridLayout);
             app.GridLayout9.ColumnWidth = {'1x', '1x', '1x'};
@@ -4474,17 +5373,17 @@ classdef Converter_LAICPMS_exported < matlab.apps.AppBase
             % Create DebugMode
             app.DebugMode = uicheckbox(app.GridLayout11);
             app.DebugMode.ValueChangedFcn = createCallbackFcn(app, @DebugModeValueChanged, true);
-            app.DebugMode.Text = 'Debug mode';
+            app.DebugMode.Text = 'Debug';
             app.DebugMode.FontSize = 10;
             app.DebugMode.Layout.Row = 3;
-            app.DebugMode.Layout.Column = [1 4];
+            app.DebugMode.Layout.Column = [1 2];
 
             % Create TestMode
             app.TestMode = uicheckbox(app.GridLayout11);
-            app.TestMode.Text = 'Test mode';
+            app.TestMode.Text = 'Test';
             app.TestMode.FontSize = 10;
             app.TestMode.Layout.Row = 3;
-            app.TestMode.Layout.Column = [5 8];
+            app.TestMode.Layout.Column = [3 4];
 
             % Create Plot
             app.Plot = uiaxes(app.GridLayout);

@@ -5,13 +5,14 @@ function [OutputData,OutputVariables] = Amphibole_T_All(InputData,InputVariables
 % List of output variables:
 %       - T_HB94       Holland & Blundy (1994) – no quartz
 %       - T_HB94q      Holland & Blundy (1994) – with quartz
+%       - T_L21        Liao et al. (2021) – Ti-in-amphibole
 %
 % 23 Oxgen-basis 
 % 
-% P. Lanari - Last update 28.10.2021
+% P. Lanari & J. Laughton - Last update 07.05.2025
 % Find out more at https://xmaptools.ch
 
-OutputVariables = {'T_HB94','T_HB94q'};
+OutputVariables = {'T_HB94','T_HB94q','T_L21'};
 
 OutputData = zeros(size(InputData,1),length(OutputVariables));
 
@@ -33,7 +34,6 @@ Ca= MatrixSF(:,8);
 Na= MatrixSF(:,9);
 K= MatrixSF(:,10);
 
-
 cm = Si+Al+Ti+Fe+Mg+Mn-13;
 
 XSi_T1 = (Si - 4) / 4;
@@ -45,7 +45,7 @@ XNa_A = Ca + Na + cm - 2;
 XNa_M4 = (2 - Ca - cm) / 2;
 XCa_M4 = Ca/2;
 
-% Holland & BlundY_calibA (1994) equation A with quartz
+% Holland & Blundy (1994) equation A with quartz
 R = 0.0083144;
 
 Y_calibA = 0;
@@ -82,7 +82,10 @@ for i = 1:length(T_HB94)
     end 
 end
 
-OutputData(WhereMin,:) = [T_HB94,T_HB94q];
+% Liao et al. (2021)
+T_L21 = 2400./(1.52-log10(Ti))-273;
+
+OutputData(WhereMin,:) = [T_HB94,T_HB94q,T_L21];
 
 end
 

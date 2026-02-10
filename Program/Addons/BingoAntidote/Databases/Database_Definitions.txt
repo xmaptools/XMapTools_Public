@@ -121,6 +121,12 @@ Definition_File:	DEF_ds62-mb.txt
 Last_Change:		17.06.2023
 Comment:			Database td-ds62-mb50 for metabasite by D. Tinkham (no ma in WM; requires extra O)
 
+###
+File_Name:			td-ds62-mb50-v07_noFe3.txt
+Definition_File:	DEF_ds62-mb.txt		
+Last_Change:		09.05.2025
+Comment:			Database td-ds62-mb50 for metabasite by D. Tinkham (no ma in WM; requires extra O)
+
 
 ! ###
 ! File_Name:		td-ds62-mb50-v07.txt
@@ -154,6 +160,11 @@ Comment:			Database td-ds62-mb50 for metabasite by D. Tinkham (no ma in WM; requ
 ! Comment:			td-ds62-mb50-02 database (mafic) from Doug
 
 
+###
+File_Name:			thermofit-mp-test.txt
+Definition_File:	DEF_ds62-mp.txt		
+Last_Change:		09.05.2025
+Comment:			Database thermofit_mp_t optimised by Philip H. and Pierre L. for test only!
 
 
 

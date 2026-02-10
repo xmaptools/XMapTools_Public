@@ -1,7 +1,7 @@
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 !                                                                 !
 !                 XMAPTOOLS  Mineral color definition             !
-!              Last update (24.02.2023)   Pierre Lanari           !
+!              Last update (06.05.2025)   Pierre Lanari           !
 !                                                                 !
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ! 
@@ -9,11 +9,11 @@
 ! >
 ! Min1		R	G	B  
 ! Min2		R	G	B  
-! Min2		R	G	B 
+! Min3		R	G	B 
 !
 ! The RGB triplet is defined using  values between 0 and 255. 
 !
-!
+! Reference: Lanari, P., Tedeschi, M., (2025). Chemical map classification in XMapTools. Applied Computing and Geosciences, 25, 100230.
 
 >
 Albite	244	228	150

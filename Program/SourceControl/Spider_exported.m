@@ -145,7 +145,7 @@ classdef Spider_exported < matlab.apps.AppBase
             if app.ROI_sampling(end).Nb > 1
                 ColorMap = app.XMapToolsApp.CalculateColorMap(app.ColorPaletteDropDown.Value,app.ROI_sampling(end).Nb);
             else
-                ColorMap = [0,0,0];
+                ColorMap = app.XMapToolsApp.GetROIColor;
             end
             
             for i = 1:app.ROI_sampling(end).Nb
@@ -308,7 +308,7 @@ classdef Spider_exported < matlab.apps.AppBase
         function startupFcn(app, XMapToolsApp)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -387,7 +387,7 @@ classdef Spider_exported < matlab.apps.AppBase
             
             PosROI = app.ROI_sampling(end).Nb+1;
             
-            app.ROI_sampling(PosROI).ROI = drawcircle(app.UIAxes_Map,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all');
+            app.ROI_sampling(PosROI).ROI = drawcircle(app.UIAxes_Map,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all');
             
             app.ROI_sampling_Listener = addlistener(app.ROI_sampling(PosROI).ROI, 'MovingROI', @(varargin)ROI_Value_Extractor(app, app.ROI_sampling));
             
@@ -424,7 +424,7 @@ classdef Spider_exported < matlab.apps.AppBase
             
             PosROI = app.ROI_sampling(end).Nb+1;
             
-            app.ROI_sampling(PosROI).ROI = drawpolygon(app.UIAxes_Map,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all');
+            app.ROI_sampling(PosROI).ROI = drawpolygon(app.UIAxes_Map,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all');
             
             app.ROI_sampling_Listener = addlistener(app.ROI_sampling(PosROI).ROI, 'MovingROI', @(varargin)ROI_Value_Extractor(app, app.ROI_sampling));
             
@@ -445,7 +445,7 @@ classdef Spider_exported < matlab.apps.AppBase
             
             DeactivatePlotZoomPanOptions(app);
             
-            app.ROI_samplingPolyline = drawpolyline(app.UIAxes_Map,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all');
+            app.ROI_samplingPolyline = drawpolyline(app.UIAxes_Map,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all');
             
             app.ROI_samplingPolyline_Listener = addlistener(app.ROI_samplingPolyline, 'ROIMoved', @(varargin)ROI_Line_Value_Extractor(app, app.ROI_samplingPolyline));
            

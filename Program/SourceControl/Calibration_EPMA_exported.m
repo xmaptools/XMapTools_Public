@@ -48,7 +48,7 @@ classdef Calibration_EPMA_exported < matlab.apps.AppBase
     
     properties (Access = public)
         ExchangeSelector
-        
+        ExchangeSelectorId
     end
     
     methods (Access = private)
@@ -1312,7 +1312,7 @@ classdef Calibration_EPMA_exported < matlab.apps.AppBase
         function startupFcn(app, XMapToolsApp, SelectedMaskFile)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by

@@ -29,7 +29,7 @@ classdef Data_Conversion_exported < matlab.apps.AppBase
         function startupFcn(app, XMapToolsApp, Mode)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -49,15 +49,15 @@ classdef Data_Conversion_exported < matlab.apps.AppBase
             app.XMapToolsApp = XMapToolsApp;
             app.Mode = Mode;
             
-            MethodList = {'Element (ppm) -> Oxide (wt%)', ...       % 1
-                'Element (ppm) -> Oxide (ppm)', ...                 % 2
-                'Element (wt%) -> Oxide (wt%)', ...                 % 3
-                'Element (wt%) -> Oxide (ppm)', ...                 % 4
-                'Oxide (wt%) -> Element (ppm)', ...                 % 5
-                'Oxide (wt%) -> Element (wt%)', ...                 % 6
-                'Oxide (ppm) -> Element (ppm)', ...                 % 7
-                'Oxide (ppm) -> Element (wt%)', ...                 % 8
-                'Oxide (wt%) -> Oxide (mol)', ...                   % 9
+            MethodList = {'Element (ug/g) -> Oxide (wt%)', ...        % 1
+                'Element (ug/g) -> Oxide (ug/g)', ...                 % 2
+                'Element (wt%) -> Oxide (wt%)', ...                   % 3
+                'Element (wt%) -> Oxide (ug/g)', ...                  % 4
+                'Oxide (wt%) -> Element (ug/g)', ...                  % 5
+                'Oxide (wt%) -> Element (wt%)', ...                   % 6
+                'Oxide (ug/g) -> Element (ug/g)', ...                 % 7
+                'Oxide (ug/g) -> Element (wt%)', ...                  % 8
+                'Oxide (wt%) -> Oxide (mol)', ...                     % 9
                 };                   
             
             
@@ -134,16 +134,16 @@ classdef Data_Conversion_exported < matlab.apps.AppBase
                         
                         switch Method_Idx
                             
-                            case 1 % Element (ppm) -> Oxide (wt%)
+                            case 1 % Element (ug/g) -> Oxide (wt%)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map ./ 1e4 .* 1./f ;
                                 
-                            case 2 % Element (ppm) -> Oxide (ppm)
+                            case 2 % Element (ug/g) -> Oxide (ug/g)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map .* 1./f;
                                 
                             case 3 % Element (wt%) -> Oxide (wt%)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map .* 1./f;
                                 
-                            case 4 % Element (wt%) -> Oxide (ppm)
+                            case 4 % Element (wt%) -> Oxide (ug/g)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map .* 1e4 .* 1./f;
                         end
                         
@@ -151,10 +151,10 @@ classdef Data_Conversion_exported < matlab.apps.AppBase
                     else
                         switch Method_Idx
                             
-                            case 1 % Element (ppm) -> Oxide (wt%)
+                            case 1 % Element (ug/g) -> Oxide (wt%)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map ./ 1e4;
                             
-                            case 4 % Element (wt%) -> Oxide (ppm)
+                            case 4 % Element (wt%) -> Oxide (ug/g)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map .* 1e4;
                         end
                         
@@ -182,16 +182,16 @@ classdef Data_Conversion_exported < matlab.apps.AppBase
                         
                         switch Method_Idx
                             
-                            case 5 % Oxide (wt%) -> Element (ppm)
+                            case 5 % Oxide (wt%) -> Element (ug/g)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map .* 1e4 .* f ;
                                 
                             case 6 % Oxide (wt%) -> Element (wt%)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map .* f;
                                 
-                            case 7 % Oxide (ppm) -> Element (ppm)
+                            case 7 % Oxide (ug/g) -> Element (ug/g)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map .* f;
                                 
-                            case 8 % Oxide (ppm) -> Element (wt%)
+                            case 8 % Oxide (ug/g) -> Element (wt%)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map ./ 1e4 .* f;
                         end
                         
@@ -199,10 +199,10 @@ classdef Data_Conversion_exported < matlab.apps.AppBase
                         
                         switch Method_Idx
                             
-                            case 5 % Oxide (wt%) -> Element (ppm)
+                            case 5 % Oxide (wt%) -> Element (ug/g)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map .* 1e4;
                                 
-                            case 8 % Oxide (ppm) -> Element (wt%)
+                            case 8 % Oxide (ug/g) -> Element (wt%)
                                 app.XMapToolsApp.XMapToolsData.MapData.(Type).Data(Pos).CData(i).Map = Map ./ 1e4;
                         end
                         

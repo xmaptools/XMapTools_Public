@@ -1,7 +1,7 @@
 function [Functions] = Core_Function_Indexing()
 %
 % XMapTools is a free software solution for the analysis of chemical maps
-% Copyright © 2022-2025 University of Bern, Institute of Geological Sciences, Pierre Lanari
+% Copyright © 2022-2026 University of Bern, Institute of Geological Sciences, Pierre Lanari
 %
 % XMapTools is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -557,6 +557,12 @@ Functions.Min(Min).SF.FileName{Fct} = 'StructFctOlivine';
 % -------------------------------------------------------------------------
 % Thermobarometry
 Functions.Min(Min).TB = [];
+
+Fct = length(Functions.Min(Min).TB)+1;
+Functions.Min(Min).TB.Name{Fct} = 'T.Ol (all calibrations)';
+Functions.Min(Min).TB.FileName{Fct} = 'Olivine_T_All';
+Functions.Min(Min).TB.Details(Fct).AddVar = {'P_kbar'};
+Functions.Min(Min).TB.Details(Fct).Def = [20];
 
 % -------------------------------------------------------------------------
 % Multi-equilibrium thermobarometry

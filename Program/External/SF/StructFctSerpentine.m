@@ -30,8 +30,8 @@ Mg= MatrixSF(:,7);
 Ca= MatrixSF(:,8);
 Na= MatrixSF(:,9);
 K= MatrixSF(:,10);
-Cr= MatrixSF(:,10);
-Ni= MatrixSF(:,10);
+Cr= MatrixSF(:,11);
+Ni= MatrixSF(:,12);
 
 SumCat = Si+Ti+Al+Fe+Mn+Mg+Ca+Na+K+Cr+Ni;
 

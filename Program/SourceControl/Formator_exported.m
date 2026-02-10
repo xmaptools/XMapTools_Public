@@ -19,7 +19,7 @@ classdef Formator_exported < matlab.apps.AppBase
 
     
     properties (Access = private)
-        CallingApp 
+        CallingApp
         Entry
         Labels
     end
@@ -32,7 +32,7 @@ classdef Formator_exported < matlab.apps.AppBase
         function startupFcn(app, CallingApp, Entry, Labels, Selected)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -59,10 +59,21 @@ classdef Formator_exported < matlab.apps.AppBase
             if ~isempty(IdxSel)
                 app.Tree.SelectedNodes = app.Tree.Children(IdxSel);
                 app.Image_ok.ImageSource = 'Valid.png';
+                
+                
+                if isprop(app.CallingApp,'SkipDateTimeformatconfirmationMenu')
+                    if isequal(app.CallingApp.SkipDateTimeformatconfirmationMenu.Checked,1)
+                                                
+                        app.CallingApp.ExchangeFormator = app.Tree.SelectedNodes.Text;
+            
+                        SelectCloseRequest(app);
+                        return
+                    end
+                end
             else
                 app.Tree.SelectedNodes = app.Tree.Children(1);
                 app.Image_ok.ImageSource = 'NotValid.png';
-                app.AutomatedFormatCB.Text = 'Use format from list'
+                app.AutomatedFormatCB.Text = 'Use format from list';
             end
             TreeSelectionChanged(app);
             
@@ -102,7 +113,7 @@ classdef Formator_exported < matlab.apps.AppBase
                 Format = char(app.Tree.SelectedNodes.Text);
             end
             
-            try 
+            try
                 Test = datetime(app.Entry,'InputFormat',Format);
             catch ME
                 uialert(app.Select,'Error, the format does not work','XMapTools')
@@ -117,7 +128,7 @@ classdef Formator_exported < matlab.apps.AppBase
         % Selection changed function: Tree
         function TreeSelectionChanged(app, event)
             app.ManualName.Value = app.Tree.SelectedNodes.Text;
-
+            
         end
 
         % Value changed function: AutomatedFormatCB

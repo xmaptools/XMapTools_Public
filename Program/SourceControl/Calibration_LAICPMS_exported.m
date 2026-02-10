@@ -41,9 +41,9 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
         SaveunfilteredmapsCheckBox      matlab.ui.control.CheckBox
         BydefaultLODfilteredmapsaresavedLabel  matlab.ui.control.Label
         LODfilteringLabel               matlab.ui.control.Label
-        Plot1                           matlab.ui.control.UIAxes
-        Plot3                           matlab.ui.control.UIAxes
         Plot2                           matlab.ui.control.UIAxes
+        Plot3                           matlab.ui.control.UIAxes
+        Plot1                           matlab.ui.control.UIAxes
         PixelReconstructionandImprovedPrecisionPRIPTab  matlab.ui.container.Tab
         PRIP_GridLayout                 matlab.ui.container.GridLayout
         PRIP_Table_ROI                  matlab.ui.control.Table
@@ -383,7 +383,7 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                         NbAnal = app.MapStandards(SelStd).Data(i).Sweeps_Pixel;         % dimensionless
                         NbBack = app.MapStandards(SelStd).Data(i).Sweeps_Back;          % dimensionless
                         
-                        app.MapCpsData(i).LOD = (3.29.*sqrt(Bi.*DTi.*NbAnal.*(1+NbAnal./NbBack)+2.71))./(NbAnal.*DTi.*Si);    % µg.g-1
+                        app.MapCpsData(i).LOD = (3.29.*sqrt(Bi.*DTi.*NbAnal.*(1+NbAnal./NbBack))+2.71)./(NbAnal.*DTi.*Si);    % µg.g-1
                         
                         % Filter LOD for values with zero intensities for
                         % background (Cavalaire 2023):
@@ -448,7 +448,7 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                         NbAnal = app.MapStandards(SelStd).Data(i).Sweeps_Pixel;         % dimensionless
                         NbBack = app.MapStandards(SelStd).Data(i).Sweeps_Back;          % dimensionless
                         
-                        app.MapCpsData(i).LOD = (3.29.*sqrt(Bi.*DTi.*NbAnal.*(1+NbAnal./NbBack)+2.71))./(NbAnal.*DTi.*Si);    % µg.g-1
+                        app.MapCpsData(i).LOD = (3.29.*sqrt(Bi.*DTi.*NbAnal.*(1+NbAnal./NbBack))+2.71)./(NbAnal.*DTi.*Si);    % µg.g-1
                         
                         %Con_Unk_mtx = (It_Unk_mtx.*Con_Std_mxt)./(k_mtx.*It_Std_mtx);
                     end
@@ -737,6 +737,16 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                     PxCoordXY = app.PRIP_ROIs_Data(iROI).PxCoordXY;
                     PxCoordXY_data = app.PxDataRaw.PixelCoordXY;
                     
+                    % Rows of the ROI for background calculation (added 11.12.2025)
+                    Unique_Rows = unique(PxCoordXY(:,1));                   % In this format this is the number of rows (Y not X)
+                    PxCoordXY_FirstPxRows = zeros(length(Unique_Rows),2);
+                    PxCoordXY_FirstPxRowsIdx = zeros(length(Unique_Rows),1);
+                    for i = 1:length(Unique_Rows)
+                        SelPxRow = find(PxCoordXY == Unique_Rows(i));
+                        PxCoordXY_FirstPxRows(i,:) = PxCoordXY(SelPxRow(1),:);
+                        PxCoordXY_FirstPxRowsIdx(i) = PxIdxROI_XMap(SelPxRow(1));    
+                    end
+                    
                     PxIdxROI = find(ismember(PxCoordXY_data,PxCoordXY,'rows'));     % This works
                     
                     %figure, imagesc(app.PRIP_ROIs_Data(iROI).Mask), hold on, plot(app.PRIP_ROIs_Data(iROI).PxCoordXY(:,1),app.PRIP_ROIs_Data(iROI).PxCoordXY(:,2),'or'), axis image
@@ -774,8 +784,6 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                     Con_Unk = app.FixedInternalStdConc_EditField.Value;
                     
                     k_mtx(iStd) = (It_Unk.*Con_Std)./(Con_Unk.*It_Std);
-                    
-                    
                 end
                 
                 Conc = zeros(length(app.PxDataRaw.ElNames),1);
@@ -795,7 +803,7 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                     Conc(i) = (It_Unk.*Con_Std)./(k_mtx(SelStd).*It_Std);
                     
                     CalibratedPx = app.MapCpsData(i).Conc(find(app.PRIP_ROIs_Data(iROI).Mask));
-                    ConcMeanPixel(i) = median(CalibratedPx);
+                    ConcMeanPixel(i) = median(CalibratedPx,'omitnan');  % omitnan added in 4.5
                     ConcStdPixel(i) = mad(CalibratedPx,1);
                     
                     PxLOD = app.MapCpsData(i).LOD(find(app.PRIP_ROIs_Data(iROI).Mask));
@@ -807,10 +815,14 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                     Bi = mean(app.MapStandards(iStd).Data(i).Int_Back(PxIdxROI_XMap));                   % cps               mean of background int (sum would be too much)
                     DTi = app.CalibrationOptions.SweepTime(i)/1e3 * length(size(DataSweeps,1));          % seconds           probably ok (* nb_sweeps)
                     NbAnal = sum(app.MapStandards(SelStd).Data(i).Sweeps_Pixel(PxIdxROI_XMap));          % dimensionless     nb_sweeps
-                    NbBack = sum(app.MapStandards(SelStd).Data(i).Sweeps_Back(PxIdxROI_XMap));           % dimensionless     wrong, too high!
+                    NbBack = sum(app.MapStandards(SelStd).Data(i).Sweeps_Back(PxIdxROI_XMap));           % dimensionless     wrong, too high! (version 4.4)
+                    
+                    % Implementation with a better estimate of the number
+                    % of background sweeps for the LOI (added 11.12.2025)
+                    NbBack = sum(app.MapStandards(SelStd).Data(i).Sweeps_Back(PxCoordXY_FirstPxRowsIdx));      % dimensionless and much smaller than the wrong number above! (version 4.5)
                     
                     if Bi > 0
-                        LOD_ROI(i) = (3.29.*sqrt(Bi.*DTi.*NbAnal.*(1+NbAnal./NbBack)+2.71))./(NbAnal.*DTi.*Si);    % µg.g-1
+                        LOD_ROI(i) = (3.29.*sqrt(Bi.*DTi.*NbAnal.*(1+NbAnal./NbBack))+2.71)./(NbAnal.*DTi.*Si);    % µg.g-1
                     end
                     % including filter LOD for values with zero intensities for background (Cavalaire 2023)
                     
@@ -841,6 +853,16 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                         
                         PxCoordXY = app.PRIP_AI_GridData.Grid(iGrid).Data(iROI).PxCoordXY;
                         PxCoordXY_data = app.PxDataRaw.PixelCoordXY;
+                        
+                        % Rows of the ROI for background calculation (added 11.12.2025)
+                        Unique_Rows = unique(PxCoordXY(:,1));                   % In this format this is the number of rows (Y not X)
+                        PxCoordXY_FirstPxRows = zeros(length(Unique_Rows),2);
+                        PxCoordXY_FirstPxRowsIdx = zeros(length(Unique_Rows),1);
+                        for i = 1:length(Unique_Rows)
+                            SelPxRow = find(PxCoordXY == Unique_Rows(i));
+                            PxCoordXY_FirstPxRows(i,:) = PxCoordXY(SelPxRow(1),:);
+                            PxCoordXY_FirstPxRowsIdx(i) = PxIdxROI_XMap(SelPxRow(1));
+                        end
                         
                         PxIdxROI = find(ismember(PxCoordXY_data,PxCoordXY,'rows'));     % This works
                         
@@ -918,10 +940,14 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                         Bi = mean(app.MapStandards(iStd).Data(i).Int_Back(PxIdxROI_XMap));                   % cps               mean of background int (sum would be too much)
                         DTi = app.CalibrationOptions.SweepTime(i)/1e3 * length(size(DataSweeps,1));          % seconds           probably ok (* nb_sweeps)
                         NbAnal = sum(app.MapStandards(SelStd).Data(i).Sweeps_Pixel(PxIdxROI_XMap));          % dimensionless     nb_sweeps
-                        NbBack = sum(app.MapStandards(SelStd).Data(i).Sweeps_Back(PxIdxROI_XMap));           % dimensionless     wrong, too high!
+                        NbBack = sum(app.MapStandards(SelStd).Data(i).Sweeps_Back(PxIdxROI_XMap));           % dimensionless     wrong, too high! (version 4.4)
+                        
+                        % Implementation with a better estimate of the number
+                        % of background sweeps for the LOI (added 11.12.2025)
+                        NbBack = sum(app.MapStandards(SelStd).Data(i).Sweeps_Back(PxCoordXY_FirstPxRowsIdx));      % dimensionless and much smaller than the wrong number above! (version 4.5)
                         
                         if Bi > 0
-                            LOD_ROI(i) = (3.29.*sqrt(Bi.*DTi.*NbAnal.*(1+NbAnal./NbBack)+2.71))./(NbAnal.*DTi.*Si);    % µg.g-1
+                            LOD_ROI(i) = (3.29.*sqrt(Bi.*DTi.*NbAnal.*(1+NbAnal./NbBack))+2.71)./(NbAnal.*DTi.*Si);    % µg.g-1
                         end
                         
                     end
@@ -1064,7 +1090,7 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
         function startupFcn(app, XMapToolsApp, SelectedMaskFile)
             
             % XMapTools is a free software solution for the analysis of chemical maps
-            % Copyright © 2022-2025 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
+            % Copyright © 2022-2026 University of Lausanne, Institute of Earth Sciences, Pierre Lanari
             
             % XMapTools is free software: you can redistribute it and/or modify
             % it under the terms of the GNU General Public License as published by
@@ -1482,7 +1508,7 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
             
             DeactivatePlotZoomPanOptions(app);
             
-            app.ROI_sampling = drawcircle(app.Plot1,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all');
+            app.ROI_sampling = drawcircle(app.Plot1,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all');
             
             app.ROI_sampling_Listener = addlistener(app.ROI_sampling, 'ROIMoved', @(varargin)ROI_Value_Extractor(app, app.ROI_sampling));
             app.ROI_sampling_Listener2 = addlistener(app.ROI_sampling, 'MovingROI', @(varargin)DeactivatePlotZoomPanOptions(app));
@@ -1629,20 +1655,20 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
             switch app.PRIP_MenuROI.Value
                 
                 case 'Circle'
-                    app.PRIP_ROIs.ROI(PosROI).ROI = drawcircle(app.PRIP_Plot,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all');
+                    app.PRIP_ROIs.ROI(PosROI).ROI = drawcircle(app.PRIP_Plot,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all');
                     
                     app.PRIP_ROIs.ROI_Data(PosROI).Type = 'Circle';
                     app.PRIP_ROIs.ROI_Data(PosROI).Center = app.PRIP_ROIs.ROI(PosROI).ROI.Center;
                     app.PRIP_ROIs.ROI_Data(PosROI).Radius = app.PRIP_ROIs.ROI(PosROI).ROI.Radius;
                     
                 case 'Rectangle'
-                    app.PRIP_ROIs.ROI(PosROI).ROI = drawrectangle(app.PRIP_Plot,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all');
+                    app.PRIP_ROIs.ROI(PosROI).ROI = drawrectangle(app.PRIP_Plot,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all');
                     
                     app.PRIP_ROIs.ROI_Data(PosROI).Type = 'Rectangle';
                     app.PRIP_ROIs.ROI_Data(PosROI).Position = app.PRIP_ROIs.ROI(PosROI).ROI.Position;
                     
                 case 'Polygon'
-                    app.PRIP_ROIs.ROI(PosROI).ROI = drawpolygon(app.PRIP_Plot,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all');
+                    app.PRIP_ROIs.ROI(PosROI).ROI = drawpolygon(app.PRIP_Plot,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all');
                     
                     app.PRIP_ROIs.ROI_Data(PosROI).Type = 'Polygon';
                     app.PRIP_ROIs.ROI_Data(PosROI).Position = app.PRIP_ROIs.ROI(PosROI).ROI.Position;
@@ -1723,13 +1749,13 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
                 switch app.PRIP_ROIs.ROI_Data(i).Type
                     
                     case 'Circle'
-                        drawcircle(ax2,'Color',[0.47,0.67,0.19],'InteractionsAllowed','none','Center',app.PRIP_ROIs.ROI_Data(i).Center,'Radius',app.PRIP_ROIs.ROI_Data(i).Radius,'Label',num2str(i));
+                        drawcircle(ax2,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','none','Center',app.PRIP_ROIs.ROI_Data(i).Center,'Radius',app.PRIP_ROIs.ROI_Data(i).Radius,'Label',num2str(i));
                         
                     case 'Rectangle'
-                        drawrectangle(ax2,'Color',[0.47,0.67,0.19],'InteractionsAllowed','none','Position',app.PRIP_ROIs.ROI_Data(i).Position,'Label',num2str(i));
+                        drawrectangle(ax2,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','none','Position',app.PRIP_ROIs.ROI_Data(i).Position,'Label',num2str(i));
                         
                     case 'Polygon'
-                        drawpolygon(ax2,'Color',[0.47,0.67,0.19],'InteractionsAllowed','none','Position',app.PRIP_ROIs.ROI_Data(i).Position,'Label',num2str(i));
+                        drawpolygon(ax2,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','none','Position',app.PRIP_ROIs.ROI_Data(i).Position,'Label',num2str(i));
                 end
             end
             
@@ -1751,13 +1777,13 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
             switch app.PRIP_ROIs.ROI_Data(SelROI).Type
                 
                 case 'Circle'
-                    app.PRIP_ROIs.ROI(SelROI).ROI = drawcircle(app.PRIP_Plot,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all','Center',app.PRIP_ROIs.ROI_Data(SelROI).Center,'Radius',app.PRIP_ROIs.ROI_Data(SelROI).Radius);
+                    app.PRIP_ROIs.ROI(SelROI).ROI = drawcircle(app.PRIP_Plot,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all','Center',app.PRIP_ROIs.ROI_Data(SelROI).Center,'Radius',app.PRIP_ROIs.ROI_Data(SelROI).Radius);
                     
                 case 'Rectangle'
-                    app.PRIP_ROIs.ROI(SelROI).ROI = drawrectangle(app.PRIP_Plot,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all','Position',app.PRIP_ROIs.ROI_Data(SelROI).Position);
+                    app.PRIP_ROIs.ROI(SelROI).ROI = drawrectangle(app.PRIP_Plot,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all','Position',app.PRIP_ROIs.ROI_Data(SelROI).Position);
                     
                 case 'Polygon'
-                    app.PRIP_ROIs.ROI(SelROI).ROI = drawpolygon(app.PRIP_Plot,'Color',[0.47,0.67,0.19],'InteractionsAllowed','all','Position',app.PRIP_ROIs.ROI_Data(SelROI).Position);
+                    app.PRIP_ROIs.ROI(SelROI).ROI = drawpolygon(app.PRIP_Plot,'Color',app.XMapToolsApp.GetROIColor,'InteractionsAllowed','all','Position',app.PRIP_ROIs.ROI_Data(SelROI).Position);
             end
             
             app.PRIP_ROIs_Listener = addlistener(app.PRIP_ROIs.ROI(SelROI).ROI, 'ROIMoved', @(varargin)PRIP_ROIs_DataExtraction(app, app.PRIP_ROIs));
@@ -2485,14 +2511,14 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
             app.LODfilteringLabel.Layout.Column = [1 4];
             app.LODfilteringLabel.Text = 'LOD filtering';
 
-            % Create Plot1
-            app.Plot1 = uiaxes(app.GridLayout6);
-            title(app.Plot1, 'Title')
-            app.Plot1.PlotBoxAspectRatio = [1.40467625899281 1 1];
-            app.Plot1.XTick = [];
-            app.Plot1.YTick = [];
-            app.Plot1.Layout.Row = [7 12];
-            app.Plot1.Layout.Column = [1 3];
+            % Create Plot2
+            app.Plot2 = uiaxes(app.GridLayout6);
+            title(app.Plot2, 'Title')
+            app.Plot2.PlotBoxAspectRatio = [1.40467625899281 1 1];
+            app.Plot2.XTick = [];
+            app.Plot2.YTick = [];
+            app.Plot2.Layout.Row = [7 12];
+            app.Plot2.Layout.Column = [7 9];
 
             % Create Plot3
             app.Plot3 = uiaxes(app.GridLayout6);
@@ -2503,14 +2529,14 @@ classdef Calibration_LAICPMS_exported < matlab.apps.AppBase
             app.Plot3.Layout.Row = [7 12];
             app.Plot3.Layout.Column = [4 6];
 
-            % Create Plot2
-            app.Plot2 = uiaxes(app.GridLayout6);
-            title(app.Plot2, 'Title')
-            app.Plot2.PlotBoxAspectRatio = [1.40467625899281 1 1];
-            app.Plot2.XTick = [];
-            app.Plot2.YTick = [];
-            app.Plot2.Layout.Row = [7 12];
-            app.Plot2.Layout.Column = [7 9];
+            % Create Plot1
+            app.Plot1 = uiaxes(app.GridLayout6);
+            title(app.Plot1, 'Title')
+            app.Plot1.PlotBoxAspectRatio = [1.40467625899281 1 1];
+            app.Plot1.XTick = [];
+            app.Plot1.YTick = [];
+            app.Plot1.Layout.Row = [7 12];
+            app.Plot1.Layout.Column = [1 3];
 
             % Create PixelReconstructionandImprovedPrecisionPRIPTab
             app.PixelReconstructionandImprovedPrecisionPRIPTab = uitab(app.TabGroup);
