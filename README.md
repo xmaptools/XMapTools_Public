@@ -5,7 +5,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xmaptools/XMapTools_Developers/graphs/commit-activity)
 [![Website xmaptools.ch](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://xmaptools.ch)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](#)
-[![DOI](https://zenodo.org/badge/397986784.svg)](https://zenodo.org/badge/latestdoi/397986784)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7656957.svg)](https://doi.org/10.5281/zenodo.7656957)  <!-- Latest version -->
 
 This repository contains the source code for the latest stable version of XMapTools, as well as binaries for macOS and Windows. All commits and developer versions can be found in the developer repository.
 
